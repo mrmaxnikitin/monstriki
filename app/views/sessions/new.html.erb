@@ -1,0 +1,24 @@
+<!--<div class='attraction reg-attraction tac'>
+	
+</div> -->
+<div class='row first-page-elm reg-page'>
+	<div class='cell'>
+		<div class='col col-2of6'>
+			<div class='reg-form card'>
+				<h2 class='tac'>Вход</h2>
+					<%= simple_form_for(@sign_in, url: sessions_path, html: {class: 'registration-form'}) do |f| %>
+			      <%= f.input :email, label: false, input_html: { class: 'input-sp',  placeholder: 'Электронный адрес' } %>
+			      <%= f.input :password, label: false, input_html: { class: 'input-sp',  placeholder: 'Пароль' } %>
+			      <%= f.button :submit, 'Войти', class: 'btn btn-our btn-our-green' %>
+			    <% end %>
+			</div>
+		</div>
+		<div class='col col-4of6'>
+			
+		</div>
+	</div>
+</div>
+
+<style>
+	
+</style>

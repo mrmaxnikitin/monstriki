@@ -1,0 +1,382 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "http://webfonts.ru/import/boomboom.css";
+@import "http://webfonts.ru/import/fiveminutes.css";
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent }
+ol, ul { list-style:none }
+blockquote, q { quotes:none }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none }:focus { outline:0 }
+.clear { clear:both; display:block; overflow:hidden; visibility:hidden; width:0; height:0 }
+body{
+  font-size: 14px;
+  line-height: 1.62857143;
+  color: #393d40;
+  font-weight: 300;
+  cursor: default;
+  font-family: sans-serif, "Open Sans";
+  background: #fff8ef;
+}
+#pre-footer{
+	height: 131px;
+	background: url(/images/pre-footer.png) top no-repeat #fff8ef;
+}
+#footer{
+    width: 100%;
+    margin: 0px;
+    padding: 18px 0px;
+    float: left;
+    clear: both;
+    background-color: #00a8c4;
+    /*background-image: url(/images/footer_bg2x.png);
+    background-size: 1920px 402px;
+    
+    position: relative;
+    background-position: center top;*/
+    .row{
+    	.cell{
+    		.column{
+	    		float: left;
+	    		width: 33.3%;
+	    		a, p{
+	    			color: white;
+	    		}
+	    	}
+    	}
+    }
+    .info{
+    	text-align: left;
+    	margin-top: 15px;
+    	a{
+    		margin-right: 15px;
+    	}
+    }
+    .logo{
+    	text-align: center;
+    }
+    .contacts{
+    	text-align: right;
+    	a{
+    		margin-left: 4px;
+    	}
+    	img{
+    		width: 30px;
+    	}
+    }
+}
+a{
+	cursor: pointer;
+	&:hover{
+    text-decoration: none !important;
+  }
+}
+p{
+  margin: 1em 0;
+}
+.h--thin{
+  font-weight: 300;
+}
+h1, h2, h3, h4, .h {
+  /*color: #575a5b;*/
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+  margin-bottom: 0.3125em;
+  margin-top: 0;
+}
+h1{
+  font-size: 40px;
+}
+h2{
+  font-size: 200%;
+}
+h3{
+  font-size: 150%;
+}
+h4{
+  font-size: 18px;
+}
+h5{
+  font-size: 16px;
+}
+.dib {
+  display: inline-block !important;
+}
+.pbxs{
+  padding-bottom: 0.3125em;
+}
+.ptxs{
+  padding-top: 0.3125em;
+}
+.prxs{
+    padding-right: 0.3125em;
+}
+.plxs{
+    padding-left: 0.3125em;
+}
+.mtl{
+  margin-top: 2.5em;
+}
+.mtm{
+  margin-top: 1.25em;
+}
+.mts{
+    margin-top: 0.625em;
+}
+.mbl{
+  margin-bottom: 2.5em;
+}
+.mbm{
+  margin-bottom: 1.25em;
+}
+.mbs{
+    margin-bottom: 0.625em;
+}
+.fr{
+	float: right !important;
+}
+.bdrt{
+  border-top: 1px solid #e2e8e9 !important;
+}
+.bdrn{
+  border: 0;
+}
+.bc-snow-light{
+  background: #fcfcfc;
+}
+.tcmc{
+  color: #337ab7;
+}
+.tcm{
+  color: #393d40 !important;
+}
+.tss{
+  font-size: 85%;
+}
+.twsb{
+  font-weight: 500;
+}
+.tac{
+	text-align: center;
+}
+.row{
+	padding: 0 3em;
+	margin: 0;
+}
+.cell{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 85em;
+  position: relative;
+}
+.range3{
+	.col{
+		padding: 7px;
+		.text{
+			margin-top: 8px;
+			text-align: justify;
+			h4{
+				text-align: center;
+			}
+		}
+	}
+}
+.tag{
+  background-color: #00a8c4;
+  border: 1px solid #e2e8e9;
+  border-color: transparent;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 75%;
+  font-weight: 600;
+  padding: 0.3125em 0.9375em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+.tag--subdue{
+  background-color: #e2e8e9;
+  color: #91a5ab;
+}
+.tag--light{
+  background-color: #ffdd9f;
+  color: #d8900e;
+}
+.tag--heading{
+  position: relative;
+}
+.tag--heading--h2{
+  font-size: 50%;
+  top: -2px;
+}
+.col{
+	box-sizing: border-box;
+  float: left;
+  margin: 0;
+  img{
+  	width: 100%;
+  }
+}
+.col-4of6{
+	width: 66.66667%;
+}
+.col-2of6{
+  width: 33.33333%;
+}
+.col-3of6{
+  width: 50%;
+}
+.col-press-25{
+	width: 25%;
+}
+.card{
+	background-color: white;
+	border-radius: 4px;
+	padding: 10px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  .card-row{
+    margin-bottom: 1.25em;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 0.3125em 1.25em;
+  }
+}
+.card-row--south{
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  margin-bottom: -0.625em !important;
+  margin-top: 0.625em;
+}
+.attraction{
+	height: 320px;
+}
+.attraction-min{
+	height: 140px;
+	.center-title{
+		position: relative;
+		top: 44px;
+		font-family: 'BoomBoom';
+		color: white;
+		font-size: 58px;
+	}
+}
+.first-page-elm{
+	margin-top: 50px;
+}
+.not-first-page-elm{
+	margin-top: 24px;
+}
+.last-page-elm{
+	margin-bottom: 50px;
+}
+.first-last-page-elm{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+
+.btn {
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 90%;
+  line-height: 3;
+  padding: 0 2.5em;
+  background-color: #00a8c4;
+  border: 1px solid #00a8c4;
+  color: #fff;
+  border-radius: 100px;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  outline: none !important;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  &:hover, &:focus{
+    color: #fff;
+    text-decoration: none;
+  }
+}
+.btn-our-green{
+    background: rgb(64,199,129);
+    &:hover{
+      background: rgb(53, 167, 110);
+      color: white !important;
+    }
+    &:active{
+      background: rgb(33,147,90);
+    }
+    &:focus{
+      color: white;
+    }
+}
+.btn-our-blue{
+    background: #539BB3;
+    &:hover{
+      background: #3189A7;
+      color: white !important;
+    }
+    &:active{
+      background: #297690;
+    }
+    &:focus{
+      color: white;
+    }
+} 
+.btn-our-orange{
+    background: #ff762f;
+    &:hover{
+      background: #cc591d;
+      color: white !important;
+    }
+    &:active{
+      background: #bf5016;
+    }
+    &:focus{
+      color: white;
+    }
+}
+.btn-our-red{
+    background: #c94933;
+    &:hover{
+      background: #b34027;
+      color: white !important;
+    }
+    &:active{
+      background: #bf5016;
+    }
+    &:focus{
+      color: white;
+    }
+} 
+.mbadge {
+  display: block;
+  height: 100px;
+  padding: 0.3125em;
+  position: relative;
+  width: 100px;
+}
+
+input, textarea{
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid #e5e5e5;
+  outline: none !important;
+}
+

@@ -1,0 +1,14 @@
+<div class='attraction-min parents-attraction tac'>
+	<h1 class='center-title'>Логика</h1>
+</div>
+<div class='row first-page-elm'>
+	<div class='cell'>
+		<div class='col col-press-25'>
+			<%= render "/partials/profile" %>
+		</div>
+		<div class='col col-4of6 fr'>
+			<%= react_component("LogicTasks",
+      	tasks_url: get_logic_tasks_path ) %>
+		</div>
+	</div>
+</div>

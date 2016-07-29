@@ -1,0 +1,165 @@
+// Place all the styles related to the Static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#logo{
+	position: fixed;
+	top: 12px;
+  left: 14px;
+  width: 220px;
+  img{
+  	width: 48px;
+  }
+  span{
+  	font-family: 'BoomBoom';
+  	font-size: 28px;
+  	position: relative;
+  	bottom: 18px;
+  	left: 3px;
+  }
+}
+.welcome-slides{
+	height: 660px;
+	h1{
+		font-family: 'BoomBoom';
+		font-size: 40px;
+	}
+}
+#welcome-slide-1{
+	height: 460px;
+	background: url(/images/sky.png) top right no-repeat #fff8ef;
+	.content{
+		position: relative;
+		top: 190px;
+		width: 80%;
+		margin: 0 8% 0 12%;
+		.welcome-slide-img{
+			width: 38%;
+			float: left;
+		}
+		.text-welcome-slide{
+			width: 62%;
+			padding: 40px 50px;
+			float: right;
+			p{
+				font-size: 22px;
+			}
+		}
+	}
+}
+#welcome-slide-2{
+	background: url(/images/hill.png) top no-repeat #84b341;
+	background-size: 100%;
+	.content{
+		position: relative;
+		top: 286px;
+		width: 80%;
+		margin: 0 8% 0 12%;
+		.welcome-slide-img{
+			width: 38%;
+			float: left;
+		}
+		.text-welcome-slide{
+			color: white;
+			width: 62%;
+			padding: 40px 50px;
+			float: right;
+			p{
+				font-size: 22px;
+			}
+		}
+	}
+}
+#welcome-slide-3{
+	background: url(/images/hill-welcome-slide-3.png) top no-repeat #fff8ef;
+	background-size: 100%;
+	.content{
+		position: relative;
+		top: 230px;
+		width: 80%;
+		margin: 0 8% 0 12%;
+		.welcome-slide-img{
+			width: 38%;
+			float: left;
+			position: relative;
+			top: -50px;
+		}
+		.text-welcome-slide{
+			width: 62%;
+			padding: 40px 50px;
+			float: right;
+			p{
+				font-size: 22px;
+			}
+		}
+	}
+}
+#welcome-slide-3{
+	background: url(/images/hill-welcome-slide-3.png) top no-repeat #fff8ef;
+	background-size: 100%;
+	.content{
+		position: relative;
+		top: 230px;
+		width: 80%;
+		margin: 0 8% 0 12%;
+		.welcome-slide-img{
+			width: 38%;
+			float: left;
+			position: relative;
+			top: -50px;
+		}
+		.text-welcome-slide{
+			width: 62%;
+			padding: 40px 50px;
+			float: right;
+			p{
+				font-size: 22px;
+			}
+		}
+	}
+}
+#welcome-slide-4{
+	background: url(/images/hill-welcome-slide-4.png) top no-repeat #fff8ef;
+	background-size: 100%;
+	.content{
+		position: relative;
+		top: 230px;
+		width: 80%;
+		margin: 0 8% 0 12%;
+		.welcome-slide-img{
+			width: 38%;
+			float: left;
+		}
+		.text-welcome-slide{
+			width: 62%;
+			padding: 40px 50px;
+			float: right;
+			p{
+				font-size: 22px;
+			}
+		}
+	}
+}
+.parents-attraction{
+	background-image: url(/images/footer_bg2x.png);
+	background-size: cover;
+	background-color: #84b341;
+}
+.about-attraction{
+	background-image: url(/images/footer_bg2x.png);
+	background-size: cover;
+	background-color: #f77742;
+}
+.contacts-attraction{
+	background-image: url(/images/footer_bg2x.png);
+	background-size: cover;
+	background-color: #10bfaf;
+}
+.our-contacts-social{
+	max-width: 440px !important;
+}
+.our-contacts-mail{
+	font-size: 80px;
+	margin-bottom: 10px;
+}
+
+

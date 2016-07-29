@@ -1,0 +1,34 @@
+<div class='attraction users-attraction tac'>
+</div>
+<div class='user-page-menu'>
+	<div class='cell'>
+		<div class='col col-press-25'>
+		</div>
+		<div class='col col-4of6 fr'>
+			<a>Стикеры</a>
+			<a>Настройки</a>
+		</div>
+		<div class='clear'></div>
+	</div>
+</div>
+<div class='row first-page-elm'>
+	<div class='cell'>
+		<div class='col col-press-25 user-page-profile'>
+			<%= render "/partials/profile" %>
+		</div>
+		<div class='col col-4of6 fr'>
+			<h2 class='h--thin mbm'><span class='prxs'>Настройки</span></h2>
+			<%= simple_form_for(@user, url: user_path(current_user), html: { class: 'registration-form' }) do |f| %>
+	      <%= f.input :name, label: false, input_html: { class: 'input-sp',  placeholder: 'Имя' } %>
+	      <%= f.input :age, label: false, input_html: { class: 'input-sp',  placeholder: 'Возраст' } %>
+	      <%= f.input :goal, label: false, input_html: { class: 'input-sp',  placeholder: 'Цель' } %>
+	      <%= f.button :submit, 'Сохранить', class: 'btn btn-our btn-our-green' %>
+		  <% end %>
+		</div>
+	</div>
+</div>
+
+
+<div><%= link_to logout_path, data: { no_turbolink: true } do %>
+  Выход
+<% end %></div>

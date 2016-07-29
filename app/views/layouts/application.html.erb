@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Monstriki</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script src="//cdn.jsdelivr.net/sortable/latest/Sortable.min.js"></script>
+</head>
+<body>
+<header  class='row hat'>
+	<div class='cell'>
+		<a id='header-logo'><img src ='/images/logo-img.png' /> <span>Монстрики</span></a>
+		<%= link_to 'Тренировки', tasks_path, class: "menu-point" %>
+		<a class='menu-point'>Квесты</a>
+		<div class='right-part'>
+			<% if logged_in? %>
+        <%= link_to 'Профиль', user_path(current_user), id: 'sign-in' %>
+      <% else %>
+				<button class='create-accaunt btn'>Создать аккаунт</button>
+				<a class='sign-in'>Войти</a>
+			<% end %>
+		</div>
+	</div>
+</header>
+<%= yield %>
+<div id='pre-footer'></div>
+<div id='footer'>
+	<div class='row'>
+		<div class='cell'>
+			<div class='column info'>
+				<%= link_to "Родителям", parents_path %>
+				<a>Правила</a>
+				<%= link_to "О сайте", about_path %>
+				<%= link_to "Наши контакты", contacts_path %>
+			</div>
+			<div class='column logo'>
+				<img width='50' src ='/images/logo-img-opacity0.png' />
+			</div>
+			<div class='column contacts'>
+				<a><img src='/images/facebook.png' /></a>
+				<a><img src='/images/vk.png' /></a>
+				<a><img src='/images/odnoklassniki-logo.png' /></a>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

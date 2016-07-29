@@ -1,0 +1,58 @@
+.profile-card{
+	.character{
+
+	}
+	.satiety{
+		font-weight: 600;
+		padding-left: 7px;
+		.name{
+			span{
+				font-family: "Five Minutes";
+				font-size: 24px;
+			}
+			.banana{
+				position: relative;
+    		top: 6px;
+				img{
+					width: 16px;
+					position: relative;
+	    		top: 6px;
+				}
+			}
+		}
+		
+	}
+	.profile-link{
+		padding: 0.635em 1.25em !important;
+		font-weight: 600;
+		a{
+			&:hover{
+				text-decoration: none !important;
+			}
+		}
+	}
+}
+.profile-menu{
+	.menu-item{
+		border-bottom: 1px solid #e2e8e9;
+    margin: 0;
+    padding: 0;
+    .menu-item-link{
+    	border: 0;
+	    color: #393d40;
+	    display: block;
+	    padding: 0.625em 1.25em;
+	    font-weight: 600;
+    	&:first-child{
+
+    	}
+    }
+	}
+	.menu-item:last-child {
+	  border: 0;
+	}
+	.menu-item:first-child .menu-item-link{
+		border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+	}
+}

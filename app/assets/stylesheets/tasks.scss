@@ -1,0 +1,75 @@
+// Place all the styles related to the Tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.tasks-attraction{
+	background-image: url(/images/footer_bg2x.png);
+	background-size: cover;
+	background-color: #f77742;
+}
+
+.direction{
+	border-bottom-left-radius: 100px !important;
+  border-top-left-radius: 100px !important;
+  margin-bottom: 1.25em;
+  min-height: 70px;
+  overflow: hidden;
+  padding-left: 130px;
+}
+.direction-mbadge {
+  
+  z-index: 2;
+  img{
+    border-radius: 50%;
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
+.direction-content{
+  position: relative;
+  left: 15px;
+  top: 8px;
+  padding-right: 1.25em;
+  z-index: 3;
+  h2{
+    margin-top: 2px;
+  }
+  .tag{
+    font-size: 85%;
+  }
+}
+.get-answer{
+  margin-top: 12px;
+  margin-right: 12px;
+}
+.next-task{
+  background-color: #00a8c4;
+}
+
+.create-task{
+  input, select{
+    width: 80%;
+    margin-bottom: 10px;
+  }
+  select{
+    margin-bottom: 30px;
+  }
+}
+
+#type_task1{
+  img{
+    width: 31.3%;
+    margin: 0.5%;
+    border-radius: 4px;
+  }
+  .moving_element{
+    cursor: move;
+  }
+  .ghost {
+    opacity: .5;
+    background: #C8EBFB;
+  }
+}
+
