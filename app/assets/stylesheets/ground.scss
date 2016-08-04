@@ -1,0 +1,26 @@
+.ground{
+	position: fixed;
+	bottom: 0px;
+	height: 66px;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.96);
+	border-top: 1px solid #e2e8e8;
+	z-index: 1000;
+	text-align: center;
+	padding: 13px 0;
+	img{
+		width: 40px;
+		height: 40px;
+		margin: 0 5px;
+		border-radius: 100px;
+		transition: all 0.12s ease;
+		cursor: pointer;
+		&:hover{
+			-moz-transform: scale(1.1); /* Для Firefox */
+	    -ms-transform: scale(1.1); /* Для IE */
+	    -webkit-transform: scale(1.1); /* Для Safari, Chrome, iOS */
+	    -o-transform: scale(1.1); /* Для Opera */
+	    transform: scale(1.1);
+			}
+	}
+}

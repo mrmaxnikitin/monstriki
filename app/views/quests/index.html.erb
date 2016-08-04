@@ -3,9 +3,7 @@
 </div>
 <div class='row first-page-elm'>
 	<div class='cell'>
-		<div class='col col-press-18 col-profile'>
-			<%= render "/partials/profile" %>
-		</div>
+		<%= render "/partials/profile" %>
 		<div class='col col-58proc col-main ml-2proc'>
 			<% if @quest.number_of_stages == current_user.track.number_of_completed_stages %>
 				<div class='cell next-quest'>
@@ -25,10 +23,8 @@
 			<%= render "stage", stage: @quest.stage3, status_stage: current_user.track.status_stage3, link_stage: stage3_quests_path %>
 			<%= render "stage", stage: @quest.stage4, status_stage: current_user.track.status_stage4, link_stage: stage4_quests_path %>
 		</div>
-		<div class='col col-press-20 ml-2proc'>
-			<div class='card information-quest'>
-			</div>
-    </div>
+		<%= render '/partials/alternative_column' %>
 	</div>
 </div>
 
+<%= render '/partials/ground' %>

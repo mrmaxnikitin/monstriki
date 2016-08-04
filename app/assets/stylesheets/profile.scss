@@ -2,19 +2,19 @@
 	.character{
 		img{
 			width: 100%;
+			border-radius: 2px;
 		}
 	}
 	.satiety{
 		font-weight: 600;
-		padding-left: 7px;
+		padding-left: 14px;
 		.name{
 			span{
 				font-family: "Five Minutes";
 				font-size: 24px;
 			}
 			.banana{
-				position: relative;
-    		top: 6px;
+				font-weight: 400;
 				img{
 					width: 16px;
 					position: relative;
@@ -57,4 +57,7 @@
 		border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 	}
+}
+.col-profile{
+  min-width: 190px;
 }
