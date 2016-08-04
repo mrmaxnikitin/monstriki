@@ -3,12 +3,33 @@ Rails.application.routes.draw do
   
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
+  resources :user_things
   resources :tasks do
     collection do
-      get 'logic'
-      get 'get_logic'
+      get :logic
+      get :get_logic
+      get :memory
+      get :get_memory
+      post :reward
     end
   end
+  resources :quests do
+    collection do
+      get :stage1
+      get :get_stage1
+      get :stage2
+      get :get_stage2
+      get :stage3
+      get :get_stage3
+      get :stage4
+      get :get_stage4
+      post :complete_stage
+      get :complete_quest
+    end
+  end
+  resources :things
+
+  get 'start' => 'quests#index'
 
   get 'logout' => 'sessions#destroy'
   get 'signin' => 'sessions#new'

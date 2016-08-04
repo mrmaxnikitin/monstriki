@@ -7,7 +7,7 @@
 			<%= render "/partials/profile" %>
 		</div>
 		<div class='col col-4of6 fr'>
-			<h2 class='h--thin mbm'><span class='prxs'>Что будем тренировать?</span> <span class='tag tag--light tag--heading tag--heading--h2'>2744 заданий</span></h2>
+			<h2 class='h--thin mbm'><span class='prxs'>Что будем тренировать?</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= @tasks.count %> заданий</span></h2>
 
 			<%= link_to logic_tasks_path do %>
 			<div class='card direction'>
@@ -16,7 +16,7 @@
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading'>2744 заданий</span>
+						<span class='tag tag--heading'><%= @tasks.where(direction: 'logic').count %> заданий</span>
 					</div>
 					<h2 class='h--thin mbm'>Логика</h2>
 				</div>
@@ -35,18 +35,19 @@
 				</div>
 			</div>
 
-
+			<%= link_to memory_tasks_path do %>
 			<div class='card direction'>
 				<div class='mbadge direction-mbadge col'>
 					<img src='/images/img-slide3.png' />
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading'>2744 заданий</span>
+						<span class='tag tag--heading'><%= @tasks.where(direction: 'memory').count %> заданий</span>
 					</div>
 					<h2 class='h--thin mbm'>Память</h2>
 				</div>
 			</div>
+			<% end %>
 
 		</div>
 	</div>

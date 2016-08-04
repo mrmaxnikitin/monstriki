@@ -8,21 +8,17 @@ const LogicTasks = React.createClass({
       complete_task: false,
       tasks_count: 2,
       tasks: [],
+      status_quest_tasks: [],
       num_current_task: 0,
       status_current_task: 0,   // 0 в процессе ответа, -1 неправильно, 1 правильно
-      sum_right_answers: 0
+      sum_right_answers: 0,
+      number_of_attempts: 0,
+      score: this.props.score,
+      answer: 0
     };
   },
   componentDidMount: function() {
-    /*var current_answers = this.state.user_answers
-    for (var i = 0; i < this.state.tasks_count; i++){
-      current_answers.push([0, 0])
-    }
-    this.setState({
-      user_answers: current_answers
-    });*/
     this.loadTasksFromServer();
-    //intervalID = setInterval(this.loadNewsItemsFromServer, this.props.pollInterval);
   },
   componentWillUnmount: function(){
   },
@@ -35,9 +31,14 @@ const LogicTasks = React.createClass({
       },
       cache: false,
       success: function(data) {
+        var a = new Array()
+        for (var i = 0; i < data.length; i++){
+          a.push(false)
+        }
         this.setState({
           complete_task: false,
-          tasks: data
+          tasks: data,
+          status_quest_tasks: a
         });
       }.bind(this),
       error: function(xhr, status, err) {
@@ -45,20 +46,232 @@ const LogicTasks = React.createClass({
       }.bind(this)
     });
   },
+  chooseQuestTask: function(item){
+    this.setState({
+      num_current_task: item,
+      status_current_task: 0
+    });
+  },
+  toAnswer: function(user_answer) {
+    this.setState({
+      answer: user_answer
+    });
+  },
+  repeatTask: function() {
+    this.setState({
+      status_current_task: 0,
+      answer: 0
+    });
+  },
+  nextTask: function() {
+    var new_num_current_task = this.state.num_current_task + 1
+    if(this.props.quest){
+      for(var i = 0; i < this.state.tasks.length; i++){
+        if(!this.state.status_quest_tasks[i]){
+          new_num_current_task = i
+          break
+        }
+      }
+    }
+    this.setState({
+      complete_task: false,
+      num_current_task: new_num_current_task,
+      status_current_task: 0,
+      number_of_attempts: 0,
+      answer: 0
+    });
+  },
+  acceptAnswer: function(param_answer) {
+    var num_current_task = this.state.num_current_task
+    var user_answer = this.state.answer
+    var real_answer = this.state.tasks[num_current_task].answer
+    if(this.state.tasks[num_current_task].task_type == 2){
+      user_answer = param_answer
+    }
+
+    var score = this.state.score
+    var number_of_attempts = this.state.number_of_attempts
+
+    if(user_answer == real_answer){
+      var a = this.state.status_quest_tasks
+      a[num_current_task] = true
+      
+      if(this.state.sum_right_answers == this.state.tasks.length-1 && this.props.quest){
+        $.ajax({
+          url: '/quests/complete_stage',
+          //dataType: 'json',
+          type: 'POST',
+          data: {
+            stage: this.props.stage
+          },
+          success: function(data) {
+          }.bind(this),
+          error: function(xhr, status, err) {
+            console.error("ОШИБКА1", status, err.toString());
+          }.bind(this)
+        });
+      }
+      $.ajax({
+        url: '/tasks/reward',
+        //dataType: 'json',
+        type: 'POST',
+        data: {
+          score: score + 5 - number_of_attempts
+        },
+        success: function(data) {
+          this.setState({
+            status_current_task: 1,
+            score: score + 5 - number_of_attempts,
+            sum_right_answers: this.state.sum_right_answers + 1,
+            status_quest_tasks: a
+          });
+        }.bind(this),
+        error: function(xhr, status, err) {
+          console.error("ОШИБКА", status, err.toString());
+        }.bind(this)
+      });
+    }else{
+      var number_of_attempts = this.state.number_of_attempts + 1
+      if(number_of_attempts > 5) number_of_attempts = 5
+      this.setState({
+        status_current_task: -1,
+        number_of_attempts: number_of_attempts
+      });
+    }
+  },
   render: function() {
-    var tasks = this.state.tasks.map(function (task) {   // подумать над реализацией, чтобы постоянно значения не мапились в tasks
-      return (
-        <Logic
-          key={task.id}
-          task={task}/>
-      );
+    var stage_tasks
+    if(this.props.quest){
+      stage_tasks = this.state.tasks.map(function (task, i) {
+        return (
+          <QuestTask 
+            key={task.id + 100}
+            task={task}
+            chooseQuestTask={this.chooseQuestTask}
+            item={i}
+            num_current_task={this.state.num_current_task}
+            status_quest_tasks={this.state.status_quest_tasks}
+            />
+        );
+      }.bind(this));
+    }
+    var tasks = this.state.tasks.map(function (task) {
+      switch (task.task_type) {
+        case 1:
+          return (
+            <Task1
+              key={task.id}
+              task={task}
+              toAnswer={this.toAnswer}
+              answer={this.state.answer}
+              acceptAnswer={this.acceptAnswer}
+              status_current_task={this.state.status_current_task}
+              />
+          );
+          break
+        case 2:
+          return (
+            <Task2
+              key={task.id}
+              task={task}
+              toAnswer={this.toAnswer}
+              answer={this.state.answer}
+              acceptAnswer={this.acceptAnswer}
+              status_current_task={this.state.status_current_task}
+              />
+          );
+          break
+      }
+
     }.bind(this));
 
+    var content_task = tasks[this.state.num_current_task]
+    if(this.state.status_current_task == 1){
+      if(this.state.sum_right_answers == this.state.tasks.length && this.props.quest){
+        content_task = (
+          <div className='card right-task-result result-task finish-quest animated zoomIn'>
+            <h1>Все задания выполнены верно!</h1>
+            <img src='/images/right_task_result1.png' />
+            <div className='complete-quest'>
+              <a className="btn-m btn-m-2 btn-m-2c" href='/quests'>Ура!</a>
+            </div>
+          </div>
+        );
+      }else{
+        content_task = (
+          <div className='card right-task-result result-task animated zoomIn'>
+            <img src='/images/right_task_result1.png' />
+            <h1>Правильно!</h1>
+          </div>
+        );
+      }
+    }else if(this.state.status_current_task == -1){
+      content_task = (
+        <div className='card wrong-task-result result-task animated zoomIn'>
+          <img src='/images/wrong_task_result1.png' />
+          <h1>Ошибся! Попробуй еще разок.</h1>
+        </div>
+      );
+    }
+    var score = this.state.score
+
+    var button_next_task, button_to_repeat
+    if(this.state.status_current_task == 1){
+      if((this.state.sum_right_answers != this.state.tasks.length && this.props.quest) || !this.props.quest)
+        button_next_task = <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task fr" onClick={this.nextTask}>Следующее задание</button>
+      button_to_repeat = ''
+    }else if(this.state.status_current_task == -1){
+      button_next_task = <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task fr" onClick={this.nextTask}>Следующее задание</button>
+      button_to_repeat = <button className="btn-m btn-m-3 btn-m-3a icon-star-2 repeat-task" onClick={this.repeatTask}>Еще разок</button>
+    }
+
     return (
-      <div className='logic-tasks'>
-        {tasks[this.state.num_current_task]}
-        <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer">Ответить</button>
-        <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task">Следующее задание</button>
+      <div>
+        <div className='col col-press-18 col-profile'>
+          <div className='card mbm profile-card'>
+            <div className='character'>
+              <img src='/images/monsters/monster3.gif' />
+            </div>
+            <div className='satiety twsb'>
+              <div className='name tcmc'>
+                <span>Жутик-сука</span>
+                <a className='banana fr tcm'>
+                  {score} score
+                </a>
+              </div>
+            </div>
+            <div className='profile-link bdrn bdrt bc-snow-light card-row card-row--south'>
+              Мой профиль
+            </div>
+          </div>
+          <div className='card mbl profile-menu'>
+            <ul>
+              <li className='menu-item'>
+                <a className='list-item-link menu-item-link'>Друзья</a>
+              </li>
+              <li className='menu-item'>
+                <a className='list-item-link menu-item-link'>Стикеры</a>
+              </li>
+              <li className='menu-item'>
+                <a className='list-item-link menu-item-link'>Платежи</a>
+              </li>
+              <li className='menu-item'>
+                <a className='list-item-link menu-item-link'>Настройки</a>
+              </li>
+              <li className='menu-item'>
+                <a className='list-item-link menu-item-link'>Выход</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className='col col-58proc col-main ml-2proc'>
+          {content_task}
+          {button_to_repeat}
+          {button_next_task}
+        </div>
+        <div className='col col-press-20 ml-2proc'>
+          {stage_tasks}
+        </div>
       </div>
     );
   }

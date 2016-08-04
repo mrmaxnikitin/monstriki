@@ -1,0 +1,34 @@
+<div class='attraction-min quest-attraction tac'>
+	<h1 class='center-title'>Квест на сегодня</h1>
+</div>
+<div class='row first-page-elm'>
+	<div class='cell'>
+		<div class='col col-press-18 col-profile'>
+			<%= render "/partials/profile" %>
+		</div>
+		<div class='col col-58proc col-main ml-2proc'>
+			<% if @quest.number_of_stages == current_user.track.number_of_completed_stages %>
+				<div class='cell next-quest'>
+					<div class='col col-2of6'>
+						<img src='/images/award_winner.png' class='img-next-quest'/>
+					</div>
+					<div class='col col-4of6'>
+						<h2>Ты справился с квестом! А вот твои подарки и новый стикер!</h2>
+						<%= link_to 'Следующий квест', complete_quest_quests_path %>
+					</div>
+					<div class='clear'></div>
+				</div>
+			<% end %>
+			<h2 class='h--thin mbm'><span class='prxs'>Квест на сегодня</span> <span class='tag tag--light tag--heading tag--heading--h2'>8-12 минут</span></h2>
+			<%= render "stage", stage: @quest.stage1, status_stage: current_user.track.status_stage1, link_stage: stage1_quests_path %>
+			<%= render "stage", stage: @quest.stage2, status_stage: current_user.track.status_stage2, link_stage: stage2_quests_path %>
+			<%= render "stage", stage: @quest.stage3, status_stage: current_user.track.status_stage3, link_stage: stage3_quests_path %>
+			<%= render "stage", stage: @quest.stage4, status_stage: current_user.track.status_stage4, link_stage: stage4_quests_path %>
+		</div>
+		<div class='col col-press-20 ml-2proc'>
+			<div class='card information-quest'>
+			</div>
+    </div>
+	</div>
+</div>
+

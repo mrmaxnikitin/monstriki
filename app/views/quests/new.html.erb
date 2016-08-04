@@ -1,0 +1,15 @@
+<div class='row first-page-elm'>
+	<div class='cell'>
+		<div class='col col-press-18 col-profile'>
+			<%= render "/partials/profile" %>
+		</div>
+		<div class='col col-58proc col-main ml-2proc'>
+			<h2 class='h--thin mbm'><span class='prxs'>Создание квеста</span></h2>
+			<%= simple_form_for(@quest, url: quests_path) do |f| %>
+					
+		      <%= f.button :submit, 'Сгенерировать квест', class: 'btn btn-our btn-our-green' %>
+		  <% end %>
+		</div>
+	</div>
+</div>
+

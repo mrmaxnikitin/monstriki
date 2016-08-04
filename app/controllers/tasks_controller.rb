@@ -6,11 +6,17 @@ class TasksController < ApplicationController
 
 	def logic
 	end
-
 	def get_logic
-		@tasks = Task.where(direction: "logic").order('RANDOM()').limit(1)
+		@tasks = Task.where(direction: "logic").order('RANDOM()').all
 		puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 		puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+		render :index, formats: :json
+	end
+
+	def memory
+	end
+	def get_memory
+		@tasks = Task.where(direction: "memory").order('RANDOM()').all
 		render :index, formats: :json
 	end
 
@@ -29,16 +35,21 @@ class TasksController < ApplicationController
 	def test
 	end
 
+	def reward
+		@user = current_user
+		@user.score = params[:score]
+		@user.save
+		render nothing: true
+	end
+
 	private
 		def task_params
-      params.require(:task).permit(:direction, :task_type, :age, :text, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7, :pic8, :answer)
+      params.require(:task).permit(:direction, :task_type, :age, :text, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7, :pic8, :answer, :for_quest)
     end
     #def task1_params
      # params.require(:task1).permit(
        # :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7, :pic8, :answer)
     #end
 
-    def find_task
-      @task = Task.find(params[:id])
-    end
+    
 end

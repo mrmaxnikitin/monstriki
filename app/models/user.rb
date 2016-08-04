@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
   acts_as_voter
-  
+
+  has_one  :track   
+  has_many :user_things, foreign_key: "user_id", dependent: :destroy
 
   before_save { self.email = email.downcase }
 
@@ -18,4 +20,12 @@ class User < ActiveRecord::Base
   validates :password,
     confirmation: { message: 'Пароли не совпадают' },
     on:           :update
+
+  def buy_thing!(thing)
+    user_things.create!(thing_id: thing.id)
+  end
+
+  def thing?(thing)
+    user_things.find_by(thing_id: thing.id)
+  end
 end

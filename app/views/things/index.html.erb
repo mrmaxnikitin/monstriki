@@ -1,0 +1,30 @@
+<div class='attraction-min parents-attraction tac'>
+	<h1 class='center-title'>Бубуки</h1>
+</div>
+<div class='row first-page-elm'>
+	<div class='cell'>
+		<div class='col col-press-18 col-profile'>
+			<%= render "/partials/profile" %>
+		</div>
+		<div class='col col-78proc col-main  ml-2proc'>
+			<h2 class='h--thin mbs'><span class='prxs'>Купите бубуки за лягушат</span></h2>
+			<div class='cell all-things'>
+				<% @things.each do |thing|%>
+					<div class='col thing card tac'>
+						<img src='<%= thing.img %>' />
+						<h5 class='name'><%= thing.name %></h5>
+						<% if current_user.thing?(thing) %>
+							<span class='buy-thing button btn btn-our already-exist-thing'>Уже есть!</span>
+						<% else %>
+							<%= form_for(current_user.user_things.build(thing_id: thing.id)) do |f| %>
+								<%= f.hidden_field :thing_id %>
+							  <%= f.submit "Купить за "+thing.price.to_s, class: "buy-thing button btn btn-our btn-our-green" %>
+							<% end %>
+						<% end %>
+					</div>
+			  <% end %>
+			</div>
+		</div>
+	</div>
+</div>
+

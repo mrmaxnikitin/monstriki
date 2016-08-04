@@ -1,0 +1,144 @@
+// Place all the styles related to the Quests controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.quest-attraction{
+	background-image: url(/images/footer_bg2x.png);
+	background-size: cover;
+	background-color: #f74242;
+}
+.stage-quest{
+
+}
+.card-stage-quest{
+	width: 92.5%;
+	height: 126px;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  &:hover{
+  	box-shadow: 0 1px 7px rgba(20, 20, 20, 0.2);
+  }
+  .direction-content{
+  	h2{
+  		margin-bottom: 0 !important;
+  		margin-top: 7px;
+  	}
+  	p{
+  		margin: 0 !important;
+  		color: #393d40;
+  	}
+  }
+}
+.status-stage-quest{
+	float: left;
+	width: 5%;
+	img{
+		height: 32px;
+	  position: relative;
+	  top: 42px;
+	  width: 32px;
+	  padding: 4px;
+	  background-color: #fff;
+	  border-radius: 50%;
+	  box-shadow: 0 0 1px rgba(20, 20, 20, 0.3);
+	}
+}
+.information-quest{
+	height: 300px;
+  display: none;
+}
+.stage_tasks{
+  max-width: 200px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  img{
+    width: 100%;
+    border-radius: 2px;
+  }
+  div{
+    text-align: center;
+    font-size: 16px;
+  }
+  &:hover {
+    -webkit-transform: rotateZ(6deg);
+    -ms-transform: rotateZ(6deg);
+    transform: rotateZ(6deg);
+  }
+}
+.stage_tasks--without-animation{
+  max-width: 200px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  img{
+    width: 100%;
+    border-radius: 2px;
+  }
+  div{
+    text-align: center;
+    font-size: 16px;
+  }
+}
+.choosed_quest_task{
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2) !important;
+}
+.complete-quest-task{
+
+}
+.finish-quest{
+  h1{
+    font-size: 60px !important;
+  }
+}
+.complete-quest{
+  text-align: center;
+  margin-bottom: 24px;
+  a{
+    margin-top: 12px;
+    margin-left: 12px;
+    font-size: 30px;
+    &:hover{
+      color: white;
+    }
+    &:focus{
+      color: white;
+    }
+    &:active{
+      color: white;
+    }
+  }
+}
+.next-quest{
+  .img-next-quest{
+    width: 100%;
+  }
+}
+/*.node::before {
+  background-color: #fff;
+  background-image: url(https://www.codeschool.com/assets/icons/icon-circle-dcf1160a8887dd7d397ff42977b9adaa1cc52caf3edc2de443e0570fee914077.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  border-radius: 50%;
+  border: 1px solid #e2e8e8;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 32px;
+  position: relative;
+  top: 42px;
+  width: 32px;
+  z-index: 2;
+}
+.node--connected::after {
+    background: #e2e8e8;
+    bottom: 50%;
+    content: "";
+    height: calc(100% + 1.25em);
+    left: 13px;
+    position: absolute;
+    width: 6px;
+    z-index: 1;
+}*/

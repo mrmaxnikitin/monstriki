@@ -15,7 +15,8 @@ const CreateTask = React.createClass({
     var direction_input = ReactDOM.findDOMNode(this.refs.direction)
     var age_input = ReactDOM.findDOMNode(this.refs.age)
     var text_input = ReactDOM.findDOMNode(this.refs.text)
-    var direction = direction_input.value.trim(), age = age_input.value.trim(), text = text_input.value.trim()
+    var for_quest_input = ReactDOM.findDOMNode(this.refs.for_quest)
+    var direction = direction_input.value.trim(), age = age_input.value.trim(), text = text_input.value.trim(), for_quest = for_quest_input.checked
 
     var pic1_input = ReactDOM.findDOMNode(this.refs.pic1)
     var pic2_input = ReactDOM.findDOMNode(this.refs.pic2)
@@ -45,7 +46,8 @@ const CreateTask = React.createClass({
       pic6: pic6,
       pic7: pic7,
       pic8: pic8,
-      answer: answer
+      answer: answer,
+      for_quest: for_quest
     };
     $.ajax({
       url: '/tasks',
@@ -63,24 +65,22 @@ const CreateTask = React.createClass({
     });
   },
   render: function() {
-      if(this.state.task_type == 1 || this.state.task_type == 2)
-        content_task_type = (
-          <div>
-            <h3>Первый тип задания.</h3>
-            <p>Нужно расставить картинки в правильном порядке</p>
-            <div>1. <input type='text' ref='pic1' placeholder='pic1' /></div>
-            <div>2. <input type='text' ref='pic2' placeholder='pic2' /></div>
-            <div>3. <input type='text' ref='pic3' placeholder='pic3' /></div>
-            <div>4. <input type='text' ref='pic4' placeholder='pic4' /></div>
-            <div>5. <input type='text' ref='pic5' placeholder='pic5' /></div>
-            <div>6. <input type='text' ref='pic6' placeholder='pic6' /></div>
-            <div>7. <input type='text' ref='pic7' placeholder='pic7' /></div>
-            <div>8. <input type='text' ref='pic8' placeholder='pic8' /></div>
-            <input type='text' ref='answer' placeholder='Ответ (последовательность из цифр в правильном порядке)' />
-            <button onClick={this.createTask1}>Созидаем!</button>
-          </div>
+    content_task_type = (
+      <div>
+        <h3>Картиночки теперь</h3>
+        <div>1. <input type='text' ref='pic1' placeholder='pic1' /></div>
+        <div>2. <input type='text' ref='pic2' placeholder='pic2' /></div>
+        <div>3. <input type='text' ref='pic3' placeholder='pic3' /></div>
+        <div>4. <input type='text' ref='pic4' placeholder='pic4' /></div>
+        <div>5. <input type='text' ref='pic5' placeholder='pic5' /></div>
+        <div>6. <input type='text' ref='pic6' placeholder='pic6' /></div>
+        <div>7. <input type='text' ref='pic7' placeholder='pic7' /></div>
+        <div>8. <input type='text' ref='pic8' placeholder='pic8' /></div>
+        <input type='text' ref='answer' placeholder='Ответ (последовательность из цифр в правильном порядке)' />
+        <button onClick={this.createTask1}>Созидаем!</button>
+      </div>
 
-        );
+    );
 
     
 
@@ -96,6 +96,7 @@ const CreateTask = React.createClass({
           <option value='2'>2</option>
           <option value='3'>3</option>
         </select>
+        <div>Для квестов <input type='checkbox' value='1' ref='for_quest' name='for_quest'/></div>
         {content_task_type}
       </div>
     );

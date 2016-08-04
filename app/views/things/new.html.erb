@@ -1,0 +1,20 @@
+<div class='attraction-min parents-attraction tac'>
+	<h1 class='center-title'>Создание вещи</h1>
+</div>
+<div class='row first-page-elm'>
+	<div class='cell'>
+		<div class='col col-press-25'>
+			<%= render "/partials/profile" %>
+		</div>
+		<div class='col col-78proc col-main  ml-2proc'>
+			<h2 class='tac'>Создание новой вещи</h2>
+			<%= simple_form_for(@thing, url: things_path, html: { class: 'registration-form' }) do |f| %>
+		      <%= f.input :name, label: false, input_html: { class: 'input-sp',  placeholder: 'Название' } %>
+		      <%= f.input :img, label: false, input_html: { class: 'input-sp',  placeholder: 'Изображение' } %>
+		      <%= f.input :price, label: false, input_html: { class: 'input-sp',  placeholder: 'Цена в бабанчиках' } %>
+		      <%= f.button :submit, 'Cоздать вещь', class: 'btn btn-our btn-our-green' %>
+		  <% end %>
+		</div>
+	</div>
+</div>
+

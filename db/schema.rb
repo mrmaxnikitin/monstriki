@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728151128) do
+ActiveRecord::Schema.define(version: 20160804073628) do
+
+  create_table "quests", force: :cascade do |t|
+    t.text     "stage1"
+    t.text     "stage2"
+    t.text     "stage3"
+    t.text     "stage4"
+    t.text     "stage5"
+    t.text     "stage6"
+    t.text     "stage7"
+    t.text     "stage8"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string   "direction"
@@ -29,7 +42,45 @@ ActiveRecord::Schema.define(version: 20160728151128) do
     t.string   "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "for_quest"
   end
+
+  create_table "things", force: :cascade do |t|
+    t.string   "name"
+    t.string   "img"
+    t.integer  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.integer  "current_quest", default: 1
+    t.boolean  "status_stage1", default: false
+    t.boolean  "status_stage2", default: false
+    t.boolean  "status_stage3", default: false
+    t.boolean  "status_stage4", default: false
+    t.boolean  "status_stage5", default: false
+    t.boolean  "status_stage6", default: false
+    t.boolean  "status_stage7", default: false
+    t.boolean  "status_stage8", default: false
+    t.integer  "user_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "tracks", ["user_id"], name: "index_tracks_on_user_id"
+
+  create_table "user_things", force: :cascade do |t|
+    t.integer  "active_thing"
+    t.integer  "user_id"
+    t.integer  "thing_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "user_things", ["thing_id"], name: "index_user_things_on_thing_id"
+  add_index "user_things", ["user_id", "thing_id"], name: "index_user_things_on_user_id_and_thing_id", unique: true
+  add_index "user_things", ["user_id"], name: "index_user_things_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                       null: false

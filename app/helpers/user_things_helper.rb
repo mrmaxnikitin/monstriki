@@ -1,0 +1,2 @@
+module UserThingsHelper
+end

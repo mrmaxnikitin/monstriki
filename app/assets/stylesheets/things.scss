@@ -1,0 +1,27 @@
+// Place all the styles related to the Things controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.all-things{
+	.thing{
+		margin-right: 2%;
+		margin-bottom: 1.25em !important;
+		width: 23%;
+		min-width: 180px;
+		img{
+			width: 100%;
+			margin-bottom: 6px;
+		}
+		.price{
+			color: #d8900e;
+		}
+		.buy-thing{
+    	margin: 6px 0 4px 0;
+		}
+		.already-exist-thing{
+			background-color: transparent;
+			border: 1px solid #ffffff;
+    	color: #6d6d6d;
+		}
+	}
+}
