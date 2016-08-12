@@ -85,7 +85,7 @@ const Task2 = React.createClass({
     );
     return (
       <div className='task-participate  animated fadeIn'>
-        <h2 className='h--thin mbm'><span className='prxs'>Выбор правильного ответа</span> <span className='tag tag--light tag--heading tag--heading--h2'>Легко</span></h2>
+        <h2 className='h--thin mbm'><span className='prxs'>Выбор правильного ответа</span> <span className='tag tag--light tag--heading tag--heading--h2'>7 лет</span></h2>
         {content}
         {button_to_answer}
       </div>

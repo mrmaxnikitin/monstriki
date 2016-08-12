@@ -61,6 +61,9 @@
   select{
     margin-bottom: 30px;
   }
+  .notice-create-task{
+    font-style: italic;
+  }
 }
 .stable-task-height{
   height: 522px;
@@ -97,49 +100,3 @@
     box-shadow: 0 6px #e29512;
   }
 }
-.content-task-type{
-  .tasks-pics-1{
-    border-radius: 4px;
-    cursor: pointer;
-    max-height: 420px;
-  }
-  .tasks-pics-2{
-    width: 48%;
-    margin: 0.5% 1%;
-    border-radius: 4px;
-    cursor: pointer;
-    max-height: 430px;
-  }
-  .tasks-pics-4{
-    width: 35%;
-    margin: 0.4% 0.8%;
-    border-radius: 4px;
-    cursor: pointer;
-    max-height: 212px;
-  }
-  .tasks-pics-6{
-    width: 32.3%;
-    margin: 0.25% 0.5%;
-    border-radius: 4px;
-    cursor: pointer;
-    max-height: 212px;
-  }
-  .tasks-pics-8{
-    width: 24%;
-    margin: 0.17% 0.35%;
-    border-radius: 4px;
-    cursor: pointer;
-    max-height: 212px;
-  }
-}
-#type_task1{
-  .choosed_pic{
-    border: 5px solid #fcad26;
-  }
-}
-#type_task2{
-  .pressed_button{
-    border: 5px solid #fcad26;
-  }
-}
-

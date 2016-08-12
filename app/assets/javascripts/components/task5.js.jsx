@@ -1,4 +1,4 @@
-const Picture1 = React.createClass({
+const Picture5 = React.createClass({
   clickHandler: function(){   
       this.props.toAnswer(this.props.item);
   },
@@ -6,7 +6,7 @@ const Picture1 = React.createClass({
     var answer = this.props.answer
     var item = this.props.item
     var class_choosed_pic = this.props.classSizePics
-    if(answer == item){
+    if(answer[item] == '1'){
       class_choosed_pic += ' choosed_pic'
     }
     return (
@@ -15,36 +15,59 @@ const Picture1 = React.createClass({
   }
 })
 
-//Выбор правильного ответа, кликнув на картинку, ответ только один.
-const Task1 = React.createClass({
+//Выбор нескольких ответов
+const Task5 = React.createClass({
   getInitialState: function () {
     return {
-      answer: 0,
-      number_of_pics: 8
+      answer: '000000000',
+      number_of_pics: 9
     };
   },
   componentDidMount: function(){ 
     var task = this.props.task
-    var number_of_pics = 8;
-    if(task.pic8 == "") number_of_pics -= 1;
-    if(task.pic7 == "") number_of_pics -= 1;
-    if(task.pic6 == "") number_of_pics -= 1;
-    if(task.pic5 == "") number_of_pics -= 1;
-    if(task.pic4 == "") number_of_pics -= 1;
-    if(task.pic3 == "") number_of_pics -= 1;
-    if(task.pic2 == "") number_of_pics -= 1;
-    if(task.pic1 == "") number_of_pics -= 1;
+    var number_of_pics = 9;
+    //if(task.pic12 == "") number_of_pics -= 1;
+    //if(task.pic11 == "") number_of_pics -= 1;
+    //if(task.pic10 == "") number_of_pics -= 1;
+    if(task.pic9 == "")  number_of_pics -= 1;
+    if(task.pic8 == "")  number_of_pics -= 1;
+    if(task.pic7 == "")  number_of_pics -= 1;
+    if(task.pic6 == "")  number_of_pics -= 1;
+    if(task.pic5 == "")  number_of_pics -= 1;
+    if(task.pic4 == "")  number_of_pics -= 1;
+    if(task.pic3 == "")  number_of_pics -= 1;
+    if(task.pic2 == "")  number_of_pics -= 1;
+    if(task.pic1 == "")  number_of_pics -= 1;
     this.setState({
       number_of_pics: number_of_pics
     });
   },
   toAnswer: function(item){
+    var number_of_pics = this.state.number_of_pics
+    var a = this.state.answer
+    var new_answer = ''
+    for(i = 0; i < number_of_pics; i++){
+      if(item == i){
+        if(a[item] == '0')
+          new_answer += '1'
+        else
+          new_answer += '0'
+      }else{
+        new_answer += a[i]
+      }
+    }
     this.setState({
-      answer: item
+      answer: new_answer
     });
   },
   acceptAnswer: function(){
-    var answer = this.state.answer
+    var number_of_pics = this.state.number_of_pics
+    var a = this.state.answer
+    var answer = ''
+    for(i = 0; i < number_of_pics; i++){
+      if(a[i] == '1')
+        answer  += i+1
+    }
     this.props.acceptAnswer(answer)
   },
   render: function() {
@@ -65,7 +88,8 @@ const Task1 = React.createClass({
       else if(i == 6) var task_pic_i = task.pic6
       else if(i == 7) var task_pic_i = task.pic7
       else if(i == 8) var task_pic_i = task.pic8
-      var the_pic = <Picture1 classSizePics={size_pics} task_pic={task_pic_i} toAnswer={this.toAnswer} answer={this.state.answer} item={i} key={i}/>
+      else if(i == 9) var task_pic_i = task.pic9
+      var the_pic = <Picture5 classSizePics={size_pics} task_pic={task_pic_i} toAnswer={this.toAnswer} answer={this.state.answer} item={i-1} key={i}/>
       pics.push(the_pic)
     }
 
@@ -76,14 +100,14 @@ const Task1 = React.createClass({
 
     content = (
       <div>
-        <div className='content-task-type' id='type_task1'>
+        <div className='content-task-type' id='type_task5'>
           {pics}
         </div>
       </div>
     );
     return (
       <div className='task-participate  animated fadeIn'>
-        <h2 className='h--thin mbm'><span className='prxs'>Выбор правильного ответа</span> <span className='tag tag--light tag--heading tag--heading--h2'>6 лет</span></h2>
+        <h2 className='h--thin mbm'><span className='prxs'>Выбор множество вариантов</span> <span className='tag tag--light tag--heading tag--heading--h2'>6 лет</span></h2>
         {content}
         {button_to_answer}
       </div>

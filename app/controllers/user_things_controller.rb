@@ -13,4 +13,15 @@ class UserThingsController < ApplicationController
 		  format.js
 		end
   end
+
+  def get_things
+  	@things = current_user.user_things.joins(:thing).all
+  	render :index, formats: :json
+  end
+
+  def active_thing
+  	current_user.user_things.update_all(active: false)
+  	@user_thing = UserThing.find(params[:id]).update(active: true)
+		render nothing: true
+  end
 end

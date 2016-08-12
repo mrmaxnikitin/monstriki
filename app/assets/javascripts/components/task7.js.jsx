@@ -1,22 +1,17 @@
-const Picture1 = React.createClass({
+const Picture7 = React.createClass({
   clickHandler: function(){   
       this.props.toAnswer(this.props.item);
   },
   render: function() {
-    var answer = this.props.answer
-    var item = this.props.item
-    var class_choosed_pic = this.props.classSizePics
-    if(answer == item){
-      class_choosed_pic += ' choosed_pic'
-    }
+    var classStyle = this.props.classSizePics
     return (
-      <img className={class_choosed_pic} src={this.props.task_pic} onClick={this.clickHandler}/>
+      <img className={classStyle} src={this.props.task_pic} onClick={this.clickHandler}/>
     );
   }
 })
 
-//Выбор правильного ответа, кликнув на картинку, ответ только один.
-const Task1 = React.createClass({
+//Ввод ответа с клавиатуры
+const Task7 = React.createClass({
   getInitialState: function () {
     return {
       answer: 0,
@@ -39,8 +34,10 @@ const Task1 = React.createClass({
     });
   },
   toAnswer: function(item){
+    var text_input = ReactDOM.findDOMNode(this.refs.answer)
+    var val_input = text_input.value.trim().toLowerCase()
     this.setState({
-      answer: item
+      answer: val_input
     });
   },
   acceptAnswer: function(){
@@ -65,7 +62,7 @@ const Task1 = React.createClass({
       else if(i == 6) var task_pic_i = task.pic6
       else if(i == 7) var task_pic_i = task.pic7
       else if(i == 8) var task_pic_i = task.pic8
-      var the_pic = <Picture1 classSizePics={size_pics} task_pic={task_pic_i} toAnswer={this.toAnswer} answer={this.state.answer} item={i} key={i}/>
+      var the_pic = <Picture7 classSizePics={size_pics} task_pic={task_pic_i} toAnswer={this.toAnswer} answer={this.state.answer} item={i} key={i}/>
       pics.push(the_pic)
     }
 
@@ -74,10 +71,20 @@ const Task1 = React.createClass({
       button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer" onClick={this.acceptAnswer}>Ответить</button>
     }
 
+    var answer_input = (
+      <input type='text' className='' placeholder='Пиши здесь' ref='answer' onChange={this.toAnswer} />
+    );
+
+
     content = (
       <div>
-        <div className='content-task-type' id='type_task1'>
-          {pics}
+        <div className='content-task-type' id='type_task7'>
+          <div className='wrap-all-pics'>
+            {pics}
+          </div>
+          <div className='wrap-answer-input'>
+            {answer_input}
+          </div>
         </div>
       </div>
     );

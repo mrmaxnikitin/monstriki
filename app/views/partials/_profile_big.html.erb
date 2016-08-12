@@ -1,0 +1,38 @@
+<div class='col col-press-18 col-profile'>
+	<div class='card mbm profile-card'>
+		<div class='character'>
+			<img src='/images/monsters/monster14.gif' />
+		</div>
+		<div class='satiety twsb'>
+			<div class='name tcmc'>
+				<span>Жутик-сука</span>
+				<div class='banana tcm'>
+					<%= current_user.score %> score
+				</div>
+			</div>
+		</div>
+		<div class='clear'></div>
+		<div class='profile-link bdrn bdrt bc-snow-light card-row card-row--south'>
+			<%=link_to "Мой профиль", user_path(current_user), class: "tcm" %>
+		</div>
+	</div>
+	<div class='card mbl profile-menu'>
+		<ul>
+			<li class='menu-item'>
+				<a class='list-item-link menu-item-link'>Друзья</a>
+			</li>
+			<li class='menu-item'>
+				<a class='list-item-link menu-item-link'>Бубуки</a>
+			</li>
+			<li class='menu-item'>
+				<a class='list-item-link menu-item-link'>Платежи</a>
+			</li>
+			<li class='menu-item'>
+				<%= link_to "Настройки", edit_user_path(current_user), class: "list-item-link menu-item-link" %>
+			</li>
+			<li class='menu-item'>
+				<a class='list-item-link menu-item-link'>Выход</a>
+			</li>
+		</ul>
+	</div>
+</div>

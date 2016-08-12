@@ -1,31 +1,24 @@
-const Picture1 = React.createClass({
-  clickHandler: function(){   
-      this.props.toAnswer(this.props.item);
-  },
+const Picture8 = React.createClass({
   render: function() {
-    var answer = this.props.answer
-    var item = this.props.item
-    var class_choosed_pic = this.props.classSizePics
-    if(answer == item){
-      class_choosed_pic += ' choosed_pic'
-    }
+    var classStyle = this.props.classSizePics
     return (
-      <img className={class_choosed_pic} src={this.props.task_pic} onClick={this.clickHandler}/>
+      <img className={classStyle} src={this.props.task_pic}/>
     );
   }
 })
 
-//Выбор правильного ответа, кликнув на картинку, ответ только один.
-const Task1 = React.createClass({
+//Задания без ответа... Ответ по умолчанию равен -
+const Task8 = React.createClass({
   getInitialState: function () {
     return {
       answer: 0,
-      number_of_pics: 8
+      number_of_pics: 9
     };
   },
   componentDidMount: function(){ 
     var task = this.props.task
-    var number_of_pics = 8;
+    var number_of_pics = 9;
+    if(task.pic9 == "") number_of_pics -= 1;
     if(task.pic8 == "") number_of_pics -= 1;
     if(task.pic7 == "") number_of_pics -= 1;
     if(task.pic6 == "") number_of_pics -= 1;
@@ -38,13 +31,8 @@ const Task1 = React.createClass({
       number_of_pics: number_of_pics
     });
   },
-  toAnswer: function(item){
-    this.setState({
-      answer: item
-    });
-  },
   acceptAnswer: function(){
-    var answer = this.state.answer
+    var answer = "-"
     this.props.acceptAnswer(answer)
   },
   render: function() {
@@ -65,25 +53,26 @@ const Task1 = React.createClass({
       else if(i == 6) var task_pic_i = task.pic6
       else if(i == 7) var task_pic_i = task.pic7
       else if(i == 8) var task_pic_i = task.pic8
-      var the_pic = <Picture1 classSizePics={size_pics} task_pic={task_pic_i} toAnswer={this.toAnswer} answer={this.state.answer} item={i} key={i}/>
+      else if(i == 9) var task_pic_i = task.pic9
+      var the_pic = <Picture8 classSizePics={size_pics} task_pic={task_pic_i} key={i}/>
       pics.push(the_pic)
     }
 
     var button_to_answer
     if(this.props.status_current_task == 0){
-      button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer" onClick={this.acceptAnswer}>Ответить</button>
+      button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer" onClick={this.acceptAnswer}>Готово!</button>
     }
 
     content = (
       <div>
-        <div className='content-task-type' id='type_task1'>
+        <div className='content-task-type' id='type_task8'>
           {pics}
         </div>
       </div>
     );
     return (
       <div className='task-participate  animated fadeIn'>
-        <h2 className='h--thin mbm'><span className='prxs'>Выбор правильного ответа</span> <span className='tag tag--light tag--heading tag--heading--h2'>6 лет</span></h2>
+        <h2 className='h--thin mbm'><span className='prxs'>Без ответа</span> <span className='tag tag--light tag--heading tag--heading--h2'>6 лет</span></h2>
         {content}
         {button_to_answer}
       </div>

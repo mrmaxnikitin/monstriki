@@ -1,6 +1,7 @@
 class Quest < ActiveRecord::Base
 	
 	def generate_quest
+		# заполнение stage1
 		direction_number1 = rand(2)
 		direction = if direction_number1 == 0
 			'logic'
@@ -9,18 +10,12 @@ class Quest < ActiveRecord::Base
 		end
 
 		
-		tasks_3_age = Task.where(age: 3, direction: direction).limit(3)
-		tasks_4_age = Task.where(age: 4, direction: direction).limit(3)
-		tasks_5_age = Task.where(age: 5, direction: direction).limit(3)
-		tasks_6_age = Task.where(age: 6, direction: direction).limit(3)
-		tasks_7_age = Task.where(age: 7, direction: direction).limit(3)
+		#tasks_3_age = Task.where(age: 3, direction: direction).limit(3)
+		#tasks_4_age = Task.where(age: 4, direction: direction).limit(3)
+		tasks_5_age = Task.where(age: 5, direction: direction, for_quest: false).limit(3)
+		tasks_6_age = Task.where(age: 6, direction: direction, for_quest: false).limit(3)
+		tasks_7_age = Task.where(age: 7, direction: direction, for_quest: false).limit(3)
 		a = Array.new
-		tasks_3_age.each do |t|
-			a << t.id.to_i
-		end
-		tasks_4_age.each do |t|
-			a << t.id.to_i
-		end
 		tasks_5_age.each do |t|
 			a << t.id.to_i
 		end
@@ -30,9 +25,12 @@ class Quest < ActiveRecord::Base
 		tasks_7_age.each do |t|
 			a << t.id.to_i
 		end
-
 		self.stage1 = a
+		tasks_5_age.update_all(for_quest: true)
+		tasks_6_age.update_all(for_quest: true)
+		tasks_7_age.update_all(for_quest: true)
 
+		#заполнение stage2
 		direction_number2 = rand(2)
 		while direction_number1 == direction_number2
 			direction_number2 = rand(2)
@@ -42,18 +40,12 @@ class Quest < ActiveRecord::Base
 		elsif direction_number2 == 1
 			'memory'
 		end
-		tasks_3_age = Task.where(age: 3, direction: direction).limit(3)
-		tasks_4_age = Task.where(age: 4, direction: direction).limit(3)
-		tasks_5_age = Task.where(age: 5, direction: direction).limit(3)
-		tasks_6_age = Task.where(age: 6, direction: direction).limit(3)
-		tasks_7_age = Task.where(age: 7, direction: direction).limit(3)
+		#tasks_3_age = Task.where(age: 3, direction: direction).limit(3)
+		#tasks_4_age = Task.where(age: 4, direction: direction).limit(3)
+		tasks_5_age = Task.where(age: 5, direction: direction, for_quest: false).limit(3)
+		tasks_6_age = Task.where(age: 6, direction: direction, for_quest: false).limit(3)
+		tasks_7_age = Task.where(age: 7, direction: direction, for_quest: false).limit(3)
 		a = Array.new
-		tasks_3_age.each do |t|
-			a << t.id.to_i
-		end
-		tasks_4_age.each do |t|
-			a << t.id.to_i
-		end
 		tasks_5_age.each do |t|
 			a << t.id.to_i
 		end
@@ -63,8 +55,10 @@ class Quest < ActiveRecord::Base
 		tasks_7_age.each do |t|
 			a << t.id.to_i
 		end
-
 		self.stage2 = a
+		tasks_5_age.update_all(for_quest: true)
+		tasks_6_age.update_all(for_quest: true)
+		tasks_7_age.update_all(for_quest: true)
 		
 		save!
   end

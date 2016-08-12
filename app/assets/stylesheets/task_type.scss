@@ -1,0 +1,242 @@
+.content-task-type{
+  .tasks-pics-1{
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 420px;
+  }
+  .tasks-pics-2, .tasks-type3-pics-2{
+    width: 48%;
+    margin: 0.5% 1%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 430px;
+  }
+  .tasks-pics-4{
+    width: 35%;
+    margin: 0.4% 0.8%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 212px;
+  }
+  .tasks-pics-5{
+    width: 19.2%;
+    margin: 0.2% 0.4%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 212px;
+  }
+  .tasks-pics-3, .tasks-pics-6{
+    width: 32.3%;
+    margin: 0.25% 0.5%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 212px;
+  }
+  .tasks-pics-7{
+    width: 13.8%;
+    margin: 0.1% 0.2%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 212px;
+  }
+  .tasks-pics-8{
+    width: 24%;
+    margin: 0.17% 0.35%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 212px;
+  }
+  .tasks-pics-9{
+    width: 24%;
+    margin: 0.3% 0.6%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 212px;
+  }
+}
+.choosed_pic{
+  border: 5px solid #fcad26;
+}
+#type_task1{
+  
+}
+#type_task2{
+  .pressed_button{
+    border: 5px solid #fcad26;
+  }
+}
+#type_task3{
+  .pic-task-type-3{
+    background-color: white;
+  }
+  .color-white{
+    background-color: white;
+  }
+  .color-red{
+    background-color: #f06060;
+  }
+  .color-blue{
+    background-color: #0e83cd;
+  }
+  .color-green{
+    background-color: #2ecc71;
+  }
+  .color-yellow{
+    background-color: #fcd04b;
+  }
+}
+/*4 тип задания*/
+#type_task4{
+  .tasks-pics-3{
+    width: 30%;
+    margin: 0.5% 1%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 430px;
+  }
+  .tasks-pics-4{
+    width: 30%;
+    margin: 0.4% 0.8%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 212px;
+  }
+  .tasks-pics-5{
+    width: 24%;
+    margin: 0.4% 0.5%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 212px;
+  }
+  .tasks-pics-6{
+    width: 19%;
+    margin: 0.25% 0.5%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 212px;
+  }
+  .tasks-pics-7{
+    width: 15.7%;
+    margin: 0.17% 0.35%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 212px;
+  }
+  .tasks-pics-8{
+    width: 13.4%;
+    margin: 0.17% 0.35%;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 212px;
+  }
+  img{
+    border-radius: 200px;
+    position: relative;
+  }
+  .wrap-general-picture{
+    text-align: center;
+    .general-picture{
+      width: 48%;
+    }
+  }
+  .functional-pictures{
+    margin: 30px 0;
+    text-align: center;
+  }
+}
+#type_task5{
+}
+#type_task6{
+  img{
+    width: 100%;
+    background-color: white;
+  }
+  .wrap-pic{
+  }
+  .tasks-pics-4{
+    width: 24%;
+    margin: 0.25% 0.5%;
+  }
+  .tasks-pics-5{
+    width: 19.2%;
+    margin: 0.2% 0.4%;
+  }
+  .tasks-pics-6{
+    width: 16%;
+    margin: 0.15% 0.3%;
+  }
+  .tasks-pics-7{
+    width: 13.8%;
+    margin: 0.1% 0.2%;
+  }
+  .tasks-pics-8{
+    width: 12.1%;
+    margin: 0.07% 0.15%;
+  }
+  .tasks-pics-8{
+    width: 12.1%;
+    margin: 0.07% 0.15%;
+  }
+}
+#type_task7{
+  .tasks-pics-1{
+      width: 60%;
+      min-width: 300px;
+  } 
+  .wrap-answer-input{
+    input{
+      font-size: 80px;
+      font-weight: bold;
+      padding-left: 0px;
+      padding-top: 0px;
+      border: none;
+      border-bottom: 1px solid #ff1e4a;
+      background-color: transparent;
+      padding-left: 0px;
+      color: #ff1e4a;
+    }
+  }
+}
+#type_task9{
+  img{
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+  }
+  .flip-container {
+    perspective: 1000;
+  }
+  .flip-container, .front, .back {
+    height: 142px;
+  }
+  .flip-container.flip .flipper {
+    transform: rotateY(180deg);
+  }
+  /* здесь находится скорость перевертывания */
+  .flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+  }
+
+  /* скройте обратную сторону во время переворота */
+  .front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0px;
+    padding: 6px 6px 0 6px;
+  }
+
+  /* лицевая сторона размещена над обратной */
+  .front {
+    z-index: 2;
+  }
+
+  /* обратная, изначально скрытая сторона */
+  .back {
+    transform: rotateY(180deg);
+  }
+}
+
+

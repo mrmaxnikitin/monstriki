@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
-  resources :user_things
+  resources :user_things do
+    collection do
+      get :get_things
+      post :active_thing
+    end
+  end
   resources :tasks do
     collection do
       get :logic

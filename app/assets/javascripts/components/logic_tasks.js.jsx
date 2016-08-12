@@ -52,11 +52,6 @@ const LogicTasks = React.createClass({
       status_current_task: 0
     });
   },
-  toAnswer: function(user_answer) {
-    this.setState({
-      answer: user_answer
-    });
-  },
   repeatTask: function() {
     this.setState({
       status_current_task: 0,
@@ -83,11 +78,11 @@ const LogicTasks = React.createClass({
   },
   acceptAnswer: function(param_answer) {
     var num_current_task = this.state.num_current_task
-    var user_answer = this.state.answer
+    var user_answer = param_answer
     var real_answer = this.state.tasks[num_current_task].answer
-    if(this.state.tasks[num_current_task].task_type == 2){
+    /*if(this.state.tasks[num_current_task].task_type == 2 || this.state.tasks[num_current_task].task_type == 3){
       user_answer = param_answer
-    }
+    }*/
 
     var score = this.state.score
     var number_of_attempts = this.state.number_of_attempts
@@ -158,12 +153,11 @@ const LogicTasks = React.createClass({
     var tasks = this.state.tasks.map(function (task) {
       switch (task.task_type) {
         case 1:
+        // занести toANswer в task1
           return (
             <Task1
               key={task.id}
-              task={task}
-              toAnswer={this.toAnswer}
-              answer={this.state.answer}
+              task={task}   
               acceptAnswer={this.acceptAnswer}
               status_current_task={this.state.status_current_task}
               />
@@ -174,10 +168,80 @@ const LogicTasks = React.createClass({
             <Task2
               key={task.id}
               task={task}
-              toAnswer={this.toAnswer}
               answer={this.state.answer}
               acceptAnswer={this.acceptAnswer}
               status_current_task={this.state.status_current_task}
+              />
+          );
+          break
+        case 3:
+          return (
+            <Task3
+              key={task.id}
+              task={task}
+              acceptAnswer={this.acceptAnswer}
+              status_current_task={this.state.status_current_task}
+              />
+          );
+          break
+        case 4:
+          return (
+            <Task4
+              key={task.id}
+              task={task}
+              acceptAnswer={this.acceptAnswer}
+              status_current_task={this.state.status_current_task}
+              />
+          );
+          break
+        case 5:
+          return (
+            <Task5
+              key={task.id}
+              task={task}
+              acceptAnswer={this.acceptAnswer}
+              status_current_task={this.state.status_current_task}
+              />
+          );
+          break
+        case 6:
+          return (
+            <Task6
+              key={task.id}
+              task={task}
+              acceptAnswer={this.acceptAnswer}
+              status_current_task={this.state.status_current_task}
+              />
+          );
+          break
+        case 7:
+          return (
+            <Task7
+              key={task.id}
+              task={task}
+              acceptAnswer={this.acceptAnswer}
+              status_current_task={this.state.status_current_task}
+              />
+          );
+          break
+        case 8:
+          return (
+            <Task8
+              key={task.id}
+              task={task}
+              acceptAnswer={this.acceptAnswer}
+              status_current_task={this.state.status_current_task}
+              />
+          );
+          break
+        case 9:
+          return (
+            <Task9
+              key={task.id}
+              task={task}
+              acceptAnswer={this.acceptAnswer}
+              status_current_task={this.state.status_current_task}
+              start={Date.now()}
               />
           );
           break
@@ -225,45 +289,16 @@ const LogicTasks = React.createClass({
       button_to_repeat = <button className="btn-m btn-m-3 btn-m-3a icon-star-2 repeat-task" onClick={this.repeatTask}>Еще разок</button>
     }
 
+    var profile = (
+      <Profile
+        key={1}
+        score={score}
+        />
+    );
+
     return (
       <div>
-        <div className='col col-press-18 col-profile'>
-          <div className='card mbm profile-card'>
-            <div className='character'>
-              <img src='/images/monsters/monster3.gif' />
-            </div>
-            <div className='satiety twsb'>
-              <div className='name tcmc'>
-                <span>Жутик-сука</span>
-                <a className='banana fr tcm'>
-                  {score} score
-                </a>
-              </div>
-            </div>
-            <div className='profile-link bdrn bdrt bc-snow-light card-row card-row--south'>
-              Мой профиль
-            </div>
-          </div>
-          <div className='card mbl profile-menu'>
-            <ul>
-              <li className='menu-item'>
-                <a className='list-item-link menu-item-link'>Друзья</a>
-              </li>
-              <li className='menu-item'>
-                <a className='list-item-link menu-item-link'>Стикеры</a>
-              </li>
-              <li className='menu-item'>
-                <a className='list-item-link menu-item-link'>Платежи</a>
-              </li>
-              <li className='menu-item'>
-                <a className='list-item-link menu-item-link'>Настройки</a>
-              </li>
-              <li className='menu-item'>
-                <a className='list-item-link menu-item-link'>Выход</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+        {profile}
         <div className='col col-58proc col-main ml-2proc'>
           {content_task}
           {button_to_repeat}

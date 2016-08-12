@@ -1,7 +1,7 @@
 class CreateUserThings < ActiveRecord::Migration
   def change
     create_table :user_things do |t|
-    	t.integer :active_thing
+    	t.boolean :active
     	t.references :user, foreign_key: true
     	t.references :thing, foreign_key: true
 

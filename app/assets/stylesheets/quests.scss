@@ -56,7 +56,7 @@
   }
   div{
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
   }
   &:hover {
     -webkit-transform: rotateZ(6deg);
@@ -74,11 +74,11 @@
   }
   div{
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 .choosed_quest_task{
-  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 0px 7px rgba(0, 0, 0, 0.2) !important;
 }
 .complete-quest-task{
 
@@ -110,6 +110,9 @@
   .img-next-quest{
     width: 100%;
   }
+}
+.element-quest-task{
+  width: 120px;
 }
 /*.node::before {
   background-color: #fff;

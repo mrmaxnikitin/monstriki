@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804073628) do
+ActiveRecord::Schema.define(version: 20160811180110) do
 
   create_table "quests", force: :cascade do |t|
     t.text     "stage1"
@@ -43,6 +43,11 @@ ActiveRecord::Schema.define(version: 20160804073628) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean  "for_quest"
+    t.string   "pic9"
+    t.string   "pic10"
+    t.string   "pic11"
+    t.string   "pic12"
+    t.integer  "subtype"
   end
 
   create_table "things", force: :cascade do |t|
@@ -71,11 +76,11 @@ ActiveRecord::Schema.define(version: 20160804073628) do
   add_index "tracks", ["user_id"], name: "index_tracks_on_user_id"
 
   create_table "user_things", force: :cascade do |t|
-    t.integer  "active_thing"
+    t.boolean  "active"
     t.integer  "user_id"
     t.integer  "thing_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "user_things", ["thing_id"], name: "index_user_things_on_thing_id"

@@ -49,7 +49,7 @@ class QuestsController < ApplicationController
 	end
 
 	def stage2
-		@task = Task.find(@quest.stage1[1])
+		@task = Task.find(@quest.stage2[1])
 	end
 	def get_stage2
 		task_ids_str = Quest.find(current_user.track.current_quest).stage2
@@ -60,7 +60,7 @@ class QuestsController < ApplicationController
 	end
 
 	def stage3
-		@task = Task.find(@quest.stage1[1])
+		@task = Task.find(@quest.stage3[1])
 	end
 	def get_stage3
 		task_ids_str = Quest.find(current_user.track.current_quest).stage3
@@ -71,7 +71,7 @@ class QuestsController < ApplicationController
 	end
 
 	def stage4
-		@task = Task.find(@quest.stage1[1])
+		@task = Task.find(@quest.stage4[1])
 	end
 	def get_stage4
 		task_ids_str = Quest.find(current_user.track.current_quest).stage4

@@ -1,5 +1,22 @@
+<%
+		#@things = current_user.user_things.select('thing_id')
+  	#a = Array.new
+  	#@things.each do |t|
+  		#a << t.thing_id
+  	#end
+  	#@things_data = Thing.where(thing_id: @things.thing_id)
+  	#puts "###########################################"
+  	#puts a
+  	#puts "###########################################"
+  	#@things = current_user.user_things.joins(:thing)
+  	#@things_data = UserThing.joins(@thing)
+  	#@things = current_user.user_things.joins(:thing)
+  	#puts "###########################################"
+  	#puts @things.first.thing.name
+  	#puts "###########################################"
+
+%>
 <div class='ground'>
-	<img src='https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/995337_10154288626644305_7688099394037631691_n.jpg?oh=5da4bc1a695d812be07e18629dd2f204&oe=585A4836' />
-	<img src='https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/12391952_930135203735570_3864212528452132645_n.jpg?oh=1a6d3a0b3959e9ef1937d664fa4b2016&oe=581030E8'/>
-	<img src='https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/12523857_1256592424370225_312295961557596589_n.jpg?oh=766aef43d301c782e699576a8e89f2d5&oe=58299F27'/>
+	<%= react_component("Ground",
+    	get_things_url: get_things_user_things_path) %>
 </div>

@@ -2,13 +2,20 @@ const CreateTask = React.createClass({
   //BEGIN***************************************************DECLARE
   getInitialState: function () {
     return {
-      task_type: 1
+      task_type: 1,
+      subtype: 1
     };
   },
   selectTypeTask: function(){
     var task_type = ReactDOM.findDOMNode(this.refs.task_type)
     this.setState({
       task_type: task_type.value
+    });
+  },
+  selectSubtype: function(){
+    var subtype = ReactDOM.findDOMNode(this.refs.subtype)
+    this.setState({
+      subtype: subtype.value
     });
   },
   createTask1: function(){
@@ -26,16 +33,23 @@ const CreateTask = React.createClass({
     var pic6_input = ReactDOM.findDOMNode(this.refs.pic6)
     var pic7_input = ReactDOM.findDOMNode(this.refs.pic7)
     var pic8_input = ReactDOM.findDOMNode(this.refs.pic8)
+    var pic9_input = ReactDOM.findDOMNode(this.refs.pic9)
+    var pic10_input = ReactDOM.findDOMNode(this.refs.pic10)
+    var pic11_input = ReactDOM.findDOMNode(this.refs.pic11)
+    var pic12_input = ReactDOM.findDOMNode(this.refs.pic12)
     var answer_input = ReactDOM.findDOMNode(this.refs.answer)
     var pic1 = pic1_input.value.trim(), pic2 = pic2_input.value.trim(), pic3 = pic3_input.value.trim(), pic4 = pic4_input.value.trim()
     var pic5 = pic5_input.value.trim(), pic6 = pic6_input.value.trim(), pic7 = pic7_input.value.trim(), pic8 = pic8_input.value.trim()
+    var pic9 = pic9_input.value.trim(), pic10 = pic10_input.value.trim(), pic11 = pic11_input.value.trim(), pic12 = pic12_input.value.trim()
     var answer = answer_input.value.trim()
 
     var task_type = this.state.task_type
+    var subtype = this.state.subtype
 
     new_task = {
       direction: direction,
       task_type: task_type,
+      subtype: subtype,
       age: age,
       text: text,
       pic1: pic1,
@@ -46,6 +60,10 @@ const CreateTask = React.createClass({
       pic6: pic6,
       pic7: pic7,
       pic8: pic8,
+      pic9: pic9,
+      pic10: pic10,
+      pic11: pic11,
+      pic12: pic12,
       answer: answer,
       for_quest: for_quest
     };
@@ -65,8 +83,22 @@ const CreateTask = React.createClass({
     });
   },
   render: function() {
+    var pic10_11_12, notice
+    if(this.state.task_type == 6){
+      notice = (
+        <div className='notice-create-task'>
+          Максимум 3 варианта ответа, за эти варианты ответов отвечают <b>дополнительные картинки</b>. (pic10, pic11, pic12)<br/>
+          Последовательности от 1 до 8 выстраиваются в ряд, 9 - в квадратик 3x3
+        </div>
+      );
+    }
+    if(this.state.task_type != 6){
+      pic10_11_12 = 'displaynone'
+    }
     content_task_type = (
       <div>
+        <p>Нумеровка картинок с единицы (минимальный ответ 1, максимальный - 9)</p>
+        {notice}
         <h3>Картиночки теперь</h3>
         <div>1. <input type='text' ref='pic1' placeholder='pic1' /></div>
         <div>2. <input type='text' ref='pic2' placeholder='pic2' /></div>
@@ -76,6 +108,13 @@ const CreateTask = React.createClass({
         <div>6. <input type='text' ref='pic6' placeholder='pic6' /></div>
         <div>7. <input type='text' ref='pic7' placeholder='pic7' /></div>
         <div>8. <input type='text' ref='pic8' placeholder='pic8' /></div>
+        <div>9. <input type='text' ref='pic9' placeholder='pic9' /></div>
+        <div className={pic10_11_12}>
+          <h4>Дополнительные картинки</h4>
+          <div>10. (1)<input type='text' ref='pic10' placeholder='pic10' /></div>
+          <div>11. (2)<input type='text' ref='pic11' placeholder='pic11' /></div>
+          <div>12. (3)<input type='text' ref='pic12' placeholder='pic12' /></div>
+        </div>
         <input type='text' ref='answer' placeholder='Ответ (последовательность из цифр в правильном порядке)' />
         <button onClick={this.createTask1}>Созидаем!</button>
       </div>
@@ -95,8 +134,24 @@ const CreateTask = React.createClass({
           <option value='1'>1</option>
           <option value='2'>2</option>
           <option value='3'>3</option>
+          <option value='4'>4</option>
+          <option value='5'>5</option>
+          <option value='6'>6</option>
+          <option value='7'>7</option>
+          <option value='8'>8</option>
+          <option value='9'>9</option>
+          <option value='10'>10</option>
+          <option value='11'>11</option>
         </select>
-        <div>Для квестов <input type='checkbox' value='1' ref='for_quest' name='for_quest'/></div>
+        <select ref='subtype' onChange={this.selectSubtype}>
+          <option disabled>Подтип</option>
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+          <option value='3'>3</option>
+          <option value='4'>4</option>
+          <option value='5'>5</option>
+        </select>
+        <div>Ставить галочку, если хотим, чтобы она не была в квестах <input type='checkbox' value='1' ref='for_quest' name='for_quest'/></div>
         {content_task_type}
       </div>
     );
