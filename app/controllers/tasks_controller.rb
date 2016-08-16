@@ -7,7 +7,7 @@ class TasksController < ApplicationController
 	def logic
 	end
 	def get_logic
-		@tasks = Task.where(direction: "logic").order('RANDOM()').all
+		@tasks = Task.where(direction: "Логика").order('RANDOM()').all
 		puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 		puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 		render :index, formats: :json
@@ -16,7 +16,7 @@ class TasksController < ApplicationController
 	def memory
 	end
 	def get_memory
-		@tasks = Task.where(direction: "memory").order('RANDOM()').all
+		@tasks = Task.where(direction: "Память").order('RANDOM()').all
 		render :index, formats: :json
 	end
 

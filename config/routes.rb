@@ -20,16 +20,10 @@ Rails.application.routes.draw do
   end
   resources :quests do
     collection do
-      get :stage1
-      get :get_stage1
-      get :stage2
-      get :get_stage2
-      get :stage3
-      get :get_stage3
-      get :stage4
-      get :get_stage4
-      post :complete_stage
-      get :complete_quest
+      get :trip
+      get :get_trip
+      post :finish_quest
+      get :next_quest
     end
   end
   resources :things

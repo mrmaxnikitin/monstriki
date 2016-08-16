@@ -4,24 +4,29 @@
 <div class='row first-page-elm'>
 	<div class='cell'>
 		<%= render "/partials/profile_big" %>
-		<div class='col col-58proc col-main ml-2proc'>
-			<% if @quest.number_of_stages == current_user.track.number_of_completed_stages %>
-				<div class='cell next-quest'>
+		<div class='col col-67proc ml-2proc'>
+			<% if current_user.track.complete_quest %>
+				<div class='next-quest card mbl'>
 					<div class='col col-2of6'>
-						<img src='/images/award_winner.png' class='img-next-quest'/>
+						<% pic_number = rand(2) %>
+						<img src='/images/next-quest-pics/next-quest-pic<%= pic_number %>.png' class='img-next-quest'/>
 					</div>
-					<div class='col col-4of6'>
-						<h2>Ты справился с квестом! А вот твои подарки и новый стикер!</h2>
-						<%= link_to 'Следующий квест', complete_quest_quests_path %>
+					<div class='col col-4of6 content'>
+						<h1>Ты справился с квестом!</h1>
+						<p class='coins'>
+							<img src='/images/coins.png' /> <span class='plus-coins'>+10</span> <span class='text'>монеток за квест</span>
+						</p>
+						<div class='invitation-tomorrow'>Сегодня ты постарался! Приходи завтра, у нас для тебя еще есть квест!</div>
+						<div class='actions'>
+							<%= link_to 'Хочу еще заданий', tasks_path, class: 'btn'%>
+							<%= link_to 'Хочу купить бубуку', things_path, class: 'btn btn-our-red buy'%>
+						</div>
 					</div>
 					<div class='clear'></div>
 				</div>
 			<% end %>
 			<h2 class='h--thin mbm'><span class='prxs'>Квест на сегодня</span> <span class='tag tag--light tag--heading tag--heading--h2'>8-12 минут</span></h2>
-			<%= render "stage", stage: @quest.stage1, status_stage: current_user.track.status_stage1, link_stage: stage1_quests_path %>
-			<%= render "stage", stage: @quest.stage2, status_stage: current_user.track.status_stage2, link_stage: stage2_quests_path %>
-			<%= render "stage", stage: @quest.stage3, status_stage: current_user.track.status_stage3, link_stage: stage3_quests_path %>
-			<%= render "stage", stage: @quest.stage4, status_stage: current_user.track.status_stage4, link_stage: stage4_quests_path %>
+			<%= render "trip", status_quest: current_user.track.complete_quest, link_trip: trip_quests_path %>
 		</div>
 		<%= render '/partials/alternative_column' %>
 	</div>

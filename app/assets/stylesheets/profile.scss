@@ -10,15 +10,19 @@
 		padding-left: 14px;
 		.name{
 			span{
-				font-family: "Five Minutes";
-				font-size: 24px;
+				font-size: 18px;
+    		font-family: 'Junegull';
 			}
-			.banana{
+			.small{
+				font-size: 13px;
+			}
+			.coins{
 				font-weight: 400;
 				img{
-					width: 16px;
-					position: relative;
-	    		top: 6px;
+					width: 24px;
+				  position: relative;
+				  top: 7px;
+				  right: 3px;
 				}
 			}
 		}

@@ -84,10 +84,14 @@ const Task2 = React.createClass({
       </div>
     );
     return (
-      <div className='task-participate  animated fadeIn'>
-        <h2 className='h--thin mbm'><span className='prxs'>Выбор правильного ответа</span> <span className='tag tag--light tag--heading tag--heading--h2'>7 лет</span></h2>
-        {content}
-        {button_to_answer}
+      <div>
+        <div className='col col-45proc col-main task-participate animated fadeIn'>
+          {content}
+          {button_to_answer}
+        </div>
+        <div className='col col-press-20 ml-2proc'>
+          {task.text}
+        </div>
       </div>
     );
   }

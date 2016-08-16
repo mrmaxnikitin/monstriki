@@ -7,10 +7,10 @@
 	background-size: cover;
 	background-color: #f74242;
 }
-.stage-quest{
+.trip-quest{
 
 }
-.card-stage-quest{
+.card-trip-quest{
 	width: 92.5%;
 	height: 126px;
   -webkit-transition: all .2s ease;
@@ -32,7 +32,7 @@
   	}
   }
 }
-.status-stage-quest{
+.status-trip-quest{
 	float: left;
 	width: 5%;
 	img{
@@ -46,7 +46,7 @@
 	  box-shadow: 0 0 1px rgba(20, 20, 20, 0.3);
 	}
 }
-.stage_tasks{
+.trip_tasks{
   max-width: 200px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -64,7 +64,7 @@
     transform: rotateZ(6deg);
   }
 }
-.stage_tasks--without-animation{
+.trip_tasks--without-animation{
   max-width: 200px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -107,6 +107,45 @@
   }
 }
 .next-quest{
+  .content{
+    padding-left: 1.25em;
+    .coins{
+      font-size: 40px;
+      .plus-coins{
+        font-size: 60px;
+        font-family: 'Gagalin';
+        color: #ffa800;
+      }
+      .text{
+        position: relative;
+        top: -10px;
+      }
+      img{
+        width: 50px;
+      }
+    }
+    .invitation-tomorrow{
+      font-size: 16px;
+    }
+    .actions{
+      margin: 15px 0px 10px 0px;
+      .btn{
+        font-size: 100%;
+      }
+      .buy{
+        margin-left: 10px;
+      }
+    }
+    h1{
+      color: #337ab7;
+      font-family: 'Gagalin';
+      font-size: 44px;
+      margin-bottom: 0;
+    }
+    p{
+      margin: 0 !important;
+    }
+  }
   .img-next-quest{
     width: 100%;
   }

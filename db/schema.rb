@@ -13,15 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20160811180110) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "quests", force: :cascade do |t|
-    t.text     "stage1"
-    t.text     "stage2"
-    t.text     "stage3"
-    t.text     "stage4"
-    t.text     "stage5"
-    t.text     "stage6"
-    t.text     "stage7"
-    t.text     "stage8"
+    t.text     "age3",                    array: true
+    t.text     "age4",                    array: true
+    t.text     "age5",                    array: true
+    t.text     "age6",                    array: true
+    t.text     "age7",                    array: true
+    t.text     "age8",                    array: true
+    t.text     "age9",                    array: true
+    t.text     "age10",                   array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -59,21 +62,14 @@ ActiveRecord::Schema.define(version: 20160811180110) do
   end
 
   create_table "tracks", force: :cascade do |t|
-    t.integer  "current_quest", default: 1
-    t.boolean  "status_stage1", default: false
-    t.boolean  "status_stage2", default: false
-    t.boolean  "status_stage3", default: false
-    t.boolean  "status_stage4", default: false
-    t.boolean  "status_stage5", default: false
-    t.boolean  "status_stage6", default: false
-    t.boolean  "status_stage7", default: false
-    t.boolean  "status_stage8", default: false
+    t.integer  "current_quest",  default: 1
+    t.boolean  "complete_quest", default: false
     t.integer  "user_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
-  add_index "tracks", ["user_id"], name: "index_tracks_on_user_id"
+  add_index "tracks", ["user_id"], name: "index_tracks_on_user_id", using: :btree
 
   create_table "user_things", force: :cascade do |t|
     t.boolean  "active"
@@ -83,9 +79,9 @@ ActiveRecord::Schema.define(version: 20160811180110) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "user_things", ["thing_id"], name: "index_user_things_on_thing_id"
-  add_index "user_things", ["user_id", "thing_id"], name: "index_user_things_on_user_id_and_thing_id", unique: true
-  add_index "user_things", ["user_id"], name: "index_user_things_on_user_id"
+  add_index "user_things", ["thing_id"], name: "index_user_things_on_thing_id", using: :btree
+  add_index "user_things", ["user_id", "thing_id"], name: "index_user_things_on_user_id_and_thing_id", unique: true, using: :btree
+  add_index "user_things", ["user_id"], name: "index_user_things_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                       null: false
@@ -105,9 +101,9 @@ ActiveRecord::Schema.define(version: 20160811180110) do
     t.datetime "reset_password_email_sent_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"
@@ -121,7 +117,10 @@ ActiveRecord::Schema.define(version: 20160811180110) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "tracks", "users"
+  add_foreign_key "user_things", "things"
+  add_foreign_key "user_things", "users"
 end

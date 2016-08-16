@@ -1,0 +1,25 @@
+<%= link_to link_trip do %>
+<div class='trip-quest mbl'>
+	<div class='status-trip-quest node'>
+		<% if status_quest %>
+			<img src='/images/done-quest.png' />
+		<% elsif %>
+			<img src='/images/node.png' />
+		<% end %>
+	</div>
+	<div class='card card-trip-quest fr'>
+		<div class='mbadge direction-mbadge col'>
+			<img src='/images/cute-faces_02-26-2014.jpg' />
+		</div>
+		<div class='direction-content col'>
+			<div>
+				<span class='tag tag--heading'>Для <%= current_user.age %> лет</span>
+			</div>
+			<h2 class='h--thin mbm'>5 заданий</h2>
+			<p>Включим голову и подумаем!</p>
+		</div>
+		<div class='clear'></div>
+	</div>
+	<div class='clear'></div>
+</div>
+<% end %>

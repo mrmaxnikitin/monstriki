@@ -9,12 +9,12 @@ const Picture4 = React.createClass({
     };
     var answer = this.props.answer
     var item = this.props.item
-    var class_choosed_pic = this.props.classSizePics
+    var classStyle = this.props.classSizePics
     if(answer == item){
-      class_choosed_pic += ' choosed_pic'
+      classStyle += ' choosed_pic'
     }
     return (
-      <img style={style} className={class_choosed_pic} src={this.props.task_pic} onClick={this.clickHandler}/>
+      <img style={style} className={classStyle} src={this.props.task_pic} onClick={this.clickHandler}/>
     );
   }
 })
@@ -60,6 +60,12 @@ const Task4 = React.createClass({
       position_variant: position_variant
     });
   },
+  repeatTask: function() {
+    this.props.repeatTask()
+    this.setState({
+      answer: 0
+    });
+  },
   toAnswer: function(item){
     this.setState({
       answer: item
@@ -70,6 +76,7 @@ const Task4 = React.createClass({
     this.props.acceptAnswer(answer)
   },
   render: function() {
+
     var task = this.props.task
     var content
     var number_of_pics = this.state.number_of_pics
@@ -90,11 +97,7 @@ const Task4 = React.createClass({
       pics.push(the_pic)
     }
 
-    var button_to_answer
-    if(this.props.status_current_task == 0){
-      button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer" onClick={this.acceptAnswer}>Ответить</button>
-    }
-
+    //Специфика Типа Задания
     var content_position_variant0 = '', content_position_variant1 = ''
     if(!this.state.position_variant){
       content_position_variant0 = (
@@ -109,6 +112,8 @@ const Task4 = React.createClass({
         </div>
       );
     }
+
+    //Контент самого задания
     content = (
       <div>
         <div className='content-task-type' id='type_task4'>
@@ -120,11 +125,70 @@ const Task4 = React.createClass({
         </div>
       </div>
     );
+
+    //Кнопки действий
+    var button_to_answer
+    if(this.props.status_current_task == 0){
+      button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer" onClick={this.acceptAnswer}>Ответить</button>
+    }
+    var button_next_task, button_to_repeat, button_complete_quest
+    if(this.props.status_current_task == 1){
+      if((this.props.sum_right_answers != this.props.tasks_length && this.props.quest) || !this.props.quest)
+        button_next_task = <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task" onClick={this.props.nextTask}>Следующее задание</button>
+      if((this.props.sum_right_answers == this.props.tasks_length && this.props.quest) && this.props.quest)
+        button_complete_quest = (
+          <div>
+            <a href='/quests'>
+              <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task">Закончить квест</button>
+            </a>
+          </div>);
+      button_to_repeat = ''
+    }else if(this.props.status_current_task == -1){
+      button_next_task = <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task" onClick={this.props.nextTask}>Следующее задание</button>
+      button_to_repeat = <button className="btn-m btn-m-3 btn-m-3a icon-star-2 repeat-task" onClick={this.repeatTask}>Еще разок</button>
+    }
+
+    //Результат выполнения задания
+    var result_task
+    if(!this.props.status_current_task){
+      result_task = (
+        <div>
+          <h2>
+            <div className='col'><span className='tag tag--light tag--heading tag--heading--h2'>{task.direction}</span></div>
+            <img src='/images/forward.png' className='img-next-task fr cursor--pointer' onClick={this.props.nextTask}/>
+          </h2>
+          <div className='clear'></div>
+          <p className='task-text'>{task.text}</p>
+        </div>
+      );
+    }else if(this.props.status_current_task == 1){
+      result_task = (
+        <div className='card right-task-result result-task animated slideInDown'>
+          <img src='/images/right_task_result1.png' />
+          <h1>Правильно!</h1>
+        </div>
+      );  
+    }else if(this.props.status_current_task == -1){
+      result_task = (
+        <div className='card wrong-task-result result-task animated slideInDown'>
+          <img src='/images/wrong_task_result1.png' />
+          <h1>Ошибся! Попробуй еще разок.</h1>
+        </div>
+      );
+    }
+
     return (
-      <div className='task-participate  animated fadeIn'>
-        <h2 className='h--thin mbm'><span className='prxs'>Одна статичная картинка, а другие, как варианты ответов</span> <span className='tag tag--light tag--heading tag--heading--h2'>6 лет</span></h2>
-        {content}
-        {button_to_answer}
+      <div>
+        <div className='col col-main task-participate animated fadeIn'>
+          {content}
+        </div>
+        <div className='col wrap-task-text ml-2proc'>
+          {result_task}
+          {button_complete_quest}
+          {button_to_answer}
+          {button_to_repeat}
+          {button_next_task}
+        </div>
       </div>
     );
   }

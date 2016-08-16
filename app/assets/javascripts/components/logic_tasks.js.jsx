@@ -83,7 +83,6 @@ const LogicTasks = React.createClass({
     /*if(this.state.tasks[num_current_task].task_type == 2 || this.state.tasks[num_current_task].task_type == 3){
       user_answer = param_answer
     }*/
-
     var score = this.state.score
     var number_of_attempts = this.state.number_of_attempts
 
@@ -93,11 +92,10 @@ const LogicTasks = React.createClass({
       
       if(this.state.sum_right_answers == this.state.tasks.length-1 && this.props.quest){
         $.ajax({
-          url: '/quests/complete_stage',
+          url: '/quests/finish_quest',
           //dataType: 'json',
           type: 'POST',
           data: {
-            stage: this.props.stage
           },
           success: function(data) {
           }.bind(this),
@@ -111,12 +109,12 @@ const LogicTasks = React.createClass({
         //dataType: 'json',
         type: 'POST',
         data: {
-          score: score + 5 - number_of_attempts
+          score: score + 2 - number_of_attempts
         },
         success: function(data) {
           this.setState({
             status_current_task: 1,
-            score: score + 5 - number_of_attempts,
+            score: score + 2 - number_of_attempts,
             sum_right_answers: this.state.sum_right_answers + 1,
             status_quest_tasks: a
           });
@@ -127,7 +125,7 @@ const LogicTasks = React.createClass({
       });
     }else{
       var number_of_attempts = this.state.number_of_attempts + 1
-      if(number_of_attempts > 5) number_of_attempts = 5
+      if(number_of_attempts > 1) number_of_attempts = 1
       this.setState({
         status_current_task: -1,
         number_of_attempts: number_of_attempts
@@ -160,6 +158,11 @@ const LogicTasks = React.createClass({
               task={task}   
               acceptAnswer={this.acceptAnswer}
               status_current_task={this.state.status_current_task}
+              nextTask={this.nextTask}
+              repeatTask={this.repeatTask}
+              quest={this.props.quest}
+              sum_right_answers={this.state.sum_right_answers}
+              tasks_length={this.state.tasks.length}
               />
           );
           break
@@ -171,6 +174,11 @@ const LogicTasks = React.createClass({
               answer={this.state.answer}
               acceptAnswer={this.acceptAnswer}
               status_current_task={this.state.status_current_task}
+              nextTask={this.nextTask}
+              repeatTask={this.repeatTask}
+              quest={this.props.quest}
+              sum_right_answers={this.state.sum_right_answers}
+              tasks_length={this.state.tasks.length}
               />
           );
           break
@@ -181,6 +189,11 @@ const LogicTasks = React.createClass({
               task={task}
               acceptAnswer={this.acceptAnswer}
               status_current_task={this.state.status_current_task}
+              nextTask={this.nextTask}
+              repeatTask={this.repeatTask}
+              quest={this.props.quest}
+              sum_right_answers={this.state.sum_right_answers}
+              tasks_length={this.state.tasks.length}
               />
           );
           break
@@ -191,6 +204,11 @@ const LogicTasks = React.createClass({
               task={task}
               acceptAnswer={this.acceptAnswer}
               status_current_task={this.state.status_current_task}
+              nextTask={this.nextTask}
+              repeatTask={this.repeatTask}
+              quest={this.props.quest}
+              sum_right_answers={this.state.sum_right_answers}
+              tasks_length={this.state.tasks.length}
               />
           );
           break
@@ -201,6 +219,11 @@ const LogicTasks = React.createClass({
               task={task}
               acceptAnswer={this.acceptAnswer}
               status_current_task={this.state.status_current_task}
+              nextTask={this.nextTask}
+              repeatTask={this.repeatTask}
+              quest={this.props.quest}
+              sum_right_answers={this.state.sum_right_answers}
+              tasks_length={this.state.tasks.length}
               />
           );
           break
@@ -211,6 +234,11 @@ const LogicTasks = React.createClass({
               task={task}
               acceptAnswer={this.acceptAnswer}
               status_current_task={this.state.status_current_task}
+              nextTask={this.nextTask}
+              repeatTask={this.repeatTask}
+              quest={this.props.quest}
+              sum_right_answers={this.state.sum_right_answers}
+              tasks_length={this.state.tasks.length}
               />
           );
           break
@@ -221,6 +249,11 @@ const LogicTasks = React.createClass({
               task={task}
               acceptAnswer={this.acceptAnswer}
               status_current_task={this.state.status_current_task}
+              nextTask={this.nextTask}
+              repeatTask={this.repeatTask}
+              quest={this.props.quest}
+              sum_right_answers={this.state.sum_right_answers}
+              tasks_length={this.state.tasks.length}
               />
           );
           break
@@ -231,6 +264,11 @@ const LogicTasks = React.createClass({
               task={task}
               acceptAnswer={this.acceptAnswer}
               status_current_task={this.state.status_current_task}
+              nextTask={this.nextTask}
+              repeatTask={this.repeatTask}
+              quest={this.props.quest}
+              sum_right_answers={this.state.sum_right_answers}
+              tasks_length={this.state.tasks.length}
               />
           );
           break
@@ -241,7 +279,11 @@ const LogicTasks = React.createClass({
               task={task}
               acceptAnswer={this.acceptAnswer}
               status_current_task={this.state.status_current_task}
-              start={Date.now()}
+              nextTask={this.nextTask}
+              repeatTask={this.repeatTask}
+              quest={this.props.quest}
+              sum_right_answers={this.state.sum_right_answers}
+              tasks_length={this.state.tasks.length}
               />
           );
           break
@@ -250,7 +292,7 @@ const LogicTasks = React.createClass({
     }.bind(this));
 
     var content_task = tasks[this.state.num_current_task]
-    if(this.state.status_current_task == 1){
+    /*if(this.state.status_current_task == 1){
       if(this.state.sum_right_answers == this.state.tasks.length && this.props.quest){
         content_task = (
           <div className='card right-task-result result-task finish-quest animated zoomIn'>
@@ -276,18 +318,8 @@ const LogicTasks = React.createClass({
           <h1>Ошибся! Попробуй еще разок.</h1>
         </div>
       );
-    }
+    }*/
     var score = this.state.score
-
-    var button_next_task, button_to_repeat
-    if(this.state.status_current_task == 1){
-      if((this.state.sum_right_answers != this.state.tasks.length && this.props.quest) || !this.props.quest)
-        button_next_task = <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task fr" onClick={this.nextTask}>Следующее задание</button>
-      button_to_repeat = ''
-    }else if(this.state.status_current_task == -1){
-      button_next_task = <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task fr" onClick={this.nextTask}>Следующее задание</button>
-      button_to_repeat = <button className="btn-m btn-m-3 btn-m-3a icon-star-2 repeat-task" onClick={this.repeatTask}>Еще разок</button>
-    }
 
     var profile = (
       <Profile
@@ -299,13 +331,8 @@ const LogicTasks = React.createClass({
     return (
       <div>
         {profile}
-        <div className='col col-58proc col-main ml-2proc'>
+        <div className='col col-task-main col-67proc ml-2proc'>
           {content_task}
-          {button_to_repeat}
-          {button_next_task}
-        </div>
-        <div className='col col-press-20 ml-2proc'>
-          {stage_tasks}
         </div>
       </div>
     );

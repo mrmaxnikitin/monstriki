@@ -3,10 +3,8 @@
 </div>
 <div class='row first-page-elm'>
 	<div class='cell'>
-		<div class='col col-press-25'>
-			<%= render "/partials/profile" %>
-		</div>
-		<div class='col col-4of6 fr'>
+		<%= render "/partials/profile_big" %>
+		<div class='col col-67proc ml-2proc'>
 			<h2 class='h--thin mbm'><span class='prxs'>Что будем тренировать?</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= @tasks.count %> заданий</span></h2>
 
 			<%= link_to logic_tasks_path do %>
@@ -16,7 +14,7 @@
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading'><%= @tasks.where(direction: 'logic').count %> заданий</span>
+						<span class='tag tag--heading'><%= @tasks.where(direction: 'Логика').count %> заданий</span>
 					</div>
 					<h2 class='h--thin mbm'>Логика</h2>
 				</div>
@@ -42,7 +40,7 @@
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading'><%= @tasks.where(direction: 'memory').count %> заданий</span>
+						<span class='tag tag--heading'><%= @tasks.where(direction: 'Память').count %> заданий</span>
 					</div>
 					<h2 class='h--thin mbm'>Память</h2>
 				</div>

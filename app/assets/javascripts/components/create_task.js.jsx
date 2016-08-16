@@ -95,6 +95,10 @@ const CreateTask = React.createClass({
     if(this.state.task_type != 6){
       pic10_11_12 = 'displaynone'
     }
+    var display_answer
+    if(this.state.task_type == 8){
+      display_answer = 'displaynone'
+    }
     content_task_type = (
       <div>
         <p>Нумеровка картинок с единицы (минимальный ответ 1, максимальный - 9)</p>
@@ -115,7 +119,7 @@ const CreateTask = React.createClass({
           <div>11. (2)<input type='text' ref='pic11' placeholder='pic11' /></div>
           <div>12. (3)<input type='text' ref='pic12' placeholder='pic12' /></div>
         </div>
-        <input type='text' ref='answer' placeholder='Ответ (последовательность из цифр в правильном порядке)' />
+        <input className={display_answer} type='text' ref='answer' placeholder='Ответ (последовательность из цифр в правильном порядке)' />
         <button onClick={this.createTask1}>Созидаем!</button>
       </div>
 

@@ -4,19 +4,20 @@ const Profile = React.createClass({
     return (
       <div className='col col-press-18 col-profile'>
         <div className='card mbm profile-card'>
-          <div className='character'>
+          <div className='character col col-press-30'>
             <img src='/images/monsters/monster3.gif' />
           </div>
-          <div className='satiety twsb'>
+          <div className='satiety twsb col col-press-70'>
             <div className='name tcmc'>
               <span>Жутик-сука</span>
-              <a className='banana fr tcm'>
-                {score} score
-              </a>
+              <div className='coins tcm'>
+                <img src='/images/coin.png' /> {score}
+              </div>
             </div>
           </div>
+          <div className='clear'></div>
           <div className='profile-link bdrn bdrt bc-snow-light card-row card-row--south'>
-            Мой профиль
+            <a className='tcm'>Мой профиль</a>
           </div>
         </div>
         <div className='card mbl profile-menu'>
@@ -25,13 +26,13 @@ const Profile = React.createClass({
               <a className='list-item-link menu-item-link'>Друзья</a>
             </li>
             <li className='menu-item'>
-              <a className='list-item-link menu-item-link'>Стикеры</a>
+              <a className='list-item-link menu-item-link'>Бубуки</a>
             </li>
             <li className='menu-item'>
               <a className='list-item-link menu-item-link'>Платежи</a>
             </li>
             <li className='menu-item'>
-              <a className='list-item-link menu-item-link'>Настройки</a>
+              <a className= 'list-item-link menu-item-link'>Настройки</a>
             </li>
             <li className='menu-item'>
               <a className='list-item-link menu-item-link'>Выход</a>
@@ -42,3 +43,4 @@ const Profile = React.createClass({
     );
   }
 })
+

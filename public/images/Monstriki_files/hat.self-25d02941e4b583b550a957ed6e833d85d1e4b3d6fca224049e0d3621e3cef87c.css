@@ -1,0 +1,60 @@
+/* line 1, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/hat.css.scss.erb */
+.hat {
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+/* line 5, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/hat.css.scss.erb */
+.hat .menu-point {
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  bottom: 8px;
+  left: 30px;
+  margin-left: 20px;
+}
+/* line 13, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/hat.css.scss.erb */
+.hat .right-part {
+  float: right;
+  position: relative;
+  top: 14px;
+}
+/* line 17, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/hat.css.scss.erb */
+.hat .right-part .create-accaunt {
+  background-color: transparent;
+  border: 1px solid #ffae1c;
+  color: #ffae1c;
+  line-height: 2.5;
+  margin-right: 18px;
+}
+/* line 23, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/hat.css.scss.erb */
+.hat .right-part .create-accaunt:hover {
+  background-color: #ffae1c;
+  border-color: #ffae1c;
+  color: #fff;
+}
+/* line 29, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/hat.css.scss.erb */
+.hat .right-part .sign-in {
+  font-size: 15px;
+  font-weight: 400;
+  position: relative;
+  top: 2px;
+}
+
+/* line 37, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/hat.css.scss.erb */
+#header-logo {
+  position: relative;
+  top: 8px;
+}
+/* line 40, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/hat.css.scss.erb */
+#header-logo img {
+  width: 40px;
+}
+/* line 43, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/hat.css.scss.erb */
+#header-logo span {
+  font-family: 'BoomBoom';
+  font-size: 28px;
+  position: relative;
+  bottom: 14px;
+  left: 3px;
+}

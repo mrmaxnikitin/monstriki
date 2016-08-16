@@ -6,12 +6,24 @@
 
 # Ignore bundler config.
 /.bundle
-
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
+/.byebug_history
+/.idea
+database.yml
+mailer.yml
+secrets.yml.erb
+secrets.yml
+database.yml.erb
+npm-debug.log*
 
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
 /tmp
+/config/provision/keys
+/public/uploads
+# React on Rails
+npm-debug.log
+#node_modules
+
+# Generated js bundles
+/app/assets/webpack/*

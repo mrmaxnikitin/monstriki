@@ -1,0 +1,206 @@
+/* line 4, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#logo {
+  position: fixed;
+  top: 12px;
+  left: 14px;
+  width: 220px;
+}
+/* line 9, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#logo img {
+  width: 48px;
+}
+/* line 12, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#logo span {
+  font-family: 'BoomBoom';
+  font-size: 28px;
+  position: relative;
+  bottom: 18px;
+  left: 3px;
+}
+
+/* line 20, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+.welcome-slides {
+  height: 660px;
+}
+/* line 22, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+.welcome-slides h1 {
+  font-family: 'BoomBoom';
+  font-size: 40px;
+}
+
+/* line 27, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-1 {
+  height: 460px;
+  background: url(/images/sky.png) top right no-repeat #fff8ef;
+}
+/* line 30, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-1 .content {
+  position: relative;
+  top: 190px;
+  width: 80%;
+  margin: 0 8% 0 12%;
+}
+/* line 35, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-1 .content .welcome-slide-img {
+  width: 38%;
+  float: left;
+}
+/* line 39, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-1 .content .text-welcome-slide {
+  width: 62%;
+  padding: 40px 50px;
+  float: right;
+}
+/* line 43, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-1 .content .text-welcome-slide p {
+  font-size: 22px;
+}
+
+/* line 49, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-2 {
+  background: url(/images/hill.png) top no-repeat #84b341;
+  background-size: 100%;
+}
+/* line 52, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-2 .content {
+  position: relative;
+  top: 286px;
+  width: 80%;
+  margin: 0 8% 0 12%;
+}
+/* line 57, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-2 .content .welcome-slide-img {
+  width: 38%;
+  float: left;
+}
+/* line 61, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-2 .content .text-welcome-slide {
+  color: white;
+  width: 62%;
+  padding: 40px 50px;
+  float: right;
+}
+/* line 66, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-2 .content .text-welcome-slide p {
+  font-size: 22px;
+}
+
+/* line 72, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-3 {
+  background: url(/images/hill-welcome-slide-3.png) top no-repeat #fff8ef;
+  background-size: 100%;
+}
+/* line 75, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-3 .content {
+  position: relative;
+  top: 230px;
+  width: 80%;
+  margin: 0 8% 0 12%;
+}
+/* line 80, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-3 .content .welcome-slide-img {
+  width: 38%;
+  float: left;
+  position: relative;
+  top: -50px;
+}
+/* line 86, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-3 .content .text-welcome-slide {
+  width: 62%;
+  padding: 40px 50px;
+  float: right;
+}
+/* line 90, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-3 .content .text-welcome-slide p {
+  font-size: 22px;
+}
+
+/* line 96, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-3 {
+  background: url(/images/hill-welcome-slide-3.png) top no-repeat #fff8ef;
+  background-size: 100%;
+}
+/* line 99, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-3 .content {
+  position: relative;
+  top: 230px;
+  width: 80%;
+  margin: 0 8% 0 12%;
+}
+/* line 104, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-3 .content .welcome-slide-img {
+  width: 38%;
+  float: left;
+  position: relative;
+  top: -50px;
+}
+/* line 110, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-3 .content .text-welcome-slide {
+  width: 62%;
+  padding: 40px 50px;
+  float: right;
+}
+/* line 114, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-3 .content .text-welcome-slide p {
+  font-size: 22px;
+}
+
+/* line 120, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-4 {
+  background: url(/images/hill-welcome-slide-4.png) top no-repeat #fff8ef;
+  background-size: 100%;
+}
+/* line 123, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-4 .content {
+  position: relative;
+  top: 230px;
+  width: 80%;
+  margin: 0 8% 0 12%;
+}
+/* line 128, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-4 .content .welcome-slide-img {
+  width: 38%;
+  float: left;
+}
+/* line 132, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-4 .content .text-welcome-slide {
+  width: 62%;
+  padding: 40px 50px;
+  float: right;
+}
+/* line 136, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+#welcome-slide-4 .content .text-welcome-slide p {
+  font-size: 22px;
+}
+
+/* line 142, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+.parents-attraction {
+  background-image: url(/images/footer_bg2x.png);
+  background-size: cover;
+  background-color: #84b341;
+}
+
+/* line 147, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+.about-attraction {
+  background-image: url(/images/footer_bg2x.png);
+  background-size: cover;
+  background-color: #f77742;
+}
+
+/* line 152, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+.contacts-attraction {
+  background-image: url(/images/footer_bg2x.png);
+  background-size: cover;
+  background-color: #10bfaf;
+}
+
+/* line 157, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+.our-contacts-social {
+  max-width: 440px !important;
+}
+
+/* line 160, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/static_pages.css.scss */
+.our-contacts-mail {
+  font-size: 80px;
+  margin-bottom: 10px;
+}

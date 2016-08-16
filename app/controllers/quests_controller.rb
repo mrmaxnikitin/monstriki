@@ -2,8 +2,10 @@ class QuestsController < ApplicationController
 	before_action :find_quest, except: [:new, :create]
 	include ApplicationHelper
 	def index
-		@track = current_user.track
-		@quest = Quest.find(@track.current_quest)
+		if (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day
+			@track.next_quest
+			@track.save
+		end
 	end
 
 	def new
@@ -16,70 +18,40 @@ class QuestsController < ApplicationController
 		render 'new'
 	end
 
-	def complete_stage
-		@status_stage = current_user.track
-		if params[:stage] == '1'
-			@status_stage.status_stage1 = true
-		elsif params[:stage] == '2'
-			@status_stage.status_stage2 = true
-		elsif params[:stage] == '3'
-			@status_stage.status_stage3 = true
-		elsif params[:stage] == '4'
-			@status_stage.status_stage4 = true
-		end
-		@status_stage.save
-		render nothing: true
+	def finish_quest
+		@track.finish_quest
+		@track.save
+		redirect_to quests_path
 	end
 
-	def complete_quest
+	def next_quest
 		@track.next_quest
 		@track.save
 		redirect_to quests_path
 	end
 
-	def stage1
-		@task = Task.find(@quest.stage1[1])
+	def trip
 	end
-	def get_stage1
-		task_ids_str = Quest.find(current_user.track.current_quest).stage1
-		task_ids = make_array(task_ids_str)
 
+	def get_trip
+		if current_user.age == 3
+			task_ids_str = Quest.find(current_user.track.current_quest).age3
+		elsif current_user.age == 4
+			task_ids_str = Quest.find(current_user.track.current_quest).age4
+		elsif current_user.age == 5
+			task_ids_str = Quest.find(current_user.track.current_quest).age5
+		elsif current_user.age == 6
+			task_ids_str = Quest.find(current_user.track.current_quest).age6
+		elsif current_user.age == 7
+			task_ids_str = Quest.find(current_user.track.current_quest).age7
+		elsif current_user.age == 8
+			task_ids_str = Quest.find(current_user.track.current_quest).age8
+		end
+		task_ids = make_array(task_ids_str)
 		@tasks = Task.where(id: task_ids).all
 		render 'tasks/index', formats: :json
 	end
 
-	def stage2
-		@task = Task.find(@quest.stage2[1])
-	end
-	def get_stage2
-		task_ids_str = Quest.find(current_user.track.current_quest).stage2
-		task_ids = make_array(task_ids_str)
-
-		@tasks = Task.where(id: task_ids).all
-		render 'tasks/index', formats: :json
-	end
-
-	def stage3
-		@task = Task.find(@quest.stage3[1])
-	end
-	def get_stage3
-		task_ids_str = Quest.find(current_user.track.current_quest).stage3
-		task_ids = make_array(task_ids_str)
-
-		@tasks = Task.where(id: task_ids).all
-		render 'tasks/index', formats: :json
-	end
-
-	def stage4
-		@task = Task.find(@quest.stage4[1])
-	end
-	def get_stage4
-		task_ids_str = Quest.find(current_user.track.current_quest).stage4
-		task_ids = make_array(task_ids_str)
-
-		@tasks = Task.where(id: task_ids).all
-		render 'tasks/index', formats: :json
-	end
 
 	private
     def find_quest
@@ -87,3 +59,5 @@ class QuestsController < ApplicationController
 			@quest = Quest.find(@track.current_quest)
     end
 end
+
+

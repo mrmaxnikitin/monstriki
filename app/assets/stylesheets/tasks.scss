@@ -46,7 +46,9 @@
 .next-task{
   background-color: #00a8c4;
   margin-top: 12px;
-  margin-left: 12px;
+}
+.img-next-task{
+  width: 32px;
 }
 .repeat-task{
   background-color: #00a8c4;
@@ -71,14 +73,14 @@
 .wrong-task-result{
   h1{
     font-family: "Five Minutes";
-    font-size: 70px;
+    font-size: 26px;
     font-weight: 700;
   }
 }
 .right-task-result{
   h1{
     font-family: "Five Minutes";
-    font-size: 80px;
+    font-size: 26px;
     font-weight: 700;
   }
 }
@@ -86,8 +88,7 @@
   height: 100%;
   text-align: center;
   img{
-    height: 351px;
-    width: 468px !important;
+    width: 100%;
   }
 
 }
@@ -99,4 +100,16 @@
     background: #fcad26;
     box-shadow: 0 6px #e29512;
   }
+}
+.wrap-task-text{
+  width: 270px;
+  .task-text{
+    font-family: "Five Minutes";
+    font-weight: 600;
+    font-size: 21px;
+    color: #078ca2;
+  }
+}
+.col-task-main{
+  min-width: 909px;
 }

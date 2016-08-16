@@ -12,7 +12,7 @@ class UsersController < InheritedResources::Base
     @user = User.new user_params
     if @user.save
       auto_login @user
-      flash[:success] = "Добро пожаловать!"
+      Track.create(user_id: @user.id)
       redirect_to root_path
     else
       redirect_to parents_path

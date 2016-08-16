@@ -1,45 +1,16 @@
 class Track < ActiveRecord::Base
 	belongs_to :user
-
-	def number_of_completed_stages
-  	num = 0
-  	if self.status_stage1
-  		num+=1
-  	end
-  	if self.status_stage2
-  		num+=1
-  	end
-  	if self.status_stage3
-  		num+=1
-  	end
-  	if self.status_stage4
-  		num+=1
-  	end
-  	if self.status_stage5
-  		num+=1
-  	end
-  	if self.status_stage6
-  		num+=1
-  	end
-  	if self.status_stage7
-  		num+=1
-  	end
-  	if self.status_stage8
-  		num+=1
-  	end
-  	return num
+  def finish_quest
+    user = current_user
+    user.score += 10
+    user.save
+    self.complete_quest = true
+    save!
   end
-
   def next_quest
-    self.current_quest += 1
-    self.status_stage1 = 0
-    self.status_stage2 = 0
-    self.status_stage3 = 0
-    self.status_stage4 = 0
-    self.status_stage5 = 0
-    self.status_stage6 = 0
-    self.status_stage7 = 0
-    self.status_stage8 = 0
+    next_quest_id = Quest.where("id > :current_quest", {current_quest: self.current_quest}).minimum("id")
+    self.current_quest = next_quest_id
+    self.complete_quest = false
     save!
   end
 end

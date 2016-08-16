@@ -1,0 +1,2086 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon/icomoon.eot");
+  src: url("../fonts/icomoon/icomoon.eot?#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.woff") format("woff"), url("../fonts/icomoon/icomoon.ttf") format("truetype"), url("../fonts/icomoon/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* General button style (reset) */
+/* line 13, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 3px;
+}
+
+/* line 33, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* Pseudo elements for icons */
+/* line 43, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m:before,
+.icon-heart:after,
+.icon-star:after,
+.icon-plus:after,
+.icon-file:before {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 59, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-envelope:before {
+  content: "\e000";
+}
+
+/* line 63, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-cart:before {
+  content: "\e007";
+}
+
+/* line 67, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-cart-2:before {
+  content: "\e008";
+}
+
+/* line 71, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-heart:before {
+  content: "\e009";
+}
+
+/* Filled heart */
+/* line 76, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-heart:after,
+.icon-heart-2:before {
+  content: "\e00a";
+}
+
+/* line 81, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-star:before {
+  content: "\e00b";
+}
+
+/* Filled star */
+/* line 86, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-star:after,
+.icon-star-2:before {
+  content: "\e00c";
+}
+
+/* line 91, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-arrow-right:before {
+  content: "\e00d";
+}
+
+/* line 95, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-arrow-left:before {
+  content: "\e003";
+}
+
+/* line 99, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-truck:before {
+  content: "\e00e";
+}
+
+/* line 103, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-remove:before {
+  content: "\e00f";
+}
+
+/* line 107, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-cog:before {
+  content: "\e010";
+}
+
+/* line 111, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-plus:before,
+.icon-plus:after {
+  content: "\e011";
+}
+
+/* line 116, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-minus:before {
+  content: "\e012";
+}
+
+/* line 120, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.bh-icon-smiley:before {
+  content: "\e001";
+}
+
+/* line 124, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.bh-icon-sad:before {
+  content: "\e002";
+}
+
+/* line 128, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-file:before {
+  content: "\e004";
+}
+
+/* line 132, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.icon-remove-2:before {
+  content: "\e005";
+}
+
+/* Button 1 */
+/* line 137, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1 {
+  border: 3px solid #fff;
+  color: #fff;
+}
+
+/* Button 1a */
+/* line 143, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1a:hover,
+.btn-m-1a:active {
+  color: #0e83cd;
+  background: #fff;
+}
+
+/* Button 1b */
+/* line 150, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1b:after {
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+
+/* line 158, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1b:hover,
+.btn-m-1b:active {
+  color: #0e83cd;
+}
+
+/* line 163, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1b:hover:after,
+.btn-m-1b:active:after {
+  height: 100%;
+}
+
+/* Button 1c */
+/* line 169, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1c:after {
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+
+/* line 177, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1c:hover,
+.btn-m-1c:active {
+  color: #0e83cd;
+}
+
+/* line 182, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1c:hover:after,
+.btn-m-1c:active:after {
+  width: 100%;
+}
+
+/* Button 1d */
+/* line 188, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1d {
+  overflow: hidden;
+}
+
+/* line 192, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1d:after {
+  width: 0;
+  height: 103%;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  opacity: 0;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* line 205, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1d:hover,
+.btn-m-1d:active {
+  color: #0e83cd;
+}
+
+/* line 210, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1d:hover:after {
+  width: 90%;
+  opacity: 1;
+}
+
+/* line 215, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1d:active:after {
+  width: 101%;
+  opacity: 1;
+}
+
+/* Button 1e */
+/* line 221, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1e {
+  overflow: hidden;
+}
+
+/* line 225, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1e:after {
+  width: 100%;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  opacity: 0;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
+/* line 238, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1e:hover,
+.btn-m-1e:active {
+  color: #0e83cd;
+}
+
+/* line 243, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1e:hover:after {
+  height: 260%;
+  opacity: 1;
+}
+
+/* line 248, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1e:active:after {
+  height: 400%;
+  opacity: 1;
+}
+
+/* Button 1f */
+/* line 254, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1f {
+  overflow: hidden;
+}
+
+/* line 258, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1f:after {
+  width: 101%;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  opacity: 0;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* line 271, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1f:hover,
+.btn-m-1f:active {
+  color: #0e83cd;
+}
+
+/* line 276, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1f:hover:after {
+  height: 75%;
+  opacity: 1;
+}
+
+/* line 281, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-1f:active:after {
+  height: 130%;
+  opacity: 1;
+}
+
+/* Button 2 */
+/* line 287, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2 {
+  background: #cb4e4e;
+  color: #fff;
+  box-shadow: 0 6px #ab3c3c;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+/* Button 2a */
+/* line 297, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2a {
+  border-radius: 0 0 5px 5px;
+}
+
+/* line 301, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2a:hover {
+  box-shadow: 0 4px #ab3c3c;
+  top: 2px;
+}
+
+/* line 306, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2a:active {
+  box-shadow: 0 0 #ab3c3c;
+  top: 6px;
+}
+
+/* Button 2b */
+/* line 312, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2b {
+  border-radius: 0 0 5px 5px;
+}
+
+/* line 316, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2b:hover {
+  box-shadow: 0 8px #ab3c3c;
+  top: -2px;
+}
+
+/* line 321, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2b:active {
+  box-shadow: 0 0 #ab3c3c;
+  top: 6px;
+}
+
+/* Button 2c */
+/* line 327, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2c {
+  border-radius: 5px;
+}
+
+/* line 331, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2c:hover {
+  box-shadow: 0 4px #ab3c3c;
+  top: 2px;
+}
+
+/* line 336, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2c:active {
+  box-shadow: 0 0 #ab3c3c;
+  top: 6px;
+}
+
+/* Button 2d */
+/* line 342, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2d {
+  border-radius: 5px;
+}
+
+/* line 346, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2d:hover {
+  box-shadow: 0 8px #ab3c3c;
+  top: -2px;
+}
+
+/* line 351, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2d:active {
+  box-shadow: 0 0 #ab3c3c;
+  top: 6px;
+}
+
+/* Button 2e */
+/* line 357, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2e {
+  border-radius: 5px;
+  box-shadow: -6px 0 #ab3c3c;
+}
+
+/* line 362, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2e:hover {
+  box-shadow: -4px 0 #ab3c3c;
+  left: -2px;
+}
+
+/* line 367, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2e:active {
+  box-shadow: 0 0 #ab3c3c;
+  left: -6px;
+}
+
+/* Button 2f */
+/* line 373, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2f {
+  border-radius: 5px;
+  box-shadow: 6px 0 #ab3c3c;
+}
+
+/* line 378, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2f:hover {
+  box-shadow: 4px 0 #ab3c3c;
+  left: 2px;
+}
+
+/* line 383, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2f:active {
+  box-shadow: 0 0 #ab3c3c;
+  left: 6px;
+}
+
+/* Button 2g */
+/* line 389, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2g {
+  border-radius: 40px;
+}
+
+/* line 393, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2g:hover {
+  box-shadow: 0 4px #ab3c3c;
+  top: 2px;
+}
+
+/* line 398, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2g:active {
+  box-shadow: 0 0 #ab3c3c;
+  top: 6px;
+}
+
+/* Button 2h */
+/* line 404, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2h {
+  border-radius: 20px;
+}
+
+/* line 408, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2h:hover {
+  box-shadow: 0 4px #ab3c3c;
+  top: 2px;
+}
+
+/* line 413, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2h:active {
+  box-shadow: 0 0 #ab3c3c;
+  top: 6px;
+}
+
+/* Button 2i */
+/* line 419, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2i {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  padding: 0;
+}
+
+/* line 426, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2i:hover {
+  box-shadow: 0 4px #ab3c3c;
+  top: 2px;
+}
+
+/* line 431, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2i:active {
+  box-shadow: 0 0 #ab3c3c;
+  top: 6px;
+}
+
+/* Button 2j */
+/* line 437, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2j {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  padding: 0;
+}
+
+/* line 444, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2j:hover {
+  box-shadow: 0 8px #ab3c3c;
+  top: -2px;
+}
+
+/* line 449, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-2j:active {
+  box-shadow: 0 0 #ab3c3c;
+  top: 6px;
+}
+
+/* Button 3 */
+/* line 455, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3 {
+  background: #fcad26;
+  color: #fff;
+}
+
+/* line 460, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3:hover {
+  background: #f29e0d;
+}
+
+/* line 464, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3:active {
+  background: #f58500;
+  top: 2px;
+}
+
+/* line 469, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3:before {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  line-height: 3.7;
+  font-size: 140%;
+  width: 60px;
+}
+
+/* Button 3a */
+/* line 480, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3a {
+  padding: 25px 60px 25px 120px;
+}
+
+/* line 484, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3a:before {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Button 3b */
+/* line 489, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3b {
+  padding: 25px 60px 25px 120px;
+  border-radius: 10px;
+}
+
+/* line 494, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3b:before {
+  border-right: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Button 3c */
+/* line 499, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3c {
+  padding: 80px 20px 20px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px #da9622;
+}
+
+/* line 505, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3c:active {
+  box-shadow: 0 3px #dc7801;
+}
+
+/* line 509, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3c:before {
+  height: 60px;
+  width: 100%;
+  line-height: 60px;
+  background: #fff;
+  color: #f29e0d;
+  border-radius: 10px 10px 0 0;
+}
+
+/* line 518, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3c:active:before {
+  color: #f58500;
+}
+
+/* Button 3d */
+/* line 523, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3d {
+  padding: 25px 60px 25px 120px;
+  border-radius: 10px;
+}
+
+/* line 528, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3d:before {
+  background: #fff;
+  color: #fcad26;
+  z-index: 2;
+  border-radius: 10px 0 0 10px;
+}
+
+/* line 535, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3d:after {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  z-index: 1;
+  left: 55px;
+  top: 50%;
+  margin: -10px 0 0 -10px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* line 549, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3d:active:before {
+  color: #f58500;
+}
+
+/* line 553, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3d:active {
+  top: 0;
+}
+
+/* line 557, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3d:active:after {
+  left: 60px;
+}
+
+/* Button 3e */
+/* line 562, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3e {
+  padding: 25px 120px 25px 60px;
+  overflow: hidden;
+}
+
+/* line 567, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3e:before {
+  left: auto;
+  right: 10px;
+  z-index: 2;
+}
+
+/* line 573, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3e:after {
+  width: 30%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  right: 0;
+  top: 0;
+  margin: -5px 0 0 -5px;
+  -webkit-transform-origin: 0 0;
+  -webkit-transform: rotate(-20deg);
+  -moz-transform-origin: 0 0;
+  -moz-transform: rotate(-20deg);
+  -ms-transform-origin: 0 0;
+  -ms-transform: rotate(-20deg);
+  transform-origin: 0 0;
+  transform: rotate(-20deg);
+}
+
+/* line 591, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-3e:hover:after {
+  width: 40%;
+}
+
+/* Button 4 */
+/* line 596, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4 {
+  border-radius: 50px;
+  border: 3px solid #fff;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* line 603, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4:active {
+  border-color: #17954c;
+  color: #17954c;
+}
+
+/* line 608, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4:hover {
+  background: #24b662;
+}
+
+/* line 612, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4:before {
+  position: absolute;
+  height: 100%;
+  font-size: 125%;
+  line-height: 3.5;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* line 623, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4:active:before {
+  color: #17954c;
+}
+
+/* Button 4a */
+/* line 628, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4a:before {
+  left: 130%;
+  top: 0;
+}
+
+/* line 633, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4a:hover:before {
+  left: 80%;
+}
+
+/* Button 4b */
+/* line 638, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4b:before {
+  left: -50%;
+  top: 0;
+}
+
+/* line 643, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4b:hover:before {
+  left: 10%;
+}
+
+/* Button 4c */
+/* line 648, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4c:before {
+  left: 70%;
+  opacity: 0;
+  top: 0;
+}
+
+/* line 654, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4c:hover:before {
+  left: 80%;
+  opacity: 1;
+}
+
+/* Button 4d */
+/* line 660, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4d:before {
+  left: 30%;
+  opacity: 0;
+  top: 0;
+}
+
+/* line 666, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-4d:hover:before {
+  left: 10%;
+  opacity: 1;
+}
+
+/* Button 5 */
+/* line 672, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-5 {
+  background: #823aa0;
+  color: #fff;
+  height: 70px;
+  min-width: 260px;
+  line-height: 24px;
+  font-size: 16px;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* line 685, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-5:active {
+  background: #9053a9;
+  top: 2px;
+}
+
+/* line 690, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-5 span {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.3s;
+  -webkit-backface-visibility: hidden;
+  -moz-transition: all 0.3s;
+  -moz-backface-visibility: hidden;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+}
+
+/* line 702, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-5:before {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  line-height: 2.5;
+  font-size: 180%;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* line 713, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-5:active:before {
+  color: #703b87;
+}
+
+/* Button 5a */
+/* line 718, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-5a:hover span {
+  -webkit-transform: translateY(300%);
+  -moz-transform: translateY(300%);
+  -ms-transform: translateY(300%);
+  transform: translateY(300%);
+}
+
+/* line 725, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-5a:before {
+  left: 0;
+  top: -100%;
+}
+
+/* line 730, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-5a:hover:before {
+  top: 0;
+}
+
+/* Button 5b */
+/* line 735, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-5b:hover span {
+  -webkit-transform: translateX(200%);
+  -moz-transform: translateX(200%);
+  -ms-transform: translateX(200%);
+  transform: translateX(200%);
+}
+
+/* line 742, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-5b:before {
+  left: -100%;
+  top: 0;
+}
+
+/* line 747, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-5b:hover:before {
+  left: 0;
+}
+
+/* Button 6 */
+/* line 752, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6 {
+  color: #fff;
+  background: #226fbe;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+/* line 760, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6:active {
+  top: 2px;
+}
+
+/* Button 6a */
+/* line 765, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6a {
+  border: 4px solid #226fbe;
+}
+
+/* line 769, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6a:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+/* Button 6b */
+/* line 775, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6b {
+  border: 4px solid #226fbe;
+  border-radius: 15px;
+}
+
+/* line 780, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6b:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+/* Button 6c */
+/* line 786, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6c {
+  border: 4px solid #226fbe;
+  border-radius: 60px;
+}
+
+/* line 791, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6c:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+/* Button 6d */
+/* line 797, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6d {
+  border: 2px dashed #226fbe;
+}
+
+/* line 801, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6d:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+/* Button 6e */
+/* line 807, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6e {
+  border: 2px dashed #226fbe;
+  border-radius: 15px;
+}
+
+/* line 812, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6e:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+/* Button 6f */
+/* line 818, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6f {
+  border: 2px dashed #226fbe;
+  border-radius: 60px;
+}
+
+/* line 823, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6f:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+/* Button 6g */
+/* line 829, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6g {
+  border: 2px dotted #226fbe;
+}
+
+/* line 833, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6g:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+/* Button 6h */
+/* line 839, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6h {
+  border: 2px dotted #226fbe;
+  border-radius: 15px;
+}
+
+/* line 844, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6h:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+/* Button 6i */
+/* line 850, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6i {
+  border: 2px dotted #226fbe;
+  border-radius: 60px;
+}
+
+/* line 855, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6i:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+/* Button 6j */
+/* line 861, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6j {
+  border: 4px double #226fbe;
+}
+
+/* line 865, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6j:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+/* Button 6k */
+/* line 871, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6k {
+  border: 4px double #226fbe;
+  border-radius: 15px;
+}
+
+/* line 876, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6k:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+/* Button 6l */
+/* line 882, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6l {
+  border: 4px double #226fbe;
+  border-radius: 60px;
+}
+
+/* line 887, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-6l:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+/* Button 7 */
+/* line 893, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7 {
+  background: #17aa56;
+  color: #fff;
+  border-radius: 7px;
+  box-shadow: 0 5px #119e4d;
+  padding: 25px 60px 25px 90px;
+}
+
+/* Button 7a */
+/* line 902, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7a {
+  overflow: hidden;
+}
+
+/* line 906, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7a:before {
+  position: absolute;
+  left: 0;
+  width: 40%;
+  font-size: 160%;
+  line-height: 0.8;
+  color: #0a833d;
+}
+
+/* line 915, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7a.btn-m-activated {
+  -webkit-animation: fadeOutText 0.5s;
+  -moz-animation: fadeOutText 0.5s;
+  animation: fadeOutText 0.5s;
+}
+
+/* line 921, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7a.btn-m-activated:before {
+  -webkit-animation: moveToRight 0.5s;
+  -moz-animation: moveToRight 0.5s;
+  animation: moveToRight 0.5s;
+}
+
+@-webkit-keyframes fadeOutText {
+  0% {
+    color: transparent;
+  }
+  80% {
+    color: transparent;
+  }
+  100% {
+    color: #fff;
+  }
+}
+@-moz-keyframes fadeOutText {
+  0% {
+    color: transparent;
+  }
+  80% {
+    color: transparent;
+  }
+  100% {
+    color: #fff;
+  }
+}
+@keyframes fadeOutText {
+  0% {
+    color: transparent;
+  }
+  80% {
+    color: transparent;
+  }
+  100% {
+    color: #fff;
+  }
+}
+@-webkit-keyframes moveToRight {
+  80% {
+    -webkit-transform: translateX(250%);
+  }
+  81% {
+    opacity: 1;
+    -webkit-transform: translateX(250%);
+  }
+  82% {
+    opacity: 0;
+    -webkit-transform: translateX(250%);
+  }
+  83% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+  }
+  84% {
+    opacity: 1;
+    -webkit-transform: translateX(-50%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+@-moz-keyframes moveToRight {
+  80% {
+    -moz-transform: translateX(250%);
+  }
+  81% {
+    opacity: 1;
+    -moz-transform: translateX(250%);
+  }
+  82% {
+    opacity: 0;
+    -moz-transform: translateX(250%);
+  }
+  83% {
+    opacity: 0;
+    -moz-transform: translateX(-50%);
+  }
+  84% {
+    opacity: 1;
+    -moz-transform: translateX(-50%);
+  }
+  100% {
+    -moz-transform: translateX(0%);
+  }
+}
+@keyframes moveToRight {
+  80% {
+    transform: translateX(250%);
+  }
+  81% {
+    opacity: 1;
+    transform: translateX(250%);
+  }
+  82% {
+    opacity: 0;
+    transform: translateX(250%);
+  }
+  83% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  84% {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+/* Button 7b */
+/* line 973, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7b {
+  overflow: hidden;
+}
+
+/* line 977, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7b:before {
+  position: absolute;
+  left: 0;
+  width: 40%;
+  font-size: 160%;
+  line-height: 0.8;
+  color: #0a833d;
+}
+
+/* line 986, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7b.btn-m-activated:before {
+  -webkit-animation: scaleUp 0.5s;
+  -moz-animation: scaleUp 0.5s;
+  animation: scaleUp 0.5s;
+}
+
+@-webkit-keyframes scaleUp {
+  80% {
+    opacity: 0;
+    -webkit-transform: scale(2);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2);
+  }
+}
+@-moz-keyframes scaleUp {
+  80% {
+    opacity: 0;
+    -moz-transform: scale(2);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: scale(2);
+  }
+}
+@keyframes scaleUp {
+  80% {
+    opacity: 0;
+    transform: scale(2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+/* Icon only style */
+/* line 1026, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-icon-only {
+  font-size: 0;
+  padding: 25px 30px;
+}
+
+/* line 1031, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-icon-only:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 26px;
+  line-height: 54px;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Button 7c */
+/* line 1045, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7c {
+  overflow: hidden;
+}
+
+/* line 1049, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7c:before {
+  color: #fff;
+  z-index: 1;
+}
+
+/* line 1054, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7c:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 0;
+  width: 0;
+  background: #0a833d;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+/* line 1067, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7c.btn-m-activated:after {
+  -webkit-animation: fillToRight 0.7s forwards;
+  -moz-animation: fillToRight 0.7s forwards;
+  animation: fillToRight 0.7s forwards;
+}
+
+@-webkit-keyframes fillToRight {
+  to {
+    width: 100%;
+  }
+}
+@-moz-keyframes fillToRight {
+  to {
+    width: 100%;
+  }
+}
+@keyframes fillToRight {
+  to {
+    width: 100%;
+  }
+}
+/* Button 7d */
+/* line 1092, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7d {
+  overflow: hidden;
+}
+
+/* line 1096, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7d:before {
+  color: #fff;
+  z-index: 1;
+}
+
+/* line 1101, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7d:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  z-index: 0;
+  background: #21bb63;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+/* line 1114, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7d.btn-m-activated:after {
+  -webkit-animation: emptyBottom 0.7s forwards;
+  -moz-animation: emptyBottom 0.7s forwards;
+  animation: emptyBottom 0.7s forwards;
+}
+
+@-webkit-keyframes emptyBottom {
+  to {
+    height: 100%;
+  }
+}
+@-moz-keyframes emptyBottom {
+  to {
+    height: 100%;
+  }
+}
+@keyframes emptyBottom {
+  to {
+    height: 100%;
+  }
+}
+/* Button 7e */
+/* line 1139, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7e:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  font-size: 26px;
+  line-height: 54px;
+  color: #ea515e;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  opacity: 0;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+/* line 1159, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7e.btn-m-activated:after {
+  -webkit-animation: scaleFade 0.5s forwards;
+  -moz-animation: scaleFade 0.5s forwards;
+  animation: scaleFade 0.5s forwards;
+}
+
+@-webkit-keyframes scaleFade {
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2.5);
+  }
+}
+@-moz-keyframes scaleFade {
+  50% {
+    opacity: 1;
+    -moz-transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: scale(2.5);
+  }
+}
+@keyframes scaleFade {
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+/* Button 7f */
+/* line 1199, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7f:before {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+}
+
+/* line 1203, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7f:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  font-size: 26px;
+  line-height: 54px;
+  color: #ffe44d;
+  visibility: hidden;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ffe44d;
+  -webkit-transform: scale(4);
+  -moz-transform: scale(4);
+  -ms-transform: scale(4);
+  transform: scale(4);
+  opacity: 0;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+/* line 1226, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7f.btn-m-activated:after {
+  visibility: visible;
+  -webkit-animation: dropDown 0.3s forwards;
+  -moz-animation: dropDown 0.3s forwards;
+  animation: dropDown 0.3s forwards;
+}
+
+@-webkit-keyframes dropDown {
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+}
+@-moz-keyframes dropDown {
+  to {
+    opacity: 1;
+    -moz-transform: scale(1);
+  }
+}
+@keyframes dropDown {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Button 7g */
+/* line 1255, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7g:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  font-size: 26px;
+  line-height: 54px;
+  color: #0a833d;
+  visibility: hidden;
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+  opacity: 0;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+/* line 1276, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7g.btn-m-activated:after {
+  visibility: visible;
+  -webkit-animation: dropDownFade 0.5s forwards;
+  -moz-animation: dropDownFade 0.5s forwards;
+  animation: dropDownFade 0.5s forwards;
+}
+
+@-webkit-keyframes dropDownFade {
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.5);
+  }
+}
+@-moz-keyframes dropDownFade {
+  50% {
+    opacity: 1;
+    -moz-transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: scale(1.5);
+  }
+}
+@keyframes dropDownFade {
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+/* Button 7h */
+/* line 1318, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7h span {
+  display: inline-block;
+  width: 100%;
+}
+
+/* line 1323, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7h:before {
+  position: absolute;
+  left: 0;
+  width: 40%;
+  font-size: 160%;
+  line-height: 0.8;
+  color: #0a833d;
+}
+
+/* Success and error */
+/* line 1334, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-success,
+.btn-m-error {
+  color: transparent;
+}
+
+/* line 1339, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-success:after,
+.btn-m-error:after {
+  z-index: 1;
+  color: #fff;
+  left: 40%;
+}
+
+/* line 1346, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-success:before {
+  content: "\e001";
+}
+
+/* line 1350, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-success:after {
+  content: "Success!";
+  -webkit-animation: moveUp 0.5s;
+  -moz-animation: moveUp 0.5s;
+  animation: moveUp 0.5s;
+}
+
+@-webkit-keyframes moveUp {
+  0% {
+    -webkit-transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes moveUp {
+  0% {
+    -moz-transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
+@keyframes moveUp {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* line 1390, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-error {
+  -webkit-animation: shake 0.5s;
+  -moz-animation: shake 0.5s;
+  animation: shake 0.5s;
+}
+
+/* From Dan Eden's animate.css: http://daneden.me/animate/ */
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-moz-keyframes shake {
+  0%, 100% {
+    -moz-transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -moz-transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    -moz-transform: translateX(10px);
+  }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+/* line 1415, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-error:before {
+  content: "\e002";
+}
+
+/* line 1419, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-error:after {
+  content: "Error!";
+  -webkit-animation: scaleFromUp 0.5s;
+  -moz-animation: scaleFromUp 0.5s;
+  animation: scaleFromUp 0.5s;
+}
+
+@-webkit-keyframes scaleFromUp {
+  0% {
+    -webkit-transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+}
+@-moz-keyframes scaleFromUp {
+  0% {
+    -moz-transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: scale(1);
+  }
+}
+@keyframes scaleFromUp {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Special trash effect */
+/* line 1460, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.trash-effect {
+  position: relative;
+  max-width: 320px;
+  margin: 60px auto 0;
+}
+
+/* line 1466, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.trash-effect .icon-file {
+  font-size: 30px;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  top: 50%;
+  margin: -45px 0 0 -25px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  -webkit-transform: translateX(90px) translateY(20px) scale(1);
+  -moz-transform: translateX(90px) translateY(20px) scale(1);
+  -ms-transform: translateX(90px) translateY(20px) scale(1);
+  transform: translateX(90px) translateY(20px) scale(1);
+}
+
+/* line 1483, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.trash-effect .icon-file:nth-child(2) {
+  -webkit-transform: translateX(140px) translateY(-10px) scale(1);
+  -moz-transform: translateX(140px) translateY(-10px) scale(1);
+  -ms-transform: translateX(140px) translateY(-10px) scale(1);
+  transform: translateX(140px) translateY(-10px) scale(1);
+  -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+/* line 1493, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.trash-effect .icon-file:nth-child(3) {
+  -webkit-transform: translateX(140px) translateY(50px) scale(1);
+  -moz-transform: translateX(140px) translateY(50px) scale(1);
+  -ms-transform: translateX(140px) translateY(50px) scale(1);
+  transform: translateX(140px) translateY(50px) scale(1);
+  -webkit-transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+/* line 1503, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.trash-effect.trash-effect-active .icon-file {
+  -webkit-transform: translateX(-100px) translateY(-10px) scale(0);
+  -moz-transform: translateX(-100px) translateY(-10px) scale(0);
+  -ms-transform: translateX(-100px) translateY(-10px) scale(0);
+  transform: translateX(-100px) translateY(-10px) scale(0);
+}
+
+/* Button 7i */
+/* line 1511, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7i {
+  box-shadow: none;
+  border-radius: 0 0 7px 7px;
+  padding: 27px 33px;
+  -webkit-transform: translateX(-100px);
+  -moz-transform: translateX(-100px);
+  -ms-transform: translateX(-100px);
+  transform: translateX(-100px);
+}
+
+/* line 1521, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7i:before {
+  line-height: 45px;
+}
+
+/* line 1525, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-7i:after {
+  height: 11px;
+  /* should be 10px but in Chrome Version 34.0.1847.131 there's a gap because of the transform of the button */
+  width: 100%;
+  background: #17aa56;
+  border-radius: 7px 7px 0 0;
+  left: 0;
+  top: -10px;
+  z-index: 1;
+  -webkit-transform-origin: 0 100%;
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+}
+
+/* line 1539, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.trash-effect-active .btn-m-7i:after {
+  -webkit-animation: openTrash 0.5s;
+  -moz-animation: openTrash 0.5s;
+  animation: openTrash 0.5s;
+}
+
+@-webkit-keyframes openTrash {
+  50% {
+    -webkit-transform: rotate(-35deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+@-moz-keyframes openTrash {
+  50% {
+    -moz-transform: rotate(-35deg);
+  }
+  100% {
+    -moz-transform: rotate(0deg);
+  }
+}
+@keyframes openTrash {
+  50% {
+    transform: rotate(-35deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/* Button 8 */
+/* line 1573, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.perspective {
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  perspective: 800px;
+  display: inline-block;
+}
+
+/* line 1580, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8 {
+  display: block;
+  background: #5cbcf6;
+  outline: 1px solid transparent;
+  /* FF jagged edges fix */
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/* line 1589, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8:active {
+  background: #55b7f3;
+}
+
+/* Button 8a */
+/* line 1594, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8a:after {
+  width: 100%;
+  height: 42%;
+  /* should be 40% but there's a gap in Chrome Version 34.0.1847.131 */
+  left: 0;
+  top: -40%;
+  background: #49a7df;
+  -webkit-transform-origin: 0% 100%;
+  -webkit-transform: rotateX(90deg);
+  -moz-transform-origin: 0% 100%;
+  -moz-transform: rotateX(90deg);
+  transform-origin: 0% 100%;
+  transform: rotateX(90deg);
+}
+
+/* line 1608, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8a:hover {
+  -webkit-transform: rotateX(-15deg);
+  -moz-transform: rotateX(-15deg);
+  -ms-transform: rotateX(-15deg);
+  transform: rotateX(-15deg);
+}
+
+/* Button 8b */
+/* line 1616, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8b:after {
+  width: 100%;
+  height: 40%;
+  left: 0;
+  top: 100%;
+  background: #49a7df;
+  -webkit-transform-origin: 0% 0%;
+  -webkit-transform: rotateX(-90deg);
+  -moz-transform-origin: 0% 0%;
+  -moz-transform: rotateX(-90deg);
+  -ms-transform-origin: 0% 0%;
+  -ms-transform: rotateX(-90deg);
+  transform-origin: 0% 0%;
+  transform: rotateX(-90deg);
+}
+
+/* line 1632, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8b:hover {
+  -webkit-transform: rotateX(15deg);
+  -moz-transform: rotateX(15deg);
+  -ms-transform: rotateX(15deg);
+  transform: rotateX(15deg);
+}
+
+/* Button 8c */
+/* line 1640, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8c:after {
+  width: 21%;
+  /* should be 20% but there's a gap in Chrome Version 34.0.1847.131 */
+  height: 100%;
+  left: -20%;
+  top: 0;
+  background: #49a7df;
+  -webkit-transform-origin: 100% 0%;
+  -webkit-transform: rotateY(-90deg);
+  -moz-transform-origin: 100% 0%;
+  -moz-transform: rotateY(-90deg);
+  -ms-transform-origin: 100% 0%;
+  -ms-transform: rotateY(-90deg);
+  transform-origin: 100% 0%;
+  transform: rotateY(-90deg);
+}
+
+/* line 1656, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8c:hover {
+  -webkit-transform: rotateY(15deg);
+  -moz-transform: rotateY(15deg);
+  -ms-transform: rotateY(15deg);
+  transform: rotateY(15deg);
+}
+
+/* Button 8d */
+/* line 1664, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8d:after {
+  width: 20%;
+  height: 100%;
+  left: 100%;
+  top: 0;
+  background: #49a7df;
+  -webkit-transform-origin: 0% 0%;
+  -webkit-transform: rotateY(90deg);
+  -moz-transform-origin: 0% 0%;
+  -moz-transform: rotateY(90deg);
+  -ms-transform-origin: 0% 0%;
+  -ms-transform: rotateY(90deg);
+  transform-origin: 0% 0%;
+  transform: rotateY(90deg);
+}
+
+/* line 1680, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8d:hover {
+  -webkit-transform: rotateY(-15deg);
+  -moz-transform: rotateY(-15deg);
+  -ms-transform: rotateY(-15deg);
+  transform: rotateY(-15deg);
+}
+
+/* Button 8e */
+/* line 1688, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8e {
+  -webkit-transform: rotateX(-15deg);
+  -moz-transform: rotateX(-15deg);
+  -ms-transform: rotateX(-15deg);
+  transform: rotateX(-15deg);
+}
+
+/* line 1695, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8e:after {
+  width: 100%;
+  height: 42%;
+  /* should be 40% but there's a gap in Chrome Version 34.0.1847.131 */
+  left: 0;
+  top: -40%;
+  background: #49a7df;
+  -webkit-transform-origin: 0% 100%;
+  -webkit-transform: rotateX(90deg);
+  -moz-transform-origin: 0% 100%;
+  -moz-transform: rotateX(90deg);
+  -ms-transform-origin: 0% 100%;
+  -ms-transform: rotateX(90deg);
+  transform-origin: 0% 100%;
+  transform: rotateX(90deg);
+}
+
+/* line 1711, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8e:active {
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+/* Button 8f */
+/* line 1719, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8f {
+  -webkit-transform: rotateX(15deg);
+  -moz-transform: rotateX(15deg);
+  -ms-transform: rotateX(15deg);
+  transform: rotateX(15deg);
+}
+
+/* line 1726, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8f:after {
+  width: 100%;
+  height: 40%;
+  left: 0;
+  top: 100%;
+  background: #49a7df;
+  -webkit-transform-origin: 0% 0%;
+  -webkit-transform: rotateX(-90deg);
+  -moz-transform-origin: 0% 0%;
+  -moz-transform: rotateX(-90deg);
+  -ms-transform-origin: 0% 0%;
+  -ms-transform: rotateX(-90deg);
+  transform-origin: 0% 0%;
+  transform: rotateX(-90deg);
+}
+
+/* line 1742, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8f:active {
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+/* Button 8g */
+/* line 1750, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8g {
+  background: #fff;
+  color: #999;
+}
+
+/* line 1755, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8g:active {
+  background: #fff;
+}
+
+/* line 1759, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8g:after,
+.btn-m-8g:before {
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  line-height: 70px;
+}
+
+/* line 1769, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8g:after {
+  top: -98%;
+  /* should be -100% but there's a gap in Chrome Version 34.0.1847.131 */
+  background: #7aca7c;
+  color: #358337;
+  content: 'It worked!';
+  -webkit-transform-origin: 0% 100%;
+  -webkit-transform: rotateX(90deg);
+  -moz-transform-origin: 0% 100%;
+  -moz-transform: rotateX(90deg);
+  -ms-transform-origin: 0% 100%;
+  -ms-transform: rotateX(90deg);
+  transform-origin: 0% 100%;
+  transform: rotateX(90deg);
+}
+
+/* line 1784, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8g:before {
+  top: 100%;
+  background: #e96a6a;
+  color: #a33a3a;
+  content: 'Error!';
+  font-weight: 700;
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  -webkit-transform-origin: 0% 0%;
+  -webkit-transform: rotateX(-90deg);
+  -moz-transform-origin: 0% 0%;
+  -moz-transform: rotateX(-90deg);
+  -ms-transform-origin: 0% 0%;
+  -ms-transform: rotateX(-90deg);
+  transform-origin: 0% 0%;
+  transform: rotateX(-90deg);
+}
+
+/* line 1801, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8g.btn-m-success3d {
+  background: #aaa;
+  -webkit-transform-origin: 50% 100%;
+  -webkit-transform: rotateX(-90deg) translateY(100%);
+  -moz-transform-origin: 50% 100%;
+  -moz-transform: rotateX(-90deg) translateY(100%);
+  -ms-transform-origin: 50% 100%;
+  -ms-transform: rotateX(-90deg) translateY(100%);
+  transform-origin: 50% 100%;
+  transform: rotateX(-90deg) translateY(100%);
+}
+
+/* line 1813, /Users/maksim/Desktop/monstriki/app/assets/stylesheets/buttons.scss */
+.btn-m-8g.btn-m-error3d {
+  background: #aaa;
+  -webkit-transform-origin: 50% 0%;
+  -webkit-transform: rotateX(90deg) translateY(-100%);
+  -moz-transform-origin: 50% 0%;
+  -moz-transform: rotateX(90deg) translateY(-100%);
+  -ms-transform-origin: 50% 0%;
+  -ms-transform: rotateX(90deg) translateY(-100%);
+  transform-origin: 50% 0%;
+  transform: rotateX(90deg) translateY(-100%);
+}
