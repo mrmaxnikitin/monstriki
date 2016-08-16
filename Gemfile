@@ -21,6 +21,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'active_type'
 gem 'activeadmin', github: 'activeadmin'
 gem "js-routes"
+gem 'mailgun_rails'
 
 gem 'react-rails'
 gem 'react-bootstrap-rails'

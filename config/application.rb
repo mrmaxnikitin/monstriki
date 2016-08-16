@@ -23,8 +23,8 @@ module Monstriki
 
     config.action_mailer.delivery_method = :mailgun
     config.action_mailer.mailgun_settings = {
-          api_key: Rails.application.secrets.api_key,
-          domain: Rails.application.secrets.domain
+            api_key: mail_config['api_key'],
+            domain: mail_config['domain']
     }
 
     config.assets.initialize_on_precompile = false
