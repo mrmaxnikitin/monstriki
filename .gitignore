@@ -27,3 +27,6 @@ npm-debug.log
 
 # Generated js bundles
 /app/assets/webpack/*
+
+*.DS_Store
+config/deploy/test.rb
