@@ -21,13 +21,14 @@ module Monstriki
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml')]
       #EMAILING
 
-    config.action_mailer.delivery_method = :mailgun
-    config.action_mailer.mailgun_settings = {
-            api_key: mail_config['api_key'],
-            domain: mail_config['domain']
-    }
+    #config.action_mailer.delivery_method = :mailgun
+    #config.action_mailer.mailgun_settings = {
+    #        api_key: mail_config['api_key'],
+    #        domain: mail_config['domain']
+   # }
 
-    config.assets.initialize_on_precompile = false
+    #config.assets.initialize_on_precompile = false
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
