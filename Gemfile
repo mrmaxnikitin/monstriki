@@ -63,7 +63,11 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
   gem 'guard-rails'
-  gem 'unicorn'
 
 end
+
+group :production do
+  gem 'unicorn'
+  gem 'unicorn-rails'
+en
 
