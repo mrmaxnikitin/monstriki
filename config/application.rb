@@ -16,9 +16,9 @@ module Monstriki
     end
       #config.browserify_rails.commandline_options = "-t reactify --extension=\".js.jsx\""
       #LOCALIZATION
-    config.i18n.default_locale = :ru
-    config.time_zone = 'Europe/Moscow'
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml')]
+    #config.i18n.default_locale = :ru
+    #config.time_zone = 'Europe/Moscow'
+    #config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml')]
       #EMAILING
 
     #config.action_mailer.delivery_method = :mailgun

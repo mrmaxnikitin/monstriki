@@ -25,7 +25,6 @@ gem 'mailgun_rails'
 
 gem 'react-rails'
 gem 'react-bootstrap-rails'
-gem 'migration_data'
 gem 'better_errors'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

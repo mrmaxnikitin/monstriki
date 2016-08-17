@@ -18,10 +18,12 @@ class QuestsController < ApplicationController
 		render 'new'
 	end
 
-	def finish_quest
-		@track.finish_quest
+	def finish_trip
+		current_user.score += 10
+    current_user.save
+		@track.finish_trip
 		@track.save
-		redirect_to quests_path
+		render nothing: true
 	end
 
 	def next_quest

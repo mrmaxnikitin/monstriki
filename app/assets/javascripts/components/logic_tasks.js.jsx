@@ -90,9 +90,9 @@ const LogicTasks = React.createClass({
       var a = this.state.status_quest_tasks
       a[num_current_task] = true
       
-      if(this.state.sum_right_answers == this.state.tasks.length-1 && this.props.quest){
+      if((this.state.sum_right_answers == this.state.tasks.length-1 && this.props.quest) || (this.state.tasks.length == 1 && this.props.quest)){
         $.ajax({
-          url: '/quests/finish_quest',
+          url: '/quests/finish_trip',
           //dataType: 'json',
           type: 'POST',
           data: {

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     collection do
       get :trip
       get :get_trip
-      post :finish_quest
+      post :finish_trip
       get :next_quest
     end
   end
