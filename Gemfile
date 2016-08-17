@@ -54,6 +54,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   #for deploying
+
   gem 'capistrano'
   gem 'capistrano-rails-console'
   gem 'capistrano3-unicorn'
@@ -62,6 +63,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
   gem 'guard-rails'
+  gem 'unicorn'
 
 end
 
