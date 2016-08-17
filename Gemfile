@@ -55,14 +55,19 @@ group :development do
   gem 'web-console', '~> 2.0'
   #for deploying
 
-  gem 'capistrano'
-  gem 'capistrano-rails-console'
-  gem 'capistrano3-unicorn'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-rails'
+
+  gem 'capistrano', '~> 3.1.0'
+
+  # rails specific capistrano funcitons
+  gem 'capistrano-rails', '~> 1.1.0'
+
+  # integrate bundler with capistrano
   gem 'capistrano-bundler'
-  gem 'capistrano-rvm'
-  gem 'guard-rails'
+
+  # if you are using RBENV
+  gem 'capistrano-rbenv', "~> 2.0" 
+
+  # Use Unicorn as our app server
   gem 'unicorn'
 
 end
