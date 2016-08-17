@@ -25,7 +25,9 @@ gem 'mailgun_rails'
 
 gem 'react-rails'
 gem 'react-bootstrap-rails'
-
+gem 'migration_data'
+gem 'better_errors'
+gem 'react_on_rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
