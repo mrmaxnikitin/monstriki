@@ -13,11 +13,11 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-          api_key: mail_config['api_key'],
-          domain: mail_config['domain']
-  }
+  #config.action_mailer.delivery_method = :mailgun
+  #config.action_mailer.mailgun_settings = {
+  #        api_key: mail_config['api_key'],
+  #        domain: mail_config['domain']
+  #}
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like
