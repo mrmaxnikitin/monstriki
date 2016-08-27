@@ -1,0 +1,94 @@
+.payment-attraction{
+	/*background-image: url(https://d13yacurqjgara.cloudfront.net/users/22867/screenshots/1032615/attachments/124726/bg_stars_big.png);*/
+	background-size: cover;
+	background-color: #f9ad61;
+	height: 280px !important;
+}
+.col-payment-methods{
+	.wrap-payment-method{
+		padding: 10px 40px;
+		position: relative;
+		top: -200px;
+		text-align: center;
+		.payment-method-1{
+			background-color: #4eb5d8;
+		}
+		.payment-method-2{
+			background-color: rgb(64,199,129);
+		}
+		.payment-method-3{
+			background-color: #ff762f;
+		}
+		h3{
+			padding: 14px 0px 12px 0px;
+		}
+		h4{
+			color: white;
+			padding: 3px 0px 8px 0px;
+		}
+		a{
+			color: #58490d;
+			background: #ffd947;
+		}
+		img{
+			width: 60%;
+		}
+		.btn-m{
+			border-radius: 100px;
+			font-weight: 400;
+		}
+		.btn-m-5{
+			font-size: 14px !important;
+		}
+		.btn-m-5:active:before {
+		  color: #58490d;
+		}
+	}
+}
+
+
+.lets-pay{
+	background-image: url(/images/cyclops.png);
+	background-position: 100% 100%;
+	background-repeat: no-repeat;
+	background-size: 42%;
+	width: 90%;
+	.content{
+    padding-left: 1.25em;
+    .second-text{
+      font-size: 25px;
+      .text{
+        position: relative;
+        top: -10px;
+      }
+      img{
+        width: 50px;
+      }
+    }
+    .invitation-tomorrow{
+      font-size: 16px;
+    }
+    .actions{
+      margin: 15px 0px 10px 0px;
+      .btn{
+        font-size: 100%;
+      }
+      .buy{
+        margin-left: 10px;
+      }
+    }
+    h1{
+      color: #ff1e4a;
+      font-family: 'junegull';
+      font-size: 46px;
+      margin-bottom: 0;
+    }
+    p{
+      margin: 0 !important;
+      margin-top: 1em !important;
+    }
+  }
+  .img-lets-pay{
+    width: 100%;
+  }
+}

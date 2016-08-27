@@ -1,3 +1,32 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.entry-page{
+	.entry-form{
+		width: 40%;
+		min-width: 331px;
+		margin: auto;
+		select{
+			width: 100%;
+			margin-bottom: 7px;
+	    margin-top: 4px;
+		}
+		h2{
+			font-family: 'BoomBoom';
+			font-size: 300%;
+		}
+		form{
+			z-index: 100;
+			padding: 25px !important;
+			border: 1px solid #E7E7E7;
+			border-radius: 3px;
+			margin-top: 20px;
+			input{
+				width: 100%;
+				margin: 7px 0;
+			}
+		}
+	}
+}

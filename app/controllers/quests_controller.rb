@@ -1,5 +1,7 @@
 class QuestsController < ApplicationController
 	before_action :find_quest, except: [:new, :create]
+	before_filter :require_login
+	before_action :require_admin, only: [:new, :create]
 	include ApplicationHelper
 	def index
 		if (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day
@@ -19,8 +21,8 @@ class QuestsController < ApplicationController
 	end
 
 	def finish_trip
-		current_user.score += 10
-    current_user.save
+		current_user.score = params[:score]
+		current_user.save
 		@track.finish_trip
 		@track.save
 		render nothing: true
@@ -49,16 +51,16 @@ class QuestsController < ApplicationController
 		elsif current_user.age == 8
 			task_ids_str = Quest.find(current_user.track.current_quest).age8
 		end
-		task_ids = make_array(task_ids_str)
-		@tasks = Task.where(id: task_ids).all
+		#task_ids = make_array(task_ids_str)
+		@tasks = Task.where(id: task_ids_str).all
 		render 'tasks/index', formats: :json
 	end
 
 
 	private
     def find_quest
-      @track = current_user.track
-			@quest = Quest.find(@track.current_quest)
+      @track = current_user.track if current_user
+			@quest = Quest.find(@track.current_quest) if current_user
     end
 end
 

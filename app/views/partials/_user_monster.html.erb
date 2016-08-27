@@ -1,0 +1,29 @@
+<div class='col col-profile profile-huge'>
+	<div class='card mbm profile-card'>
+		<div class='character'>
+			<% monster_presence = user.user_monster.monster_id %>
+			<% if monster_presence != 0 %>
+				<img src='<%= Monster.find(user.user_monster.monster_id).avatar %>' />
+			<% else %>
+				<div class='choose-monstrik tac'>
+					<h1>Нету монстрика</h1>
+				</div>
+			<% end %>
+		</div>
+		<div class='satiety twsb'>
+			<div class='name tcmc'>
+				<span><%= user.user_monster.name %></span>
+				<div class='coins tcm'>
+					<img src='/images/coin.png' /> <%= user.score %>
+				</div>
+			</div>
+		</div>
+		<div class='clear'></div>
+		<div class='profile-link bdrn bdrt bc-snow-light card-row card-row--south'>
+			<%=link_to "Мой профиль", user_path(current_user), class: "tcm" %>
+		</div>
+	</div>
+	<div class='card mbl profile-menu'>
+		<%= render '/partials/left_menu' %>
+	</div>
+</div>

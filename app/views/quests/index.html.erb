@@ -5,10 +5,10 @@
 	<div class='cell'>
 		<%= render "/partials/profile_big" %>
 		<div class='col col-67proc ml-2proc'>
-			<% if current_user.track.complete_quest %>
+			<% if current_user.track.complete_quest == true %>
 				<div class='next-quest card mbl'>
 					<div class='col col-2of6'>
-						<% pic_number = rand(2) %>
+						<% pic_number = rand(4) %>
 						<img src='/images/next-quest-pics/next-quest-pic<%= pic_number %>.png' class='img-next-quest'/>
 					</div>
 					<div class='col col-4of6 content'>
@@ -26,10 +26,12 @@
 				</div>
 			<% end %>
 			<h2 class='h--thin mbm'><span class='prxs'>Квест на сегодня</span> <span class='tag tag--light tag--heading tag--heading--h2'>8-12 минут</span></h2>
-			<%= render "trip", status_quest: current_user.track.complete_quest, link_trip: trip_quests_path %>
+			<% if current_user.payment_end_date > Time.now %>
+				<%= render "trip", status_quest: current_user.track.complete_quest, link_trip: trip_quests_path %>
+			<% else %>
+				<%= render "/partials/lets_pay", text: "Новые квесты будут доступны после продления карты монстрика" %>
+			<% end %>
 		</div>
 		<%= render '/partials/alternative_column' %>
 	</div>
 </div>
-
-<%= render '/partials/ground' %>

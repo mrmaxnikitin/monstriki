@@ -3,7 +3,16 @@
 </div>
 <div class='row first-page-elm'>
 	<div class='cell'>
-		<%= react_component("LogicTasks",
-    	tasks_url: get_logic_tasks_path, score: current_user.score, quest: false ) %>
+		<% if current_user.payment_end_date > Time.now %>
+			<%= render '/partials/react_component_logic_tasks',  link: get_logic_tasks_path, quest: false, complete_quest: false %>
+		<% else %>
+			<%= render "/partials/lets_pay", text: "После продления карты монстрика тренировки станут доступны" %>
+		<% end %>
 	</div>
 </div>
+<style>
+	.lets-pay{
+		width: 70%;
+		margin: auto;
+	}
+</style>

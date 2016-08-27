@@ -3,23 +3,25 @@
 </div> -->
 <div class='row first-page-elm reg-page'>
 	<div class='cell'>
-		<div class='col col-2of6'>
-			<div class='reg-form card'>
-				<h2 class='tac'>Добро пожаловать!</h2>
-				<%= simple_form_for(@user, url: users_path, html: { class: 'registration-form' }) do |f| %>
+		<div class='reg-form'>
+			<%= simple_form_for(@user, url: users_path, html: { class: 'registration-form' }) do |f| %>
+					<div class='first-part tac card'>
+						<h2 class='tac'>Привет!</h2>
+			      <%= f.input :name, label: false, input_html: { class: 'input-sp',  placeholder: 'Как зовут ребенка?' } %>
+			      <%= f.input :age, collection: 3..8, label: false, prompt: "Сколько лет ребенку?" %>
+			      <%= f.input :goal, collection: [ "Подготовка к школе", "Развитие логики, памяти и внимания у ребенка", "Хочу развлечь ребенка с пользовй"], label: false, prompt: "Какая цель?" %>
+
+			      <a class='continue-reg btn btn-our btn-our-green'>Продолжить</a>
+			    </div>
+					<div class='second-part tac card displaynone'>
+						<h2 class='tac'>Уже почти готово!</h2>
 			      <%= f.input :email, label: false, input_html: { class: 'input-sp',  placeholder: 'Электронный адрес' } %>
 			      <%= f.input :password, label: false, input_html: { class: 'input-sp',  placeholder: 'Пароль' } %>
 			      <%= f.input :password_confirmation, label: false,  input_html: { class: 'input-sp',  placeholder: 'Повторите пароль' } %>
-			      <%= f.button :submit, 'Зарегистрироваться', class: 'btn btn-our btn-our-green' %>
-			  <% end %>
-			</div>
-		</div>
-		<div class='col col-4of6'>
-			
+			      <%= f.button :submit, 'Создать монстрика!', class: 'btn btn-our btn-our-green' %>
+			    </div>
+			<% end %>
 		</div>
 	</div>
 </div>
 
-<style>
-	
-</style>

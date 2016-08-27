@@ -5,12 +5,20 @@
 	
 }
 .reg-form{
-	width: 100%;
+	width: 40%;
 	min-width: 331px;
+	margin: auto;
+	select{
+		width: 100%;
+		margin-bottom: 7px;
+    margin-top: 4px;
+	}
 	h2{
 		font-family: 'BoomBoom';
+		font-size: 300%;
 	}
-	form{
+	.first-part, .second-part{
+		z-index: 100;
 		padding: 25px !important;
 		border: 1px solid #E7E7E7;
 		border-radius: 3px;
@@ -18,6 +26,15 @@
 		input{
 			width: 100%;
 			margin: 7px 0;
+		}
+	}
+	.continue-reg{
+		margin-top: 10px;
+	}
+	.field_with_errors{
+		margin-bottom: 14px;
+		.error{
+			color: #ff1e4a;
 		}
 	}
 }
@@ -36,19 +53,146 @@
 .user-page-menu{
 	background-color: white;
 	border: 1px solid #e2e8e9;
-	padding: 15px;
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+	.the-user-menu{
+		padding-left: 14px;
+	}
 	a{
 		font-size: 16px;
-		font-weight: 500;
+		font-weight: 400;
 		margin-right: 15px;
 	}
 }
 .user-page-profile{
 	position: relative;
 	top: -200px;
+	.info-user{
+		h3{
+			span{
+				color: #337ab7;
+			}
+		}
+		.quest-number{
+			font-size: 16px;
+		}
+	}
 }
 .users-attraction{
-	background-image: url(/images/fb_cover.png);
-	background-size: cover;
-	background-color: #316e7b;
+	background: linear-gradient(to top, #1d739e, #3394c5);
+	height: 280px !important;
+	padding-top: 120px !important;
+	/*animation: animatedBackground 60s linear infinite;
+	-moz-animation: animatedBackground 60s linear infinite;
+	-webkit-animation: animatedBackground 60s linear infinite;
+ 	-o-animation: animatedBackground 60s linear infinite;*/
 }
+.edit-user-data-form{
+	input[type='text'], input[type='password'], select{
+		width: 100% !important;
+    margin: 7px 0;
+	}
+	h2{
+		font-family: 'BoomBoom';
+    font-size: 300%;
+	}
+	form{
+		z-index: 100;
+    padding: 25px !important;
+    border: 1px solid #E7E7E7;
+    border-radius: 3px;
+    margin-top: 20px;
+	}
+}
+
+.wrap-monster-card{
+	.monster-card{
+		width: 500px;
+		.card{
+			height: 550px;
+			h1{
+				font-family: 'BoomBoom';
+				color: #357bb7;
+			}
+			img{
+				width: 100%;
+			}
+			.active-card{
+				color: rgb(64,199,129);
+			}
+			.inactive-card{
+				color: #ff1e4a;
+			}
+			.name-field{
+				margin-top: 10px;
+			}
+			.age-field{
+				color: #95989a;
+			}
+			.payment-field{
+				margin-top: 50px;
+				.wrap-button-pay{
+					font-size: 14px;
+					margin-top: 20px;
+				}
+			}
+		}
+	}
+}
+
+.the-user-info{
+	height: 150px;
+	padding-top: 50px;
+	.name-the-user-info{
+		color: white;
+		font-family: "junegull";
+		margin-bottom: 0 !important;
+	}
+	.age-the-user-info{
+		color: #e6e7e8;
+	}
+	.quest-number-the-user-info{
+		color: #e6e7e8;
+	}
+}
+
+.cloud{
+  opacity: 0.8;
+  position: absolute;
+  width: 100%;
+}
+@keyframes cloud-1 {
+  from {margin-left: -151px;}
+  to {margin-left: 100%;}
+}
+#cloud-1{
+    top: -110px;
+    -webkit-animation: cloud-1 76s linear infinite;
+    animation: cloud-1 76s linear infinite;
+}
+@keyframes cloud-2 {
+  from {margin-left: -1502px;}
+  to {margin-left: 100%;}
+}
+#cloud-2{
+    /*top: 140px;*/
+    top: -65px;
+    /*left: 70%;*/
+    -webkit-animation: cloud-2 121s linear infinite;
+    animation: cloud-2 121s linear infinite;
+}
+@keyframes cloud-3 {
+  from {margin-left: -600px;}
+  to {margin-left: 100%;}
+}
+#cloud-3{
+    top: 50px;
+    /*top: 210px;*/
+    /*left: 30%;*/
+    -webkit-animation: cloud-3 99s linear infinite;
+    animation: cloud-3 99s linear infinite;
+}
+
+
+
+

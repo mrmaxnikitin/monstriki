@@ -1,0 +1,16 @@
+<div class='row first-page-elm'>
+	<div class='cell'>
+		<div class='col col-press-18 col-profile'>
+			<%= render "/partials/profile_big" %>
+		</div>
+		<div class='col col-58proc col-main ml-2proc'>
+			<h2 class='h--thin mbm'><span class='prxs'>Продление срока карты монстрика</span></h2>
+			<%= simple_form_for(User.new, url: create_prolongation_users_path) do |f| %>
+				<%= f.input :id, label: false, placeholder: "id пользователя" %>
+				<%= f.input :payment_end_date, collection: [ 1, 3, 6], label: false, prompt: "На сколько месяцев?" %>
+		    <%= f.button :submit, 'Продлить срок', class: 'btn btn-our btn-our-green' %>
+		  <% end %>
+		</div>
+	</div>
+</div>
+

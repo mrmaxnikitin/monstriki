@@ -1,0 +1,13 @@
+<div class='cell'>
+	<div class='col col-press-25'>
+	</div>
+	<div class='col col-press-74 col-padding fr the-user-info'>
+		<h1 class='name-the-user-info'><%= @user.name %></h1>
+		<h3 class='age-the-user-info h--thin'><%= @user.age %> <%= age_text_form(@user.age) %></h3>
+		<h3 class='quest-number-the-user-info h--thin'>Квестов пройдено: <b><%= @user.track.current_quest - 1 %></b></h3>
+	</div>
+	<div class='clear'></div>
+	<div class = 'clouds'>
+    <%= render "partials/clouds" %>
+  </div>
+</div>

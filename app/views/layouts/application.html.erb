@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
   <script src="//cdn.jsdelivr.net/sortable/latest/Sortable.min.js"></script>
   <script src="https://npmcdn.com/react-motion/build/react-motion.js"></script>
+  <script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
 </head>
 <body>
 <header  class='row hat'>
@@ -19,35 +20,43 @@
 		<%= link_to 'Бубуки', things_path, class: "menu-point" %>
 		<div class='right-part'>
 			<% if logged_in? %>
-        <%= link_to 'Профиль', user_path(current_user), id: 'sign-in' %>
+        <%= link_to 'Мой профиль', user_path(current_user), id: 'sign-in' %>
       <% else %>
-				<button class='create-accaunt btn'>Создать аккаунт</button>
-				<a class='sign-in'>Войти</a>
+				<%= link_to 'Создать аккаунт', signup_path, class: 'create-accaunt btn' %>
+				<%= link_to 'Войти', signin_path %>
 			<% end %>
 		</div>
 	</div>
 </header>
 <%= yield %>
-<div id='pre-footer'></div>
-<div id='footer'>
-	<div class='row'>
-		<div class='cell'>
-			<div class='column info'>
-				<%= link_to "Родителям", parents_path %>
-				<a>Правила</a>
-				<%= link_to "О сайте", about_path %>
-				<%= link_to "Наши контакты", contacts_path %>
-			</div>
-			<div class='column logo'>
-				<img width='50' src ='/images/logo-img-opacity0.png' />
-			</div>
-			<div class='column contacts'>
-				<a><img src='/images/facebook.png' /></a>
-				<a><img src='/images/vk.png' /></a>
-				<a><img src='/images/odnoklassniki-logo.png' /></a>
+<div class='footer-pre-footer'>
+	<div id='pre-footer'></div>
+	<div id='footer'>
+		<div class='row'>
+			<div class='cell'>
+				<div class='column info'>
+					<%= link_to "Родителям", parents_path %>
+					<a>Правила</a>
+					<%= link_to "О сайте", about_path %>
+					<%= link_to "Наши контакты", contacts_path %>
+				</div>
+				<div class='column logo'>
+					<img width='50' src ='/images/logo-img-opacity0.png' />
+				</div>
+				<div class='column contacts'>
+					<a><img src='/images/facebook.png' /></a>
+					<a><img src='/images/vk.png' /></a>
+					<a><img src='/images/odnoklassniki-logo.png' /></a>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<% if logged_in? && current_user.user_things.all.count > 0 %>
+	<%= render '/partials/ground' %>
+<% end %>
+<% flash.each do |key, value| %>
+  <div class="animated flipInY alert alert-<%= key %>"><%= value %></div>
+<% end %>
 </body>
 </html>

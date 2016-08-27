@@ -7,7 +7,7 @@ const QuestTask = React.createClass({
   },
   render: function() {
     var item = this.props.item
-    var class_choosed_quest_task = 'card mbm element-quest-task'
+    var class_choosed_quest_task = 'card mbs element-quest-task'
     if(this.props.num_current_task == item){
       class_choosed_quest_task += ' choosed_quest_task'
     }

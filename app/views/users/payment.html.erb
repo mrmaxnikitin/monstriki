@@ -1,0 +1,47 @@
+<div class='attraction payment-attraction tac'>
+</div>
+<div class='row'>
+	<div class='cell mts col-payment-methods'>
+		<div class='col col-2of6 wrap-payment-method'>
+			<div class='card'>
+				<div class='payment-method-1'>
+					<img src='/images/payment-1.png' />
+					<h4>Самый простой вариант</h4>
+				</div>
+				<h3>На 1 месяц</h3>
+				<a class='btn-m btn-m-5 btn-m-5a icon-cart' data-toggle="modal" data-target="#modal_payment1"><span>Купить за 190 ₽</span></a>
+			</div>
+		</div>
+		<div class='col col-2of6 wrap-payment-method'>
+			<div class='card'>
+				<div class='payment-method-2'>
+					<img src='/images/payment-2.png' />
+					<h4>Самый популярный вариант</h4>
+				</div>
+				<h3>На 3 месяца</h3>
+				<a class='btn-m btn-m-5 btn-m-5a icon-cart' data-toggle="modal" data-target="#modal_payment2"><span>Купить за 490 ₽</span></a>
+			</div>
+		</div>
+		<div class='col col-2of6 wrap-payment-method'>
+			<div class='card'>
+				<div class='payment-method-3'>
+					<img src='/images/payment-3.png' />
+					<h4>Самый выгодный вариант</h4>
+				</div>
+				<h3>На 6 месяцев</h3>
+				<a class='btn-m btn-m-5 btn-m-5a icon-cart' data-toggle="modal" data-target="#modal_payment3"><span>Купить за 890 ₽</span></a>
+			</div>
+		</div>
+		<div class='clear'></div>
+	</div>
+</div>
+
+<%= render 'modal_payment1' %>
+<%= render 'modal_payment2' %>
+<%= render 'modal_payment3' %>
+
+<style>
+	body{
+		background-image: none;
+	}
+</style>

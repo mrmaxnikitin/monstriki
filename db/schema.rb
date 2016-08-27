@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811180110) do
+ActiveRecord::Schema.define(version: 20160824095929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "monsters", force: :cascade do |t|
+    t.string   "avatar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "quests", force: :cascade do |t|
     t.text     "age3",                    array: true
@@ -32,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160811180110) do
   create_table "tasks", force: :cascade do |t|
     t.string   "direction"
     t.integer  "task_type"
+    t.integer  "subtype"
     t.integer  "age"
     t.string   "text"
     t.string   "pic1"
@@ -42,15 +64,16 @@ ActiveRecord::Schema.define(version: 20160811180110) do
     t.string   "pic6"
     t.string   "pic7"
     t.string   "pic8"
-    t.string   "answer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "for_quest"
     t.string   "pic9"
     t.string   "pic10"
     t.string   "pic11"
     t.string   "pic12"
-    t.integer  "subtype"
+    t.string   "answer"
+    t.boolean  "in_quest",   default: false
+    t.boolean  "only_quest", default: false
+    t.boolean  "sample",     default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "things", force: :cascade do |t|
@@ -71,6 +94,16 @@ ActiveRecord::Schema.define(version: 20160811180110) do
 
   add_index "tracks", ["user_id"], name: "index_tracks_on_user_id", using: :btree
 
+  create_table "user_monsters", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "monster_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_monsters", ["user_id"], name: "index_user_monsters_on_user_id", using: :btree
+
   create_table "user_things", force: :cascade do |t|
     t.boolean  "active"
     t.integer  "user_id"
@@ -84,14 +117,15 @@ ActiveRecord::Schema.define(version: 20160811180110) do
   add_index "user_things", ["user_id"], name: "index_user_things_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                                       null: false
+    t.string   "email",                                                           null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.string   "name"
     t.integer  "age"
-    t.integer  "character"
     t.integer  "score",                           default: 0
-    t.integer  "goal"
+    t.string   "goal"
+    t.boolean  "admin",                           default: false
+    t.datetime "payment_end_date",                default: '2016-08-26 18:15:38'
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_me_token"
@@ -121,6 +155,7 @@ ActiveRecord::Schema.define(version: 20160811180110) do
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   add_foreign_key "tracks", "users"
+  add_foreign_key "user_monsters", "users"
   add_foreign_key "user_things", "things"
   add_foreign_key "user_things", "users"
 end

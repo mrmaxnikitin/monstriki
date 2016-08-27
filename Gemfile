@@ -22,6 +22,7 @@ gem 'active_type'
 gem 'activeadmin', github: 'activeadmin'
 gem "js-routes"
 gem 'mailgun_rails'
+gem 'devise'
 
 gem 'react-rails'
 gem 'react-bootstrap-rails'

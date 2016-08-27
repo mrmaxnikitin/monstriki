@@ -1,31 +1,43 @@
-<div class='attraction users-attraction tac'>
-</div>
-<div class='user-page-menu'>
-	<div class='cell'>
-		<div class='col col-press-25'>
-		</div>
-		<div class='col col-4of6 fr'>
-			<a>Стикеры</a>
-			<a>Настройки</a>
-		</div>
-		<div class='clear'></div>
+<div class='attraction users-attraction'>
+	<div class='row'>
+		<%= render 'user_attraction' %>
 	</div>
 </div>
-<div class='row first-page-elm'>
+<div class='row user-page-menu'>
+	
+</div>
+<div class='row'>
 	<div class='cell'>
 		<div class='col col-press-25 user-page-profile'>
-			<%= render "/partials/profile" %>
+			<%= render "/partials/user_monster", user: @user %>
 		</div>
-		<div class='col col-4of6 fr'>
-			<h2 class='h--thin mbm'><span class='prxs'>Настройки</span></h2>
-			<%= simple_form_for(@user, url: user_path(current_user), html: { class: 'registration-form' }) do |f| %>
-	      <%= f.input :name, label: false, input_html: { class: 'input-sp',  placeholder: 'Имя' } %>
-	      <%= f.input :age, label: false, input_html: { class: 'input-sp',  placeholder: 'Возраст' } %>
-	      <%= f.input :goal, label: false, input_html: { class: 'input-sp',  placeholder: 'Цель' } %>
-	      <%= f.button :submit, 'Сохранить', class: 'btn btn-our btn-our-green' %>
-		  <% end %>
+		<div class='col col-press-74 col-padding mts fr'>
+			<div class='col col-3of6'>
+				<div class='edit-user-data-form change-user-data-form card'>
+			  	<h2 class='tac'>Настройки</h2>
+					<%= simple_form_for(@user, url: user_path(current_user), html: { class: 'edit-user-data' }) do |f| %>
+			      <%= f.input :name, label: false, input_html: { placeholder: 'Имя' } %>
+			      <%= f.input :age, collection: 3..8, label: false, prompt: "Сколько лет ребенку?" %>
+			      <%= f.input :goal, collection: [ "Подготовка к школе", "Развитие логики, памяти и внимания у ребенка", "Хочу развлечь ребенка с пользовй"], label: false, prompt: "Какая цель?" %>
+			      <a class='link-change-password'>Сменить пароль</a>
+			      <%= f.button :submit, 'Сохранить', class: 'btn btn-our btn-our-green fr' %>
+				  <% end %>
+				</div>
+				<div class='edit-user-data-form change-password-form displaynone card'>
+			  	<h2 class='tac'>Смена пароля</h2>
+					<%= simple_form_for(User.new, url: change_password_resets_path, html: { id: "change-password-form" }) do |f| %>
+		        <%= f.password_field :current_password, placeholder: 'Текущий пароль', required: true %>
+		        <%= f.password_field :password, placeholder: 'Новый пароль', required: true %>
+		        <%= f.password_field :password_confirmation, placeholder: 'Повторите новый пароль', required: true %>
+		        <a class='link-change-data-user'> <–– Назад</a>
+		        <%= f.button :submit, 'Сохранить', class: 'btn btn-our btn-our-green fr' %>
+		      <% end %>
+				</div>
+			</div>
+
 		</div>
 	</div>
+	<div class='clear'></div>
 </div>
 
 

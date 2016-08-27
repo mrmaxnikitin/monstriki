@@ -52,6 +52,23 @@ const LogicTasks = React.createClass({
       status_current_task: 0
     });
   },
+  task_result: function(task_status){
+    if(task_status == 1){
+      return(
+        <div className='card right-task-result result-task animated slideInDown'>
+          <img src='/images/task_result/success2.png' />
+          <h1>Правильно!</h1>
+        </div>
+      );
+    }else if(task_status == -1){
+      return(
+        <div className='card wrong-task-result result-task animated slideInDown'>
+          <img src='/images/task_result/error2.png' />
+          <h1>Ошибся! Попробуй еще разок.</h1>
+        </div>
+      );
+    }
+  },
   repeatTask: function() {
     this.setState({
       status_current_task: 0,
@@ -89,32 +106,24 @@ const LogicTasks = React.createClass({
     if(user_answer == real_answer){
       var a = this.state.status_quest_tasks
       a[num_current_task] = true
-      
-      if((this.state.sum_right_answers == this.state.tasks.length-1 && this.props.quest) || (this.state.tasks.length == 1 && this.props.quest)){
-        $.ajax({
-          url: '/quests/finish_trip',
-          //dataType: 'json',
-          type: 'POST',
-          data: {
-          },
-          success: function(data) {
-          }.bind(this),
-          error: function(xhr, status, err) {
-            console.error("ОШИБКА1", status, err.toString());
-          }.bind(this)
-        });
-      }
+
+      var new_score
+      if(this.props.complete_quest)
+        new_score = score
+      else
+        new_score = score + 2 - number_of_attempts
+
       $.ajax({
         url: '/tasks/reward',
         //dataType: 'json',
         type: 'POST',
         data: {
-          score: score + 2 - number_of_attempts
+          score: new_score
         },
         success: function(data) {
           this.setState({
             status_current_task: 1,
-            score: score + 2 - number_of_attempts,
+            score: new_score,
             sum_right_answers: this.state.sum_right_answers + 1,
             status_quest_tasks: a
           });
@@ -123,6 +132,25 @@ const LogicTasks = React.createClass({
           console.error("ОШИБКА", status, err.toString());
         }.bind(this)
       });
+
+      if((this.state.sum_right_answers == this.state.tasks.length-1 && this.props.quest) || (this.state.tasks.length == 1 && this.props.quest)){
+        var score_for_quest = 10
+        if(this.props.complete_quest) score_for_quest = 0;
+        $.ajax({
+          url: '/quests/finish_trip',
+          //dataType: 'json',
+          type: 'POST',
+          data: {
+            score: new_score + score_for_quest
+          },
+          success: function(data) {
+          }.bind(this),
+          error: function(xhr, status, err) {
+            console.error("ОШИБКА1", status, err.toString());
+          }.bind(this)
+        });
+      }
+
     }else{
       var number_of_attempts = this.state.number_of_attempts + 1
       if(number_of_attempts > 1) number_of_attempts = 1
@@ -138,7 +166,7 @@ const LogicTasks = React.createClass({
       stage_tasks = this.state.tasks.map(function (task, i) {
         return (
           <QuestTask 
-            key={task.id + 100}
+            key={task.id + 150}
             task={task}
             chooseQuestTask={this.chooseQuestTask}
             item={i}
@@ -163,6 +191,7 @@ const LogicTasks = React.createClass({
               quest={this.props.quest}
               sum_right_answers={this.state.sum_right_answers}
               tasks_length={this.state.tasks.length}
+              task_result={this.task_result}
               />
           );
           break
@@ -292,39 +321,17 @@ const LogicTasks = React.createClass({
     }.bind(this));
 
     var content_task = tasks[this.state.num_current_task]
-    /*if(this.state.status_current_task == 1){
-      if(this.state.sum_right_answers == this.state.tasks.length && this.props.quest){
-        content_task = (
-          <div className='card right-task-result result-task finish-quest animated zoomIn'>
-            <h1>Все задания выполнены верно!</h1>
-            <img src='/images/right_task_result1.png' />
-            <div className='complete-quest'>
-              <a className="btn-m btn-m-2 btn-m-2c" href='/quests'>Ура!</a>
-            </div>
-          </div>
-        );
-      }else{
-        content_task = (
-          <div className='card right-task-result result-task animated zoomIn'>
-            <img src='/images/right_task_result1.png' />
-            <h1>Правильно!</h1>
-          </div>
-        );
-      }
-    }else if(this.state.status_current_task == -1){
-      content_task = (
-        <div className='card wrong-task-result result-task animated zoomIn'>
-          <img src='/images/wrong_task_result1.png' />
-          <h1>Ошибся! Попробуй еще разок.</h1>
-        </div>
-      );
-    }*/
     var score = this.state.score
 
     var profile = (
       <Profile
         key={1}
         score={score}
+        monster_avatar={this.props.monster_avatar}
+        monster_name={this.props.monster_name}
+        profile_link={this.props.profile_link}
+        monster_card_link={this.props.monster_card_link}
+        setting_link={this.props.setting_link}
         />
     );
 
@@ -332,6 +339,10 @@ const LogicTasks = React.createClass({
       <div>
         {profile}
         <div className='col col-task-main col-67proc ml-2proc'>
+          <div className='quest-tasks'>
+            {stage_tasks}
+          </div>
+          <div className='clear'></div>
           {content_task}
         </div>
       </div>

@@ -1,15 +1,17 @@
 const ProfileBig = React.createClass({
   render: function() {
     var score = this.props.score
+    var monster_name = this.props.monster_name
+    var monster_avatar = this.props.monster_avatar
     return (
       <div className='col col-press-18 col-profile'>
         <div className='card mbm profile-card'>
           <div className='character'>
-            <img src='/images/monsters/monster3.gif' />
+            <img src={monster_avatar} />
           </div>
           <div className='satiety twsb'>
             <div className='name tcmc'>
-              <span>Жутик-сука</span>
+              <span>{monster_name}</span>
               <a className='coins fr tcm'>
                 <img src='/images/coin.png' /> {score}
               </a>

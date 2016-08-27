@@ -1,0 +1,12 @@
+<div class='cell'>
+	<div class='col col-press-25'>
+	</div>
+	<div class='col col-press-74 fr the-user-menu'>
+		<%= link_to 'Профиль', user %>
+		<% if current_user?(@user) %>
+			<%= link_to 'Карта монстрика', monster_card_path %>
+			<%= link_to 'Настройки', edit_user_path(current_user) %></a>
+		<% end %>
+	</div>
+	<div class='clear'></div>
+</div>

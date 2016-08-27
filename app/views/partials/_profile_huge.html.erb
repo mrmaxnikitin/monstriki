@@ -1,0 +1,41 @@
+<% if current_user %>
+	<div class='col col-profile profile-huge'>
+		<div class='card mbm profile-card'>
+			<div class='character'>
+				<% monster_presence = current_user.user_monster.monster_id %>
+				<% if monster_presence != 0 %>
+					<img src='<%= Monster.find(current_user.user_monster.monster_id).avatar %>' />
+				<% else %>
+					<div class='choose-monstrik tac'>
+						<%= link_to monstrik_path do %>
+							<h1>Выберите монстрика</h1>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+			<div class='satiety twsb'>
+				<div class='name tcmc'>
+					<span><%= current_user.user_monster.name %></span>
+					<div class='coins tcm'>
+						<img src='/images/coin.png' /> <%= current_user.score %>
+					</div>
+				</div>
+			</div>
+			<div class='clear'></div>
+			<div class='profile-link bdrn bdrt bc-snow-light card-row card-row--south'>
+				<%=link_to "Мой профиль", user_path(current_user), class: "tcm" %>
+			</div>
+		</div>
+		<div class='card mbl profile-menu'>
+			<%= render '/partials/left_menu' %>
+		</div>
+	</div>
+<% else %>
+	<div class='col col-profile profile-huge'>
+		<div class='card mbm profile-card'>
+			<img src='/images/unreg.png' />
+			<%= link_to 'Жми и поехали!', signup_path, class: 'butn medium blue rounded w--100 mbs' %>
+		</div>
+	</div>
+<% end %>
+

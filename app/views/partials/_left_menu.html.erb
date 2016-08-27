@@ -1,0 +1,12 @@
+<ul>
+	<li class='menu-item'>
+		<% if expiry_monster_card? %>
+			<span class='indicator-monster-card fr pulse'></span>
+		<% end %>
+		<%= link_to "Карта монстрика", monster_card_path, class: "list-item-link menu-item-link" %>
+	</li>
+	<li class='menu-item'>
+		<%= link_to "Настройки", edit_user_path(current_user), class: "list-item-link menu-item-link" %>
+	</li>
+</ul>
+

@@ -111,20 +111,8 @@ const Task8 = React.createClass({
           <p className='task-text'>{task.text}</p>
         </div>
       );
-    }else if(this.props.status_current_task == 1){
-      result_task = (
-        <div className='card right-task-result result-task animated slideInDown'>
-          <img src='/images/right_task_result1.png' />
-          <h1>Правильно!</h1>
-        </div>
-      );  
-    }else if(this.props.status_current_task == -1){
-      result_task = (
-        <div className='card wrong-task-result result-task animated slideInDown'>
-          <img src='/images/wrong_task_result1.png' />
-          <h1>Ошибся! Попробуй еще разок.</h1>
-        </div>
-      );
+    }else{
+      result_task = this.props.task_result(this.props.status_current_task)
     }
 
     return (

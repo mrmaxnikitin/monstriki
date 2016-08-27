@@ -1,4 +1,5 @@
 class ThingsController < ApplicationController
+	before_action :require_admin, only: [:new, :create]
 	def index
 		@things = Thing.all
 	end

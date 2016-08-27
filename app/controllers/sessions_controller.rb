@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_back_or_to root_path
     else
       @sign_in.set_error
-      redirect_to signin_path
+      render 'new'
     end
   end
 

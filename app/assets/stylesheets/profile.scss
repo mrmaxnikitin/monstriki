@@ -65,3 +65,35 @@
 .col-profile{
   min-width: 190px;
 }
+.profile-big{
+	.choose-monstrik{
+		height: 200px;
+		background-color: #e2e8e9;
+		padding: 10px;
+		padding-top: 50px;
+		h2{
+			color: #98a1a2;
+		}
+	}
+}
+.profile-huge{
+	.choose-monstrik{
+		height: 280px;
+		background-color: #e2e8e9;
+		padding: 10px;
+		padding-top: 50px;
+		h1{
+			color: #98a1a2;
+		}
+	}
+}
+
+.indicator-monster-card{
+  width: 20px;
+  height: 20px;
+  background-color: #ff1e4a;
+  position: relative;
+  top: 11px;
+  border-radius: 100px;
+}
+

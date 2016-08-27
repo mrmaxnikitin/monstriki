@@ -1,0 +1,73 @@
+
+.edit-monstrik-page{
+	width: 80%;
+	min-height: 600px;
+	margin: auto;
+	.choose-monstrik{
+		height: 280px;
+		background-color: #e2e8e9;
+		padding: 10px;
+		padding-top: 50px;
+		h1{
+			color: #98a1a2;
+		}
+	}
+	.edit-monstrik-card{
+		.character{
+			img{
+				width: 100%;
+    		border-radius: 2px;
+    	}
+		}
+		.name{
+			font-size: 26px;
+	    font-family: 'Junegull';
+	    .change-name{
+	    	font-size: 14px;
+	    	margin-top: 10px;
+	    }
+	    input[type="text"]{
+	    	width: 100%;
+	    	text-align: center;
+	    }
+  	}
+	}
+
+	.monster{
+		margin-right: 2%;
+		margin-bottom: 1.25em !important;
+		width: 31%;
+		min-width: 180px;
+		img{
+			width: 100%;
+			margin-bottom: 6px;
+		}
+		h5{
+			margin-top: 4px;
+		  margin-bottom: 8px;
+		}
+		.price{
+			font-weight: 400;
+			position: relative;
+			top: 2px;
+			img{
+			  width: 24px;
+		    position: relative;
+		    top: 7px;
+		    right: 3px;
+		    margin-bottom: 0px;
+			}
+		}
+		.buy-monster{
+			margin: 6px 0 4px 0;
+			line-height: 2.3;
+			padding: 0 1em;
+		}
+		.already-exist-monster{
+			background-color: transparent;
+			border: 1px solid #d2d2d2;
+			color: #6d6d6d;
+		}
+	}
+
+}

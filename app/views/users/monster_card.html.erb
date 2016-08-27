@@ -1,0 +1,39 @@
+<div class='row wrap-monster-card'>
+	<div class='cell mtm'>
+		<div class='monster-card ma col-padding'>
+			<div class='card tac'>
+				<h1>Карта монстрика</h1>
+				<img src='/images/pic_monster_card.png' />
+				<h2 class='name-field'><%= current_user.name %></h2>
+
+				<% 
+					age = current_user.age
+					age_text = 'лет'
+					if age == 3  || age == 4
+						age_text = 'года'
+					end
+				%>
+				<h4 class='age-field'><%= age %> <%= age_text %></h4>
+
+				<% 
+					payment_end_date = current_user.payment_end_date
+					payment_text = 'Карта действительна до:'
+					payment_class_date = 'active-card'
+					payment_class_pay = 'displaynone'
+					if expiry_monster_card?
+						payment_text = 'Срок действия карты истек:'
+						payment_class_date = 'inactive-card'
+						payment_class_pay = ''
+					end
+				%>
+				<h3 class='payment-field'><%= payment_text %>
+					<div class='<%= payment_class_date %>'><%= payment_end_date %></div>
+					<div class='wrap-button-pay'>
+						<%= link_to 'Продлить', payment_path, class: 'btn btn-our-green '+payment_class_pay %>
+					</div>
+				</h3>
+			</div>
+		</div>
+		<div class='clear'></div>
+	</div>
+</div>

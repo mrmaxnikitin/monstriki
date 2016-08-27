@@ -10,4 +10,11 @@ module ApplicationHelper
 	  end
   	return a
   end
+
+  def age_text_form(age)
+    if age == 3 || age == 4
+      return "года"
+    end
+    return "лет"
+  end
 end

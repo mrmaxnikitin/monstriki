@@ -22,8 +22,11 @@ const CreateTask = React.createClass({
     var direction_input = ReactDOM.findDOMNode(this.refs.direction)
     var age_input = ReactDOM.findDOMNode(this.refs.age)
     var text_input = ReactDOM.findDOMNode(this.refs.text)
-    var for_quest_input = ReactDOM.findDOMNode(this.refs.for_quest)
-    var direction = direction_input.value.trim(), age = age_input.value.trim(), text = text_input.value.trim(), for_quest = for_quest_input.checked
+    var in_quest_input = ReactDOM.findDOMNode(this.refs.in_quest)
+    var only_quest_input = ReactDOM.findDOMNode(this.refs.only_quest)
+    var sample_input = ReactDOM.findDOMNode(this.refs.sample)
+    var direction = direction_input.value.trim(), age = age_input.value.trim(), text = text_input.value.trim()
+    var in_quest = in_quest_input.checked, only_quest = only_quest_input.checked, sample = sample_input.checked
 
     var pic1_input = ReactDOM.findDOMNode(this.refs.pic1)
     var pic2_input = ReactDOM.findDOMNode(this.refs.pic2)
@@ -65,7 +68,7 @@ const CreateTask = React.createClass({
       pic11: pic11,
       pic12: pic12,
       answer: answer,
-      for_quest: for_quest
+      in_quest: in_quest
     };
     $.ajax({
       url: '/tasks',
@@ -155,7 +158,9 @@ const CreateTask = React.createClass({
           <option value='4'>4</option>
           <option value='5'>5</option>
         </select>
-        <div>Ставить галочку, если хотим, чтобы она не была в квестах <input type='checkbox' value='1' ref='for_quest' name='for_quest'/></div>
+        <div>Ставить галочку, если хотим, чтобы она не была в квестах <input type='checkbox' value='1' ref='in_quest' name='in_quest'/></div>
+        <div>Ставить галочку, если задание только для квестов <input type='checkbox' value='1' ref='only_quest' name='only_quest'/></div>
+        <div>Ставить галочку, если задание для примера <input type='checkbox' value='1' ref='sample' name='sample'/></div>
         {content_task_type}
       </div>
     );

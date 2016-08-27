@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root 'static_pages#welcome'
   
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users
+  resources :users do
+    post :create_prolongation, on: :collection
+  end
+  resources :password_resets, only: [:new, :create, :edit, :update] do
+    post :change, on: :collection
+  end
+  resources :user_monsters do
+    collection do
+      post :buy_monster
+      post :rename_monster
+    end
+  end
   resources :user_things do
     collection do
       get :get_things
@@ -27,12 +39,17 @@ Rails.application.routes.draw do
     end
   end
   resources :things
+  resources :monsters
 
   get 'start' => 'quests#index'
 
   get 'logout' => 'sessions#destroy'
   get 'signin' => 'sessions#new'
   get 'signup' => 'users#new'
+  get 'monstrik' => 'monsters#index'
+  get 'payment' => 'users#payment'
+  get 'monster_card' => 'users#monster_card'
+  get 'prolongation' => 'users#prolongation'
   
   get 'parents' => 'static_pages#parents'
   get 'about' => 'static_pages#about'

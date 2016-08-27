@@ -78,7 +78,8 @@
   }
 }
 .choosed_quest_task{
-  box-shadow: 0 0px 7px rgba(0, 0, 0, 0.2) !important;
+  background-color: #ffc766 !important;
+  /*box-shadow: 0 0px 7px rgba(0, 0, 0, 0.2) !important;*/
 }
 .complete-quest-task{
 
@@ -150,9 +151,22 @@
     width: 100%;
   }
 }
-.element-quest-task{
-  width: 120px;
+.quest-tasks{
+  position: fixed;
+  top: 98px;
+  right: 25px;
+  .element-quest-task{
+    width: 80px;
+    padding: 6px !important;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+    img{
+      width: 100%;
+    }
+  }
 }
+
 /*.node::before {
   background-color: #fff;
   background-image: url(https://www.codeschool.com/assets/icons/icon-circle-dcf1160a8887dd7d397ff42977b9adaa1cc52caf3edc2de443e0570fee914077.svg);

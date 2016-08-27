@@ -1,11 +1,9 @@
 class UserThingsController < ApplicationController
+  before_filter :require_login
 	def index
 	end
 
 	def create
-		puts '%%%%%%%%%%%%%%'
-		params[:user_thing][:thing_id]
-		puts '%%%%%%%%%%%%%%!'
     @thing = Thing.find(params[:user_thing][:thing_id])
     current_user.buy_thing!(@thing)
     respond_to do |format|

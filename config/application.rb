@@ -14,6 +14,8 @@ module Monstriki
         g.assets false
         g.helper false
     end
+
+    config.action_mailer.delivery_method = :sendmail
       #config.browserify_rails.commandline_options = "-t reactify --extension=\".js.jsx\""
       #LOCALIZATION
     #config.i18n.default_locale = :ru

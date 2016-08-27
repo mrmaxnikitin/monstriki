@@ -6,9 +6,10 @@ class SorceryCore < ActiveRecord::Migration
       t.string    :salt
       t.string    :name
       t.integer   :age
-      t.integer   :character
       t.integer   :score,            default: 0
-      t.integer   :goal
+      t.string    :goal
+      t.boolean   :admin,            default: false
+      t.datetime  :payment_end_date, default: Time.now
 
       t.timestamps
     end

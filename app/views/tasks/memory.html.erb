@@ -3,7 +3,6 @@
 </div>
 <div class='row first-page-elm'>
 	<div class='cell'>
-		<%= react_component("LogicTasks",
-    	tasks_url: get_memory_tasks_path, score: current_user.score, quest: false ) %>
+    <%= render '/partials/react_component_logic_tasks',  link: get_memory_tasks_path, quest: false, complete_quest: false %>
 	</div>
 </div>

@@ -34,69 +34,89 @@ body{
   font-weight: 300;
   cursor: default;
   font-family: sans-serif, "Open Sans";
-  background: #fff8ef;
+  background-color: #fff8ef;
+  background-image: url(/images/background1.jpg);
+  background-size: cover;
   transition: all 0.3s ease;
 }
-#pre-footer{
-	height: 131px;
-	background: url(/images/pre-footer.png) top no-repeat #fff8ef;
-  transition: all 0.4s ease;
+.footer-pre-footer{
+  #pre-footer{
+    height: 131px;
+    background: url(/images/pre-footer.png) top no-repeat;
+    transition: all 0.4s ease;
+  }
+  #footer{
+      width: 100%;
+      margin: 0px;
+      padding: 18px 0px;
+      float: left;
+      clear: both;
+      background-color: #00a8c4;
+      padding-bottom: 70px;
+      /*background-image: url(/images/footer_bg2x.png);
+      background-size: 1920px 402px;
+      
+      position: relative;
+      background-position: center top;*/
+      .row{
+        .cell{
+          .column{
+            float: left;
+            width: 33.3%;
+            a, p{
+              color: white;
+            }
+          }
+        }
+      }
+      .info{
+        text-align: left;
+        margin-top: 15px;
+        a{
+          margin-right: 15px;
+        }
+      }
+      .logo{
+        text-align: center;
+      }
+      .contacts{
+        text-align: right;
+        a{
+          margin-left: 4px;
+        }
+        img{
+          width: 30px;
+        }
+      }
+  }
 }
-#footer{
-    width: 100%;
-    margin: 0px;
-    padding: 18px 0px;
-    float: left;
-    clear: both;
-    background-color: #00a8c4;
-    padding-bottom: 70px;
-    /*background-image: url(/images/footer_bg2x.png);
-    background-size: 1920px 402px;
-    
-    position: relative;
-    background-position: center top;*/
-    .row{
-    	.cell{
-    		.column{
-	    		float: left;
-	    		width: 33.3%;
-	    		a, p{
-	    			color: white;
-	    		}
-	    	}
-    	}
-    }
-    .info{
-    	text-align: left;
-    	margin-top: 15px;
-    	a{
-    		margin-right: 15px;
-    	}
-    }
-    .logo{
-    	text-align: center;
-    }
-    .contacts{
-    	text-align: right;
-    	a{
-    		margin-left: 4px;
-    	}
-    	img{
-    		width: 30px;
-    	}
-    }
+#sign-in{
+  font-size: 15px;
+  position: relative;
+  top: 5px;
 }
-a{
+a, a:link, a:visited{
 	cursor: pointer;
+  color: #337ab7;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
 	&:hover{
+    color: #175488;
     text-decoration: none !important;
   }
+}
+.a--white{
+  color: white !important;
+}
+.w--100{
+  width: 100% !important;
 }
 p{
   margin: 1em 0;
 }
 .h--thin{
   font-weight: 300;
+  color: #f7fbff;
 }
 h1, h2, h3, h4, .h {
   /*color: #575a5b;*/
@@ -135,6 +155,9 @@ h5{
 .plxs{
     padding-left: 0.3125em;
 }
+.ma{
+  margin: auto;
+}
 .mlm{
   margin-left: 1.25em !important;
 }
@@ -145,22 +168,22 @@ h5{
   margin-left: 2% !important;
 }
 .mtl{
-  margin-top: 2.5em;
+  margin-top: 2.5em !important;
 }
 .mtm{
-  margin-top: 1.25em;
+  margin-top: 1.25em !important;
 }
 .mts{
-    margin-top: 0.625em;
+    margin-top: 0.625em !important;
 }
 .mbl{
-  margin-bottom: 2.5em;
+  margin-bottom: 2.5em !important;
 }
 .mbm{
-  margin-bottom: 1.25em;
+  margin-bottom: 1.25em !important;
 }
 .mbs{
-    margin-bottom: 0.625em;
+    margin-bottom: 0.625em !important;
 }
 .fr{
 	float: right !important;
@@ -188,6 +211,9 @@ h5{
 }
 .tac{
 	text-align: center;
+}
+.tal{
+  text-align: left;
 }
 .row{
 	padding: 0 3em;
@@ -285,14 +311,29 @@ h5{
 .col-press-70{
   width: 70%;
 }
+.col-press-71{
+  width: 71%;
+}
+.col-press-51{
+  width: 51%;
+}
+.col-press-54{
+  width: 54%;
+}
 .col-press-75{
-  width: 70%;
+  width: 75%;
+}
+.col-press-74{
+  width: 74%;
 }
 .col-press-80{
   width: 80%;
 }
 .col-main{
   width: 610px;
+}
+.col-padding{
+  padding: 10px;
 }
 .card{
 	background-color: white;
@@ -314,10 +355,12 @@ h5{
 }
 .attraction{
 	height: 320px;
+
 }
 .attraction-min{
 	height: 140px;
   transition: all 0.3s ease;
+  display: none;
 	.center-title{
 		position: relative;
 		top: 44px;
@@ -327,7 +370,7 @@ h5{
 	}
 }
 .first-page-elm{
-	margin-top: 50px;
+	padding-top: 35px;
 }
 .first-page-elm--no-attarction{
   margin-top: 30px;
@@ -343,7 +386,6 @@ h5{
 	margin-bottom: 50px;
 }
 
-
 .btn {
   border: 0;
   cursor: pointer;
@@ -354,8 +396,8 @@ h5{
   line-height: 3;
   padding: 0 2.5em;
   background-color: #00a8c4;
-  border: 1px solid #09879c;
-  color: #fff;
+  /*border: 1px solid #09879c;*/
+  color: #fff !important;
   border-radius: 100px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-weight: 600;
@@ -366,6 +408,9 @@ h5{
     color: #fff;
     text-decoration: none;
   }
+}
+.btn-big{
+  font-size: 120%;
 }
 .btn-our-green{
     background: rgb(64,199,129);
@@ -381,7 +426,7 @@ h5{
     }
 }
 .btn-our-blue{
-    background: #539BB3;
+    background: #00a8c4;
     &:hover{
       background: #3189A7;
       color: white !important;
@@ -419,7 +464,37 @@ h5{
     &:focus{
       color: white;
     }
-} 
+}
+.btn-our-orange-tr{
+    border: 1px solid #ff762f;
+    color: #ff762f !important;
+    background-color: transparent !important;
+    &:hover{
+      background-color: #ff762f !important;
+      color: white !important;
+    }
+    &:active{
+      background-color: #bf5016;
+    }
+    &:focus{
+      color: white;
+    }
+}
+.btn-our-green-tr{
+    border: 1px solid rgb(64,199,129);
+    color: rgb(64,199,129) !important;
+    background-color: transparent !important;
+    &:hover{
+      background-color: rgb(64,199,129) !important;
+      color: white !important;
+    }
+    &:active{
+      background-color: rgb(33,147,90);
+    }
+    &:focus{
+      color: white;
+    }
+}
 .mbadge {
   display: block;
   height: 100px;
@@ -428,14 +503,23 @@ h5{
   width: 100px;
 }
 
-input, textarea{
+input, textarea, select{
   padding: 7px;
   border-radius: 3px;
   border: 1px solid #e5e5e5;
   outline: none !important;
 }
+select{
+  height: 38px;
+}
 .displaynone{
   display: none;
+}
+.pn{
+  padding: 0px !important;
+}
+.mn{
+  margin: 0px !important;
 }
 .circle{
   border-radius: 300px !important;
@@ -443,3 +527,27 @@ input, textarea{
 .cursor--pointer{
   cursor: pointer;
 }
+.alert{
+  position: fixed;
+  bottom: 2.8em;
+  right: 3em;
+  width: 300px;
+  margin-bottom: 0 !important;
+  color: white;
+}
+.alert-notice{
+  background-color: rgba(4, 147, 171, 0.75) !important;
+}
+.alert-error{
+  background-color: rgba(226, 38, 74, 0.8);
+}
+.alert-success{
+  background-color: rgba(64, 199, 129, 0.8) !important;
+  border-color: #32bb74 !important;
+}
+
+.modal-content{
+  border-radius: 2px !important;
+}
+
+

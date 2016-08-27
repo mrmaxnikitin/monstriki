@@ -1,0 +1,18 @@
+<div class='card edit-monstrik-card'>
+	<div class='character'>
+		<% monster_avatar = current_user.user_monster.monster_id %>
+		<% if monster_avatar != 0 %>
+			<img src='<%= Monster.find(current_user.user_monster.monster_id).avatar %>' />
+		<% else %>
+			<div class='choose-monstrik tac'>
+				<h1>Выберите монстрика</h1>
+			</div>
+		<% end %>
+	</div>
+	<div class='name tcmc tac'>
+		<%= form_for UserMonster.new, url: rename_monster_user_monsters_path do |f| %>
+			<%= f.text_field :name, value: current_user.user_monster.name %>
+		  <%= f.submit "Сменить имя монстрику", class: "change-name button btn btn-our btn-our-green" %>
+		<% end %>
+	</div>
+</div>
