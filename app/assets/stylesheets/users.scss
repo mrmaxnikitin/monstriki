@@ -66,7 +66,7 @@
 }
 .user-page-profile{
 	position: relative;
-	top: -200px;
+	top: -280px;
 	.info-user{
 		h3{
 			span{
@@ -79,9 +79,14 @@
 	}
 }
 .users-attraction{
-	background: linear-gradient(to top, #1d739e, #3394c5);
-	height: 280px !important;
-	padding-top: 120px !important;
+	/*background: linear-gradient(to top, #1d739e, #3394c5);*/
+	background-color: #85d1f1;
+	background-image: url(/images/image_for_user_attraction.jpg);
+  background-size: 43%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  height: 300px !important;
+  padding-top: 120px !important;
 	/*animation: animatedBackground 60s linear infinite;
 	-moz-animation: animatedBackground 60s linear infinite;
 	-webkit-animation: animatedBackground 60s linear infinite;
@@ -147,52 +152,60 @@
 		color: white;
 		font-family: "junegull";
 		margin-bottom: 0 !important;
+		text-shadow: 2px 2px 10px #3c758e;
 	}
-	.age-the-user-info{
-		color: #e6e7e8;
-	}
-	.quest-number-the-user-info{
-		color: #e6e7e8;
+	.age-the-user-info, .quest-number-the-user-info{
+		color: #f0f5f7;
+		text-shadow: 1px 1px 3px #3c758e;
 	}
 }
 
 .cloud{
   opacity: 0.8;
   position: absolute;
-  width: 100%;
+  display: none;
 }
-@keyframes cloud-1 {
+/*@keyframes cloud-1 {
   from {margin-left: -151px;}
   to {margin-left: 100%;}
-}
+}*/
 #cloud-1{
     top: -110px;
-    -webkit-animation: cloud-1 76s linear infinite;
-    animation: cloud-1 76s linear infinite;
+    left: 15%;
+    /*-webkit-animation: cloud-1 76s linear infinite;
+    animation: cloud-1 76s linear infinite;*/
 }
-@keyframes cloud-2 {
+/*@keyframes cloud-2 {
   from {margin-left: -1502px;}
   to {margin-left: 100%;}
-}
+}*/
 #cloud-2{
     /*top: 140px;*/
     top: -65px;
+    left: 82%;
     /*left: 70%;*/
-    -webkit-animation: cloud-2 121s linear infinite;
-    animation: cloud-2 121s linear infinite;
+    /*-webkit-animation: cloud-2 121s linear infinite;
+    animation: cloud-2 121s linear infinite;*/
 }
-@keyframes cloud-3 {
+/*@keyframes cloud-3 {
   from {margin-left: -600px;}
   to {margin-left: 100%;}
-}
+}*/
 #cloud-3{
     top: 50px;
+    left: 50%;
     /*top: 210px;*/
     /*left: 30%;*/
-    -webkit-animation: cloud-3 99s linear infinite;
-    animation: cloud-3 99s linear infinite;
+    /*-webkit-animation: cloud-3 99s linear infinite;
+    animation: cloud-3 99s linear infinite;*/
 }
 
-
+.logout{
+	position: relative;
+	left: 43px;
+	font-size: 14px !important;
+  font-weight: 300 !important;
+  color: #a2a2a2 !important;
+}
 
 

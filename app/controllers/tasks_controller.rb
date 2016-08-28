@@ -20,6 +20,27 @@ class TasksController < ApplicationController
 		render :index, formats: :json
 	end
 
+	def attention
+	end
+	def get_attention
+		@tasks = Task.where(direction: "Внимание").order('RANDOM()').all
+		render :index, formats: :json
+	end
+
+	def world
+	end
+	def get_world
+		@tasks = Task.where(direction: "Мир вокруг нас").order('RANDOM()').all
+		render :index, formats: :json
+	end
+
+	def math
+	end
+	def get_math
+		@tasks = Task.where(direction: "Математика").order('RANDOM()').all
+		render :index, formats: :json
+	end
+
 	def new
 	end
 

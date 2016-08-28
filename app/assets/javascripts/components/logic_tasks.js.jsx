@@ -321,6 +321,13 @@ const LogicTasks = React.createClass({
     }.bind(this));
 
     var content_task = tasks[this.state.num_current_task]
+    if(this.state.num_current_task >= this.state.tasks.length && !this.props.quest){
+      content_task = (
+        <div className='tac'>
+          <a href='/tasks'><button className="btn-m btn-m-4 btn-m-4c icon-arrow-right the-end-of-train">Дальше</button></a>
+        </div>
+      );
+    }
     var score = this.state.score
 
     var profile = (

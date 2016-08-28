@@ -8,41 +8,71 @@
 			<h2 class='h--thin mbm'><span class='prxs'>Что будем тренировать?</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= @tasks.count %> заданий</span></h2>
 
 			<%= link_to logic_tasks_path do %>
-			<div class='card direction'>
+			<div class='card direction direction-logic'>
 				<div class='mbadge direction-mbadge col'>
-					<img src='/images/cute_monster_dribbble_2.jpg' />
+					<img src='https://d13yacurqjgara.cloudfront.net/users/458522/screenshots/2769976/dribbbler_cute_tech_monster.jpg' />
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading'><%= @tasks.where(direction: 'Логика').count %> заданий</span>
+						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Логика').count %> заданий</span>
 					</div>
-					<h2 class='h--thin tcm mbm'>Логика</h2>
+					<h1 class='tcm'>Логика</h1>
 				</div>
 			</div>
 			<% end %>
 
-			<div class='card direction'>
+			<%= link_to memory_tasks_path do %>
+			<div class='card direction direction-memory'>
 				<div class='mbadge direction-mbadge col'>
-					<img src='/images/background1.jpg' />
+					<img src='https://d13yacurqjgara.cloudfront.net/users/458522/screenshots/2769974/movie_monster.jpg' />
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading'>2744 заданий</span>
+						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Память').count %> заданий</span>
 					</div>
-					<h2 class='h--thin tcm mbm'>Воображение</h2>
+					<h1 class='tcm'>Память</h1>
 				</div>
 			</div>
+			<% end %>
 
 			<%= link_to memory_tasks_path do %>
-			<div class='card direction'>
+			<div class='card direction direction-attention'>
 				<div class='mbadge direction-mbadge col'>
-					<img src='/images/img-slide3.png' />
+					<img src='https://d13yacurqjgara.cloudfront.net/users/458522/screenshots/2770108/cute_monster_1_dri.jpg' />
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading'><%= @tasks.where(direction: 'Память').count %> заданий</span>
+						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Внимание').count %> заданий</span>
 					</div>
-					<h2 class='h--thin tcm mbm'>Память</h2>
+					<h1 class='tcm'>Внимание</h1>
+				</div>
+			</div>
+			<% end %>
+
+			<%= link_to memory_tasks_path do %>
+			<div class='card direction direction-math'>
+				<div class='mbadge direction-mbadge col'>
+					<img src='https://d13yacurqjgara.cloudfront.net/users/458522/screenshots/2772596/cute_monster_wizard_dribbbler.jpg' />
+				</div>
+				<div class='direction-content col'>
+					<div>
+						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Математика').count %> заданий</span>
+					</div>
+					<h1 class='tcm'>Математика</h1>
+				</div>
+			</div>
+			<% end %>
+
+			<%= link_to memory_tasks_path do %>
+			<div class='card direction direction-world'>
+				<div class='mbadge direction-mbadge col'>
+					<img src='https://d13yacurqjgara.cloudfront.net/users/458522/screenshots/2773683/cute_monster_teacher_sd.jpg' />
+				</div>
+				<div class='direction-content col'>
+					<div>
+						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Мир вокруг нас').count %> заданий</span>
+					</div>
+					<h1 class='tcm'>Мир вокруг нас</h1>
 				</div>
 			</div>
 			<% end %>

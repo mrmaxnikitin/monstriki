@@ -18,15 +18,27 @@ const QuestTask = React.createClass({
       content = (
         <div className={class_choosed_quest_task}>
           <img src='/images/like_finger.png' />
-          <div>Задание {item + 1}</div>
+          <div>{this.props.task.direction}</div>
         </div>
       );
     }else{
       class_choosed_quest_task += ' stage_tasks'
+      var direction_pic
+      if(this.props.task.direction == 'Логика'){
+        direction_pic = '/images/direction_pics/logic.jpg'
+      }else if(this.props.task.direction == 'Память'){
+        direction_pic = '/images/direction_pics/memory.jpg'
+      }else if(this.props.task.direction == 'Внимание'){
+        direction_pic = '/images/direction_pics/attention.jpg'
+      }else if(this.props.task.direction == 'Математика'){
+        direction_pic = '/images/direction_pics/math.jpg'
+      }else if(this.props.task.direction == 'Мир вокруг нас'){
+        direction_pic = '/images/direction_pics/world.jpg'
+      } 
       content = (
         <div className={class_choosed_quest_task} onClick={this.clickHandler}>
-          <img src={this.props.task.pic1} />
-          <div>Задание {item + 1}</div>
+          <img src={direction_pic} />
+          <div>{this.props.task.direction}</div>
         </div>
       );
     }

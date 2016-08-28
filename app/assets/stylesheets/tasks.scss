@@ -10,12 +10,37 @@
 }
 
 .direction{
-	border-bottom-left-radius: 100px !important;
-  border-top-left-radius: 100px !important;
+	/*border-bottom-left-radius: 100px !important;
+  border-top-left-radius: 100px !important;*/
   margin-bottom: 1.25em;
-  min-height: 70px;
+  min-height: 200px;
   overflow: hidden;
   padding-left: 130px;
+}
+.direction-logic{
+  h1{
+    color: #337ab7 !important;
+  }
+}
+.direction-memory{
+  h1{
+    color: #ea4961 !important;
+  }
+}
+.direction-attention{
+  h1{
+    color: #00bb5f !important;
+  }
+}
+.direction-math{
+  h1{
+    color: #f8875e !important;
+  }
+}
+.direction-world{
+  h1{
+    color: #ffd800 !important;
+  }
 }
 .direction-mbadge {
   
@@ -33,11 +58,14 @@
   top: 8px;
   padding-right: 1.25em;
   z-index: 3;
-  h2{
+  h1{
     margin-top: 2px;
+    font-family: 'junegull';
+    font-size: 66px;
+    margin-top: 18px;
   }
   .tag{
-    font-size: 85%;
+    font-size: 125%;
   }
 }
 .get-answer{
@@ -113,4 +141,13 @@
 }
 .col-task-main{
   min-width: 909px;
+}
+
+.the-end-of-train{
+  padding: 25px 180px !important;
+  font-size: 80px !important;
+  border-radius: 100px;
+}
+.the-end-of-train:before{
+  top: -86px !important;
 }

@@ -27,6 +27,12 @@ Rails.application.routes.draw do
       get :get_logic
       get :memory
       get :get_memory
+      get :attention
+      get :get_attention
+      get :math
+      get :get_math
+      get :world
+      get :get_world
       post :reward
     end
   end
