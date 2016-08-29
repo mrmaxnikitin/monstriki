@@ -1,10 +1,10 @@
 class Quest < ActiveRecord::Base
 
 	def generate_quest
-  	directions = ['Логика', 'Память']
-  	for age in 5..5 do
+  	directions = ['Логика', 'Память', 'Внимание', 'Математика', 'Мир вокруг нас']
+  	for age in 3..7 do
   		a = Array.new
-  		for i in 0..1 do
+  		for i in 0..4 do
 				task = Task.where(age: age, direction: directions[i], in_quest: false).first
 				if task
 					a << task.id.to_i

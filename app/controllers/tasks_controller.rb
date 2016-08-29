@@ -59,6 +59,11 @@ class TasksController < ApplicationController
 		render nothing: true
 	end
 
+	def error_message
+		TaskError.create(user_id: current_user.id, task_id: params[:task_id], text: params[:text])
+		render nothing: true
+	end
+
 	private
 		def task_params
       params.require(:task).permit(:direction, :task_type, :subtype, :age, :text, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7, :pic8, :pic9, :pic10, :pic11, :pic12, :answer, :for_quest)

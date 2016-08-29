@@ -15,9 +15,11 @@
 		<%= link_to start_path do %>
 			<span id='header-logo'><img src ='/images/logo-img.png' /> <span>Монстрики</span></span>
 		<% end %>
-		<%= link_to 'Квест', start_path, class: "menu-point" %>
-		<%= link_to 'Тренировки', tasks_path, class: "menu-point" %>
-		<%= link_to 'Бубуки', things_path, class: "menu-point" %>
+		<% if logged_in? %>
+			<%= link_to 'Квест', start_path, class: "menu-point" %>
+			<%= link_to 'Тренировки', tasks_path, class: "menu-point" %>
+			<%= link_to 'Бубуки', things_path, class: "menu-point" %>
+		<% end %>
 		<div class='right-part'>
 			<% if logged_in? %>
         <%= link_to 'Мой профиль', user_path(current_user), id: 'sign-in' %>

@@ -49,9 +49,15 @@
 </div>
 
 <style>
-	.hat{
-		display: none;
-	}
+	<% if !logged_in? %>
+		.hat{
+			display: none;
+		}
+	<% else %>
+		#logo{
+			display: none;
+		}
+	<% end %>
 	#pre-footer{
     background: url(/images/pre-footer-white.png) top no-repeat !important;
 	}

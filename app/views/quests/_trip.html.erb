@@ -1,3 +1,8 @@
+<%
+	quest_id = current_user.track.current_quest
+	pic1 = Task.find(Quest.find(quest_id).age5[0]).pic1
+%>
+
 <%= link_to link_trip do %>
 <div class='trip-quest mbl'>
 	<div class='status-trip-quest node'>
@@ -9,7 +14,7 @@
 	</div>
 	<div class='card card-trip-quest fr'>
 		<div class='mbadge direction-mbadge col'>
-			<img src='/images/cute-faces_02-26-2014.jpg' />
+			<img src='<%= pic1 %>' />
 		</div>
 		<div class='direction-content col'>
 			<div>

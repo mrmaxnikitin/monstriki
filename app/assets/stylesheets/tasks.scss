@@ -151,3 +151,36 @@
 .the-end-of-train:before{
   top: -86px !important;
 }
+.wrap-task-error{
+  .task-error{
+    margin-top: 20px;
+    floar: left;
+    margin-left: 1%;
+    height: 38px;
+    p{
+      color: #dcdcdc;
+      cursor: pointer;
+      &:hover{
+        color: #fff;
+      }
+    }
+    .content-task-error{
+      button{
+        margin-left: 30px;
+        border: 1px solid white;
+      }
+      h3{
+        color: white;
+        img{
+          width: 25px;
+          position: relative;
+          top: 5px;
+          left: 5px;
+        }
+      }
+    }
+  }
+}
+
+
+

@@ -14,7 +14,8 @@ const LogicTasks = React.createClass({
       sum_right_answers: 0,
       number_of_attempts: 0,
       score: this.props.score,
-      answer: 0
+      answer: 0,
+      error_message: 0          // 0 не открыта форма для отправки ошибки, 1 форма открыта, 2 нажата кнопка СООБЩИТЬ об ошибке
     };
   },
   componentDidMount: function() {
@@ -90,7 +91,8 @@ const LogicTasks = React.createClass({
       num_current_task: new_num_current_task,
       status_current_task: 0,
       number_of_attempts: 0,
-      answer: 0
+      answer: 0,
+      error_message: 0
     });
   },
   acceptAnswer: function(param_answer) {
@@ -159,6 +161,33 @@ const LogicTasks = React.createClass({
         number_of_attempts: number_of_attempts
       });
     }
+  },
+  error_message: function() {
+    this.setState({
+      error_message: 1
+    });
+  },
+  sendErrorMessage: function() {
+    var num_current_task = this.state.num_current_task
+    var text_error_message_input = ReactDOM.findDOMNode(this.refs.error_message)
+    var text_error_message = text_error_message_input.value.trim()
+    $.ajax({
+      url: '/tasks/error_message',
+      //dataType: 'json',
+      type: 'POST',
+      data: {
+        task_id: this.state.tasks[num_current_task].id,
+        text: text_error_message
+      },
+      success: function(data) {
+        this.setState({
+          error_message: 2
+        });
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error("ОШИБКА при отправке сообщения об ошибке", status, err.toString());
+      }.bind(this)
+    });
   },
   render: function() {
     var stage_tasks
@@ -341,6 +370,31 @@ const LogicTasks = React.createClass({
         setting_link={this.props.setting_link}
         />
     );
+    
+    var content_error_message
+    if(this.state.num_current_task < this.state.tasks.length){
+      content_error_message = <p onClick={this.error_message}>Ошибка? Сообщите нам</p>
+      if(this.state.error_message == 1){
+        content_error_message=(
+          <div className='content-task-error'>
+            <select ref='error_message'>
+              <option disabled selected="selected" value='Не указано'>В чем проблема?</option>
+              <option value='Проблема с картинкой'>Проблема с картинкой</option>
+              <option value='Некорректный текст вопроса'>Некорректный текст вопроса</option>
+              <option value='Задание не соответствует возрасту'>Задание не соответствует возрасту</option>
+              <option value='Другое'>Другое</option>
+            </select>
+            <button className='btn btn-our-green' onClick={this.sendErrorMessage}>Сообщить</button>
+          </div>
+        );
+      }else if(this.state.error_message == 2){
+        content_error_message=(
+          <div className='content-task-error'>
+            <h3>Спасибо! Совсем скоро мы исправим. Мы Вас любим <img src='/images/like_active.png' /></h3>
+          </div>
+        );
+      }
+    }
 
     return (
       <div>
@@ -351,6 +405,12 @@ const LogicTasks = React.createClass({
           </div>
           <div className='clear'></div>
           {content_task}
+          <div className='clear'></div>
+          <div className='wrap-task-error'>
+            <div className='task-error'>
+              {content_error_message}
+            </div>
+          </div>
         </div>
       </div>
     );

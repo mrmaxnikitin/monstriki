@@ -55,20 +55,18 @@ const Ground = React.createClass({
   },
   activateLamp: function() {
     if(!this.state.activate_lamp){
-      $('body').css('color', 'white')
-      $('body').css('background', 'url(/images/background-stars.png) 100% 100% repeat')
-      $('#pre-footer').css('background', 'url(/images/pre-footer-stars.png) top no-repeat #fff8ef')
-      $('.attraction-min').css('background', '#162a39')
-      $('.hat').css('background', 'url(/images/background-stars.png) 30% 30% repeat #fff8ef').css('border-bottom', 'none')
+      $('body').css('background', 'url(/images/background-stars.png) repeat') 
+      $('body').css('background-size', 'cover')
+      $('.hat').css('background', 'rgba(255,255,255,0)').css('border-bottom', 'none')
+      $('.hat #header-logo span').css('color', 'white')
       this.setState({
         activate_lamp: 1
       });
     }else{
-      $('body').css('color', '#393d40')
-      $('body').css('background', '#fff8ef')
-      $('#pre-footer').css('background', 'url(/images/pre-footer.png) top no-repeat #fff8ef')
-      $('.attraction-min').css('background', '')
-      $('.hat').css('background', 'white').css('border-bottom', '1px solid rgba(0, 0, 0, 0.1)')
+      $('body').css('background', 'url(/images/background1.jpg)')
+      $('body').css('background-size', 'cover')
+      $('.hat').css('background', 'rgba(255,255,255,1)').css('border-bottom', '1px solid rgba(0, 0, 0, 0.1)')
+      $('.hat #header-logo span').css('color', '#393d40')
       this.setState({
         activate_lamp: 0
       });

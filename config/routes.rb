@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       get :world
       get :get_world
       post :reward
+      post :error_message
     end
   end
   resources :quests do
