@@ -27,7 +27,7 @@ const Picture9 = React.createClass({
   }
 })
 
-//Выбор правильного ответа, кликнув на картинку, ответ только один.
+//Выбор варианта ответа на время
 const Task9 = React.createClass({
   getInitialState: function () {
     return {

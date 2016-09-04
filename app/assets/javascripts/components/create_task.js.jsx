@@ -133,7 +133,7 @@ const CreateTask = React.createClass({
     return (
       <div className='create-task'>
         <h2>Создайте задание</h2>
-        <input type='text' ref='direction' placeholder='Направление (логика, воображение и т.д.)'/>
+        <input type='text' ref='direction' placeholder='Направление (логика, память, внимание, математика, мир вокруг нас)'/>
         <input type="number" ref='age' placeholder='Возраст'/>
         <input type='text' ref='text' placeholder='Текст задания'/>
         <select ref='task_type' onChange={this.selectTypeTask}>

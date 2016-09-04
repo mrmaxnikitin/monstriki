@@ -18,7 +18,6 @@ const QuestTask = React.createClass({
       content = (
         <div className={class_choosed_quest_task}>
           <img src='/images/like_finger.png' />
-          <div>{this.props.task.direction}</div>
         </div>
       );
     }else{
