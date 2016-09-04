@@ -37,7 +37,6 @@ const QuestTask = React.createClass({
       content = (
         <div className={class_choosed_quest_task} onClick={this.clickHandler}>
           <img src={direction_pic} />
-          <div>{this.props.task.direction}</div>
         </div>
       );
     }
