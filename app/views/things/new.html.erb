@@ -11,7 +11,7 @@
 			<%= simple_form_for(@thing, url: things_path, html: { class: 'registration-form' }) do |f| %>
 		      <%= f.input :name, label: false, input_html: { class: 'input-sp',  placeholder: 'Название' } %>
 		      <%= f.input :img, label: false, input_html: { class: 'input-sp',  placeholder: 'Изображение' } %>
-		      <%= f.input :price, label: false, input_html: { class: 'input-sp',  placeholder: 'Цена в игровых монетках' } %>
+		      <%= f.input :price, label: false, input_html: { class: 'input-sp',  placeholder: 'Цена в игровых монетках' } %> 
 		      <%= f.button :submit, 'Cоздать вещь', class: 'btn btn-our btn-our-green' %>
 		  <% end %>
 		</div>
