@@ -28,16 +28,18 @@ blockquote, q { quotes:none }
 blockquote:before, blockquote:after, q:before, q:after { content:''; content:none }:focus { outline:0 }
 .clear { clear:both; display:block; overflow:hidden; visibility:hidden; width:0; height:0 }
 body{
-  font-size: 14px;
-  line-height: 1.62857143;
-  color: #393d40;
-  font-weight: 300;
-  cursor: default;
-  font-family: sans-serif, "Open Sans";
-  background-color: #fff8ef;
-  background-image: url(/images/background1.jpg);
-  background-size: cover;
-  transition: all 0.3s ease;
+  .div-body{
+    font-size: 14px;
+    line-height: 1.62857143;
+    color: #393d40;
+    font-weight: 300;
+    cursor: default;
+    font-family: sans-serif, "Open Sans";
+    background-color: #fff8ef;
+    background-image: url(/images/background1.jpg);
+    background-size: cover;
+    transition: all 0.3s ease;
+  }
 }
 .footer-pre-footer{
   #pre-footer{
@@ -549,5 +551,12 @@ select{
 .modal-content{
   border-radius: 2px !important;
 }
+.sepia{
+  -webkit-filter: sepia(90%);
+}
+.invert{
+  -webkit-filter: invert(100%);
+}
+/*  =========для бубук=========== */
 
-
+/*/ =========для бубук=========== /*/

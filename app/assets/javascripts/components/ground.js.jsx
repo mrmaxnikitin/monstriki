@@ -8,7 +8,12 @@ const Ground = React.createClass({
       things_count: 10,
       things: [],
       active_thing: -1,
-      activate_lamp: 0
+      lamp: 0,
+      drunk: 0,
+      swing: 0,
+      sepia: 0,
+      kaleidoscope: 0,
+      invert: 0
     };
   },
   componentDidMount: function() {
@@ -34,43 +39,171 @@ const Ground = React.createClass({
       }.bind(this)
     });
   },
-  activeThing: function(thing, item) {
-    $.ajax({
+  activeThing: function(thing, item, name) {
+    var active_thing
+    if(this.state.active_thing == item){
+      active_thing = -1
+    }else{
+      active_thing = item
+    }
+
+    if(item == 0){                  //lamp Светильник
+      this.setState({
+        active_thing: active_thing
+      });
+    }
+
+    if(item == 1){                  //drunk Размытие экрана
+      this.drunk(item)
+    }
+
+    if(item == 2){                  //swing
+      this.swing(item)
+    }
+
+    if(item == 3){                  //sepia
+      this.sepia(item)
+    }
+
+    if(item == 4){
+      this.kaleidoscope(item)       //kaleidoscope
+    }
+
+    if(item == 5){
+      this.invert(item)       //invert
+    }
+    
+
+   /* $.ajax({
       url: '/user_things/active_thing',
       //dataType: 'json',
       type: 'POST',
       data: {
         id:     thing.user_thing_id,
-        active: true
+        active: switch_thing
       },
       success: function(data) {
-        this.setState({
-          active_thing: item
-        });
       }.bind(this),
       error: function(xhr, status, err) {
         console.error("ОШИБКА1", status, err.toString());
       }.bind(this)
-    });
+    });*/
   },
-  activateLamp: function() {
-    if(!this.state.activate_lamp){
-      $('body').css('background', 'url(/images/background-stars.png) repeat') 
-      $('body').css('background-size', 'cover')
+  switchLamp: function() {
+    if(!this.state.lamp){
+      $('.div-body').css('background', 'url(/images/background-stars.png) repeat') 
+      $('.div-body').css('background-size', 'cover')
       $('.hat').css('background', 'rgba(255,255,255,0)').css('border-bottom', 'none')
       $('.hat #header-logo span').css('color', 'white')
       this.setState({
-        activate_lamp: 1
+        lamp: 1
       });
     }else{
-      $('body').css('background', 'url(/images/background1.jpg)')
-      $('body').css('background-size', 'cover')
+      $('.div-body').css('background', 'url(/images/background1.jpg)')
+      $('.div-body').css('background-size', 'cover')
       $('.hat').css('background', 'rgba(255,255,255,1)').css('border-bottom', '1px solid rgba(0, 0, 0, 0.1)')
       $('.hat #header-logo span').css('color', '#393d40')
       this.setState({
-        activate_lamp: 0
+        lamp: 0
       });
     }
+    /*$(".card").circulate({
+      speed: 400,                  // Speed of each quarter segment of animation, 1000 = 1 second
+      height: 200,                 // Distance vertically to travel
+      width: 200,                  // Distance horizontally to travel
+      sizeAdjustment: 100,         // Percentage to grow or shrink
+      loop: false,                 // Circulate continuously
+      zIndexValues: [1, 1, 1, 1]   // Sets z-index value at each stop of animation
+    });*/
+  },
+  drunk: function(item) {
+    var status, active_item
+    if(!this.state.drunk){
+      $('body').addClass('drunk')
+      status = 1
+      active_item = item
+    }else{
+      $('body').removeClass('drunk')
+      status = 0
+      active_item = -1
+    }
+
+    this.setState({
+      active_thing: active_item,
+      drunk: status
+    });
+  },
+  swing: function(item) {
+    var status, active_item
+    if(!this.state.swing){
+      $('body').addClass('tossing')
+      $('div').addClass('tossing1')
+      $('img').addClass('tossing1')
+      status = 1
+      active_item = item
+    }else{
+      $('body').removeClass('tossing')
+      $('div').removeClass('tossing1')
+      $('img').removeClass('tossing1')
+      status = 0
+      active_item = -1
+    }
+
+    this.setState({
+      active_thing: active_item,
+      swing: status
+    });
+  },
+  sepia: function(item) {
+    var status, active_item
+    if(!this.state.sepia){
+      $('body').addClass('sepia')
+      status = 1
+      active_item = item
+    }else{
+      $('body').removeClass('sepia')
+      status = 0
+      active_item = -1
+    }
+
+    this.setState({
+      active_thing: active_item,
+      sepia: status
+    });
+  },
+  kaleidoscope: function(item) {
+    var status, active_item
+    if(!this.state.kaleidoscope){
+      $('body').addClass('kaleidoscope')
+      status = 1
+      active_item = item
+    }else{
+      $('body').removeClass('kaleidoscope')
+      status = 0
+      active_item = -1
+    }
+
+    this.setState({
+      active_thing: active_item,
+      kaleidoscope: status
+    });
+  },
+  invert: function(item) {
+    var status, active_item
+    if(!this.state.invert){
+      $('body').addClass('invert')
+      status = 1
+      active_item = item
+    }else{
+      $('body').removeClass('invert')
+      status = 0
+      active_item = -1
+    }
+
+    this.setState({
+      active_thing: active_item,
+      invert: status
+    });
   },
   render: function() {
     things = this.state.things.map(function (thing, i) {
@@ -87,7 +220,7 @@ const Ground = React.createClass({
     if(this.state.active_thing == 0){  //Cветильник
       content_thing = (
         <div className='flashlight'>
-          <img src='/images/things/lamp_c.png' className='animated slideInDown' onClick={this.activateLamp}/>
+          <img src='/images/things/lamp_c.png' className='animated slideInDown' onClick={this.switchLamp}/>
         </div>
       );
     }

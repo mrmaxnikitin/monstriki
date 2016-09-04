@@ -1,0 +1,170 @@
+/* ==========tossing1=========== */
+.tossing1{
+	animation-name: tossing1;
+	-webkit-animation-name: tossing1;	
+
+	animation-duration: 3.5s;	
+	-webkit-animation-duration: 3.5s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes tossing1 {
+	0% {
+		transform: rotate(-2deg);	
+	}
+	50% {
+		transform: rotate(2deg);
+	}
+	100% {
+		transform: rotate(-2deg);	
+	}						
+}
+
+@-webkit-keyframes tossing1 {
+	0% {
+		-webkit-transform: rotate(-2deg);	
+	}
+	50% {
+		-webkit-transform: rotate(2deg);
+	}
+	100% {
+		-webkit-transform: rotate(-2deg);	
+	}				
+}
+
+/* ============pulse1============== */
+
+.pulse1{
+	animation-name: pulse1;
+	-webkit-animation-name: pulse1;	
+
+	animation-duration: 2s;	
+	-webkit-animation-duration: 2s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes pulse1 {
+	0% {
+		transform: scale(1);	
+	}
+	50% {
+		transform: scale(1.15);
+	}	
+	100% {
+		transform: scale(1);
+	}			
+}
+
+@-webkit-keyframes pulse1 {
+	0% {
+		-webkit-transform: scale(1);	
+	}
+	50% {
+		-webkit-transform: scale(1.15);
+	}	
+	100% {
+		-webkit-transform: scale(1);
+	}			
+}
+
+/* ============drunk============== */
+.drunk{
+	animation-name: drunk;
+	-webkit-animation-name: drunk;	
+
+	animation-duration: 2.5s;	
+	-webkit-animation-duration: 2.5s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes drunk {
+	0% {
+		transform: scale(1);
+		-webkit-filter: blur(1.5px);
+	}
+	50% {
+		transform: scale(1.15);
+		-webkit-filter: blur(0px);
+	}	
+	100% {
+		transform: scale(1);
+		-webkit-filter: blur(1.5px);
+	}			
+}
+
+@-webkit-keyframes drunk {
+	0% {
+		-webkit-transform: scale(1);	
+		-webkit-filter: blur(1.5px);
+	}
+	50% {
+		-webkit-transform: scale(1.15);	
+		-webkit-filter: blur(0px);
+	}	
+	100% {
+		-webkit-transform: scale(1);	
+		-webkit-filter: blur(1.5px);
+	}			
+}
+
+
+
+/* ============kaleidoscope============== */
+.kaleidoscope{
+	animation-name: kaleidoscope;
+	-webkit-animation-name: kaleidoscope;	
+
+	animation-duration: 10s;	
+	-webkit-animation-duration: 10s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes kaleidoscope {
+	0% {
+		-webkit-filter: hue-rotate(0deg);
+	}
+	20% {
+		-webkit-filter: hue-rotate(72deg);
+	}
+	40% {
+		-webkit-filter: hue-rotate(144deg);
+	}	
+	60% {
+		-webkit-filter: hue-rotate(216deg);
+	}	
+	80% {
+		-webkit-filter: hue-rotate(288deg);
+	}	
+	100% {
+		-webkit-filter: hue-rotate(360deg);
+	}		
+}
+
+@-webkit-keyframes kaleidoscope {
+	0% {
+		-webkit-filter: hue-rotate(0deg);
+	}
+	20% {
+		-webkit-filter: hue-rotate(72deg);
+	}
+	40% {
+		-webkit-filter: hue-rotate(144deg);
+	}	
+	60% {
+		-webkit-filter: hue-rotate(216deg);
+	}	
+	80% {
+		-webkit-filter: hue-rotate(288deg);
+	}	
+	100% {
+		-webkit-filter: hue-rotate(360deg);
+	}				
+}

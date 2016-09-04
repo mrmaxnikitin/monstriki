@@ -1,6 +1,6 @@
 const Thing = React.createClass({
   clickHandle: function () {
-    this.props.activeThing(this.props.thing, this.props.item)
+    this.props.activeThing(this.props.thing, this.props.item, this.props.thing.name)
   },
   render: function() {
     var classActiveThing = 'img-thing-icon'

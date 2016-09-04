@@ -10,55 +10,57 @@
   <script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
 </head>
 <body>
-<header  class='row hat'>
-	<div class='cell'>
-		<%= link_to start_path do %>
-			<span id='header-logo'><img src ='/images/logo-img.png' /> <span>Монстрики</span></span>
-		<% end %>
-		<% if logged_in? %>
-			<%= link_to 'Квест', start_path, class: "menu-point" %>
-			<%= link_to 'Тренировки', tasks_path, class: "menu-point" %>
-			<%= link_to 'Бубуки', things_path, class: "menu-point" %>
-		<% end %>
-		<div class='right-part'>
-			<% if logged_in? %>
-        <%= link_to 'Мой профиль', user_path(current_user), id: 'sign-in' %>
-      <% else %>
-				<%= link_to 'Создать аккаунт', signup_path, class: 'create-accaunt btn' %>
-				<%= link_to 'Войти', signin_path %>
-			<% end %>
-		</div>
-	</div>
-</header>
-<%= yield %>
-<div class='footer-pre-footer'>
-	<div id='pre-footer'></div>
-	<div id='footer'>
-		<div class='row'>
+	<div class='div-body'>
+		<header  class='row hat'>
 			<div class='cell'>
-				<div class='column info'>
-					<%= link_to "Родителям", parents_path %>
-					<a>Правила</a>
-					<%= link_to "О сайте", about_path %>
-					<%= link_to "Наши контакты", contacts_path %>
+				<%= link_to start_path do %>
+					<span id='header-logo'><img src ='/images/logo-img.png' /> <span>Монстрики</span></span>
+				<% end %>
+				<% if logged_in? %>
+					<%= link_to 'Квест', start_path, class: "menu-point" %>
+					<%= link_to 'Тренировки', tasks_path, class: "menu-point" %>
+					<%= link_to 'Бубуки', things_path, class: "menu-point" %>
+				<% end %>
+				<div class='right-part'>
+					<% if logged_in? %>
+		        <%= link_to 'Мой профиль', user_path(current_user), id: 'sign-in' %>
+		      <% else %>
+						<%= link_to 'Создать аккаунт', signup_path, class: 'create-accaunt btn' %>
+						<%= link_to 'Войти', signin_path %>
+					<% end %>
 				</div>
-				<div class='column logo'>
-					<img width='50' src ='/images/logo-img-opacity0.png' />
-				</div>
-				<div class='column contacts'>
-					<a><img src='/images/facebook.png' /></a>
-					<a><img src='/images/vk.png' /></a>
-					<a><img src='/images/odnoklassniki-logo.png' /></a>
+			</div>
+		</header>
+		<%= yield %>
+		<div class='footer-pre-footer'>
+			<div id='pre-footer'></div>
+			<div id='footer'>
+				<div class='row'>
+					<div class='cell'>
+						<div class='column info'>
+							<%= link_to "Родителям", parents_path %>
+							<a>Правила</a>
+							<%= link_to "О сайте", about_path %>
+							<%= link_to "Наши контакты", contacts_path %>
+						</div>
+						<div class='column logo'>
+							<img width='50' src ='/images/logo-img-opacity0.png' />
+						</div>
+						<div class='column contacts'>
+							<a><img src='/images/facebook.png' /></a>
+							<a><img src='/images/vk.png' /></a>
+							<a><img src='/images/odnoklassniki-logo.png' /></a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<% if logged_in? && current_user.user_things.all.count > 0 %>
+			<%= render '/partials/ground' %>
+		<% end %>
+		<% flash.each do |key, value| %>
+		  <div class="animated flipInY alert alert-<%= key %>"><%= value %></div>
+		<% end %>
 	</div>
-</div>
-<% if logged_in? && current_user.user_things.all.count > 0 %>
-	<%= render '/partials/ground' %>
-<% end %>
-<% flash.each do |key, value| %>
-  <div class="animated flipInY alert alert-<%= key %>"><%= value %></div>
-<% end %>
 </body>
 </html>

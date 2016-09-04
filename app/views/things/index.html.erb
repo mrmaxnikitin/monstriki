@@ -3,12 +3,10 @@
 </div>
 <div class='row first-page-elm'>
 	<div class='cell'>
-		<div class='col col-press-18 col-profile'>
-			<%= render "/partials/profile" %>
-		</div>
-		<div class='col col-78proc col-main  ml-2proc'>
+		<%= render "/partials/profile_big" %>
+		<div class='col col-67proc ml-2proc'>
 			<h2 class='h--thin mbs'><span class='prxs'>Купи бубуки за игровые монетки</span></h2>
-			<div class='cell all-things'>
+			<div class='all-things'>
 				<% @things.each do |thing|%>
 					<div class='col thing card'>
 						<img src='<%= thing.img %>' />
