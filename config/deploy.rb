@@ -3,7 +3,7 @@ set :deploy_user, 'deploy'
 
 # setup repo details
 set :scm, :git
-set :repo_url, 'git@bitbucket.org:MaxNikitin_/monstriki.git'
+set :repo_url, 'git@github.org:mrmaxnikitin/monstriki.git'
 
 # setup rbenv.
 set :rbenv_type, :system
