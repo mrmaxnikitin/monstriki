@@ -1,7 +1,10 @@
 <div class='row'>
 	<div class='cell mtm'>
 		<%= render "/partials/profile_big" %>
-		<div class='col-45proc ma'>
+		<div class='col-press-54 ma'>
+			<div class='wrap-category-edit'>
+				<%= link_to 'Изменить своего монстрика', monstrik_path %>
+			</div>
 			<div class='edit-user-data-form change-user-data-form card'>
 		  	<h2 class='tac'>Настройки</h2>
 				<%= simple_form_for(@user, url: user_path(current_user), html: { class: 'edit-user-data' }) do |f| %>

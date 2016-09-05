@@ -23,6 +23,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem "js-routes"
 gem 'mailgun_rails'
 gem 'devise'
+gem 'russian'
 
 gem 'react-rails'
 gem 'react-bootstrap-rails'

@@ -22,7 +22,7 @@ class UsersController < InheritedResources::Base
       auto_login @user
       @user.update(score: 3, payment_end_date: Time.now + 3.days)
       Track.create(user_id: @user.id)
-      UserMonster.create(user_id: @user.id, monster_id: false, name: "Монстрик")
+      UserMonster.create(user_id: @user.id, monster_id: false, name: "")
       flash[:success] = "Супер! А теперь выберите своего монстрика"
       redirect_to monstrik_path
     else
