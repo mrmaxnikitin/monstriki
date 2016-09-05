@@ -78,6 +78,12 @@
 .img-next-task{
   width: 32px;
 }
+.action-menu-task{
+  color: #d8d8d8;
+  position: relative;
+  top: 5px !important;
+  left: 10px;
+}
 .repeat-task{
   background-color: #00a8c4;
   margin-top: 12px;
@@ -151,32 +157,34 @@
 .the-end-of-train:before{
   top: -86px !important;
 }
-.wrap-task-error{
-  .task-error{
-    margin-top: 20px;
-    floar: left;
-    margin-left: 1%;
-    height: 38px;
-    p{
-      color: #dcdcdc;
-      cursor: pointer;
-      &:hover{
-        color: #fff;
-      }
+.task-error{
+  float: left;
+  height: 38px;
+  position: absolute;
+  top: 19em;
+  p{
+    color: #dcdcdc;
+    cursor: pointer;
+    &:hover{
+      color: #fff;
     }
-    .content-task-error{
-      button{
-        margin-left: 30px;
-        border: 1px solid white;
-      }
-      h3{
-        color: white;
-        img{
-          width: 25px;
-          position: relative;
-          top: 5px;
-          left: 5px;
-        }
+  }
+  .content-task-error{
+    select{
+      font-size: 12px;
+    }
+    button{
+      margin-top: 8px;
+      border: 1px solid white;
+      font-size: 11px;
+    }
+    h3{
+      color: white;
+      img{
+        width: 25px;
+        position: relative;
+        top: 5px;
+        left: 5px;
       }
     }
   }

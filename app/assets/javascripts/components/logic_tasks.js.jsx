@@ -382,17 +382,19 @@ const LogicTasks = React.createClass({
     
     var content_error_message
     if(this.state.num_current_task < this.state.tasks.length){
-      content_error_message = <p onClick={this.error_message}>Ошибка? Сообщите нам</p>
+      content_error_message = <p onClick={this.error_message}>В задании ошибка? Сообщите</p>
       if(this.state.error_message == 1){
         content_error_message=(
           <div className='content-task-error'>
-            <select ref='error_message'>
-              <option disabled selected="selected" value='Не указано'>В чем проблема?</option>
-              <option value='Проблема с картинкой'>Проблема с картинкой</option>
-              <option value='Некорректный текст вопроса'>Некорректный текст вопроса</option>
-              <option value='Задание не соответствует возрасту'>Задание не соответствует возрасту</option>
-              <option value='Другое'>Другое</option>
-            </select>
+            <div>
+              <select ref='error_message'>
+                <option disabled selected="selected" value='Не указано'>В чем проблема?</option>
+                <option value='Проблема с картинкой'>Проблема с картинкой</option>
+                <option value='Некорректный текст вопроса'>Некорректный текст вопроса</option>
+                <option value='Задание не соответствует возрасту'>Задание не соответствует возрасту</option>
+                <option value='Другое'>Другое</option>
+              </select>
+            </div>
             <button className='btn btn-our-green' onClick={this.sendErrorMessage}>Сообщить</button>
           </div>
         );
@@ -415,11 +417,9 @@ const LogicTasks = React.createClass({
           <div className='clear'></div>
           {content_task}
           <div className='clear'></div>
-          <div className='wrap-task-error'>
-            <div className='task-error'>
-              {content_error_message}
-            </div>
-          </div>
+        </div>
+        <div className='task-error'>
+          {content_error_message}
         </div>
       </div>
     );

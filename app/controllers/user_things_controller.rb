@@ -13,7 +13,7 @@ class UserThingsController < ApplicationController
   end
 
   def get_things
-  	@things = current_user.user_things.joins(:thing).order(:id).all
+  	@things = current_user.user_things.joins(:thing).order(:thing_id).all
   	render :index, formats: :json
   end
 
