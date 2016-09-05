@@ -44,7 +44,7 @@ const CreateTask = React.createClass({
     var pic1 = pic1_input.value.trim(), pic2 = pic2_input.value.trim(), pic3 = pic3_input.value.trim(), pic4 = pic4_input.value.trim()
     var pic5 = pic5_input.value.trim(), pic6 = pic6_input.value.trim(), pic7 = pic7_input.value.trim(), pic8 = pic8_input.value.trim()
     var pic9 = pic9_input.value.trim(), pic10 = pic10_input.value.trim(), pic11 = pic11_input.value.trim(), pic12 = pic12_input.value.trim()
-    var answer = answer_input.value.trim()
+    var answer = answer_input.value.trim().toLowerCase()
 
     var task_type = this.state.task_type
     var subtype = this.state.subtype
