@@ -68,6 +68,7 @@ const Task5 = React.createClass({
       answer: new_answer
     });
   },
+  //ответ выглядит в виде строки, где каждое число отображает индекс правильного ответа
   acceptAnswer: function(){
     var number_of_pics = this.state.number_of_pics
     var a = this.state.answer

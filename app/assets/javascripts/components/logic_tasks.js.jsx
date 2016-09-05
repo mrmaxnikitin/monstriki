@@ -79,8 +79,9 @@ const LogicTasks = React.createClass({
   nextTask: function() {
     var new_num_current_task = this.state.num_current_task + 1
     if(this.props.quest){
+      var num_current_task = this.state.num_current_task
       for(var i = 0; i < this.state.tasks.length; i++){
-        if(!this.state.status_quest_tasks[i]){
+        if(!this.state.status_quest_tasks[i] && num_current_task != i){
           new_num_current_task = i
           break
         }
