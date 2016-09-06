@@ -24,9 +24,8 @@ const CreateTask = React.createClass({
     var text_input = ReactDOM.findDOMNode(this.refs.text)
     var in_quest_input = ReactDOM.findDOMNode(this.refs.in_quest)
     var only_quest_input = ReactDOM.findDOMNode(this.refs.only_quest)
-    var sample_input = ReactDOM.findDOMNode(this.refs.sample)
     var direction = direction_input.value.trim(), age = age_input.value.trim(), text = text_input.value.trim()
-    var in_quest = in_quest_input.checked, only_quest = only_quest_input.checked, sample = sample_input.checked
+    var in_quest = in_quest_input.checked, only_quest = only_quest_input.checked
 
     var pic1_input = ReactDOM.findDOMNode(this.refs.pic1)
     var pic2_input = ReactDOM.findDOMNode(this.refs.pic2)
@@ -133,7 +132,14 @@ const CreateTask = React.createClass({
     return (
       <div className='create-task'>
         <h2>Создайте задание</h2>
-        <input type='text' ref='direction' placeholder='Направление (логика, память, внимание, математика, мир вокруг нас)'/>
+        <select ref='direction' onChange={this.selectSubtype}>
+          <option disabled>Направление</option>
+          <option value='Логика'>Логика</option>
+          <option value='Память'>Память</option>
+          <option value='Внимание'>Внимание</option>
+          <option value='Математика'>Математика</option>
+          <option value='Мир вокруг нас'>Мир вокруг нас</option>
+        </select>
         <input type="number" ref='age' placeholder='Возраст'/>
         <input type='text' ref='text' placeholder='Текст задания'/>
         <select ref='task_type' onChange={this.selectTypeTask}>
@@ -160,7 +166,6 @@ const CreateTask = React.createClass({
         </select>
         <div>Ставить галочку, если хотим, чтобы она не была в квестах <input type='checkbox' value='1' ref='in_quest' name='in_quest'/></div>
         <div>Ставить галочку, если задание только для квестов <input type='checkbox' value='1' ref='only_quest' name='only_quest'/></div>
-        <div>Ставить галочку, если задание для примера <input type='checkbox' value='1' ref='sample' name='sample'/></div>
         {content_task_type}
       </div>
     );
