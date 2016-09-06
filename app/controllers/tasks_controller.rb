@@ -66,7 +66,7 @@ class TasksController < ApplicationController
 
 	private
 		def task_params
-      params.require(:task).permit(:direction, :task_type, :subtype, :age, :text, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7, :pic8, :pic9, :pic10, :pic11, :pic12, :answer, :for_quest)
+      params.require(:task).permit(:direction, :task_type, :subtype, :age, :text, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7, :pic8, :pic9, :pic10, :pic11, :pic12, :answer, :for_quest, :only_quest)
     end
     
 end

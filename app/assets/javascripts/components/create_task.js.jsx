@@ -77,7 +77,7 @@ const CreateTask = React.createClass({
         task: new_task
       },
       success: function(data) {
-        
+        $('.pic_input').val('')
       }.bind(this),
       error: function(xhr, status, err) {
         console.error("ОШИБКА", status, err.toString());
@@ -106,20 +106,20 @@ const CreateTask = React.createClass({
         <p>Нумеровка картинок с единицы (минимальный ответ 1, максимальный - 9)</p>
         {notice}
         <h3>Картиночки теперь</h3>
-        <div>1. <input type='text' ref='pic1' placeholder='pic1' /></div>
-        <div>2. <input type='text' ref='pic2' placeholder='pic2' /></div>
-        <div>3. <input type='text' ref='pic3' placeholder='pic3' /></div>
-        <div>4. <input type='text' ref='pic4' placeholder='pic4' /></div>
-        <div>5. <input type='text' ref='pic5' placeholder='pic5' /></div>
-        <div>6. <input type='text' ref='pic6' placeholder='pic6' /></div>
-        <div>7. <input type='text' ref='pic7' placeholder='pic7' /></div>
-        <div>8. <input type='text' ref='pic8' placeholder='pic8' /></div>
-        <div>9. <input type='text' ref='pic9' placeholder='pic9' /></div>
+        <div>1. <input className='pic_input' type='text' ref='pic1' placeholder='pic1' /></div>
+        <div>2. <input className='pic_input' type='text' ref='pic2' placeholder='pic2' /></div>
+        <div>3. <input className='pic_input' type='text' ref='pic3' placeholder='pic3' /></div>
+        <div>4. <input className='pic_input' type='text' ref='pic4' placeholder='pic4' /></div>
+        <div>5. <input className='pic_input' type='text' ref='pic5' placeholder='pic5' /></div>
+        <div>6. <input className='pic_input' type='text' ref='pic6' placeholder='pic6' /></div>
+        <div>7. <input className='pic_input' type='text' ref='pic7' placeholder='pic7' /></div>
+        <div>8. <input className='pic_input' type='text' ref='pic8' placeholder='pic8' /></div>
+        <div>9. <input className='pic_input' type='text' ref='pic9' placeholder='pic9' /></div>
         <div className={pic10_11_12}>
           <h4>Дополнительные картинки</h4>
-          <div>10. (1)<input type='text' ref='pic10' placeholder='pic10' /></div>
-          <div>11. (2)<input type='text' ref='pic11' placeholder='pic11' /></div>
-          <div>12. (3)<input type='text' ref='pic12' placeholder='pic12' /></div>
+          <div>10. (1)<input className='pic_input' type='text' ref='pic10' placeholder='pic10' /></div>
+          <div>11. (2)<input className='pic_input' type='text' ref='pic11' placeholder='pic11' /></div>
+          <div>12. (3)<input className='pic_input' type='text' ref='pic12' placeholder='pic12' /></div>
         </div>
         <input className={display_answer} type='text' ref='answer' placeholder='Ответ (последовательность из цифр в правильном порядке)' />
         <button onClick={this.createTask1}>Созидаем!</button>
