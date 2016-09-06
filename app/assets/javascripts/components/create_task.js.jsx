@@ -94,7 +94,7 @@ const CreateTask = React.createClass({
         </div>
       );
     }
-    if(this.state.task_type != 6){
+    if(this.state.task_type != 6 && this.state.task_type != 9){
       pic10_11_12 = 'displaynone'
     }
     var display_answer
@@ -116,7 +116,7 @@ const CreateTask = React.createClass({
         <div>8. <input className='pic_input' type='text' ref='pic8' placeholder='pic8' /></div>
         <div>9. <input className='pic_input' type='text' ref='pic9' placeholder='pic9' /></div>
         <div className={pic10_11_12}>
-          <h4>Дополнительные картинки</h4>
+          <h4>Дополнительные поля</h4>
           <div>10. (1)<input className='pic_input' type='text' ref='pic10' placeholder='pic10' /></div>
           <div>11. (2)<input className='pic_input' type='text' ref='pic11' placeholder='pic11' /></div>
           <div>12. (3)<input className='pic_input' type='text' ref='pic12' placeholder='pic12' /></div>
