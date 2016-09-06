@@ -30,7 +30,7 @@
 				<h3 class='payment-field'><%= payment_text %>
 					<div class='<%= payment_class_date %>'><%= Russian::strftime(payment_end_date, "%d %B %Y года, %T") %></div>
 					<div class='wrap-button-pay'>
-						<%= link_to 'Продлить', payment_path, class: 'btn btn-our-green '+payment_class_pay %>
+						<%= link_to 'Продлить', payment_path, class: 'btn btn-our-green' %>
 					</div>
 				</h3>
 			</div>

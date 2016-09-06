@@ -5,6 +5,7 @@
 		<%= link_to 'Профиль', user %>
 		<% if current_user?(@user) %>
 			<%= link_to 'Карта монстрика', monster_card_path %>
+			<%= link_to "Платежи", payment_path %>
 			<%= link_to 'Настройки', edit_user_path(current_user) %></a>
 		<% end %>
 		<%= link_to logout_path, class: 'fr logout', data: { no_turbolink: true } do %>
