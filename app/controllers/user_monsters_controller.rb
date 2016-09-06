@@ -6,8 +6,14 @@ class UserMonstersController < ApplicationController
   end
 
   def rename_monster
-		current_user.user_monster.name = params[:user_monster][:name]
-		current_user.user_monster.save
-		redirect_to monstrik_path
+  	if params[:user_monster][:name] == ""
+  		flash[:error] = "Введите имя монстрика в поле над кнопкой!"
+  	else
+  		current_user.user_monster.name = params[:user_monster][:name]
+			current_user.user_monster.save
+			flash[:success] = "Классно! Замечательное имя для монстрика!"
+  	end
+  	redirect_to monstrik_path
+		
   end
 end

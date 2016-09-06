@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
 
   validates :age,
     presence:     { message: 'Укажите возраст ребенка' }
+  validates :name,
+    presence:     { message: 'Укажите имя ребенка' }
 
   def buy_thing!(thing)
     if self.score >= thing.price

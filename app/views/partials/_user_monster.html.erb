@@ -19,11 +19,24 @@
 			</div>
 		</div>
 		<div class='clear'></div>
-		<div class='profile-link bdrn bdrt bc-snow-light card-row card-row--south'>
-			<%=link_to "Мой профиль", user_path(current_user), class: "tcm" %>
-		</div>
 	</div>
-	<div class='card mbl profile-menu'>
-		<%= render '/partials/left_menu' %>
+	<div class='card mbl information-and-statistic-user'>
+		<div class='element'>
+			<% if @user.track.complete_quest
+				quests_amount = @user.track.current_quest
+			else 
+				quests_amount = @user.track.current_quest - 1
+			end %>
+			<h5 class='h--thin'><img src='/images/flag.png'/> <span>Квестов пройдено: <b><%= quests_amount %></b></span></h5>
+		</div>
+		<div class='element status-quest-complete'>
+			<h5 class='h--thin'><img src='/images/clock.png'/>
+				<% if @user.track.complete_quest %>
+					<span class='completed'>Сегодня квест уже <b>пройден!</b></span>
+				<% else %>
+					<span class='not-completed'>Сегодня квест еще <b>не пройден!</b></span>
+				<% end %>
+			</h5>
+		</div>
 	</div>
 </div>
