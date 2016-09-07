@@ -36,13 +36,14 @@ const Picture3 = React.createClass({
 const Task3 = React.createClass({
   getInitialState: function () {
     return {
-      answer: [0, 0, 0, 0, 0, 0, 0, 0],
-      number_of_pics: 8
+      answer: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      number_of_pics: 9
     };
   },
   componentDidMount: function(){ 
     var task = this.props.task
-    var number_of_pics = 8;
+    var number_of_pics = 9;
+    if(task.pic9 == "") number_of_pics -= 1;
     if(task.pic8 == "") number_of_pics -= 1;
     if(task.pic7 == "") number_of_pics -= 1;
     if(task.pic6 == "") number_of_pics -= 1;
@@ -58,7 +59,7 @@ const Task3 = React.createClass({
   repeatTask: function() {
     this.props.repeatTask()
     this.setState({
-      answer: [0, 0, 0, 0, 0, 0, 0, 0]
+      answer: [0, 0, 0, 0, 0, 0, 0, 0, 0]
     });
   },
   toAnswer: function(item, color_id){   //color_id: 0 - белый, 1 - красный,  2 - синий, 3 - зеленый, 4 - желтый
@@ -94,6 +95,7 @@ const Task3 = React.createClass({
       else if(i == 6) task_pic_i = task.pic6
       else if(i == 7) task_pic_i = task.pic7
       else if(i == 8) task_pic_i = task.pic8
+      else if(i == 9) task_pic_i = task.pic9
       var the_pic = <Picture3 classSizePics={size_pics} task_pic={task_pic_i} toAnswer={this.toAnswer} color_id={this.state.answer[i-1]} item={i-1} key={i}/>
       pics.push(the_pic)
     }
