@@ -69,7 +69,7 @@ const Task3 = React.createClass({
       answer: a
     });
   },
-  acceptAnswer: function(){
+  acceptAnswer: function(){                         //ответ в виде последоветельностей индексов цветов... цифр в ответе столько сколько number_of_pics
     var s = new String()
     var number_of_pics = this.state.number_of_pics
     for(i = 0; i < number_of_pics; i++){

@@ -6,6 +6,9 @@ const CreateTask = React.createClass({
       subtype: 1
     };
   },
+  reset: function(){
+    $('.pic_input').val('')
+  },
   selectTypeTask: function(){
     var task_type = ReactDOM.findDOMNode(this.refs.task_type)
     this.setState({
@@ -77,7 +80,6 @@ const CreateTask = React.createClass({
         task: new_task
       },
       success: function(data) {
-        $('.pic_input').val('')
       }.bind(this),
       error: function(xhr, status, err) {
         console.error("ОШИБКА", status, err.toString());
@@ -97,9 +99,9 @@ const CreateTask = React.createClass({
     if(this.state.task_type != 6 && this.state.task_type != 9){
       pic10_11_12 = 'displaynone'
     }
-    var display_answer
+    var display_answer = 'pic_input'
     if(this.state.task_type == 8){
-      display_answer = 'displaynone'
+      display_answer += ' displaynone'
     }
     content_task_type = (
       <div>
@@ -122,7 +124,9 @@ const CreateTask = React.createClass({
           <div>12. (3)<input className='pic_input' type='text' ref='pic12' placeholder='pic12' /></div>
         </div>
         <input className={display_answer} type='text' ref='answer' placeholder='Ответ (последовательность из цифр в правильном порядке)' />
-        <button onClick={this.createTask1}>Созидаем!</button>
+        <button onClick={this.reset}>Сбросить значания картинок.</button>
+        </br>
+        <button class='btn btn-our-green' onClick={this.createTask1}>Созидаем!</button>
       </div>
 
     );

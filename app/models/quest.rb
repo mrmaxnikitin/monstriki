@@ -2,7 +2,7 @@ class Quest < ActiveRecord::Base
 
 	def generate_quest
   	directions = ['Логика', 'Память', 'Внимание', 'Математика', 'Мир вокруг нас']
-  	for age in 4..8 do
+  	for age in 4..7 do
   		a = Array.new
   		for i in 0..4 do
 				task = Task.where(age: age, direction: directions[i], in_quest: false, only_quest: true).first
