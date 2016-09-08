@@ -158,6 +158,13 @@
       background-color: transparent;
       padding-left: 0px;
       color: #ff1e4a;
+      width: 100%;
+    }
+    input[type="text"]::-webkit-input-placeholder {
+      color: #efefef;
+    } 
+    input[type="text"]::-moz-placeholder {
+      color: #efefef;
     }
   }
 }
