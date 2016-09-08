@@ -6,9 +6,6 @@ const CreateTask = React.createClass({
       subtype: 1
     };
   },
-  resetInput: function(){
-    $('.pic_input').val('')
-  },
   selectTypeTask: function(){
     var task_type = ReactDOM.findDOMNode(this.refs.task_type)
     this.setState({
@@ -124,7 +121,6 @@ const CreateTask = React.createClass({
           <div>12. (3)<input className='pic_input' type='text' ref='pic12' placeholder='pic12' /></div>
         </div>
         <input className={display_answer} type='text' ref='answer' placeholder='Ответ (последовательность из цифр в правильном порядке)' />
-        <button onClick={this.resetInput}>Сбросить значания картинок.</button>
         <button className='btn btn-our-red' onClick={this.createTask1}>Созидаем!</button>
       </div>
 
