@@ -125,7 +125,7 @@ const CreateTask = React.createClass({
         </div>
         <input className={display_answer} type='text' ref='answer' placeholder='Ответ (последовательность из цифр в правильном порядке)' />
         <button onClick={this.reset}>Сбросить значания картинок.</button>
-        </br>
+        <br/>
         <button class='btn btn-our-green' onClick={this.createTask1}>Созидаем!</button>
       </div>
 
