@@ -76,36 +76,41 @@
 }
 /*4 тип задания*/
 #type_task4{
-  .tasks-pics-3, .tasks-pics-4{
+  .tasks-pics-3{
     width: 30%;
-    margin: 0.4% 8%;
+    margin: 0.4% 0.8%;
+  }
+  .tasks-pics-4{
+    width: 23.8%;
+    margin: 0.4% 0.6%;
   }
   .tasks-pics-5{
-    width: 24%;
+    width: 19%;
     margin: 0.4% 0.5%;
   }
   .tasks-pics-6{
-    width: 19%;
-    margin: 0.25% 0.5%;
+    width: 15.97%;
+    margin: 0.25% 0.35%;
   }
   .tasks-pics-7{
-    width: 15.7%;
-    margin: 0.17% 0.35%;
+    width: 14.2%;
+    margin: 0.17% 0.2%;
   }
   .tasks-pics-8{
-    width: 13.4%;
+    width: 24.3%;
     margin: 0.17% 0.35%;
   }
   img{
-    border-radius: 200px;
-    position: relative;
+    width: 100%;
     cursor: pointer;
-    padding: 0px !important;
   }
   .wrap-general-picture{
     text-align: center;
     .general-picture{
-      width: 48%;
+      width: 58%;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 4px;
     }
   }
   .functional-pictures{
@@ -113,7 +118,8 @@
     text-align: center;
   }
   .choosed_pic{
-    border: 3px solid #1cdcb3 !important;
+    background-color: #1cdcb3 !important;
+    transform: scale(0.93);
   }
 }
 #type_task5{

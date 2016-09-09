@@ -146,15 +146,15 @@ const CreateTask = React.createClass({
         <input type='text' ref='text' placeholder='Текст задания'/>
         <select ref='task_type' onChange={this.selectTypeTask}>
           <option disabled>Выберите тип задания</option>
-          <option value='1'>Выбор одного варианта ответа</option>
-          <option value='2'>––––––</option>
-          <option value='3'>Раскрасшивание</option>
-          <option value='4'>Статичная картинка, выбор варианта ответа</option>
-          <option value='5'>Выбор нескольких вариантов ответа</option>
-          <option value='6'>Одна картинка скрыта, нужно открыть нужную</option>
-          <option value='7'>Ввод ответа с клавиатуры</option>
-          <option value='8'>Задание статичное, ответ всегда правильный</option>
-          <option value='9'>Запоминание на время, а потом выбор ответа правильного</option>
+          <option value='1'>1. Выбор одного варианта ответа</option>
+          <option value='2'>2. ––––––</option>
+          <option value='3'>3. Раскрасшивание</option>
+          <option value='4'>4. Статичная картинка, выбор варианта ответа</option>
+          <option value='5'>5. Выбор нескольких вариантов ответа</option>
+          <option value='6'>6. Одна картинка скрыта, нужно открыть нужную</option>
+          <option value='7'>7. Ввод ответа с клавиатуры</option>
+          <option value='8'>8. Задание статичное, ответ всегда правильный</option>
+          <option value='9'>9. Запоминание на время, а потом выбор ответа правильного</option>
           <option value='10'>10</option>
           <option value='11'>11</option>
         </select>
