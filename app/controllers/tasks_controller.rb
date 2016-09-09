@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 	before_filter :require_login, except: :index
-	before_action :require_admin, only: [:new, :create]
+	before_action :require_admin, only: [:new, :create, :documentation]
 
 	def index
 		@tasks = Task.all
@@ -62,6 +62,10 @@ class TasksController < ApplicationController
 	def error_message
 		TaskError.create(user_id: current_user.id, task_id: params[:task_id], text: params[:text])
 		render nothing: true
+	end
+
+	def documentation
+		
 	end
 
 	private

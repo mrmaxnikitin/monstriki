@@ -28,7 +28,7 @@ const CreateTask = React.createClass({
     var in_quest_input = ReactDOM.findDOMNode(this.refs.in_quest)
     var only_quest_input = ReactDOM.findDOMNode(this.refs.only_quest)
     var direction = direction_input.value.trim(), age = age_input.value.trim(), text = text_input.value.trim()
-    var in_quest = in_quest_input.checked, only_quest = only_quest_input.checked
+    var only_quest = only_quest_input.checked
 
     var pic1_input = ReactDOM.findDOMNode(this.refs.pic1)
     var pic2_input = ReactDOM.findDOMNode(this.refs.pic2)
@@ -124,7 +124,7 @@ const CreateTask = React.createClass({
           <div>12. (3)<input className='pic_input' type='text' ref='pic12' placeholder='pic12' /></div>
         </div>
         <input className={display_answer} type='text' ref='answer' placeholder='Ответ (последовательность из цифр в правильном порядке)' />
-        <button onClick={this.resetInput}>Сбросить значения картинок!</button> 
+        <button onClick={this.resetInput}>Сбросить значения!</button> 
         <button className='btn btn-our-red' onClick={this.createTask1}>Созидаем!</button>
       </div>
 
@@ -147,15 +147,15 @@ const CreateTask = React.createClass({
         <input type='text' ref='text' placeholder='Текст задания'/>
         <select ref='task_type' onChange={this.selectTypeTask}>
           <option disabled>Выберите тип задания</option>
-          <option value='1'>1</option>
-          <option value='2'>2</option>
-          <option value='3'>3</option>
-          <option value='4'>4</option>
-          <option value='5'>5</option>
-          <option value='6'>6</option>
-          <option value='7'>7</option>
-          <option value='8'>8</option>
-          <option value='9'>9</option>
+          <option value='1'>Выбор одного варианта ответа</option>
+          <option value='2'>––––––</option>
+          <option value='3'>Раскрасшивание</option>
+          <option value='4'>Статичная картинка, выбор варианта ответа</option>
+          <option value='5'>Выбор нескольких вариантов ответа</option>
+          <option value='6'>Одна картинка скрыта, нужно открыть нужную</option>
+          <option value='7'>Ввод ответа с клавиатуры</option>
+          <option value='8'>Задание статичное, ответ всегда правильный</option>
+          <option value='9'>Запоминание на время, а потом выбор ответа правильного</option>
           <option value='10'>10</option>
           <option value='11'>11</option>
         </select>
@@ -167,7 +167,7 @@ const CreateTask = React.createClass({
           <option value='4'>4</option>
           <option value='5'>5</option>
         </select>
-        <div>Ставить галочку, если хотим, чтобы она не была в квестах <input type='checkbox' value='1' ref='in_quest' name='in_quest'/></div>
+        
         <div>Ставить галочку, если задание только для квестов <input type='checkbox' value='1' ref='only_quest' name='only_quest'/></div>
         {content_task_type}
       </div>

@@ -154,12 +154,6 @@ const Task9 = React.createClass({
 
   },
   acceptAnswer: function(answer){
-    var mySound = new buzz.sound("/sounds/page-flip-18", {
-      formats: [ "mp3", "wav" ],
-      preload: true,
-      autoplay: true,
-      loop: false
-    });
     this.props.acceptAnswer(answer)
   },
   onDrop: function(data) {
