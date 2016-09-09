@@ -33,7 +33,10 @@ Rails.application.routes.draw do
       get :get_math
       get :world
       get :get_world
+      get :moderation
+      get :get_moderation
       post :reward
+      post :moderate
       post :error_message
       get :documentation
     end

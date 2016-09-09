@@ -25,7 +25,6 @@ const CreateTask = React.createClass({
     var direction_input = ReactDOM.findDOMNode(this.refs.direction)
     var age_input = ReactDOM.findDOMNode(this.refs.age)
     var text_input = ReactDOM.findDOMNode(this.refs.text)
-    var in_quest_input = ReactDOM.findDOMNode(this.refs.in_quest)
     var only_quest_input = ReactDOM.findDOMNode(this.refs.only_quest)
     var direction = direction_input.value.trim(), age = age_input.value.trim(), text = text_input.value.trim()
     var only_quest = only_quest_input.checked
@@ -69,8 +68,7 @@ const CreateTask = React.createClass({
       pic10: pic10,
       pic11: pic11,
       pic12: pic12,
-      answer: answer,
-      in_quest: in_quest
+      answer: answer
     };
     $.ajax({
       url: '/tasks',
@@ -80,6 +78,7 @@ const CreateTask = React.createClass({
         task: new_task
       },
       success: function(data) {
+        alert('Задание создано!')
       }.bind(this),
       error: function(xhr, status, err) {
         console.error("ОШИБКА", status, err.toString());
@@ -92,7 +91,7 @@ const CreateTask = React.createClass({
       notice = (
         <div className='notice-create-task'>
           Максимум 3 варианта ответа, за эти варианты ответов отвечают <b>дополнительные картинки</b>. (pic10, pic11, pic12)<br/>
-          Последовательности от 1 до 8 выстраиваются в ряд, 9 - в квадратик 3x3
+          1-7 картинок - в 1 ряд, 8 картинок - в 2 ряда, 9 - в 3 ряда
         </div>
       );
     }

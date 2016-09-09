@@ -9,36 +9,50 @@ class TasksController < ApplicationController
 	def logic
 	end
 	def get_logic
-		@tasks = Task.where(direction: "Логика", age: current_user.age, only_quest: false).order('RANDOM()').all
+		@tasks = Task.where(direction: "Логика", age: current_user.age, only_quest: false, moderated: true).order('RANDOM()').all
 		render :index, formats: :json
 	end
 
 	def memory
 	end
 	def get_memory
-		@tasks = Task.where(direction: "Память", age: current_user.age, only_quest: false).order('RANDOM()').all
+		@tasks = Task.where(direction: "Память", age: current_user.age, only_quest: false, moderated: true).order('RANDOM()').all
 		render :index, formats: :json
 	end
 
 	def attention
 	end
 	def get_attention
-		@tasks = Task.where(direction: "Внимание", age: current_user.age, only_quest: false).order('RANDOM()').all
+		@tasks = Task.where(direction: "Внимание", age: current_user.age, only_quest: false, moderated: true).order('RANDOM()').all
 		render :index, formats: :json
 	end
 
 	def world
 	end
 	def get_world
-		@tasks = Task.where(direction: "Мир вокруг нас", age: current_user.age, only_quest: false).order('RANDOM()').all
+		@tasks = Task.where(direction: "Мир вокруг нас", age: current_user.age, only_quest: false, moderated: true).order('RANDOM()').all
 		render :index, formats: :json
 	end
 
 	def math
 	end
 	def get_math
-		@tasks = Task.where(direction: "Математика", age: current_user.age, only_quest: false).order('RANDOM()').all
+		@tasks = Task.where(direction: "Математика", age: current_user.age, only_quest: false, moderated: true).order('RANDOM()').all
 		render :index, formats: :json
+	end
+
+	def moderation
+	end
+	def get_moderation
+		@tasks = Task.where(moderated: false).all
+		render :index, formats: :json
+	end
+
+	def moderate
+		@task = Task.find(params[:task_id])
+		@task.moderated = true
+		@task.save
+		render nothing: true
 	end
 
 	def new
@@ -65,7 +79,6 @@ class TasksController < ApplicationController
 	end
 
 	def documentation
-		
 	end
 
 	private

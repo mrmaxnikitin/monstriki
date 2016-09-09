@@ -47,6 +47,22 @@ const LogicTasks = React.createClass({
       }.bind(this)
     });
   },
+  moderateTask: function(){
+    $.ajax({
+      url: '/tasks/moderate',
+      //dataType: 'json',
+      type: 'POST',
+      data: {
+        task_id: this.state.tasks[this.state.num_current_task].id
+      },
+      success: function(data) {
+        alert('Задание прошло модерацию!')
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error("ОШИБКА", status, err.toString());
+      }.bind(this)
+    });
+  },
   chooseQuestTask: function(item){
     this.setState({
       num_current_task: item,
@@ -426,6 +442,15 @@ const LogicTasks = React.createClass({
       }
     }
 
+    var moderation
+    if(this.props.moderation){
+      moderation = (
+        <div className='wrap-moderation-button'>
+          <button className='btn btn-our-red' onClick={this.moderateTask}>Допустить</button>
+        </div>
+      );
+    }
+
     return (
       <div>
         {profile}
@@ -440,6 +465,7 @@ const LogicTasks = React.createClass({
         <div className='task-error'>
           {content_error_message}
         </div>
+        {moderation}
       </div>
     );
   }

@@ -22,6 +22,9 @@
 					<%= link_to 'Тренировки', tasks_path, class: "menu-point train-menu-point" %>
 					<%= link_to 'Бубуки', things_path, class: "menu-point things-menu-point" %>
 				<% end %>
+				<% if logged_in? && current_user.admin? %>
+					<%= link_to 'Модерация', moderation_tasks_path, class: "menu-point moderation-menu-point" %>
+				<% end %>
 				<div class='right-part'>
 					<% if logged_in? %>
 		        <%= link_to 'Мой профиль', user_path(current_user), id: 'sign-in' %>
