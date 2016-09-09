@@ -89,6 +89,12 @@ const Task9 = React.createClass({
     }
   },
   startTask: function(){
+    var mySound = new buzz.sound("/sounds/clock-ticking-2", {
+      formats: [ "mp3", "wav" ],
+      preload: true,
+      autoplay: true,
+      loop: false
+    });
     this.timer = setInterval(this.tick, 50);
     this.setState({
       covered: false,
@@ -148,6 +154,12 @@ const Task9 = React.createClass({
 
   },
   acceptAnswer: function(answer){
+    var mySound = new buzz.sound("/sounds/page-flip-18", {
+      formats: [ "mp3", "wav" ],
+      preload: true,
+      autoplay: true,
+      loop: false
+    });
     this.props.acceptAnswer(answer)
   },
   onDrop: function(data) {

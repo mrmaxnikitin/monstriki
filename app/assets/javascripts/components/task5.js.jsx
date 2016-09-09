@@ -51,6 +51,12 @@ const Task5 = React.createClass({
     });
   },
   toAnswer: function(item){
+    var mySound = new buzz.sound("/sounds/button_tiny", {
+        formats: [ "mp3", "aac", "ogg" ],
+        preload: true,
+        autoplay: true,
+        loop: false
+    });
     var number_of_pics = this.state.number_of_pics
     var a = this.state.answer
     var new_answer = ''
