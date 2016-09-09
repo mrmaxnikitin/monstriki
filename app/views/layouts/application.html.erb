@@ -8,6 +8,7 @@
   <script src="//cdn.jsdelivr.net/sortable/latest/Sortable.min.js"></script>
   <script src="https://npmcdn.com/react-motion/build/react-motion.js"></script>
   <script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/buzz/1.2.0/buzz.min.js'></script>
 </head>
 <body>
 	<div class='div-body'>
@@ -17,15 +18,15 @@
 					<span id='header-logo'><img src ='/images/logo-img.png' /> <span>Монстрики</span></span>
 				<% end %>
 				<% if logged_in? %>
-					<%= link_to 'Квест', start_path, class: "menu-point" %>
-					<%= link_to 'Тренировки', tasks_path, class: "menu-point" %>
-					<%= link_to 'Бубуки', things_path, class: "menu-point" %>
+					<%= link_to 'Квест', start_path, class: "menu-point quest-menu-point" %>
+					<%= link_to 'Тренировки', tasks_path, class: "menu-point train-menu-point" %>
+					<%= link_to 'Бубуки', things_path, class: "menu-point things-menu-point" %>
 				<% end %>
 				<div class='right-part'>
 					<% if logged_in? %>
 		        <%= link_to 'Мой профиль', user_path(current_user), id: 'sign-in' %>
 		      <% else %>
-						<%= link_to 'Создать аккаунт', signup_path, class: 'create-accaunt btn' %>
+						<%= link_to 'Создать аккаунт', signup_path, class: 'create-accaunt btn snap-sound' %>
 						<%= link_to 'Войти', signin_path %>
 					<% end %>
 				</div>

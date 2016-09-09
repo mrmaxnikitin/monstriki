@@ -13,4 +13,21 @@ $(document).on("page:load ready", function(){
 	  $('.change-password-form').addClass('displaynone');
 	  $('.change-user-data-form').removeClass('displaynone').addClass('animated bounceIn');
 	});
+
+	$('.snap-sound').click(function(){
+		var mySound = new buzz.sound("/sounds/snap", {
+      formats: [ "mp3", "aac", "ogg" ],
+      preload: true,
+      autoplay: true,
+      loop: false
+    });
+	});
+	$('.buy-sound').click(function(){
+		var mySound = new buzz.sound("/sounds/coin-drop-5", {
+      formats: [ "mp3", "wav" ],
+      preload: true,
+      autoplay: true,
+      loop: false
+    });
+	});
 });

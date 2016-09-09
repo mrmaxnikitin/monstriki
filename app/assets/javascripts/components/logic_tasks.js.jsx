@@ -77,6 +77,13 @@ const LogicTasks = React.createClass({
     });
   },
   nextTask: function() {
+    $('.coins').removeClass('animated bounce')
+    var mySound = new buzz.sound("/sounds/camera_flashing", {
+        formats: [ "mp3", "aac", "ogg" ],
+        preload: true,
+        autoplay: true,
+        loop: false
+    });
     var new_num_current_task = this.state.num_current_task + 1
     if(this.props.quest){
       var num_current_task = this.state.num_current_task
@@ -105,8 +112,14 @@ const LogicTasks = React.createClass({
     }*/
     var score = this.state.score
     var number_of_attempts = this.state.number_of_attempts
-
     if(user_answer == real_answer){
+      $('.coins').addClass('animated bounce')
+      var mySound = new buzz.sound("/sounds/coin-drop-4", {
+          formats: [ "mp3", "wav" ],
+          preload: true,
+          autoplay: true,
+          loop: false
+      });
       var a = this.state.status_quest_tasks
       a[num_current_task] = true
 
@@ -155,6 +168,12 @@ const LogicTasks = React.createClass({
       }
 
     }else{
+      var mySound = new buzz.sound("/sounds/light_bulb_breaking", {
+          formats: [ "mp3", "aac", "ogg" ],
+          preload: true,
+          autoplay: true,
+          loop: false
+      });
       var number_of_attempts = this.state.number_of_attempts + 1
       if(number_of_attempts > 1) number_of_attempts = 1
       this.setState({

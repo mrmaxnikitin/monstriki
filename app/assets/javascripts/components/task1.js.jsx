@@ -47,6 +47,12 @@ const Task1 = React.createClass({
     });
   },
   toAnswer: function(item){
+    var mySound = new buzz.sound("/sounds/button_tiny", {
+        formats: [ "mp3", "aac", "ogg" ],
+        preload: true,
+        autoplay: true,
+        loop: false
+    });
     this.setState({
       answer: item
     });

@@ -37,7 +37,7 @@ class UsersController < InheritedResources::Base
 	def update
 		if @user.update_attributes user_params
       flash[:success] = 'Данные успешно изменены'
-      redirect_to user_path
+      redirect_to edit_user_path(current_user)
     else
       render 'edit'
     end

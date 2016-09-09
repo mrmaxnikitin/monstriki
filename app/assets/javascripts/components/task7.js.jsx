@@ -43,6 +43,12 @@ const Task7 = React.createClass({
     });
   },
   toAnswer: function(item){
+    var mySound = new buzz.sound("/sounds/button_click_on", {
+        formats: [ "mp3", "aac", "ogg" ],
+        preload: true,
+        autoplay: true,
+        loop: false
+    });
     var text_input = ReactDOM.findDOMNode(this.refs.answer)
     var val_input = text_input.value.trim().toLowerCase()
     this.setState({
