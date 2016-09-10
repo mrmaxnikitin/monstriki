@@ -41,6 +41,7 @@ show do
     row (:pic10) { |t| image_tag(t.pic10.to_s) }
     row (:pic11) { |t| image_tag(t.pic11.to_s) }
     row (:pic12) { |t| image_tag(t.pic12.to_s) }
+    row :asnwer
   end
   active_admin_comments
 end

@@ -24,6 +24,7 @@
 				<% end %>
 				<% if logged_in? && current_user.admin? %>
 					<%= link_to 'Модерация', moderation_tasks_path, class: "menu-point moderation-menu-point" %>
+					<%= link_to 'Админка', admin_root_path, class: "menu-point admin-menu-point" %>
 				<% end %>
 				<div class='right-part'>
 					<% if logged_in? %>

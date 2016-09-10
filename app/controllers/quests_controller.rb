@@ -1,7 +1,7 @@
 class QuestsController < ApplicationController
-	before_action :find_quest, except: [:new, :create]
+	before_action :find_user_quest, except: [:new, :create]
 	before_filter :require_login
-	before_action :require_admin, only: [:new, :create]
+	before_action :require_admin, only: [:new, :create, :edit, :update]
 	include ApplicationHelper
 	def index
 		if (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day
@@ -58,9 +58,12 @@ class QuestsController < ApplicationController
 
 
 	private
-    def find_quest
+    def find_user_quest
       @track = current_user.track if current_user
 			@quest = Quest.find(@track.current_quest) if current_user
+    end
+    def find_quest
+			@quest = Quest.find(params[:id])
     end
 end
 
