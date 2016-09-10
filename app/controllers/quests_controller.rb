@@ -1,7 +1,8 @@
 class QuestsController < ApplicationController
 	before_action :find_user_quest, except: [:new, :create]
+	#before_action :find_quest, only: [:edit, :update]
 	before_filter :require_login
-	before_action :require_admin, only: [:new, :create, :edit, :update]
+	before_action :require_admin, only: [:new, :create, :add_task_to_quest, :get_add_task_to_quest]
 	include ApplicationHelper
 	def index
 		if (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day
@@ -18,6 +19,14 @@ class QuestsController < ApplicationController
 		@quest = Quest.new
 		@quest.generate_quest
 		render 'new'
+	end
+
+	def add_task_to_quest
+	end
+	def get_add_task_to_quest
+		@q = Quest.find(params[:quest_id])
+		@q.push_task(params[:age], params[:task_id])
+		render nothing: true
 	end
 
 	def finish_trip
@@ -65,6 +74,10 @@ class QuestsController < ApplicationController
     def find_quest
 			@quest = Quest.find(params[:id])
     end
+    #def quest_params
+      #params.require(:quest).permit(age3: [], age4: [], age5: [], age6: [], age7: [], age8: [], age9: [], age10: [])
+      #params.require(:quest).permit(:age3, :age4, :age5, :age6, :age7, :age8, :age9, :age10)
+    #end
 end
 
 

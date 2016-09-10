@@ -47,6 +47,8 @@ Rails.application.routes.draw do
       get :get_trip
       post :finish_trip
       get :next_quest
+      get :add_task_to_quest
+      post :get_add_task_to_quest
     end
   end
   resources :things

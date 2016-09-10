@@ -2,6 +2,14 @@ class Quest < ActiveRecord::Base
 
 	def generate_quest
   	directions = ['Логика', 'Память', 'Внимание', 'Математика', 'Мир вокруг нас']
+  	#self.age3 = []
+		#self.age4 = []
+		#self.age5 = []
+		#self.age6 = []
+		#self.age7 = []
+		#self.age8 = []
+		#self.age9 = []
+		#self.age10 = []
   	for age in 4..7 do
   		a = Array.new
   		for i in 0..4 do
@@ -30,6 +38,28 @@ class Quest < ActiveRecord::Base
 			end
   	end
   	save!
+  end
+
+  def push_task(age, task_id)
+  	case age
+		when "age3"
+		   self.age3.push(task_id)
+		when "age4"
+		   self.age4.push(task_id)
+		when "age5"
+		   self.age5.push(task_id)
+		when "age6"
+		   self.age6.push(task_id)
+		when "age7"
+		   self.age7.push(task_id)
+		when "age8"
+		   self.age8.push(task_id)
+		when "age9"
+		   self.age9.push(task_id)
+		when "age10"
+		   self.age10.push(task_id)
+		end
+		save!
   end
 
 end
