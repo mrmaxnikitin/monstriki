@@ -16,7 +16,8 @@ index do
   column :age, label: "Возраст"
   column :text, label: "Текст"
   column :subtype, label: "Подтип"
-  column :moderated, label: "Модерация"
+  column :only_quest, label: "Для квестов?"
+  column :moderated, label: "Модерация?"
   actions
 end
 
