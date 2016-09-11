@@ -28,6 +28,9 @@ show do
     row :task_type
     row :subtype
     row :text
+    row :answer
+    row('only_quest?') { |b| status_tag b.only_quest? }
+    row('moderated?') { |b| status_tag b.moderated? }
     row :created_at
     row :updated_at
     row (:pic1) { |t| image_tag(t.pic1.to_s) }
@@ -42,9 +45,6 @@ show do
     row (:pic10) { |t| image_tag(t.pic10.to_s) }
     row (:pic11) { |t| image_tag(t.pic11.to_s) }
     row (:pic12) { |t| image_tag(t.pic12.to_s) }
-    row :asnwer
-    row :only_quest
-    roq :moderated
   end
   active_admin_comments
 end
