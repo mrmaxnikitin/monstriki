@@ -116,6 +116,9 @@
   .functional-pictures{
     margin: 30px 0;
     text-align: center;
+    div{
+      transition: all 0.3s ease;
+    }
   }
   .choosed_pic{
     background-color: #1cdcb3 !important;
@@ -150,7 +153,7 @@
 }
 #type_task7{
   .tasks-pics-1{
-      width: 70%;
+      width: 100%;
       min-width: 300px;
   } 
   .wrap-answer-input{
