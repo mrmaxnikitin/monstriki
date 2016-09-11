@@ -55,6 +55,7 @@ const CreateTask = React.createClass({
       task_type: task_type,
       subtype: subtype,
       age: age,
+      only_quest: only_quest,
       text: text,
       pic1: pic1,
       pic2: pic2,

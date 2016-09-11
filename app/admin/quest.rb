@@ -1,6 +1,6 @@
 ActiveAdmin.register Quest do
 permit_params :age3, :age4, :age5, :age6, :age7, :age8, :age9, :age10
-actions :index, :show, :destroy
+actions :index, :show
 menu label: 'Квесты'
 
 filter :id

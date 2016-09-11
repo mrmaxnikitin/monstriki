@@ -1,5 +1,5 @@
 ActiveAdmin.register Task do
-permit_params :direction, :task_type, :subtype, :age, :text, :answer, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7, :pic8, :pic9, :pic10, :pic11, :pic12
+permit_params :direction, :task_type, :subtype, :age, :text, :answer, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7, :pic8, :pic9, :pic10, :pic11, :pic12, :only_quest, :moderated
 actions :index, :show, :destroy, :edit, :update, :new, :create
 menu label: 'Задания'
 
@@ -16,6 +16,7 @@ index do
   column :age, label: "Возраст"
   column :text, label: "Текст"
   column :subtype, label: "Подтип"
+  column :moderated, label: "Модерация"
   actions
 end
 
@@ -42,6 +43,8 @@ show do
     row (:pic11) { |t| image_tag(t.pic11.to_s) }
     row (:pic12) { |t| image_tag(t.pic12.to_s) }
     row :asnwer
+    row :only_quest
+    roq :moderated
   end
   active_admin_comments
 end
