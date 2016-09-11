@@ -10,7 +10,7 @@ class Quest < ActiveRecord::Base
 		#self.age8 = []
 		#self.age9 = []
 		#self.age10 = []
-  	for age in 4..7 do
+  	for age in 3..10 do
   		a = Array.new
   		for i in 0..4 do
 				task = Task.where(age: age, direction: directions[i], in_quest: false, only_quest: true, moderated: true).first
