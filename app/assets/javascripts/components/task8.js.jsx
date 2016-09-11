@@ -69,7 +69,7 @@ const Task8 = React.createClass({
     //Контент самого задания
     content = (
       <div>
-        <div className='content-task-type' id='type_task1'>
+        <div className='content-task-type' id='type_task8'>
           {pics}
           <div className='clear'></div>
         </div>

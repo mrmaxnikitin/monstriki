@@ -107,7 +107,7 @@
   .wrap-general-picture{
     text-align: center;
     .general-picture{
-      width: 58%;
+      width: 70%;
       padding: 10px;
       background-color: #fff;
       border-radius: 4px;
@@ -172,6 +172,11 @@
     input[type="text"]::-moz-placeholder {
       color: #efefef;
     }
+  }
+}
+#type_task8{
+  .tasks-pics-2{
+    width: 65%;
   }
 }
 #type_task9{
