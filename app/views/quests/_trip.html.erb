@@ -1,6 +1,9 @@
 <%
 	quest_id = current_user.track.current_quest
-	pic1 = Task.find(Quest.find(quest_id).age5[0]).pic1
+	if current_quest.age == 6
+		pic1 = Task.find(Quest.find(quest_id).age6[0]).pic1
+	elsif current_user.age == 7
+		pic1 = Task.find(Quest.find(quest_id).age7[0]).pic1
 %>
 
 <%= link_to link_trip, class: "snap-sound" do %>

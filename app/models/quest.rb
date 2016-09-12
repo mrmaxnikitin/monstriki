@@ -41,6 +41,7 @@ class Quest < ActiveRecord::Base
   end
 
   def push_task(age, task_id)
+  	Task.find(task_id).update(in_quest: true)
   	case age
 		when "age3"
 		   self.age3.push(task_id)
