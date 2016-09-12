@@ -80,7 +80,7 @@ const Task1 = React.createClass({
       else if(i == 6) var task_pic_i = task.pic6
       else if(i == 7) var task_pic_i = task.pic7
       else if(i == 8) var task_pic_i = task.pic8
-      else if(i == 8) var task_pic_i = task.pic9
+      else if(i == 9) var task_pic_i = task.pic9
       var the_pic = <Picture1 classSizePics={size_pics} task_pic={task_pic_i} toAnswer={this.toAnswer} answer={this.state.answer} item={i} key={i}/>
       pics.push(the_pic)
     }

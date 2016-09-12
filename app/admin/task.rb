@@ -8,6 +8,7 @@ filter :direction, as: :select, label: "Направление"
 filter :age, label: "Возраст"
 filter :task_type, label: "Тип задания"
 filter :subtype, label: "Подтип"
+filter :in_quest, label: "В квесте?"
 
 index do
   id_column
