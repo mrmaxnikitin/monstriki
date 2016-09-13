@@ -148,8 +148,10 @@ const Task5 = React.createClass({
       );
       task_text = task.text
     }else{
+      var styleForSubtype
+      if(task.subtype == 2) styleForSubtype = "animated bounceIn"
       content = (
-        <div className='animated bounceIn'>
+        <div className={styleForSubtype}>
           <div className='content-task-type' id='type_task5'>
             {pics}
             <div className='clear'></div>

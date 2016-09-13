@@ -173,7 +173,7 @@ const Task1 = React.createClass({
             <img src='/images/forward.png' className='img-next-task fr cursor--pointer' onClick={this.props.nextTask}/>
           </h2>
           <div className='clear'></div>
-          <p className='task-text'>{task.text}</p>
+          <p className='task-text'>{task_text}</p>
         </div>
       );
     }else{
