@@ -133,7 +133,7 @@ const Task5 = React.createClass({
       pics.push(the_pic)
     }
 
-    var task_text
+    var task_text = task.text
     //Контент самого задания
     if(task.subtype == 2 && !this.state.started){
       var remember_size_pic = "tasks-pics-general tasks-pics-1"
@@ -146,7 +146,6 @@ const Task5 = React.createClass({
           </div>
         </div>
       );
-      task_text = task.text
     }else{
       var styleForSubtype
       if(task.subtype == 2) styleForSubtype = "animated bounceIn"
@@ -158,9 +157,9 @@ const Task5 = React.createClass({
           </div>
         </div>
       );
-      task_text = task.pic10
-      if(task.pic10=='')
-        task_text = task.text
+      if(task.subtype == 2 && task.pic10 != ''){
+        task_text = task.pic10
+      }
     }
     
 
