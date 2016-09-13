@@ -144,7 +144,7 @@ const Task1 = React.createClass({
     var button_to_answer
     if(this.props.status_current_task == 0){
       if(task.subtype == 2 && !this.state.started)
-        button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-start" onClick={this.started}>Начать</button>
+        button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-start" onClick={this.startTask}>Начать</button>
       else
         button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer" onClick={this.acceptAnswer}>Ответить</button>
     }
