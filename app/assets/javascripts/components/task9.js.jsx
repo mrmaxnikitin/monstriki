@@ -218,7 +218,7 @@ const Task9 = React.createClass({
         button_to_repeat = <button className="btn-m btn-m-3 btn-m-3a icon-star-2 repeat-task" onClick={this.repeatTask}>Еще разок</button>
       }
     }else{
-      button_to_start = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2" onClick={this.startTask}>Начать</button>
+      button_to_start = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-start" onClick={this.startTask}>Начать</button>
     }
 
     //Результат выполнения задания

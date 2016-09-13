@@ -14,9 +14,9 @@ index do
   id_column
   column :direction, label: "Направление"
   column :task_type, label: "Тип"
+  column :subtype, label: "Подтип"
   column :age, label: "Возраст"
   column :text, label: "Текст"
-  column :subtype, label: "Подтип"
   column :only_quest, label: "Для квестов?"
   column :moderated, label: "Модерация?"
   column :in_quest, label: "В квесте?"

@@ -71,6 +71,18 @@
 .get-answer{
   margin-top: 12px;
 }
+.get-start{
+  background: rgb(64,199,129);
+  &:hover{
+    background: rgb(53, 167, 110);
+  }
+  &:active{
+    background: rgb(33,147,90);
+  }
+  &:focus{
+    background: rgb(33,147,90);
+  }
+}
 .next-task{
   background-color: #00a8c4;
   margin-top: 12px;

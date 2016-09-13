@@ -97,7 +97,10 @@ const CreateTask = React.createClass({
       );
     }
     if(this.state.task_type != 6 && this.state.task_type != 9){
-      pic10_11_12 = 'displaynone'
+      if((this.state.task_type == 1 || this.state.task_type == 5) && this.state.subtype == 2)
+        pic10_11_12 = ''
+      else
+        pic10_11_12 = 'displaynone'
     }
     var display_answer = 'pic_input'
     if(this.state.task_type == 8){
@@ -119,9 +122,9 @@ const CreateTask = React.createClass({
         <div>9. <input className='pic_input' type='text' ref='pic9' placeholder='pic9' /></div>
         <div className={pic10_11_12}>
           <h4>Дополнительные поля</h4>
-          <div>10. (1)<input className='pic_input' type='text' ref='pic10' placeholder='pic10' /></div>
-          <div>11. (2)<input className='pic_input' type='text' ref='pic11' placeholder='pic11' /></div>
-          <div>12. (3)<input className='pic_input' type='text' ref='pic12' placeholder='pic12' /></div>
+          <div>10. (1)<input className='pic_input' type='text' ref='pic10' placeholder='Дополнительное поле (pic10)' /></div>
+          <div>11. (2)<input className='pic_input' type='text' ref='pic11' placeholder='Дополнительное поле (pic11)' /></div>
+          <div>12. (3)<input className='pic_input' type='text' ref='pic12' placeholder='Дополнительное поле (pic12)' /></div>
         </div>
         <input className={display_answer} type='text' ref='answer' placeholder='Ответ (последовательность из цифр в правильном порядке)' />
         <button onClick={this.resetInput}>Сбросить значения!</button> 

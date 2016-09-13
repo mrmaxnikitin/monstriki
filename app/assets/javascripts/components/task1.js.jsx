@@ -17,11 +17,23 @@ const Picture1 = React.createClass({
   }
 })
 
+const Picture1Subtype2 = React.createClass({
+  render: function() {
+    var classStyle = this.props.classSizePics + ' col card'
+    return (
+      <div className={classStyle}>
+        <img src={this.props.task_pic} />
+      </div>
+    );
+  }
+})
+
 //Выбор правильного ответа, кликнув на картинку, ответ только один.
 const Task1 = React.createClass({
   getInitialState: function () {
     return {
       answer: 0,
+      remember: 0,
       number_of_pics: 9
     };
   },
@@ -44,7 +56,8 @@ const Task1 = React.createClass({
   repeatTask: function() {
     this.props.repeatTask()
     this.setState({
-      answer: 0
+      answer: 0,
+      remember: 0
     });
   },
   toAnswer: function(item){
@@ -61,6 +74,18 @@ const Task1 = React.createClass({
   acceptAnswer: function(){
     var answer = this.state.answer
     this.props.acceptAnswer(answer)
+  },
+  // для task.subtype = 2
+  remember: function(){
+    var mySound = new buzz.sound("/sounds/pop_cork", {
+        formats: [ "mp3", "aac", "ogg" ],
+        preload: true,
+        autoplay: true,
+        loop: false
+    });
+    this.setState({
+      remember: 1
+    });
   },
   render: function() {
     var task = this.props.task
@@ -85,20 +110,41 @@ const Task1 = React.createClass({
       pics.push(the_pic)
     }
 
+    var task_text
     //Контент самого задания
-    content = (
-      <div>
-        <div className='content-task-type' id='type_task1'>
-          {pics}
-          <div className='clear'></div>
+    if(task.subtype == 2 && !this.state.remember){
+      var remember_size_pic = "tasks-pics-general tasks-pics-1"
+      var remember_pic = <Picture1Subtype2 classSizePics={remember_size_pic} task_pic={task.pic11} key={11}/>
+      content = (
+        <div className='animated fadeIn'>
+          <div className='content-task-type' id='type_task1'>
+            {remember_pic}
+            <div className='clear'></div>
+          </div>
         </div>
-      </div>
-    );
+      );
+      task_text = task.text
+    }else{
+      content = (
+        <div className='animated bounceIn'>
+          <div className='content-task-type' id='type_task1'>
+            {pics}
+            <div className='clear'></div>
+          </div>
+        </div>
+      );
+      task_text = task.pic10
+      if(task.pic10=='')
+        task_text = task.text
+    }
 
     //Кнопки действий
     var button_to_answer
     if(this.props.status_current_task == 0){
-      button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer" onClick={this.acceptAnswer}>Ответить</button>
+      if(task.subtype == 2 && !this.state.remember)
+        button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-start" onClick={this.remember}>Начать</button>
+      else
+        button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer" onClick={this.acceptAnswer}>Ответить</button>
     }
     var button_next_task, button_to_repeat, button_complete_quest
     if(this.props.status_current_task == 1){
