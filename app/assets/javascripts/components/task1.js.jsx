@@ -33,7 +33,7 @@ const Task1 = React.createClass({
   getInitialState: function () {
     return {
       answer: 0,
-      remember: 0,
+      started: 0,
       number_of_pics: 9
     };
   },
@@ -57,7 +57,7 @@ const Task1 = React.createClass({
     this.props.repeatTask()
     this.setState({
       answer: 0,
-      remember: 0
+      started: 0
     });
   },
   toAnswer: function(item){
@@ -76,7 +76,7 @@ const Task1 = React.createClass({
     this.props.acceptAnswer(answer)
   },
   // для task.subtype = 2
-  remember: function(){
+  startTask: function(){
     var mySound = new buzz.sound("/sounds/pop_cork", {
         formats: [ "mp3", "aac", "ogg" ],
         preload: true,
@@ -84,7 +84,7 @@ const Task1 = React.createClass({
         loop: false
     });
     this.setState({
-      remember: 1
+      started: 1
     });
   },
   render: function() {
@@ -112,7 +112,7 @@ const Task1 = React.createClass({
 
     var task_text
     //Контент самого задания
-    if(task.subtype == 2 && !this.state.remember){
+    if(task.subtype == 2 && !this.state.started){
       var remember_size_pic = "tasks-pics-general tasks-pics-1"
       var remember_pic = <Picture1Subtype2 classSizePics={remember_size_pic} task_pic={task.pic11} key={11}/>
       content = (
@@ -125,8 +125,10 @@ const Task1 = React.createClass({
       );
       task_text = task.text
     }else{
+      var styleForSubtype
+      if(task.subtype == 2) styleForSubtype = "animated bounceIn"
       content = (
-        <div className='animated bounceIn'>
+        <div className={styleForSubtype}>
           <div className='content-task-type' id='type_task1'>
             {pics}
             <div className='clear'></div>
@@ -141,8 +143,8 @@ const Task1 = React.createClass({
     //Кнопки действий
     var button_to_answer
     if(this.props.status_current_task == 0){
-      if(task.subtype == 2 && !this.state.remember)
-        button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-start" onClick={this.remember}>Начать</button>
+      if(task.subtype == 2 && !this.state.started)
+        button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-start" onClick={this.started}>Начать</button>
       else
         button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer" onClick={this.acceptAnswer}>Ответить</button>
     }

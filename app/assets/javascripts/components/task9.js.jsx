@@ -221,6 +221,16 @@ const Task9 = React.createClass({
       button_to_start = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-start" onClick={this.startTask}>Начать</button>
     }
 
+
+    var pic_on_task_text
+    if(task.pic11 != '' && this.state.started && this.state.covered){
+      pic_on_task_text = (
+        <div className='img-in-task-text mbm card'>
+          <img src={task.pic11} />
+        </div>
+      );
+    }
+
     //Результат выполнения задания
     var result_task
     if(!this.props.status_current_task){
@@ -239,6 +249,7 @@ const Task9 = React.createClass({
           </h2>
           <div className='clear'></div>
           <p className='task-text'>{task_text}</p>
+          {pic_on_task_text}
         </div>
       );
     }else{
