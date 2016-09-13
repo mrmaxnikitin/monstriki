@@ -30,6 +30,13 @@ const Picture6 = React.createClass({
         <img src={this.props.task_pic}/>
       );
     }
+    if(this.props.task.subtype == 2){
+      if(this.props.item == 2){
+        classStyle += ' small-pic'
+      }else{
+        classStyle += ' big-pic'
+      }
+    }
     return (
       <div className={classStyle}>
         {the_picture}
@@ -98,6 +105,7 @@ const Task6 = React.createClass({
     //Вывод изображение в зависимости от их количества
     var pics = []
     var size_pics = "tasks-pics-general tasks-pics-"+number_of_pics
+    
     for(i = 1; i <= number_of_pics; i++){
       var task_pic_i
       if(i == 1)      var task_pic_i = task.pic1
