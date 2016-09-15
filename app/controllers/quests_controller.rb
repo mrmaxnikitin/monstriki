@@ -5,7 +5,7 @@ class QuestsController < ApplicationController
 	before_action :require_admin, only: [:new, :create, :add_task_to_quest, :get_add_task_to_quest]
 	include ApplicationHelper
 	def index
-		if (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day
+		if (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day && @track.complete_quest
 			@track.next_quest
 			@track.save
 		end

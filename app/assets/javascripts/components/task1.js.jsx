@@ -181,6 +181,23 @@ const Task1 = React.createClass({
       result_task = this.props.task_result(this.props.status_current_task)
     }
 
+    var precompile_image
+    if(task.subtype == 2){
+      precompile_image = (
+        <div className='displaynone'>
+          <img src={taks.pic1}/>
+          <img src={taks.pic2}/>
+          <img src={taks.pic3}/>
+          <img src={taks.pic4}/>
+          <img src={taks.pic5}/>
+          <img src={taks.pic6}/>
+          <img src={taks.pic7}/>
+          <img src={taks.pic8}/>
+          <img src={taks.pic9}/>
+        </div>
+      );
+    }
+
     return (
       <div>
         <div className='col col-main task-participate animated fadeIn'>
@@ -193,6 +210,7 @@ const Task1 = React.createClass({
           {button_to_repeat}
           {button_next_task}
         </div>
+        {precompile_image}
       </div>
     );
   }

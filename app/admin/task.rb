@@ -1,5 +1,5 @@
 ActiveAdmin.register Task do
-permit_params :direction, :task_type, :subtype, :age, :text, :answer, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7, :pic8, :pic9, :pic10, :pic11, :pic12, :only_quest, :moderated
+permit_params :direction, :task_type, :subtype, :age, :text, :answer, :pic1, :pic2, :pic3, :pic4, :pic5, :pic6, :pic7, :pic8, :pic9, :pic10, :pic11, :pic12, :only_quest, :moderated, :in_quest
 actions :index, :show, :destroy, :edit, :update, :new, :create
 menu label: 'Задания'
 
