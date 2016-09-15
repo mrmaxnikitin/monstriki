@@ -185,15 +185,15 @@ const Task1 = React.createClass({
     if(task.subtype == 2){
       precompile_image = (
         <div className='displaynone'>
-          <img src={taks.pic1}/>
-          <img src={taks.pic2}/>
-          <img src={taks.pic3}/>
-          <img src={taks.pic4}/>
-          <img src={taks.pic5}/>
-          <img src={taks.pic6}/>
-          <img src={taks.pic7}/>
-          <img src={taks.pic8}/>
-          <img src={taks.pic9}/>
+          <img src={task.pic1}/>
+          <img src={task.pic2}/>
+          <img src={task.pic3}/>
+          <img src={task.pic4}/>
+          <img src={task.pic5}/>
+          <img src={task.pic6}/>
+          <img src={task.pic7}/>
+          <img src={task.pic8}/>
+          <img src={task.pic9}/>
         </div>
       );
     }
