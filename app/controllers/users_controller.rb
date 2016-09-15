@@ -24,7 +24,7 @@ class UsersController < InheritedResources::Base
       Track.create(user_id: @user.id)
       UserMonster.create(user_id: @user.id, monster_id: false, name: "")
       flash[:success] = "Супер! А теперь выберите своего монстрика"
-      redirect_to monstrik_path
+      redirect_to monster_avatar_user_monsters_path
     else
       flash[:error] = "Хммм... Попробуйте еще раз!"
       render 'new'

@@ -4,19 +4,9 @@ class MonstersController < ApplicationController
 		@monsters = Monster.all
 	end
 
-	def new
-		@monster = Monster.new
-	end
-
-	def create
-		@monster = Monster.new monster_params
-		@monster.save
-		render 'new'
-	end
-
 	private
 		def monster_params
-			params.require(:monster).permit(:name, :img, :price)
+			params.require(:monster).permit(:avatar)
 		end
 
 		def find_monster

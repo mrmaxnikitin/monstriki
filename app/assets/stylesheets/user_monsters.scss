@@ -1,0 +1,35 @@
+.margin-between-cards{
+	.col-press-25{
+		width: 23% !important;
+		margin: 1%;
+		img{
+			width: 100%;
+			border-radius: 2px;
+		}
+		.price{
+			width: 20px;
+		}
+	}
+}
+.wrap-avatar-monster-name{
+	
+}
+.monster-name-content{
+	width: 400px;
+	margin: auto;
+	text-align: center;
+	img{
+		width: 100%;
+	}
+	input[type='text']{
+		width: 100%;
+		margin-top: 10px;
+		font-size: 26px;
+    font-family: 'Junegull';
+	}
+	input[type='submit']{
+		width: 100%;
+		font-size: 14px;
+		margin-top: 10px;
+	}
+}

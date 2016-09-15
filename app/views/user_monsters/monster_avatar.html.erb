@@ -1,0 +1,28 @@
+<div class='row'>
+	<div class='cell mtm'>
+		<h1 class='tac tcw mbs mts h--thin'>Выбери себе монстрика</h1>
+		<% monster_presence = current_user.user_monster.monster_id %>
+		<div class='margin-between-cards'>
+			<% @monsters.each do |monster|%>
+				<div class='col col-press-25 monster card'>
+					<img src='<%= monster.avatar %>' />
+					<% if current_user.have_monster?(monster) %>
+						<div class='tac pd10'>
+							<span class='buy-monster button btn btn-our already-exist-monster'>Это твой</span>
+						</div>
+					<% else %>
+						<% if current_user.score >= 100 || current_user.user_monster.monster_id == 0 %>
+							<%= form_for UserMonster.new, url: choose_monster_user_monsters_path do |f| %>
+								<%= hidden_field_tag :monster_id, monster.id %>
+							  <div class='tac pd10'>
+							  	<%= f.submit "Хочу такого", class: "buy-monster button btn btn-our btn-our-green" %>
+							  </div>
+							<% end %>
+						<% end %>
+					<% end %>
+				</div>
+			<% end %>
+			<div class='clear'></div>
+		</div>
+	</div>
+</div>

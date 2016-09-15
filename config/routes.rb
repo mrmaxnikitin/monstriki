@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   end
   resources :user_monsters do
     collection do
+      get  :monster_avatar
+      get  :monster_name
+      post :choose_monster
+      post :give_name_to_monster
       post :buy_monster
       post :rename_monster
     end

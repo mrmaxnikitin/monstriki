@@ -215,9 +215,6 @@ const Task5 = React.createClass({
           <img src={task.pic4}/>
           <img src={task.pic5}/>
           <img src={task.pic6}/>
-          <img src={task.pic7}/>
-          <img src={task.pic8}/>
-          <img src={task.pic9}/>
         </div>
       );
     }
