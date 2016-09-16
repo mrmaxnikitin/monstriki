@@ -1,7 +1,7 @@
 class ThingsController < ApplicationController
 	before_action :require_admin, only: [:new, :create]
 	def index
-		@things = Thing.all
+		@things = Thing.order(created_at: "DESC").all
 	end
 
 	def new
