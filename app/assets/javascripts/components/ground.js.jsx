@@ -47,29 +47,29 @@ const Ground = React.createClass({
       active_thing = item
     }
 
-    if(item == 0){                  //lamp Светильник
+    if(item == 1){                  //lamp Светильник
       this.setState({
         active_thing: active_thing
       });
     }
 
-    if(item == 1){                  //drunk Размытие экрана
+    if(item == 2){                  //drunk Размытие экрана
       this.drunk(item)
     }
 
-    if(item == 2){                  //swing
+    if(item == 3){                  //swing
       this.swing(item)
     }
 
-    if(item == 3){                  //sepia
+    if(item == 4){                  //sepia
       this.sepia(item)
     }
 
-    if(item == 4){
+    if(item == 5){
       this.kaleidoscope(item)       //kaleidoscope
     }
 
-    if(item == 5){
+    if(item == 6){
       this.invert(item)       //invert
     }
     
@@ -210,7 +210,7 @@ const Ground = React.createClass({
       return (
         <Thing
           key={i}
-          item={i}
+          item={thing.id}
           active_thing={this.state.active_thing}
           thing={thing}
           activeThing={this.activeThing} />
