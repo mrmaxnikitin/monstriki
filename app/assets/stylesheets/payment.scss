@@ -6,12 +6,15 @@
 	h1{
 		padding-top: 15px;
 	}
+	p{
+		font-size: 16px;
+	}
 }
 .col-payment-methods{
 	.wrap-payment-method{
 		padding: 10px 40px;
 		position: relative;
-		top: -180px;
+		top: -160px;
 		text-align: center;
 		.payment-method-1{
 			background-color: #4eb5d8;
