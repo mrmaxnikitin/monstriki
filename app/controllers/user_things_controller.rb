@@ -14,6 +14,7 @@ class UserThingsController < ApplicationController
 
   def get_things
   	@things = current_user.user_things.joins(:thing).order(:thing_id).all
+    puts @things.first.thing_id
   	render :index, formats: :json
   end
 

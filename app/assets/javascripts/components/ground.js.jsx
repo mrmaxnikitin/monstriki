@@ -210,14 +210,14 @@ const Ground = React.createClass({
       return (
         <Thing
           key={i}
-          item={thing.id}
+          item={thing.thing_id}
           active_thing={this.state.active_thing}
           thing={thing}
           activeThing={this.activeThing} />
       );
     }.bind(this));
     var content_thing
-    if(this.state.active_thing == 0){  //Cветильник
+    if(this.state.active_thing == 1){  //Cветильник
       content_thing = (
         <div className='flashlight'>
           <img src='/images/things/lamp_c.png' className='animated slideInDown' onClick={this.switchLamp}/>
