@@ -71,6 +71,9 @@ Rails.application.routes.draw do
   get 'parents' => 'static_pages#parents'
   get 'about' => 'static_pages#about'
   get 'contacts' => 'static_pages#contacts'
+  get 'agreement' => 'static_pages#agreement'
+  get 'confidential' => 'static_pages#confidential'
+  get 'cookies' => 'static_pages#cookies'
   get 'test' => 'tasks#test'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
