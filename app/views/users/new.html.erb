@@ -18,6 +18,7 @@
 			      <%= f.input :email, label: false, input_html: { class: 'input-sp',  placeholder: 'Электронный адрес' } %>
 			      <%= f.input :password, label: false, input_html: { class: 'input-sp',  placeholder: 'Пароль' } %>
 			      <%= f.input :password_confirmation, label: false,  input_html: { class: 'input-sp',  placeholder: 'Повторите пароль' } %>
+			      <%= f.input :terms_of_service, as: :boolean, label: "Я ознокомлен(а) и принимаю #{link_to 'пользовательское соглашение', agreement_path}.".html_safe %>
 			      <%= f.button :submit, 'Создать монстрика!', class: 'btn btn-our btn-our-green' %>
 			    </div>
 			<% end %>

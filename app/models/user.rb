@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
     presence:     { message: 'Укажите возраст ребенка' }
   validates :name,
     presence:     { message: 'Укажите имя ребенка' }
+  validates :terms_of_service,
+    acceptance: { message: 'Ознакомьтесь с пользовательским соглашеним и поставьте галочку'}
 
   def buy_thing!(thing)
     if self.score >= thing.price
