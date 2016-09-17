@@ -140,9 +140,20 @@
 	}
 }
 .parents-attraction{
-	background-image: url(/images/footer_bg2x.png);
+	/*background-image: url(/images/photo-1470072175146-6b22ce654ca4.jpeg);*/
 	background-size: cover;
-	background-color: #84b341;
+	background-color: rgba(255, 255, 255, 0.23);
+	height: 280px !important;
+	h1{
+		padding-top: 25px;
+		font-family: 'BoomBoom';
+    font-size: 60px;
+    margin-bottom: 0px !important;
+	}
+	p{
+		font-size: 24px;
+		margin: 0;
+	}
 }
 .about-attraction{
 	background-image: url(/images/footer_bg2x.png);
@@ -162,8 +173,23 @@
 	margin-bottom: 10px;
 }
 .parents-page{
+	text-align: left;
+	position: relative;
+	top: -60px;
+	.cell940{
+		padding: 40px;
+	}
 	img{
 		width: 100%;
+		border-radius: 4px;
+	}
+	.part1{
+		.golden_section62{
+			padding: 10px 0px 10px 40px;
+			p{
+				font-size: 18px;
+			}
+		}
 	}
 }
 .document-list{
