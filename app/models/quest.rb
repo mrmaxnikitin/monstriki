@@ -1,7 +1,7 @@
 class Quest < ActiveRecord::Base
 
 	def generate_quest
-  	directions = ['Логика', 'Память', 'Внимание', 'Математика', 'Мир вокруг нас']
+  	directions = ['Логика', 'Память и внимание', 'Речь', 'Математика', 'Мир вокруг нас']
   	#self.age3 = []
 		#self.age4 = []
 		#self.age5 = []

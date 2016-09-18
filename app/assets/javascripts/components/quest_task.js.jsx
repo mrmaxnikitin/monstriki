@@ -25,10 +25,10 @@ const QuestTask = React.createClass({
       var direction_pic
       if(this.props.task.direction == 'Логика'){
         direction_pic = '/images/direction_pics/logic.jpg'
-      }else if(this.props.task.direction == 'Память'){
+      }else if(this.props.task.direction == 'Память и внимание'){
         direction_pic = '/images/direction_pics/memory.jpg'
-      }else if(this.props.task.direction == 'Внимание'){
-        direction_pic = '/images/direction_pics/attention.jpg'
+      }else if(this.props.task.direction == 'Речь'){
+        direction_pic = '/images/direction_pics/speech.jpg'
       }else if(this.props.task.direction == 'Математика'){
         direction_pic = '/images/direction_pics/math.jpg'
       }else if(this.props.task.direction == 'Мир вокруг нас'){

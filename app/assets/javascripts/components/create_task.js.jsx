@@ -141,8 +141,8 @@ const CreateTask = React.createClass({
         <select ref='direction' onChange={this.selectSubtype}>
           <option disabled>Направление</option>
           <option value='Логика'>Логика</option>
-          <option value='Память'>Память</option>
-          <option value='Внимание'>Внимание</option>
+          <option value='Память и внимание'>Память и внимание</option>
+          <option value='Речь'>Речь</option>
           <option value='Математика'>Математика</option>
           <option value='Мир вокруг нас'>Мир вокруг нас</option>
         </select>
