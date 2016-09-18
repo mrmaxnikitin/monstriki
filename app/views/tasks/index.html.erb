@@ -14,7 +14,7 @@
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Логика').count %> заданий</span>
+						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Логика', only_quest: false).count %> заданий</span>
 					</div>
 					<h1 class='tcm'>Логика</h1>
 				</div>
@@ -28,7 +28,7 @@
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Память и внимание').count %> заданий</span>
+						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Память и внимание', only_quest: false).count %> заданий</span>
 					</div>
 					<h1 class='tcm'>Память и внимание</h1>
 				</div>
@@ -42,7 +42,7 @@
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Речь').count %> заданий</span>
+						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Речь', only_quest: false).count %> заданий</span>
 					</div>
 					<h1 class='tcm'>Речь</h1>
 				</div>
@@ -56,7 +56,7 @@
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Математика').count %> заданий</span>
+						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Математика', only_quest: false).count %> заданий</span>
 					</div>
 					<h1 class='tcm'>Математика</h1>
 				</div>
@@ -70,7 +70,7 @@
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Мир вокруг нас').count %> заданий</span>
+						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Мир вокруг нас', only_quest: false).count %> заданий</span>
 					</div>
 					<h1 class='tcm'>Мир вокруг нас</h1>
 				</div>
