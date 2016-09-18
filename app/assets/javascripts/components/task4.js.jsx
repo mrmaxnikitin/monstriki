@@ -84,6 +84,15 @@ const Task4 = React.createClass({
       pics.push(the_pic)
     }
 
+    var pic_on_task_text
+    if(task.pic10 != '' && task.subtype == 1){
+      pic_on_task_text = (
+        <div className='img-in-task-text mbm card'>
+          <img src={task.pic10} />
+        </div>
+      );
+    }
+
     //Контент самого задания
     content = (
       <div>
@@ -131,6 +140,7 @@ const Task4 = React.createClass({
           </h2>
           <div className='clear'></div>
           <p className='task-text'>{task.text}</p>
+          {pic_on_task_text}
         </div>
       );
     }else{
