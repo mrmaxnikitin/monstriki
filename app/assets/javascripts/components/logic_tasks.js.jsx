@@ -129,18 +129,28 @@ const LogicTasks = React.createClass({
     var score = this.state.score
     var number_of_attempts = this.state.number_of_attempts
     if(user_answer == real_answer){
-      $('.coins').addClass('animated bounce')
-      var mySound = new buzz.sound("/sounds/coin-drop-4", {
-          formats: [ "mp3", "wav" ],
-          preload: true,
-          autoplay: true,
-          loop: false
-      });
+      if(this.props.quest){
+        $('.coins').addClass('animated bounce')
+        var mySound = new buzz.sound("/sounds/coin-drop-4", {
+            formats: [ "mp3", "wav" ],
+            preload: true,
+            autoplay: true,
+            loop: false
+        });
+      }
+      else{
+        var mySound = new buzz.sound("/sounds/snap", {
+            formats: [ "mp3", "aac", "ogg" ],
+            preload: true,
+            autoplay: true,
+            loop: false
+        });
+      }
       var a = this.state.status_quest_tasks
       a[num_current_task] = true
 
       var new_score
-      if(this.props.complete_quest)
+      if(!this.props.quest || this.props.complete_quest && this.props.quest)
         new_score = score
       else
         new_score = score + 2 - number_of_attempts
