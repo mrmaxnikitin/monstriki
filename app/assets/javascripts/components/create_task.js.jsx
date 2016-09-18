@@ -25,6 +25,7 @@ const CreateTask = React.createClass({
     var direction_input = ReactDOM.findDOMNode(this.refs.direction)
     var age_input = ReactDOM.findDOMNode(this.refs.age)
     var text_input = ReactDOM.findDOMNode(this.refs.text)
+    //var config_input = ReactDOM.findDOMNode(this.refs.config)
     var only_quest_input = ReactDOM.findDOMNode(this.refs.only_quest)
     var direction = direction_input.value.trim(), age = age_input.value.trim(), text = text_input.value.trim()
     var only_quest = only_quest_input.checked
@@ -170,6 +171,7 @@ const CreateTask = React.createClass({
           <option value='4'>4</option>
           <option value='5'>5</option>
         </select>
+        <input type='text' ref='config' placeholder='Конфигурация' />
         
         <div>Ставить галочку, если задание только для квестов <input type='checkbox' value='1' ref='only_quest' name='only_quest'/></div>
         {content_task_type}
