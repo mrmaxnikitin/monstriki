@@ -21,30 +21,30 @@
 			</div>
 			<% end %>
 
-			<%= link_to memory_tasks_path, class: "snap-sound" do %>
+			<%= link_to memory_attention_tasks_path, class: "snap-sound" do %>
 			<div class='card direction direction-memory'>
 				<div class='mbadge direction-mbadge col'>
 					<img src='/images/direction_pics/memory.jpg' />
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Память').count %> заданий</span>
+						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Память и внимание').count %> заданий</span>
 					</div>
-					<h1 class='tcm'>Память</h1>
+					<h1 class='tcm'>Память и внимание</h1>
 				</div>
 			</div>
 			<% end %>
 
-			<%= link_to attention_tasks_path, class: "snap-sound" do %>
-			<div class='card direction direction-attention'>
+			<%= link_to speech_tasks_path, class: "snap-sound" do %>
+			<div class='card direction direction-speech'>
 				<div class='mbadge direction-mbadge col'>
-					<img src='/images/direction_pics/attention.jpg' />
+					<img src='/images/direction_pics/speech.jpg' />
 				</div>
 				<div class='direction-content col'>
 					<div>
-						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Внимание').count %> заданий</span>
+						<span class='tag tag--heading tag--big-size'><%= @tasks.where(direction: 'Речь').count %> заданий</span>
 					</div>
-					<h1 class='tcm'>Внимание</h1>
+					<h1 class='tcm'>Речь</h1>
 				</div>
 			</div>
 			<% end %>

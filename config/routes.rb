@@ -29,10 +29,10 @@ Rails.application.routes.draw do
     collection do
       get :logic
       get :get_logic
-      get :memory
-      get :get_memory
-      get :attention
-      get :get_attention
+      get :memory_attention
+      get :get_memory_attention
+      get :speech
+      get :get_speech
       get :math
       get :get_math
       get :world

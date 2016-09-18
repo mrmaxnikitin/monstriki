@@ -13,17 +13,17 @@ class TasksController < ApplicationController
 		render :index, formats: :json
 	end
 
-	def memory
+	def memory_attention
 	end
-	def get_memory
-		@tasks = Task.where(direction: "Память", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
+	def get_memory_attention
+		@tasks = Task.where(direction: "Память и внимание", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
 		render :index, formats: :json
 	end
 
-	def attention
+	def speech
 	end
-	def get_attention
-		@tasks = Task.where(direction: "Внимание", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
+	def get_speech
+		@tasks = Task.where(direction: "Речь", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
 		render :index, formats: :json
 	end
 
