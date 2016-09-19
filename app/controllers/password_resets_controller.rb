@@ -20,9 +20,13 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by_email(user_email)
-    @user.deliver_reset_password_instructions! if @user
-
-    redirect_to(root_path, :notice => 'Дальнейшие инструкции высланы на указанную почту')
+    if @user
+      @user.deliver_reset_password_instructions!
+      redirect_to(root_path, :notice => 'Дальнейшие инструкции высланы на указанную почту')
+    else
+      flash[:error] = 'Пользователь с такой электронной почтой не зарегистрирован'
+      redirect_to root_path
+    end
   end
 
   def edit

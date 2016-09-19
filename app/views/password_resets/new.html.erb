@@ -4,7 +4,7 @@
 			<%= simple_form_for :user, url: password_resets_path do |f| %>
 				<div class='first-part tac card'>
 					<h2 class='tac'>Сброс пароля</h2>
-		      <%= f.input :email, label: false,  input_html: { placeholder: 'Ваша почта' } %>
+		      <%= f.input :email, label: false,  input_html: { placeholder: 'Электронная почта' } %>
 	      	<%= f.button :submit, "Сбросить пароль!"%>
 		    </div>
 	    <% end %>
