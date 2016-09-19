@@ -198,3 +198,17 @@
 	margin-top: 4em;
 	padding: 40px !important;
 }
+.tariff-plan{
+	p{
+		padding: 16px 0;
+		border-bottom: 1px solid #dadada;
+		text-align: left;
+		margin: 0 !important;
+		span{
+			font-weight: 600;
+		}
+	}
+	p:last-child{
+		border-bottom: none !important;
+	}
+}
