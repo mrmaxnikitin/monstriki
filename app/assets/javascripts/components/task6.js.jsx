@@ -170,6 +170,14 @@ const Task6 = React.createClass({
       result_task = this.props.task_result(this.props.status_current_task)
     }
 
+    var precompile_image = (
+        <div className='displaynone'>
+          <img src={task.pic10}/>
+          <img src={task.pic11}/>
+          <img src={task.pic12}/>
+        </div>
+      );
+
     return (
       <div>
         <div className='col col-main task-participate animated fadeIn'>
@@ -182,6 +190,7 @@ const Task6 = React.createClass({
           {button_to_repeat}
           {button_next_task}
         </div>
+        {precompile_image}
       </div>
     );
   }
