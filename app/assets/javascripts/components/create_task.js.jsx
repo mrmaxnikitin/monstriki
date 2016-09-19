@@ -165,7 +165,6 @@ const CreateTask = React.createClass({
           <option value='4'>4</option>
           <option value='5'>5</option>
         </select>
-        <input type='text' ref='config' placeholder='Конфигурация' />
         
         <div>Ставить галочку, если задание только для квестов <input type='checkbox' value='1' ref='only_quest' name='only_quest'/></div>
         {content_task_type}
