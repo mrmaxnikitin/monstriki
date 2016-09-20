@@ -155,42 +155,44 @@ const LogicTasks = React.createClass({
       else
         new_score = score + 2 - number_of_attempts
 
-      $.ajax({
-        url: '/tasks/reward',
-        //dataType: 'json',
-        type: 'POST',
-        data: {
-          score: new_score
-        },
-        success: function(data) {
-          this.setState({
-            status_current_task: 1,
-            score: new_score,
-            sum_right_answers: this.state.sum_right_answers + 1,
-            status_quest_tasks: a
-          });
-        }.bind(this),
-        error: function(xhr, status, err) {
-          console.error("ОШИБКА", status, err.toString());
-        }.bind(this)
-      });
-
-      if((this.state.sum_right_answers == this.state.tasks.length-1 && this.props.quest) || (this.state.tasks.length == 1 && this.props.quest)){
-        var score_for_quest = 10
-        if(this.props.complete_quest) score_for_quest = 0;
+      if(!this.props.test){
         $.ajax({
-          url: '/quests/finish_trip',
+          url: '/tasks/reward',
           //dataType: 'json',
           type: 'POST',
           data: {
-            score: new_score + score_for_quest
+            score: new_score
           },
           success: function(data) {
+            this.setState({
+              status_current_task: 1,
+              score: new_score,
+              sum_right_answers: this.state.sum_right_answers + 1,
+              status_quest_tasks: a
+            });
           }.bind(this),
           error: function(xhr, status, err) {
-            console.error("ОШИБКА1", status, err.toString());
+            console.error("ОШИБКА", status, err.toString());
           }.bind(this)
         });
+
+        if((this.state.sum_right_answers == this.state.tasks.length-1 && this.props.quest) || (this.state.tasks.length == 1 && this.props.quest)){
+          var score_for_quest = 10
+          if(this.props.complete_quest) score_for_quest = 0;
+          $.ajax({
+            url: '/quests/finish_trip',
+            //dataType: 'json',
+            type: 'POST',
+            data: {
+              score: new_score + score_for_quest
+            },
+            success: function(data) {
+            }.bind(this),
+            error: function(xhr, status, err) {
+              console.error("ОШИБКА1", status, err.toString());
+            }.bind(this)
+          });
+        }
       }
 
     }else{
@@ -452,7 +454,7 @@ const LogicTasks = React.createClass({
     }
     
     var content_error_message
-    if(this.state.num_current_task < this.state.tasks.length){
+    if(this.state.num_current_task < this.state.tasks.length && this.props.quest){
       content_error_message = <p onClick={this.error_message}>В задании ошибка? Сообщите</p>
       if(this.state.error_message == 1){
         content_error_message=(
