@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-	before_filter :require_login, except: [:index, :test]
+	before_filter :require_login, except: [:index, :test, :get_test]
 	before_action :require_admin, only: [:new, :create, :documentation]
 
 	def index

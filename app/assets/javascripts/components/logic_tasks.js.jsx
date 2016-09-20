@@ -193,6 +193,11 @@ const LogicTasks = React.createClass({
             }.bind(this)
           });
         }
+      }else{
+        this.setState({
+          status_current_task: 1,
+          sum_right_answers: this.state.sum_right_answers + 1
+        });
       }
 
     }else{
