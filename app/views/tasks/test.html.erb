@@ -1,33 +1,11 @@
-<div class='attraction-min parents-attraction tac'>
-	<h1 class='center-title'>Тест</h1>
-</div>
 <div class='row first-page-elm'>
 	<div class='cell'>
-		<div class='col col-press-25'>
-			<%= render "/partials/profile" %>
-		</div>
-		<div class='col col-4of6 fr'>
-			<h2 class='h--thin mbm'><span class='prxs'>Тренируем логику</span> <span class='tag tag--light tag--heading tag--heading--h2'>Легко</span></h2>
-			<div id='type_task1'>
-				<img class='moving_element' src='/images/lighthouse3.png'/>
-				<img class='moving_element' src='/images/lighthouse.png'/>
-				<img class='moving_element' src='/images/lighthouse2.png'/>
-				<img class='moving_element' src='/images/lighthouse5.png'/>
-				<img class='moving_element' src='/images/lighthouse4.png'/>
-				<img class='moving_element' src='/images/lighthouse1.png'/>
-			</div>
-			<button class="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer">Ответить</button>
-			<button class="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task">Следующее задание</button>
-		</div>
+		<%= render '/partials/react_component_logic_tasks',  link: get_test_tasks_path, quest: false, complete_quest: false, moderation: false %>
 	</div>
 </div>
-
-<script>
-	var list = document.getElementById("type_task1");
-	Sortable.create(list, {
-		animation: 500,
-  	handle: ".moving_element",
-  	ghostClass: 'ghost',
-  	forceFallback: true
-	});
-</script>
+<style>
+	.lets-pay{
+		width: 70%;
+		margin: auto;
+	}
+</style>

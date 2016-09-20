@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-	before_filter :require_login, except: :index
+	before_filter :require_login, except: [:index, :test]
 	before_action :require_admin, only: [:new, :create, :documentation]
 
 	def index
@@ -64,6 +64,10 @@ class TasksController < ApplicationController
 	end
 
 	def test
+	end
+	def get_test
+		@tasks = Task.where(id: ["191", "123", "241", "248", "100"]).all
+		render :index, formats: :json
 	end
 
 	def reward

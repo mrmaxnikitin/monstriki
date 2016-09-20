@@ -34,7 +34,7 @@
 		        <%= link_to 'Мой профиль', user_path(current_user), id: 'sign-in' %>
 		      <% else %>
 						<%= link_to 'Создать аккаунт', signup_path, class: 'create-accaunt btn snap-sound' %>
-						<%= link_to 'Войти', signin_path %>
+						<%= link_to 'Войти', signin_path, class: 'signin-button btn' %>
 					<% end %>
 				</div>
 			</div>

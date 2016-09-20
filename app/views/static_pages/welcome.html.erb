@@ -1,6 +1,6 @@
-<div  id='logo'>
+<!-- <div  id='logo'>
 	<img src ='/images/logo-img.png' /> <span>Монстрики</span>
-</div>
+</div> -->
 <div id='welcome-slide-1' class='welcome-slides'>
 	<div class='content'>
 		<div class='text-welcome-slide'>
@@ -10,11 +10,9 @@
 			<p>
 				В процессе игры обучение проходит интереснее и эффективнее. Играй вместе с нами и становись умнее.
 				<!-Тренировки и задания сделаны в форме игры, они развивают воображение, мышление, наблюдательность, память и логику.-->
-				<% if !logged_in? %>
-					<div>
-						<%= link_to 'Хочу присоединиться!', signup_path, class: 'butn medium orange rounded' %>
-					</div>
-				<% end %>
+				<div>
+					<%= link_to 'Хочу попробовать выполнить задания!', test_path, class: 'butn medium green rounded' %>
+				</div>
 			</p>
 		</div>
 		<img class='welcome-slide-img' src='/images/learn-welcome.png'/>	
@@ -43,6 +41,11 @@
 			</h1>
 			<p>
 				Пригласи друзей и играй вместе с ними. Создай свою команду монстриков!
+				<% if !logged_in? %>
+					<div>
+						<%= link_to 'Хочу присоединиться!', signup_path, class: 'butn medium orange rounded' %>
+					</div>
+				<% end %>
 			</p>
 		</div>
 		<img class='welcome-slide-img' src='/images/img-slide3.png'/>	
@@ -53,7 +56,25 @@
 <style>
 	<% if !logged_in? %>
 		.hat{
-			display: none;
+			position: absolute;
+			width: 100%;
+			background-color: transparent !important;
+			border-bottom: none !important;
+		}
+		.hat .right-part{
+			position: fixed;
+			top: 14px;
+			right: 2em;
+			z-index: 100;
+		}
+		.hat .right-part .create-accaunt{
+			background-color: #fbad22 !important;
+			color: white !important;
+		}
+		.hat .signin-button{
+			 line-height: 2.5;
+			 background-color: #09da40 !important;
+			 color: white !important;
 		}
 	<% else %>
 		#logo{
