@@ -37,3 +37,17 @@ const Profile = React.createClass({
   }
 })
 
+const UnknownProfile = React.createClass({
+  render: function() {
+    return (
+      <div className='col col-press-18 col-profile profile-big'>
+        <div className='card mbm profile-card'>
+          <div className='character'>
+            <img src='/images/stranger-toys.jpg' />
+            <a href='/signup' className = 'butn medium green rounded w--100 mbs'>Регистрация</a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+})

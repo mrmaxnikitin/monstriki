@@ -404,26 +404,52 @@ const LogicTasks = React.createClass({
     }.bind(this));
 
     var content_task = tasks[this.state.num_current_task]
-    if(this.state.num_current_task >= this.state.tasks.length && !this.props.quest){
+    if(this.state.num_current_task >= this.state.tasks.length && !this.props.quest && !this.props.test){
       content_task = (
         <div className='tac'>
           <a href='/tasks'><button className="btn-m btn-m-4 btn-m-4c icon-arrow-right the-end-of-train">Дальше</button></a>
         </div>
       );
     }
+    if(this.state.num_current_task >= this.state.tasks.length && this.props.test){
+      content_task = (
+        <div className='card mbl next-quest invite-after-test'>
+          <div className='col col-2of6'>
+            <img src='/images/next-quest-pics/next-quest-pic0.png' className='img-next-quest'/>
+          </div>
+          <div className='col col-4of6 content'>
+            <h1>Успех!</h1>
+            <div className='invitation-tomorrow'>Это было начало пути, после регистрации будет интереснее. Присоединяйтесь!</div>
+            <div className='actions'>
+              <a href='/signup' className='btn btn-our-red the-end-of-test'>Присоединиться!</a>
+            </div>
+          </div>
+          <div className='clear'></div>
+        </div>
+      );
+    }
     var score = this.state.score
 
-    var profile = (
-      <Profile
-        key={1}
-        score={score}
-        monster_avatar={this.props.monster_avatar}
-        monster_name={this.props.monster_name}
-        profile_link={this.props.profile_link}
-        monster_card_link={this.props.monster_card_link}
-        setting_link={this.props.setting_link}
-        />
-    );
+    var profile
+    if(!this.props.test){
+      profile = (
+        <Profile
+          key={1}
+          score={score}
+          monster_avatar={this.props.monster_avatar}
+          monster_name={this.props.monster_name}
+          profile_link={this.props.profile_link}
+          monster_card_link={this.props.monster_card_link}
+          setting_link={this.props.setting_link}
+          />
+      );
+    }else{
+      profile = (
+        <UnknownProfile
+          key={1}
+          />
+      );
+    }
     
     var content_error_message
     if(this.state.num_current_task < this.state.tasks.length){

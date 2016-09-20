@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       get :get_world
       get :moderation
       get :get_moderation
+      get :get_test
       post :reward
       post :moderate
       post :error_message

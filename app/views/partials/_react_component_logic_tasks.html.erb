@@ -1,19 +1,28 @@
-<% monster_presence = current_user.user_monster.monster_id %>
-<% mosnter_avatar = '/images/monster-none.png' %>
-<% if monster_presence != 0 %>
-	<% mosnter_avatar = Monster.find(current_user.user_monster.monster_id).avatar %>
-<% end %>
-
-<%= react_component("LogicTasks",
-tasks_url: link,
-monster_name: current_user.user_monster.name,
-monster_presence: monster_presence,
-monster_avatar: mosnter_avatar,
-score: current_user.score,
-quest: quest,
-complete_quest: complete_quest,
-profile_link: user_path(current_user),
-monster_card_link: monster_card_path,
-setting_link: edit_user_path(current_user),
-moderation: moderation ) 
+<%=
+	if logged_in?
+		monster_presence = current_user.user_monster.monster_id
+		mosnter_avatar = '/images/monster-none.png'
+		if monster_presence != 0
+		  mosnter_avatar = Monster.find(current_user.user_monster.monster_id).avatar
+	  end
+  end
 %>
+<% if logged_in? %>
+<%= react_component("LogicTasks",
+			tasks_url: link,
+			monster_name: current_user.user_monster.name,
+			monster_presence: monster_presence,
+			monster_avatar: mosnter_avatar,
+			score: current_user.score,
+			quest: quest,
+			complete_quest: complete_quest,
+			profile_link: user_path(current_user),
+			monster_card_link: monster_card_path,
+			setting_link: edit_user_path(current_user),
+			moderation: moderation,
+			test: test ) %>
+<% else %>
+<%= react_component("LogicTasks",
+			tasks_url: link,
+			test: test ) %>
+<% end %>
