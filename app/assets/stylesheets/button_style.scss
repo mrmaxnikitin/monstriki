@@ -112,6 +112,23 @@
     background-image:url('/images/button_bg.png'), url('/images/button_bg.png'), -webkit-gradient(radial, 50% 100%, 0, 50% 100%, 100, from(rgb(64,199,129)), to(rgba(183,229,45,0))),-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(64,199,129)), to(rgb(64,199,129)));
 }
 
+.red.butn{
+    color: white !important;
+    /*color:#345903 !important;*/
+    /*border:1px solid #96a37b !important;*/
+    background-color: rgb(255, 30, 74);
+    
+    background-image:url('/images/button_bg.png'), url('/images/button_bg.png'), -moz-radial-gradient(center bottom, circle, rgb(255, 30, 74) 0,rgb(255, 30, 74) 100px),-moz-linear-gradient(rgb(255, 30, 74), rgb(255, 30, 74));
+    background-image:url('/images/button_bg.png'), url('/images/button_bg.png'), -webkit-gradient(radial, 50% 100%, 0, 50% 100%, 100, from(rgb(255, 30, 74)), to(rgb(255, 30, 74))),-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(255, 30, 74)), to(rgb(255, 30, 74)));
+}
+
+.red.butn:hover{
+    background-color: rgb(255, 30, 74);
+    
+    background-image:url('/images/button_bg.png'), url('/images/button_bg.png'), -moz-radial-gradient(center bottom, circle, rgb(255, 30, 74) 0,rgb(255, 30, 74) 100px),-moz-linear-gradient(rgb(255, 30, 74), rgb(255, 30, 74));
+    background-image:url('/images/button_bg.png'), url('/images/button_bg.png'), -webkit-gradient(radial, 50% 100%, 0, 50% 100%, 100, from(rgb(255, 30, 74)), to(rgb(255, 30, 74))),-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(255, 30, 74)), to(rgb(255, 30, 74)));
+}
+
 /* Orange Button */
 
 .orange.butn{
