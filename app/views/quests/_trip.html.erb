@@ -1,6 +1,6 @@
 <%
 	quest_id = current_user.track.current_quest
-	if current_user.age == 6
+	if current_user.age == 5 || current_user.age == 6
 		pic1 = Task.find(Quest.find(quest_id).age6[0]).pic1
 	elsif current_user.age == 7
 		pic1 = Task.find(Quest.find(quest_id).age7[0]).pic1
