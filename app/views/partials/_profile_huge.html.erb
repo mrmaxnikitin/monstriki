@@ -4,7 +4,7 @@
 			<div class='character'>
 				<% monster_presence = current_user.user_monster.monster_id %>
 				<% if monster_presence != 0 %>
-					<img src='<%= Monster.find(current_user.user_monster.monster_id).avatar %>' />
+					<img src='<%= Monster.find(current_user.user_monster.monster_id).avatar %>.gif' />
 				<% else %>
 					<div class='choose-monstrik tac'>
 						<%= link_to monstrik_path do %>

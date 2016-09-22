@@ -2,7 +2,7 @@
 	<div class='character'>
 		<% monster_avatar = current_user.user_monster.monster_id %>
 		<% if monster_avatar != 0 %>
-			<img src='<%= Monster.find(current_user.user_monster.monster_id).avatar %>' />
+			<img src='<%= Monster.find(current_user.user_monster.monster_id).avatar %>.gif' />
 		<% else %>
 			<div class='choose-monstrik tac'>
 				<h1>Выберите монстрика</h1>

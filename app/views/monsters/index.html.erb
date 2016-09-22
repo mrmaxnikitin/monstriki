@@ -11,7 +11,9 @@
 			<div class='col col-4of6 col-padding'>
 				<% @monsters.each do |monster|%>
 					<div class='col monster card'>
-						<img src='<%= monster.avatar %>' />
+						<div class='wrap-img-choose-monster-after-signup' style='background:url(<%= monster.avatar %>.png) no-repeat; background-size: cover;'>
+							<img src='<%= monster.avatar %>.gif' />
+						</div>
 						<% if monster_presence != 0 %>
 							<span class='price fr'><img src="/images/coin.png" data-pin-nopin="true" /> 100</span>
 						<% end %>
