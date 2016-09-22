@@ -12,7 +12,7 @@
 }
 .card-trip-quest{
 	width: 92.5%;
-	height: 126px;
+	height: 146px;
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
   -ms-transition: all .2s ease;
@@ -22,8 +22,8 @@
   	box-shadow: 0 1px 7px rgba(20, 20, 20, 0.2);
   }
   .mbadge{
-    width: 100px;
-    height: 100px;
+    width: 118px;
+    height: 118px;
   }
   .direction-content{
   	h2{
@@ -31,7 +31,8 @@
   		margin-top: 7px;
   	}
   	p{
-  		margin: 0 !important;
+  		margin: 0.2em 0 !important;
+      font-size: 15px;
   		color: #393d40;
   	}
   }
@@ -42,7 +43,7 @@
 	img{
 		height: 32px;
 	  position: relative;
-	  top: 42px;
+	  top: 56px;
 	  width: 32px;
 	  padding: 4px;
 	  background-color: #fff;
