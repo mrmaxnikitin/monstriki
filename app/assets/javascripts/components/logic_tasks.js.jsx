@@ -36,6 +36,9 @@ const LogicTasks = React.createClass({
         for (var i = 0; i < data.length; i++){
           a.push(false)
         }
+        if(this.props.test){
+          data = data.reverse();
+        }
         this.setState({
           complete_task: false,
           tasks: data,
