@@ -30,4 +30,6 @@ $(document).on("page:load ready", function(){
       loop: false
     });
 	});
+
+	$('.wrap-img-choose-monster-after-signup').height($('.wrap-img-choose-monster-after-signup').width()*0.75)   //размер обертки такой же ,как и изображения
 });
