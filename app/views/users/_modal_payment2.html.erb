@@ -3,14 +3,27 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Оплатить на 2 месяца, 590 ₽</h4>
+        <h4 class="modal-title">Оплатить на 2 месяца, 490 ₽</h4>
       </div>
-      <div class="modal-body">
-        <p>Скоро!</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Оплатить</button>
-      </div>
+      <form target="_blank" method="POST" action="https://money.yandex.ru/eshop.xml">
+        <div class="modal-body wrap-payment-inputs">
+
+            <input type="hidden" name="shopId" value="72869">
+            <input type="hidden" name="scid" value="70621">
+            <input type='hidden' name="customerNumber" size="64" value='<%= current_user.id %>'>
+            <input type='hidden' name="sum" size="64" value='2'>
+            <input type="hidden" name="paymentType" value=""/>
+            
+            <p>E-mail:<font color="red">*</font></p>
+            <input type='text' name="custEmail" size="43"><br>
+
+            <p>ФИО плательщика:</p>
+            <input type='text' name="custName" size="43"><br><br>
+
+            <input type="submit" value='Перейти к оплатите' class="btn btn-our-blue">
+            
+        </div>
+      </form>
     </div>
   </div>
 </div>
