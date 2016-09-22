@@ -66,7 +66,7 @@ class TasksController < ApplicationController
 	def test
 	end
 	def get_test
-		@tasks = Task.where(id: [191, 100, 241, 220, 81]).all
+		@tasks = Task.where(id: [191, 100, 241, 220, 81]).order('DESC').all
 		render :index, formats: :json
 	end
 
