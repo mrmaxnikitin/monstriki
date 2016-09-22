@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
 permit_params :email, :name, :age, :score, :goal, :admin, :payment_end_date
-actions :index, :show, :destroy, :edit, :update
+actions :index, :show, :edit, :update
 menu label: 'Пользователи'
 
 filter :id

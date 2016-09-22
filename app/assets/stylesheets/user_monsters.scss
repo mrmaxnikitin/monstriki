@@ -33,3 +33,19 @@
 		margin-top: 10px;
 	}
 }
+
+.wrap-img-choose-monster-after-signup{
+	img{
+		visibility: hidden;
+	}
+	&:hover{
+		img{
+			visibility: visible;
+			border: 0;
+		}
+	}
+}
+
+
+
+

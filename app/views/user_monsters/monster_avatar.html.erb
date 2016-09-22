@@ -5,7 +5,9 @@
 		<div class='margin-between-cards'>
 			<% @monsters.each do |monster|%>
 				<div class='col col-press-25 monster card'>
-					<img src='<%= monster.avatar %>' />
+					<div class='wrap-img-choose-monster-after-signup' style='background:url(<%= monster.avatar %>.png) no-repeat; background-size: cover;'>
+						<img src='<%= monster.avatar %>.gif' />
+					</div>
 					<% if current_user.have_monster?(monster) %>
 						<div class='tac pd10'>
 							<span class='buy-monster button btn btn-our already-exist-monster'>Это твой</span>
