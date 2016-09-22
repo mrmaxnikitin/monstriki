@@ -173,18 +173,19 @@ const Task1 = React.createClass({
       button_to_repeat = <button className="btn-m btn-m-3 btn-m-3a icon-star-2 repeat-task" onClick={this.repeatTask}>Еще разок</button>
     }
 
-    if(this.props.test){
-      button_next_task = ''
-    }
-
     //Результат выполнения задания
-    var result_task
+    var result_task, img_arrow_next_task
     if(!this.props.status_current_task){
+      if(!this.props.test){
+        img_arrow_next_task = <img src='/images/forward.png' className='img-next-task fr cursor--pointer' onClick={this.props.nextTask}/>
+      }else{
+        img_arrow_next_task = ''
+      }
       result_task = (
         <div>
           <h2>
             <div className='col'><span className='tag tag--light tag--heading tag--heading--h2'>{task.direction}</span></div>
-            <img src='/images/forward.png' className='img-next-task fr cursor--pointer' onClick={this.props.nextTask}/>
+            {img_arrow_next_task}
           </h2>
           <div className='clear'></div>
           <p className='task-text'>{task_text}</p>
