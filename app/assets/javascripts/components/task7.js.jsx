@@ -131,6 +131,10 @@ const Task7 = React.createClass({
       button_to_repeat = <button className="btn-m btn-m-3 btn-m-3a icon-star-2 repeat-task" onClick={this.repeatTask}>Еще разок</button>
     }
 
+    if(this.props.test){
+      button_next_task = ''
+    }
+
     //Результат выполнения задания
     var result_task
     if(!this.props.status_current_task){

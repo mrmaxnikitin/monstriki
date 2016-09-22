@@ -277,6 +277,7 @@ const LogicTasks = React.createClass({
               sum_right_answers={this.state.sum_right_answers}
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
+              test={this.props.test}
               />
           );
           break
@@ -310,6 +311,7 @@ const LogicTasks = React.createClass({
               sum_right_answers={this.state.sum_right_answers}
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
+              test={this.props.test}
               />
           );
           break
@@ -326,6 +328,7 @@ const LogicTasks = React.createClass({
               sum_right_answers={this.state.sum_right_answers}
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
+              test={this.props.test}
               />
           );
           break
@@ -374,6 +377,7 @@ const LogicTasks = React.createClass({
               sum_right_answers={this.state.sum_right_answers}
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
+              test={this.props.test}
               />
           );
           break
