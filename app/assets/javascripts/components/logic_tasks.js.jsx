@@ -497,6 +497,10 @@ const LogicTasks = React.createClass({
       );
     }
 
+    if(this.props.test){
+      $('.img-next-task').css('display', 'none')
+    }
+
     return (
       <div>
         {profile}
