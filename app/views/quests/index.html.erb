@@ -32,7 +32,7 @@
 				<% else %>
 					<%= render "/partials/lets_pay", text: "Новые квесты будут доступны после продления карты монстрика" %>
 				<% end %>
-			<% end %>
+			<% else %>
 				<div class='lets-pay card'>
 					<div class='col col-4of6 content'>
 						<h1>
@@ -40,12 +40,12 @@
 							<div>после регистрации</div>
 						</h1>
 						<p class='second-text'>
-							<span class='text'><b>Квест</b> - это сбалансированный комплект из 5 заданий, которые подбираются исходя из Ваших целей и возраста ребенка.</span>
+							<span class='text'><b>Квест</b> - это сбалансированный комплект из 5 заданий, которые подбираются индивидуально, исходя из Ваших целей и возраста ребенка.</span>
 						</p>
 					</div>
 					<div class='clear'></div>
 				</div>
-			<% else %>
+			<% end %>
 		</div>
 		<%= render '/partials/alternative_column' %>
 	</div>
