@@ -5,23 +5,30 @@
 	<div class='cell'>
 		<%= render "/partials/profile_big" %>
 		<div class='col col-67proc ml-2proc'>
-			<h2 class='h--thin mbs'><span class='prxs'>Купи бубуки за игровые монетки</span></h2>
+			<h2 class='h--thin mbs'>
+				<span class='prxs'>Купи бубуки за игровые монетки</span>
+				<% if !logged_in? %>
+					<div class='card for-unknown-user-things'><b>Бубуки</b> - это веселые штуки, которые ребенок может купить за прохождение квестов. Чем больше пройдено квестов, тем больше можно купить бубук.</div>
+				<% end %>
+			</h2>
 			<div class='all-things'>
 				<% @things.each do |thing|%>
 					<div class='col thing card'>
 						<img src='<%= thing.img %>' />
 						<h5 class='name tac'><%= thing.name %></h5>
 						<span class='price fr'><img src="/images/coin.png" data-pin-nopin="true"> <%= thing.price.to_s %></span>
-						<% if current_user.have_thing?(thing) %>
-							<span class='buy-thing button btn btn-our already-exist-thing'>Уже есть!</span>
-						<% else %>
-							<% if current_user.score >= thing.price %>
-								<%= form_for(current_user.user_things.build(thing_id: thing.id)) do |f| %>
-									<%= f.hidden_field :thing_id %>
-								  <%= f.submit "Хочу", class: "buy-thing button btn btn-our btn-our-green buy-sound" %>
-								<% end %>
+						<% if logged_in? %>
+							<% if current_user.have_thing?(thing) %>
+								<span class='buy-thing button btn btn-our already-exist-thing'>Уже есть!</span>
 							<% else %>
-								<span class='buy-thing button btn btn-our already-exist-thing'>Не хватает</span>
+								<% if current_user.score >= thing.price %>
+									<%= form_for(current_user.user_things.build(thing_id: thing.id)) do |f| %>
+										<%= f.hidden_field :thing_id %>
+									  <%= f.submit "Хочу", class: "buy-thing button btn btn-our btn-our-green buy-sound" %>
+									<% end %>
+								<% else %>
+									<span class='buy-thing button btn btn-our already-exist-thing'>Не хватает</span>
+								<% end %>
 							<% end %>
 						<% end %>
 					</div>

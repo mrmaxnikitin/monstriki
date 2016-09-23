@@ -1,19 +1,16 @@
 <!-- <div  id='logo'>
 	<img src ='/images/logo-img.png' /> <span>Монстрики</span>
 </div> -->
-<div id='preslides'>
-
-</div>
 <div id='welcome-slide-1' class='welcome-slides'>
 	<div class='content'>
 		<div class='text-welcome-slide'>
 			<h1>
-				Учение с увлечением!
+				Развивающие игры и подготовка к школе
 			</h1>
 			<p>
-				Наши развивающие игры помогут вашим детям получать удовольствие от обучения. Стоит только попробовать!
+				Наш сайт поможет вашим детям стать умными, талантливыми, учиться весело и с удовольствием.
 				<div>
-					<%= link_to 'Попробовать!', test_path, class: 'butn medium red rounded' %>
+					<%= link_to 'Хочу попробовать!', test_path, class: 'butn medium red rounded' %>
 				</div>
 			</p>
 		</div>
@@ -56,7 +53,33 @@
 </div>
 
 <style>
-	
+	<% if !logged_in? %>
+		.hat{
+			position: absolute;
+			width: 100%;
+			background-color: transparent !important;
+			border-bottom: none !important;
+		}
+		.hat .right-part{
+			position: fixed;
+			top: 14px;
+			right: 2em;
+			z-index: 100;
+		}
+		.hat .right-part .create-accaunt{
+			background-color: #fbad22 !important;
+			color: white !important;
+		}
+		.hat .signin-button{
+			 line-height: 2.5;
+			 background-color: #09da40 !important;
+			 color: white !important;
+		}
+	<% else %>
+		#logo{
+			display: none;
+		}
+	<% end %>
 	#pre-footer{
     background: url(/images/pre-footer-white.png) top no-repeat !important;
 	}

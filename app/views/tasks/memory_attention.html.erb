@@ -1,9 +1,13 @@
 <div class='row first-page-elm'>
 	<div class='cell'>
-		<% if current_user.payment_end_date > Time.now %>
-			<%= render '/partials/react_component_logic_tasks',  link: get_memory_attention_tasks_path, quest: false, complete_quest: false, moderation: false, test: false %>
+		<% if logged_in? %>
+			<% if current_user.payment_end_date > Time.now %>
+				<%= render '/partials/react_component_logic_tasks',  link: get_memory_attention_tasks_path, quest: false, complete_quest: false, moderation: false, test: false %>
+			<% else %>
+				<%= render "/partials/lets_pay", text: "После продления карты монстрика тренировки станут доступны" %>
+			<% end %>
 		<% else %>
-			<%= render "/partials/lets_pay", text: "После продления карты монстрика тренировки станут доступны" %>
+			<%= render '/partials/react_component_logic_tasks',  link: get_memory_attention_tasks_path, quest: false, complete_quest: false, moderation: false, test: true %>
 		<% end %>
 	</div>
 </div>

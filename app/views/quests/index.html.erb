@@ -5,32 +5,47 @@
 	<div class='cell'>
 		<%= render "/partials/profile_big" %>
 		<div class='col col-67proc ml-2proc'>
-			<% if current_user.track.complete_quest == true %>
-				<div class='next-quest card mbl'>
-					<div class='col col-2of6'>
-						<% pic_number = rand(4) %>
-						<img src='/images/next-quest-pics/next-quest-pic<%= pic_number %>.png' class='img-next-quest'/>
-					</div>
-					<div class='col col-4of6 content'>
-						<h1>Ты справился с квестом!</h1>
-						<p class='coins'>
-							<img src='/images/coins.png' /> <span class='plus-coins'>+10</span> <span class='text'>монеток за квест</span>
-						</p>
-						<div class='invitation-tomorrow'>Сегодня мы справились! Приходи завтра, у нас для тебя есть еще квест!</div>
-						<div class='actions'>
-							<%= link_to 'Хочу еще заданий', tasks_path, class: 'btn'%>
-							<%= link_to 'Хочу купить бубуку', things_path, class: 'btn btn-our-red buy'%>
+			<% if logged_in? %>
+				<% if current_user.track.complete_quest == true %>
+					<div class='next-quest card mbl'>
+						<div class='col col-2of6'>
+							<% pic_number = rand(4) %>
+							<img src='/images/next-quest-pics/next-quest-pic<%= pic_number %>.png' class='img-next-quest'/>
 						</div>
+						<div class='col col-4of6 content'>
+							<h1>Ты справился с квестом!</h1>
+							<p class='coins'>
+								<img src='/images/coins.png' /> <span class='plus-coins'>+10</span> <span class='text'>монеток за квест</span>
+							</p>
+							<div class='invitation-tomorrow'>Сегодня мы справились! Приходи завтра, у нас для тебя есть еще квест!</div>
+							<div class='actions'>
+								<%= link_to 'Хочу еще заданий', tasks_path, class: 'btn'%>
+								<%= link_to 'Хочу купить бубуку', things_path, class: 'btn btn-our-red buy'%>
+							</div>
+						</div>
+						<div class='clear'></div>
+					</div>
+				<% end %>
+				<h2 class='h--thin mbm'><span class='prxs'>Квест на сегодня</span> <span class='tag tag--light tag--heading tag--heading--h2'>8-12 минут</span></h2>
+				<% if current_user.payment_end_date > Time.now %>
+					<%= render "trip", status_quest: current_user.track.complete_quest, link_trip: trip_quests_path %>
+				<% else %>
+					<%= render "/partials/lets_pay", text: "Новые квесты будут доступны после продления карты монстрика" %>
+				<% end %>
+			<% end %>
+				<div class='lets-pay card'>
+					<div class='col col-4of6 content'>
+						<h1>
+							<div>Квесты доступны</div>
+							<div>после регистрации</div>
+						</h1>
+						<p class='second-text'>
+							<span class='text'><b>Квест</b> - это сбалансированный комплект из 5 заданий, которые подбираются исходя из Ваших целей и возраста ребенка.</span>
+						</p>
 					</div>
 					<div class='clear'></div>
 				</div>
-			<% end %>
-			<h2 class='h--thin mbm'><span class='prxs'>Квест на сегодня</span> <span class='tag tag--light tag--heading tag--heading--h2'>8-12 минут</span></h2>
-			<% if current_user.payment_end_date > Time.now %>
-				<%= render "trip", status_quest: current_user.track.complete_quest, link_trip: trip_quests_path %>
 			<% else %>
-				<%= render "/partials/lets_pay", text: "Новые квесты будут доступны после продления карты монстрика" %>
-			<% end %>
 		</div>
 		<%= render '/partials/alternative_column' %>
 	</div>

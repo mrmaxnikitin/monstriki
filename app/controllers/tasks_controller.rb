@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-	before_filter :require_login, except: [:index, :test, :get_test]
+	before_filter :require_login, except: [:index, :test, :get_test, :logic, :get_logic, :memory_attention, :get_memory_attention, :speech, :get_speech, :world, :get_world, :math, :get_math]
 	before_action :require_admin, only: [:new, :create, :documentation]
 
 	def index
@@ -9,35 +9,55 @@ class TasksController < ApplicationController
 	def logic
 	end
 	def get_logic
-		@tasks = Task.where(direction: "Логика", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
+		if logged_in?
+			@tasks = Task.where(direction: "Логика", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
+		else
+			@tasks = Task.where(direction: "Логика", only_quest: false, moderated: true).limit(10)
+		end
 		render :index, formats: :json
 	end
 
 	def memory_attention
 	end
 	def get_memory_attention
-		@tasks = Task.where(direction: "Память и внимание", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
+		if logged_in?
+			@tasks = Task.where(direction: "Память и внимание", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
+		else
+			@tasks = Task.where(direction: "Память и внимание", only_quest: false, moderated: true).limit(10)
+		end
 		render :index, formats: :json
 	end
 
 	def speech
 	end
 	def get_speech
-		@tasks = Task.where(direction: "Речь", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
+		if logged_in?
+			@tasks = Task.where(direction: "Речь", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
+		else
+			@tasks = Task.where(direction: "Речь", only_quest: false, moderated: true).limit(10)
+		end
 		render :index, formats: :json
 	end
 
 	def world
 	end
 	def get_world
-		@tasks = Task.where(direction: "Мир вокруг нас", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
+		if logged_in?
+			@tasks = Task.where(direction: "Мир вокруг нас", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
+		else
+			@tasks = Task.where(direction: "Мир вокруг нас", only_quest: false, moderated: true).limit(10)
+		end
 		render :index, formats: :json
 	end
 
 	def math
 	end
 	def get_math
-		@tasks = Task.where(direction: "Математика", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
+		if logged_in?
+			@tasks = Task.where(direction: "Математика", age: [current_user.age-1, current_user.age, current_user.age+1], only_quest: false, moderated: true).order('RANDOM()').all
+		else
+			@tasks = Task.where(direction: "Математика", only_quest: false, moderated: true).limit(10)
+		end
 		render :index, formats: :json
 	end
 

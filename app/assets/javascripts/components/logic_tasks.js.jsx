@@ -433,9 +433,9 @@ const LogicTasks = React.createClass({
           </div>
           <div className='col col-4of6 content'>
             <h1>Успех!</h1>
-            <div className='invitation-tomorrow'>Это было начало пути, после регистрации будет интереснее. Присоединяйтесь!</div>
+            <div className='invitation-tomorrow'>Ещё больше заданий станут доступными после регистрации. Присоединяйтесь!</div>
             <div className='actions'>
-              <a href='/signup' className='btn btn-our-red the-end-of-test'>Присоединиться!</a>
+              <a href='/signup' className='btn btn-our-red the-end-of-test'>Хочу присоединиться!</a>
             </div>
           </div>
           <div className='clear'></div>

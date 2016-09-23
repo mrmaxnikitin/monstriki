@@ -26,11 +26,13 @@
 	}
 }
 #welcome-slide-1{
-	height: 650px;
-	background: url(/images/sky.png) top right no-repeat #fff8ef;
+	height: 470px;
+	background: url(/images/sky.png) no-repeat #fff8ef;
+	background-position-x: 130%;
+	background-position-y: -5px;
 	.content{
 		position: relative;
-		top: 190px;
+		top: 160px;
 		width: 80%;
 		margin: 0 8% 0 12%;
 		.welcome-slide-img{
@@ -39,13 +41,15 @@
 		}
 		.text-welcome-slide{
 			width: 62%;
-			padding: 40px 50px;
+			padding: 20px 30px 40px 50px;
 			float: right;
 			h1{
-				font-size: 50px !important;
+				font-size: 52px !important;
+				margin-bottom: 0px;
 			}
 			p{
 				font-size: 20px;
+				margin: 0.5em 0 1em 0;
 			}
 		}
 	}

@@ -5,7 +5,14 @@
 	<div class='cell'>
 		<%= render "/partials/profile_big" %>
 		<div class='col col-67proc ml-2proc'>
-			<h2 class='h--thin mbm'><span class='prxs'>Что будем тренировать?</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= @tasks.where(only_quest: false).count %> заданий</span></h2>
+			<h2 class='h--thin mbm'>
+				<span class='prxs'>Что будем тренировать?</span>
+				<% if logged_in? %>
+					<span class='tag tag--light tag--heading tag--heading--h2'><%= @tasks.where(only_quest: false).count %> заданий</span>
+				<% else %>
+					<div class='card for-unknown-user-tasks'>Сейчас доступно только по 10 заданий в каждом разделе. Зарегистрируйтесь, чтобы получить больше.</div>
+				<% end %>
+			</h2>
 
 			<%= link_to logic_tasks_path, class: "snap-sound" do %>
 			<div class='card direction direction-logic'>
