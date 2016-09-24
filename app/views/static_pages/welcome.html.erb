@@ -12,9 +12,11 @@
 			</h1>
 			<p>
 				Наши развивающие игры помогут вашим детям получать удовольствие от обучения. Стоит только попробовать!
-				<div>
-					<%= link_to 'Попробовать!', test_path, class: 'butn medium red rounded' %>
-				</div>
+				<% if !logged_in? %>
+					<div>
+						<%= link_to 'Попробовать!', test_path, class: 'butn medium red rounded' %>
+					</div>
+				<% end %>
 			</p>
 		</div>
 		<img class='welcome-slide-img' src='/images/learn-welcome.png'/>	
