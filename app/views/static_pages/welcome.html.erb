@@ -24,14 +24,41 @@
 <div id='welcome-slide-2' class='welcome-slides'>
 	<div class='content'>
 		<div class='text-welcome-slide'>
-			<h1>
-				Новые занятия на каждый день
-			</h1>
-			<p>
-				365 занятий для успешной подготовки к школе.
-			</p>
+			<h1>Выберите своего монстрика</h1>
+			<p>Ваш ребенок выберет своего монстрика, чтобы выполнять вместе с ним задания и проходить квесты.</p>
 		</div>
-		<img class='welcome-slide-img' src='/images/img-slide2.png'/>	
+		<div class='welcome-slide-img'>
+			<div class='col col-3of6'>
+				<% monster = @monsters[1] %>
+				<div class='pd6'> 
+					<img class='card' src='<%= monster.avatar %>.gif' />
+				</div>
+				<div class='col col-3of6 pd6'>
+					<% monster = @monsters[2] %>
+					<img class='card' src='<%= monster.avatar %>.gif' />
+				</div>
+				<div class='col col-3of6 pd6'>
+					<% monster = @monsters[3] %>
+					<img class='card' src='<%= monster.avatar %>.gif' />
+				</div>
+				<div class='clear'></div>
+			</div>
+			<div class='col col-3of6 pd6'>
+				<div class='col col-3of6 pd6'>
+					<% monster = @monsters[4] %>
+					<img class='card' src='<%= monster.avatar %>.gif' />
+				</div>
+				<div class='col col-3of6 pd6'>
+					<% monster = @monsters[5] %>
+					<img class='card' src='<%= monster.avatar %>.gif' />
+				</div>
+				<div class='clear'></div>
+				<% monster = @monsters[0] %>
+				<div class='pd6'>
+					<img class='card' src='<%= monster.avatar %>.gif' />
+				</div>
+			</div>
+		</div>
 		<div class='clear'></div>
 	</div>
 </div>
@@ -39,10 +66,10 @@
 	<div class='content'>
 		<div class='text-welcome-slide'>
 			<h1>
-				Поиграем!
+				Успешное обучение в школе
 			</h1>
 			<p>
-				Развитие речи, памяти, внимания, мышления, логики и вычислительных навыков. И всё это в процессе игры!
+				Развитие логики, памяти, мышления, речи и математических навыков - основа успешного обучения в школе. И все это в процессе игры!
 				<% if !logged_in? %>
 					<div>
 						<%= link_to 'Попробовать сыграть!', test_path, class: 'butn medium orange rounded' %>

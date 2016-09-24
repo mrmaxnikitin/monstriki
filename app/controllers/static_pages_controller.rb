@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
 		#puts @user
 		#puts "dlkjsdlkfjksldfjlksdjfklsdhflksdhflksjhfkjshdfkjsdf"
 		#UserMailer.welcome(@user).deliver_now
+		@monsters = Monster.order('RANDOM()').limit(6)
 	end
 
 	def show

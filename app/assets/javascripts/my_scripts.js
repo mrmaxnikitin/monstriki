@@ -31,5 +31,6 @@ $(document).on("page:load ready", function(){
     });
 	});
 
+	$('.wrap-img-choose-monster-after-signup05').height($('.wrap-img-choose-monster-after-signup05').width()*0.75)
 	$('.wrap-img-choose-monster-after-signup').height($('.wrap-img-choose-monster-after-signup').width()*0.75)   //размер обертки такой же ,как и изображения
 });

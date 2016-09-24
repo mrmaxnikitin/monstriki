@@ -57,25 +57,33 @@
 #welcome-slide-2{
 	background: url(/images/hill.png) top no-repeat #84b341;
 	background-size: 100%;
+	height: 740px;
 	.content{
 		position: relative;
-		top: 286px;
+		top: 220px;
 		width: 80%;
 		margin: 0 8% 0 12%;
 		.welcome-slide-img{
-			width: 38%;
-			float: left;
+			padding-top: 20px;
+			width: 62%;
+			float: right;
+			img{
+				width: 100%;
+			}
 		}
 		.text-welcome-slide{
 			color: white;
-			width: 62%;
-			padding: 40px 50px;
-			float: right;
+			width: 38%;
+			padding: 70px 30px 40px 0px;
+			float: left;
+			text-align: left;
 			h1{
-				font-size: 60px !important;
+				font-size: 46px !important;
+				margin-bottom: 0px;
 			}
 			p{
-				font-size: 22px;
+				font-size: 20px;
+				margin: 0.5em 0 1em 0;
 			}
 		}
 	}
@@ -99,34 +107,10 @@
 			padding: 40px 50px;
 			float: right;
 			h1{
-				font-size: 60px !important;
+				font-size: 44px !important;
 			}
 			p{
-				font-size: 22px;
-			}
-		}
-	}
-}
-#welcome-slide-3{
-	background: url(/images/hill-welcome-slide-3.png) top no-repeat #fff8ef;
-	background-size: 100%;
-	.content{
-		position: relative;
-		top: 230px;
-		width: 80%;
-		margin: 0 8% 0 12%;
-		.welcome-slide-img{
-			width: 38%;
-			float: left;
-			position: relative;
-			top: -50px;
-		}
-		.text-welcome-slide{
-			width: 62%;
-			padding: 40px 50px;
-			float: right;
-			p{
-				font-size: 22px;
+				font-size: 20px;
 			}
 		}
 	}
