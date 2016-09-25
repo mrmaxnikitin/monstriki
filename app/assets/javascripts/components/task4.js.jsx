@@ -21,6 +21,7 @@ const Picture4 = React.createClass({
 const Task4 = React.createClass({
   getInitialState: function () {
     return {
+      answer_btn_display: false,
       answer: 0,
       number_of_pics: 8
     };
@@ -44,6 +45,7 @@ const Task4 = React.createClass({
   repeatTask: function() {
     this.props.repeatTask()
     this.setState({
+      answer_btn_display: false,
       answer: 0
     });
   },
@@ -55,6 +57,7 @@ const Task4 = React.createClass({
       loop: false
     });
     this.setState({
+      answer_btn_display: false,
       answer: item
     });
   },
@@ -109,8 +112,8 @@ const Task4 = React.createClass({
 
     //Кнопки действий
     var button_to_answer
-    if(this.props.status_current_task == 0){
-      button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer" onClick={this.acceptAnswer}>Ответить</button>
+    if(this.props.status_current_task == 0 && this.state.answer_btn_display){
+      button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer animated bounceIn" onClick={this.acceptAnswer}>Ответить</button>
     }
     var button_next_task, button_to_repeat, button_complete_quest
     if(this.props.status_current_task == 1){

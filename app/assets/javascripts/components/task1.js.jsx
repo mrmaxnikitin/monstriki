@@ -32,6 +32,7 @@ const Picture1Subtype2 = React.createClass({
 const Task1 = React.createClass({
   getInitialState: function () {
     return {
+      answer_btn_display: false,
       answer: 0,
       started: 0,
       number_of_pics: 9
@@ -56,6 +57,7 @@ const Task1 = React.createClass({
   repeatTask: function() {
     this.props.repeatTask()
     this.setState({
+      answer_btn_display: false,
       answer: 0,
       started: 0
     });
@@ -68,6 +70,7 @@ const Task1 = React.createClass({
         loop: false
     });
     this.setState({
+      answer_btn_display: true,
       answer: item
     });
   },
@@ -154,7 +157,8 @@ const Task1 = React.createClass({
       if(task.subtype == 2 && !this.state.started)
         button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-start" onClick={this.startTask}>Начать</button>
       else
-        button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer" onClick={this.acceptAnswer}>Ответить</button>
+        if(this.state.answer_btn_display)
+          button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer animated bounceIn" onClick={this.acceptAnswer}>Ответить</button>
     }
     var button_next_task, button_to_repeat, button_complete_quest
     if(this.props.status_current_task == 1){
