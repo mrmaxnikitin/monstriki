@@ -57,7 +57,7 @@ const Task4 = React.createClass({
       loop: false
     });
     this.setState({
-      answer_btn_display: false,
+      answer_btn_display: true,
       answer: item
     });
   },
