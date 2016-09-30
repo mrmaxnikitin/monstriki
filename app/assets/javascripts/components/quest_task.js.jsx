@@ -13,13 +13,16 @@ const QuestTask = React.createClass({
     }
 
     var content = ''
-    if(this.props.status_quest_tasks[item]){
+    if(this.props.status_quest_tasks[item] == -1){
       class_choosed_quest_task += ' stage_tasks--without-animation'
       content = (
-        <div className={class_choosed_quest_task}>
-          <img src='/images/like_finger.png' />
-        </div>
+        <img className={class_choosed_quest_task} onClick={this.clickHandler} src='/images/error-quest.png' />
       );
+    }else if(this.props.status_quest_tasks[item] == 1){
+      class_choosed_quest_task += ' stage_tasks--without-animation'
+      content = (
+        <img className={class_choosed_quest_task} onClick={this.clickHandler} src='/images/done-quest.png' />
+      )
     }else{
       class_choosed_quest_task += ' stage_tasks'
       var direction_pic
@@ -35,9 +38,7 @@ const QuestTask = React.createClass({
         direction_pic = '/images/direction_pics/world.jpg'
       } 
       content = (
-        <div className={class_choosed_quest_task} onClick={this.clickHandler}>
-          <img src={direction_pic} />
-        </div>
+          <img className={class_choosed_quest_task} src={direction_pic} onClick={this.clickHandler} />
       );
     }
     return (

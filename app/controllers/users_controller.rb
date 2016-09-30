@@ -1,8 +1,8 @@
 class UsersController < InheritedResources::Base
   before_action :find_user, except: [:index, :new, :create, :monstrik, :payment, :monster_card, :prolongation, :create_prolongation]
-  before_filter :require_login, except: [:show, :new, :create]
+  before_filter :require_login, except: [:show, :new, :create, :payment]
   before_action :require_current_user, only: [:edit, :update, :destroy]
-  before_action :require_admin, only: [:prolongation, :payment]
+  before_action :require_admin, only: [:prolongation]
 	def index
 		@users=User.all
 	end
@@ -12,7 +12,8 @@ class UsersController < InheritedResources::Base
 	end
 
   def show
-    @user_things = @user.user_things.all
+    @honors = current_user.honors.all
+    #@user_things = @user.user_things.all
     #UserMailer.welcome(@user).deliver
   end
 

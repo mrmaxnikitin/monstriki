@@ -115,21 +115,13 @@ const Task4 = React.createClass({
     if(this.props.status_current_task == 0 && this.state.answer_btn_display){
       button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer animated bounceIn" onClick={this.acceptAnswer}>Ответить</button>
     }
-    var button_next_task, button_to_repeat, button_complete_quest
+    var button_next_task, button_to_repeat='', button_complete_quest
     if(this.props.status_current_task == 1){
-      if((this.props.sum_right_answers != this.props.tasks_length && this.props.quest) || !this.props.quest)
         button_next_task = <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task" onClick={this.props.nextTask}>Следующее задание</button>
-      if((this.props.sum_right_answers == this.props.tasks_length && this.props.quest) && this.props.quest)
-        button_complete_quest = (
-          <div>
-            <a href='/quests'>
-              <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task">Закончить квест</button>
-            </a>
-          </div>);
-      button_to_repeat = ''
     }else if(this.props.status_current_task == -1){
-      button_next_task = <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task" onClick={this.props.nextTask}>Следующее задание</button>
-      button_to_repeat = <button className="btn-m btn-m-3 btn-m-3a icon-star-2 repeat-task" onClick={this.repeatTask}>Еще разок</button>
+        button_next_task = <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task" onClick={this.props.nextTask}>Следующее задание</button>
+        if(!this.props.checkpoint)
+          button_to_repeat = <button className="btn-m btn-m-3 btn-m-3a icon-star-2 repeat-task" onClick={this.repeatTask}>Еще разок</button>
     }
 
     //Результат выполнения задания
@@ -162,10 +154,10 @@ const Task4 = React.createClass({
         </div>
         <div className='col wrap-task-text ml-2proc'>
           {result_task}
-          {button_complete_quest}
           {button_to_answer}
           {button_to_repeat}
           {button_next_task}
+          {button_complete_quest}
         </div>
       </div>
     );

@@ -1,6 +1,8 @@
 class UserThingsController < ApplicationController
   before_filter :require_login
+  before_action :find_user, only: [:index]
 	def index
+    @user_things = @user.user_things.all
 	end
 
 	def create
@@ -24,3 +26,7 @@ class UserThingsController < ApplicationController
 		render nothing: true
   end
 end
+private
+  def find_user
+    @user = User.find(params[:user_id])
+  end

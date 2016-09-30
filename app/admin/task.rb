@@ -17,7 +17,6 @@ index do
   column :subtype, label: "Подтип"
   column :age, label: "Возраст"
   column :text, label: "Текст"
-  column :only_quest, label: "Для квестов?"
   column :moderated, label: "Модерация?"
   column :in_quest, label: "В квесте?"
   actions
@@ -32,7 +31,6 @@ show do
     row :subtype
     row :text
     row :answer
-    row('only_quest?') { |b| status_tag b.only_quest? }
     row('moderated?') { |b| status_tag b.moderated? }
     row :created_at
     row :updated_at

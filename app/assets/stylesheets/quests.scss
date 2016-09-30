@@ -83,7 +83,7 @@
   }
 }
 .choosed_quest_task{
-  background-color: #1bdbb3 !important;
+  background-color: #fedd54 !important;
   /*box-shadow: 0 0px 7px rgba(0, 0, 0, 0.2) !important;*/
 }
 .complete-quest-task{
@@ -156,12 +156,25 @@
     width: 100%;
   }
 }
+.next-tour{
+  h1{
+    font-size: 36px !important;
+  }
+  .invitation-tomorrow{
+    margin-top: 15px;
+    .degree-honor{
+      font-size: 50px;
+      font-family: 'Gagalin';
+      color: #ffa800;
+    }
+  }
+}
 .quest-tasks{
   position: fixed;
   top: 98px;
   right: 25px;
   .element-quest-task{
-    width: 60px;
+    width: 40px;
     padding: 6px !important;
     cursor: pointer;
     font-size: 12px;
@@ -199,3 +212,24 @@
     width: 6px;
     z-index: 1;
 }*/
+.trip-quest-inactive{
+  filter: grayscale(80%);
+  -webkit-filter: grayscale(80%);
+  -moz-filter: grayscale(80%);
+  -ms-filter: grayscale(80%);
+  -o-filter: grayscale(80%);
+}
+.current-quest{
+  .card-trip-quest{
+    transform: scale(1.05);
+  }
+}
+.diploma-sample{
+  img{
+    width: 100%;
+  }
+}
+
+.trip-page{
+  min-height: 480px;
+}

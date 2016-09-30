@@ -6,29 +6,39 @@
 		<%= render "/partials/profile_big" %>
 		<div class='col col-67proc ml-2proc'>
 			<% if logged_in? %>
-				<% if current_user.track.complete_quest == true %>
-					<div class='next-quest card mbl'>
+				<% if @track.complete_quest == true && @quest.checkpoint %>
+					<div class='next-quest next-tour card mbl'>
 						<div class='col col-2of6'>
-							<% pic_number = rand(4) %>
-							<img src='/images/next-quest-pics/next-quest-pic<%= pic_number %>.png' class='img-next-quest'/>
+							<% pic_number = rand(4) 
+								 if pic_number == 0
+								 	format = "png"
+								 else
+								 	format = "gif"
+								 end
+							%>
+							<img src='/images/next-quest-pics/next-quest-pic<%= pic_number %>.<%= format %>' class='img-next-quest'/>
 						</div>
 						<div class='col col-4of6 content'>
-							<h1>Ты справился с квестом!</h1>
-							<p class='coins'>
-								<img src='/images/coins.png' /> <span class='plus-coins'>+10</span> <span class='text'>монеток за квест</span>
-							</p>
-							<div class='invitation-tomorrow'>Сегодня мы справились! Приходи завтра, у нас для тебя есть еще квест!</div>
+							<h1>Тур пройден, все квесты выполнены!</h1>
+							<% if current_user.honors.last.degree == 0
+								honor_degree = "Участника"
+							else
+								honor_degree = current_user.honors.last.degree.to_s+" степени"
+							end %>
+							<div class='invitation-tomorrow'><span class='degree-honor'>Диплом <%= honor_degree %></span></div>
 							<div class='actions'>
-								<%= link_to 'Хочу еще заданий', tasks_path, class: 'btn'%>
-								<%= link_to 'Хочу купить бубуку', things_path, class: 'btn btn-our-red buy'%>
+								<p>Следующий тур будет доступен завтра. <b>Приходи!</b></p>
 							</div>
 						</div>
 						<div class='clear'></div>
 					</div>
 				<% end %>
-				<h2 class='h--thin mbm'><span class='prxs'>Квест на сегодня</span> <span class='tag tag--light tag--heading tag--heading--h2'>8-12 минут</span></h2>
+				<h2 class='h--thin mbm'><span class='prxs'>Тур 1</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= @quests.count %> квеста</span></h2>
 				<% if current_user.payment_end_date > Time.now %>
-					<%= render "trip", status_quest: current_user.track.complete_quest, link_trip: trip_quests_path %>
+					<%= render "trip", quests: @quests %>
+					<div class='card golden_section38 fr diploma-sample'>
+						<img src='/images/diploma_samples/<%= @quests.last.id %>.jpg' />
+					</div>
 				<% else %>
 					<%= render "/partials/lets_pay", text: "Новые квесты будут доступны после продления карты монстрика" %>
 				<% end %>

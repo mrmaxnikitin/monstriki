@@ -1,10 +1,10 @@
 <div class='attraction users-attraction'>
 	<div class='row'>
-		<%= render '/users/user_attraction' %>
+		<%= render 'user_attraction' %>
 	</div>
 </div>
 <div class='row user-page-menu'>
-	<%= render '/users/user_menu', user: @user %>
+	<%= render 'user_menu', user: @user %>
 </div>
 <div class='row'>
 	<div class='cell mts'>

@@ -1,0 +1,63 @@
+<div class='attraction users-attraction'>
+	<div class='row'>
+		<%= render '/users/user_attraction' %>
+	</div>
+</div>
+<div class='row user-page-menu'>
+	<%= render '/users/user_menu', user: @user %>
+</div>
+<div class='row'>
+	<div class='cell mts'>
+		<div class='col col-press-25 user-page-profile'>
+			<%= render "/partials/user_monster", user: @user %>
+		</div>
+		<div class='col col-press-74 col-padding wrap-honor fr'>
+			<% if @honor.degree == 0
+					honor_degree = "Диплом участника"
+				else
+					honor_degree = "Диплом "+@honor.degree.to_s+" степени"
+				end %>
+			<h2 class='h--thin mbs'><span class='prxs'><%= honor_degree %></span></h2>
+				<div class='honor card mbl'>
+					<div class='part1'>
+						<div class='col golden_section38'>
+							<img src='/images/quest-pics/<%= @honor.quest_id %>.jpg' />
+						</div>
+						<div class='col golden_section62'>
+							<div class='text'>
+								<h2 class=''>Получите диплом</h2>
+								<p>Приобретите диплом, распечатайте его на принтере, повесьте в зоне успехов ребенка, хвалитесь гостям - и кроха будет стараться еще больше!</p>
+								<button class = 'btn btn-our-red buy' data-toggle="modal" data-target="#modal_buy_diploma">Получить диплом</button>
+								<p class='attention-check'><b>Перед получением</b> диплома проверьте свои данные.</p>
+							</div>
+						</div>
+						<div class='clear'></div>
+						<div class='data-honor'>
+							<h3 class=''>Ваши данные</h2>
+							<p>Укажите верные данные. Эти данные будут отображены на дипломе. Обязательно заполните поля со звездочкой.</p>
+							<div class='wrap-information-about-user'>
+								
+		            <%= simple_form_for(@honor, url: user_honor_path(current_user.id, @honor.id), html: { class: 'registration-form' }) do |f| %>
+										<p>ФИ ребенка:<font color="red">*</font></p>
+							      <%= f.input :name, label: false %>
+							      <p>Возраст:<font color="red">*</font></p>
+							      <%= f.input :age, label: false %>
+							      <p>Учебное заведение:</p>
+							      <%= f.input :school, label: false %>
+							      <p>Педагог:</p>
+							      <%= f.input :curator, label: false %>
+							      <div class='tac'>
+							      	<br>
+							      	<%= f.button :submit, 'Сохранить', class: 'btn btn-our btn-our-green' %>
+							      </div>
+							<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class='clear'></div>
+		</div>
+		<div class='clear'></div>
+	</div>
+</div>
+<%= render 'modal_buy_diploma', honor: @honor %>

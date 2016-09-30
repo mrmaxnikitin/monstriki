@@ -13,7 +13,7 @@ class Quest < ActiveRecord::Base
   	for age in 3..10 do
   		a = Array.new
   		for i in 0..4 do
-				task = Task.where(age: age, direction: directions[i], in_quest: false, only_quest: true, moderated: true).first
+				task = Task.where(age: age, direction: directions[i], in_quest: false, moderated: true).first
 				if task
 					a << task.id.to_i
 					task.update(in_quest: true)

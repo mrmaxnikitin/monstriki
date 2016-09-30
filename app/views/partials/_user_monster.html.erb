@@ -34,14 +34,5 @@
 			end %>
 			<h5 class='h--thin'><img src='/images/flag.png'/> <span>Квестов пройдено: <b><%= quests_amount %></b></span></h5>
 		</div>
-		<div class='element status-quest-complete'>
-			<h5 class='h--thin'><img src='/images/clock.png'/>
-				<% if @user.track.complete_quest %>
-					<span class='completed'>Сегодня квест уже <b>пройден!</b></span>
-				<% else %>
-					<span class='not-completed'>Сегодня квест еще <b>не пройден!</b></span>
-				<% end %>
-			</h5>
-		</div>
 	</div>
 </div>

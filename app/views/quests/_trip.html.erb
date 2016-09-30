@@ -1,34 +1,99 @@
-<%
-	quest_id = current_user.track.current_quest
-	if current_user.age == 5 || current_user.age == 6
-		pic1 = Task.find(Quest.find(quest_id).age6[0]).pic1
-	elsif current_user.age == 7
-		pic1 = Task.find(Quest.find(quest_id).age7[0]).pic1
-	end
-%>
+<% quests.each do |quest|%>
+	<%
+		quest_id = quest.id
+		if current_user.age == 5 || current_user.age == 6
+			pic1 = Task.find(Quest.find(quest_id).age6[0]).pic1
+		elsif current_user.age == 7
+			pic1 = Task.find(Quest.find(quest_id).age7[0]).pic1
+		end
+	%>
+	<%
+		if quest.id < current_user.track.current_quest
+			status_quest = 2
+		else
+			if quest.id == current_user.track.current_quest
+				if current_user.track.complete_quest
+					status_quest = 2
+				else
+					status_quest = 1
+				end
+			else
+				status_quest = 0
+			end
+		end
 
-<%= link_to link_trip, class: "snap-sound" do %>
-<div class='trip-quest mbl'>
-	<div class='status-trip-quest node'>
-		<% if status_quest %>
-			<img src='/images/done-quest.png' />
-		<% elsif %>
-			<img src='/images/node.png' />
-		<% end %>
-	</div>
-	<div class='card card-trip-quest fr'>
-		<div class='mbadge direction-mbadge col'>
-			<img src='<%= pic1 %>' />
-		</div>
-		<div class='direction-content col'>
-			<div>
-				<span class='tag tag--heading'>Для <%= current_user.age %> лет</span>
+		if quest.id == current_user.track.current_quest
+			active_link = true
+		else
+			active_link = false
+		end
+
+		quest_title = "5 заданий"
+		quest_text = 'Проходи квесты, получай игровые монетки и покупай за них веcелые бубуки!'
+		if quest.checkpoint
+			quest_title = "Котрольный квест"
+			quest_text = 'Это контрольный квест, постарайтесь не допускать ошибок.'
+		end
+	%>
+	<% if active_link %>
+		<%= link_to trip_quests_path, class: "snap-sound" do %>
+			<div class='trip-quest current-quest mbl'>
+				<div class='status-trip-quest node'>
+					<% if status_quest == 2 %>
+						<img src='/images/done-quest.png' />
+					<% elsif status_quest == 1 %>
+						<img src='/images/play-quest.png' />
+					<% else%>
+						<img src='/images/node.png' />
+					<% end %>
+				</div>
+				<div class='card card-trip-quest fr'>
+					<div class='mbadge direction-mbadge col'>
+						<img src='<%= pic1 %>' />
+					</div>
+					<div class='direction-content col col-5of6'>
+						<div>
+							<span class='tag tag--heading'>Для <%= current_user.age %> лет</span>
+							<% if quest.checkpoint %>
+								<span class='tag tag--heading tag--red fr'>Диплом</span>
+							<% end %>
+						</div>
+						<h2 class='h--thin tcm mbm'><%= quest_title %></h2>
+						<p><%= quest_text %></p>
+					</div>
+					<div class='clear'></div>
+				</div>
+				<div class='clear'></div>
 			</div>
-			<h2 class='h--thin tcm mbm'>5 заданий</h2>
-			<p>Проходи квесты, получай игровые монетки и покупай за них веcелые бубуки!</p>
+		<% end %>
+	<% else %>
+		<div class='trip-quest trip-quest-inactive mbl'>
+			<div class='status-trip-quest node'>
+				<% if status_quest == 2 %>
+					<img src='/images/done-quest.png' />
+				<% elsif status_quest == 1 %>
+					<img src='/images/play-quest.png' />
+				<% else %>
+					<img src='/images/node.png' />
+				<% end %>
+			</div>
+			<div class='card card-trip-quest fr'>
+				<div class='mbadge direction-mbadge col'>
+					<img src='<%= pic1 %>' />
+				</div>
+				<div class='direction-content col col-5of6'>
+					<div>
+						<span class='tag tag--heading'>Для <%= current_user.age %> лет</span>
+						<% if quest.checkpoint %>
+							<span class='tag tag--heading tag--red fr'>Диплом</span>
+						<% end %>
+					</div>
+					<h2 class='h--thin tcm mbm'><%= quest_title %></h2>
+					<p><%= quest_text %></p>
+				</div>
+				<div class='clear'></div>
+			</div>
+			<div class='clear'></div>
 		</div>
-		<div class='clear'></div>
-	</div>
-	<div class='clear'></div>
-</div>
+	<% end %>
 <% end %>

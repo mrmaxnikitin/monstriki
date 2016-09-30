@@ -206,7 +206,7 @@ const Task9 = React.createClass({
     );
 
     //Кнопки действий
-    var button_to_start, button_to_answer, button_next_task, button_to_repeat, button_complete_quest
+    var button_to_start, button_to_answer, button_next_task, button_to_repeat='', button_complete_quest
     if(this.state.started){
       if(this.props.status_current_task == 0){
         button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer" onClick={this.acceptAnswer}>Ответить</button>
@@ -221,10 +221,10 @@ const Task9 = React.createClass({
               <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task">Закончить квест</button>
             </a>
           </div>);
-        button_to_repeat = ''
       }else if(this.props.status_current_task == -1){
         button_next_task = <button className="btn-m btn-m-3 btn-m-3e icon-arrow-right next-task" onClick={this.props.nextTask}>Следующее задание</button>
-        button_to_repeat = <button className="btn-m btn-m-3 btn-m-3a icon-star-2 repeat-task" onClick={this.repeatTask}>Еще разок</button>
+        if(!this.props.checkpoint)
+          button_to_repeat = <button className="btn-m btn-m-3 btn-m-3a icon-star-2 repeat-task" onClick={this.repeatTask}>Еще разок</button>
       }
     }else{
       button_to_start = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-start" onClick={this.startTask}>Начать</button>

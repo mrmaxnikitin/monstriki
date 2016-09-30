@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918130944) do
+ActiveRecord::Schema.define(version: 20160929123735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,24 @@ ActiveRecord::Schema.define(version: 20160918130944) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
+  create_table "honors", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "quest_id"
+    t.integer  "price",      default: 50
+    t.integer  "honor_type"
+    t.integer  "degree"
+    t.boolean  "paid",       default: false
+    t.string   "name"
+    t.string   "age"
+    t.string   "school"
+    t.string   "curator"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "honors", ["user_id", "quest_id"], name: "index_honors_on_user_id_and_quest_id", unique: true, using: :btree
+  add_index "honors", ["user_id"], name: "index_honors_on_user_id", using: :btree
+
   create_table "monsters", force: :cascade do |t|
     t.string   "avatar"
     t.datetime "created_at", null: false
@@ -38,16 +56,17 @@ ActiveRecord::Schema.define(version: 20160918130944) do
   end
 
   create_table "quests", force: :cascade do |t|
-    t.text     "age3",                    array: true
-    t.text     "age4",                    array: true
-    t.text     "age5",                    array: true
-    t.text     "age6",                    array: true
-    t.text     "age7",                    array: true
-    t.text     "age8",                    array: true
-    t.text     "age9",                    array: true
-    t.text     "age10",                   array: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "age3",                                    array: true
+    t.text     "age4",                                    array: true
+    t.text     "age5",                                    array: true
+    t.text     "age6",                                    array: true
+    t.text     "age7",                                    array: true
+    t.text     "age8",                                    array: true
+    t.text     "age9",                                    array: true
+    t.text     "age10",                                   array: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "checkpoint", default: false
   end
 
   create_table "task_errors", force: :cascade do |t|
@@ -101,6 +120,7 @@ ActiveRecord::Schema.define(version: 20160918130944) do
     t.integer  "user_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.string   "answers"
   end
 
   add_index "tracks", ["user_id"], name: "index_tracks_on_user_id", using: :btree
@@ -165,6 +185,8 @@ ActiveRecord::Schema.define(version: 20160918130944) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "honors", "quests"
+  add_foreign_key "honors", "users"
   add_foreign_key "task_errors", "tasks"
   add_foreign_key "tracks", "users"
   add_foreign_key "user_monsters", "users"

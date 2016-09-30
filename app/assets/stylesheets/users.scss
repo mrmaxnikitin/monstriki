@@ -66,7 +66,7 @@
 }
 .user-page-profile{
 	position: relative;
-	top: -240px;
+	top: -200px;
 	.info-user{
 		h3{
 			span{
@@ -85,8 +85,8 @@
   background-size: 43%;
   background-position: 100% 18%;
   background-repeat: no-repeat;
-  height: 270px !important;
-  padding-top: 130px !important;
+  height: 170px !important;
+  padding-top: 55px !important;
 	/*animation: animatedBackground 60s linear infinite;
 	-moz-animation: animatedBackground 60s linear infinite;
 	-webkit-animation: animatedBackground 60s linear infinite;
@@ -146,7 +146,6 @@
 }
 
 .the-user-info{
-	height: 150px;
 	padding-top: 50px;
 	.name-the-user-info{
 		color: white;
@@ -256,4 +255,47 @@
   color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
-
+.wrap-honor{
+	.honor{
+		width: 80%;
+		padding: 40px;
+		img{
+			width: 100%;
+			border-radius: 4px;
+		}
+		.golden_section62 {
+    	padding: 10px 0px 10px 40px;
+    	p{
+    		font-size: 18px;
+    	}
+    	.attention-check{
+    	font-size: 14px;
+    	}
+    }
+    .data-honor{
+    	margin-top: 15px;
+    	padding-top: 20px;
+    	border-top: 1px solid #e2e8e9;
+    	.wrap-information-about-user{
+    		margin-top: 10px;
+    		p{
+    			font-size: 16px;
+			    margin: 1.2em 0 0.4em 0;
+			    font-weight: 600;
+    		}
+    		input[type='text']{
+    			text-align: left;
+    			width: 60%;
+    		}
+    	}
+    }
+	}
+}
+.wrap-payment-inputs{
+	text-align: center;
+}
+#modal_buy_diploma{
+	.modal-title{
+		text-align: center;
+	}
+}

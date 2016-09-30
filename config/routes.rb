@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   
   resources :sessions, only: [:new, :create, :destroy]
   resources :users do
+    resources :honors, only: [:show, :update]
+    resources :user_things, only: [:index]
     post :create_prolongation, on: :collection
   end
   resources :password_resets, only: [:new, :create, :edit, :update] do
@@ -48,12 +50,14 @@ Rails.application.routes.draw do
   end
   resources :quests do
     collection do
+      get :choose_trip
       get :trip
       get :get_trip
       post :finish_trip
       get :next_quest
       get :add_task_to_quest
       post :get_add_task_to_quest
+      post :save_answers
     end
   end
   resources :things

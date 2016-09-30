@@ -2,7 +2,8 @@
 	<div class='col col-press-25'>
 	</div>
 	<div class='col col-press-74 fr the-user-menu'>
-		<%= link_to 'Профиль', user %>
+		<%= link_to 'Награды', user %>
+		<%= link_to 'Бубуки', user_user_things_path(user) %>
 		<% if current_user?(@user) %>
 		<% end %>
 		<%= link_to logout_path, class: 'fr logout', data: { no_turbolink: true } do %>

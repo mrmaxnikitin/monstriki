@@ -12,13 +12,14 @@
 			<%= render "/partials/user_monster", user: @user %>
 		</div>
 		<div class='col col-press-74 col-padding all-things fr'>
-			<h2 class='h--thin mbs'><span class='prxs'>Бубуки</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= @user_things.count %></span></h2>
-			<% @user_things.each do |user_thing|%>
-				<% thing = Thing.find(user_thing.thing_id) %>
-				<div class='col col-press-25 card thing'>
-					<img src='<%= thing.img %>' />
-					<h5 class='name tac'><%= thing.name %></h5>
-				</div>
+			<h2 class='h--thin mbs'><span class='prxs'>Награды</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= current_user.honors.all.count %></span></h2>
+			<% @honors.each.with_index(0) do |honor, i|%>
+				<%= link_to user_honor_path(current_user.id, honor.id) do %>
+					<div class='col col-press-25 card thing'>
+						<img src='/images/quest-pics/<%= honor.quest_id %>.jpg' />
+						<h5 class='name tac'><%= current_user.honors.all.count - i %> ТУР, <%= honor.degree %> место</h5>
+					</div>
+				<% end %>
 			<% end %>
 			<div class='clear'></div>
 		</div>

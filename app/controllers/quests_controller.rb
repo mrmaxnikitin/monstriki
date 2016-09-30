@@ -5,10 +5,18 @@ class QuestsController < ApplicationController
 	before_action :require_admin, only: [:new, :create, :add_task_to_quest, :get_add_task_to_quest]
 	include ApplicationHelper
 	def index
-		if logged_in? && (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day && @track.complete_quest
+		if logged_in? && (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day && @track.complete_quest && @quest.checkpoint
 			@track.next_quest
 			@track.save
 		end
+		@first_quest = Quest.where("checkpoint = ? AND id < ?", true, @track.current_quest).maximum("id") #first_quest_after_prev_checkpoint_quest
+		@first_quest = 1 if !@first_quest 
+		@checkpoint_quest = Quest.where("checkpoint = ? AND id >= ?", true, @track.current_quest).minimum("id")
+
+		@quests = Quest.where("id >= ? AND id <= ?", @first_quest, @checkpoint_quest).all
+		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
+		#puts @quests.count
+		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
 	end
 
 	def new
@@ -32,15 +40,30 @@ class QuestsController < ApplicationController
 	def finish_trip
 		current_user.score = params[:score]
 		current_user.save
+		if @quest.checkpoint && !@track.complete_quest && !current_user.honors.find_by_quest_id(current_user.track.current_quest)
+			current_user.honors.create(quest_id: current_user.track.current_quest, 
+																 degree: params[:degree],
+																 price: params[:price],
+																 honor_type: 1,
+																 name: current_user.name,
+																 age: current_user.age)
+		end
 		@track.finish_trip
+		if !@quest.checkpoint
+			@track.next_quest
+		end
 		@track.save
 		render nothing: true
 	end
 
-	def next_quest
-		@track.next_quest
-		@track.save
-		redirect_to quests_path
+	#def next_quest
+	#	@track.next_quest
+	#	@track.save
+	#	redirect_to quests_path
+	#end
+
+	def choose_trip
+
 	end
 
 	def trip
@@ -65,6 +88,11 @@ class QuestsController < ApplicationController
 		render 'tasks/index', formats: :json
 	end
 
+	def save_answers
+		@track.answers = params[:answers]
+		@track.save
+		render nothing: true
+	end
 
 	private
     def find_user_quest

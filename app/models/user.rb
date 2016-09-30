@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   acts_as_voter
 
-  has_one  :track   
+  has_one  :track
+  has_many :honors, foreign_key: "user_id", dependent: :destroy
   has_many :user_things, foreign_key: "user_id", dependent: :destroy
   has_one :user_monster, foreign_key: "user_id", dependent: :destroy
 
