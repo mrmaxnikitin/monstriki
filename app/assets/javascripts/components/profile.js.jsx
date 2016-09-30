@@ -25,9 +25,6 @@ const Profile = React.createClass({
         <div className='card mbl profile-menu'>
           <ul>
             <li className='menu-item'>
-              <a href={this.props.monster_card_link} className='list-item-link menu-item-link'>Карта монстрика</a>
-            </li>
-            <li className='menu-item'>
               <a href={this.props.setting_link} className= 'list-item-link menu-item-link'>Настройки</a>
             </li>
           </ul>
