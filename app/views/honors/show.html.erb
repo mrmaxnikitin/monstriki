@@ -18,44 +18,52 @@
 					honor_degree = "Диплом "+@honor.degree.to_s+" степени"
 				end %>
 			<h2 class='h--thin mbs'><span class='prxs'><%= honor_degree %></span></h2>
-				<div class='honor card mbl'>
-					<div class='part1'>
-						<div class='col golden_section38'>
-							<img src='/images/quest-pics/<%= @honor.quest_id %>.jpg' />
-						</div>
-						<div class='col golden_section62'>
-							<div class='text'>
-								<h2 class=''>Получите диплом</h2>
-								<p>Приобретите диплом, распечатайте его на принтере, повесьте в зоне успеха, показывайте гостям - и кроха будет стараться еще больше!</p>
-								<button class = 'btn btn-our-red buy' data-toggle="modal" data-target="#modal_buy_diploma">Получить диплом</button>
-								<p class='attention-check'><b>Перед получением</b> диплома проверьте свои данные.</p>
-								<p class='attention-check'><b>После оплаты</b> диплом будет отправлен на почту в течение 12 часов.</p>
+				<% if !@honor.paid %>
+					<div class='honor card mbl'>
+						<div class='part1'>
+							<div class='col golden_section38'>
+								<img src='/images/quest-pics/<%= @honor.quest_id %>.jpg' />
 							</div>
-						</div>
-						<div class='clear'></div>
-						<div class='data-honor'>
-							<h3 class=''>Ваши данные</h2>
-							<p>Укажите верные данные. Эти данные будут отображены на дипломе. Обязательно заполните поля со звездочкой.</p>
-							<div class='wrap-information-about-user'>
-								
-		            <%= simple_form_for(@honor, url: user_honor_path(current_user.id, @honor.id), html: { class: 'registration-form' }) do |f| %>
-										<p>ФИ ребенка:<font color="red">*</font></p>
-							      <%= f.input :name, label: false %>
-							      <p>Возраст:<font color="red">*</font></p>
-							      <%= f.input :age, label: false %>
-							      <p>Учебное заведение:</p>
-							      <%= f.input :school, label: false %>
-							      <p>Педагог:</p>
-							      <%= f.input :curator, label: false %>
-							      <div class='tac'>
-							      	<br>
-							      	<%= f.button :submit, 'Сохранить', class: 'btn btn-our btn-our-green' %>
-							      </div>
-							<% end %>
+							<div class='col golden_section62'>
+								<div class='text'>
+									<h2 class=''>Получите диплом</h2>
+									<p>Приобретите диплом, распечатайте его на принтере, повесьте в зоне успеха, показывайте гостям - и кроха будет стараться еще больше!</p>
+									<button class = 'btn btn-our-red buy' data-toggle="modal" data-target="#modal_buy_diploma">Получить диплом</button>
+									<p class='attention-check'><b>Перед получением</b> диплома проверьте свои данные.</p>
+									<p class='attention-check'><b>После оплаты</b> диплом будет отправлен на почту в течение 12 часов.</p>
+								</div>
+							</div>
+							<div class='clear'></div>
+							<div class='data-honor'>
+								<h3 class=''>Ваши данные</h2>
+								<p>Укажите верные данные. Эти данные будут отображены на дипломе. Обязательно заполните поля со звездочкой.</p>
+								<div class='wrap-information-about-user'>
+									
+			            <%= simple_form_for(@honor, url: user_honor_path(current_user.id, @honor.id), html: { class: 'registration-form' }) do |f| %>
+											<p>ФИ ребенка:<font color="red">*</font></p>
+								      <%= f.input :name, label: false %>
+								      <p>Возраст:<font color="red">*</font></p>
+								      <%= f.input :age, label: false %>
+								      <p>Учебное заведение:</p>
+								      <%= f.input :school, label: false %>
+								      <p>Педагог:</p>
+								      <%= f.input :curator, label: false %>
+								      <div class='tac'>
+								      	<br>
+								      	<%= f.button :submit, 'Сохранить', class: 'btn btn-our btn-our-green' %>
+								      </div>
+								<% end %>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				<% else %>
+					<div class='honor card mbl tac honor-paid'>
+						<h3>Диплом выслан на указанную Вами почту.</h3>
+						<p>Если Вы его не получили, напишите нам об этом по адресу <b>monstriki.labs@yandex.ru</b></p>
+						<div class='mtl'><img src='/images/logo_transparent.png' /></div>
+					</div>
+				<% end %>
 			<div class='clear'></div>
 		</div>
 		<div class='clear'></div>
