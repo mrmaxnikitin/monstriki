@@ -265,8 +265,8 @@ const Quest = React.createClass({
     }
   },
   finish_quest: function() {
-    var degree, score_for_quest = 10
-      if(this.props.complete_quest) score_for_quest = 0;
+    var degree, score_for_quest = this.state.score + 10
+      if(this.props.complete_quest) score_for_quest = this.state.score;
 
       var degree_indicator = 0
       for(var i = 0; i < this.state.status_quest_tasks.length; i++){

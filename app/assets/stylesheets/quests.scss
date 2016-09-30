@@ -213,11 +213,11 @@
     z-index: 1;
 }*/
 .trip-quest-inactive{
-  filter: grayscale(80%);
-  -webkit-filter: grayscale(80%);
-  -moz-filter: grayscale(80%);
-  -ms-filter: grayscale(80%);
-  -o-filter: grayscale(80%);
+  filter: grayscale(50%);
+  -webkit-filter: grayscale(50%);
+  -moz-filter: grayscale(50%);
+  -ms-filter: grayscale(50%);
+  -o-filter: grayscale(50%);
 }
 .current-quest{
   .card-trip-quest{
