@@ -21,6 +21,12 @@
   &:hover{
   	box-shadow: 0 1px 7px rgba(20, 20, 20, 0.2);
   }
+  .col-1of6{
+    img{
+      width: 80%;
+      border-radius: 200px;
+    }
+  }
   .mbadge{
     width: 118px;
     height: 118px;

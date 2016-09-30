@@ -1,4 +1,4 @@
-<% quests.each do |quest|%>
+<% quests.each.with_index(1) do |quest, i|%>
 	<%
 		quest_id = quest.id
 		if current_user.age == 5 || current_user.age == 6
@@ -28,11 +28,11 @@
 			active_link = false
 		end
 
-		quest_title = "5 заданий"
-		quest_text = 'Проходи квесты, получай игровые монетки и покупай за них веcелые бубуки!'
+		quest_title = "Квест " + i.to_s
+		quest_text = 'Следующий квест будет доступен после выполнения всех заданий в этом квесте.'
 		if quest.checkpoint
 			quest_title = "Котрольный квест"
-			quest_text = 'Это контрольный квест, постарайся не допускать ошибок.'
+			quest_text = 'Чем меньше ошибок ты допустишь в этом квесте, тем выше будет степень диплома.'
 		end
 	%>
 	<% if active_link %>
@@ -48,7 +48,7 @@
 					<% end %>
 				</div>
 				<div class='card card-trip-quest fr'>
-					<div class='mbadge direction-mbadge col'>
+					<div class='col-1of6 col tac'>
 						<img src='<%= pic1 %>' />
 					</div>
 					<div class='direction-content col col-5of6'>
@@ -78,7 +78,7 @@
 				<% end %>
 			</div>
 			<div class='card card-trip-quest fr'>
-				<div class='mbadge direction-mbadge col'>
+				<div class='col-1of6 col tac'>
 					<img src='<%= pic1 %>' />
 				</div>
 				<div class='direction-content col col-5of6'>
@@ -97,3 +97,7 @@
 		</div>
 	<% end %>
 <% end %>
+
+<script>
+	$('.card-trip-quest .col-1of6 img').height($('.card-trip-quest .col-1of6 img').width())
+</script>
