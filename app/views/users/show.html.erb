@@ -14,7 +14,14 @@
 		<div class='col col-press-74 col-padding all-things fr'>
 			<h2 class='h--thin mbs'><span class='prxs'>Награды</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= current_user.honors.all.count %></span></h2>
 			<% @honors.each.with_index(0) do |honor, i|%>
-				<%= link_to user_honor_path(current_user.id, honor.id) do %>
+				<% if current_user.id == honor.user_id %>
+					<%= link_to user_honor_path(current_user.id, honor.id) do %>
+						<div class='col col-press-25 card thing'>
+							<img src='/images/quest-pics/<%= honor.quest_id %>.jpg' />
+							<h5 class='name tac'><%= current_user.honors.all.count - i %> ТУР, <%= honor.degree %> место</h5>
+						</div>
+					<% end %>
+				<% else %>
 					<div class='col col-press-25 card thing'>
 						<img src='/images/quest-pics/<%= honor.quest_id %>.jpg' />
 						<h5 class='name tac'><%= current_user.honors.all.count - i %> ТУР, <%= honor.degree %> место</h5>

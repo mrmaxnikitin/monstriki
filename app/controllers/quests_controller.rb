@@ -9,11 +9,13 @@ class QuestsController < ApplicationController
 			@track.next_quest
 			@track.save
 		end
-		@first_quest = Quest.where("checkpoint = ? AND id < ?", true, @track.current_quest).maximum("id") #first_quest_after_prev_checkpoint_quest
-		@first_quest = 1 if !@first_quest 
-		@checkpoint_quest = Quest.where("checkpoint = ? AND id >= ?", true, @track.current_quest).minimum("id")
+		if logged_in?
+			@first_quest = Quest.where("checkpoint = ? AND id < ?", true, @track.current_quest).maximum("id") #first_quest_after_prev_checkpoint_quest
+			@first_quest = 1 if !@first_quest 
+			@checkpoint_quest = Quest.where("checkpoint = ? AND id >= ?", true, @track.current_quest).minimum("id")
 
-		@quests = Quest.where("id >= ? AND id <= ?", @first_quest, @checkpoint_quest).all
+			@quests = Quest.where("id >= ? AND id <= ?", @first_quest, @checkpoint_quest).all
+		end
 		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
 		#puts @quests.count
 		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"

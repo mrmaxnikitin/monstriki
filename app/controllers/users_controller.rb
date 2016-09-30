@@ -12,7 +12,7 @@ class UsersController < InheritedResources::Base
 	end
 
   def show
-    @honors = current_user.honors.all
+    @honors = @user.honors.all
     #@user_things = @user.user_things.all
     #UserMailer.welcome(@user).deliver
   end
