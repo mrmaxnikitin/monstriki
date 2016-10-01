@@ -14,7 +14,7 @@ class QuestsController < ApplicationController
 			if !@first_quest
 				@first_quest = 1
 			else
-				@first_quest = @first_quest + 1
+				@first_quest = @first_quest.id + 1
 			end
 			@checkpoint_quest = Quest.where("checkpoint = ? AND id >= ?", true, @track.current_quest).minimum("id")
 
