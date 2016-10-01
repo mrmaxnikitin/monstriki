@@ -33,7 +33,7 @@
 						<div class='clear'></div>
 					</div>
 				<% end %>
-				<h2 class='h--thin mbm'><span class='prxs'>Тур 1</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= @quests.count %> квеста</span></h2>
+				<h2 class='h--thin mbm'><span class='prxs'>Тур на сегодня</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= @quests.count %> квеста</span></h2>
 				<% if current_user.payment_end_date > Time.now %>
 					<%= render "trip", quests: @quests %>
 					<div class='card golden_section38 fr diploma-sample'>
