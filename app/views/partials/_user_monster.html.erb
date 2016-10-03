@@ -27,10 +27,10 @@
 	<% end %>
 	<div class='card mbl information-and-statistic-user'>
 		<div class='element'>
-			<% if @user.track.complete_quest
-				quests_amount = @user.track.current_quest
+			<% if user.track.complete_quest
+				quests_amount = user.track.current_quest
 			else 
-				quests_amount = @user.track.current_quest - 1
+				quests_amount = user.track.current_quest - 1
 			end %>
 			<h5 class='h--thin'><img src='/images/flag.png'/> <span>Квестов пройдено: <b><%= quests_amount %></b></span></h5>
 		</div>
