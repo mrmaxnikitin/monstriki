@@ -1,4 +1,4 @@
-ActiveAdmin.register TaskError do
+ActiveAdmin.register Track do
 permit_params :user_id, :current_quest, :complete_quest, :answers
 actions :index, :show, :edit, :update
 menu label: 'Треки'
