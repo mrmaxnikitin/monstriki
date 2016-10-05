@@ -269,13 +269,14 @@
     		font-size: 18px;
     	}
     	.attention-check{
-    	font-size: 14px;
+    		font-size: 14px;
     	}
     }
     .data-honor{
     	margin-top: 15px;
     	padding-top: 20px;
     	border-top: 1px solid #e2e8e9;
+    	text-align: center;
     	.wrap-information-about-user{
     		margin-top: 10px;
     		p{
@@ -284,7 +285,7 @@
 			    font-weight: 600;
     		}
     		input[type='text']{
-    			text-align: left;
+    			text-align: center;
     			width: 60%;
     		}
     	}

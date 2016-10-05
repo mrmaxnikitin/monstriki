@@ -16,7 +16,7 @@ const Quest = React.createClass({
       score: this.props.score,
       answer: 0,
       error_message: 0,          // 0 не открыта форма для отправки ошибки, 1 форма открыта, 2 нажата кнопка СООБЩИТЬ об ошибке
-      price: 190,
+      price: 90,
       information_repeat_task: 0
     };
   },
