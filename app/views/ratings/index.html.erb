@@ -15,14 +15,16 @@
 									monster_id = user.user_monster.monster_id 
 								%>
 								<div class='elm mbs mts'>
-									<div class='col col-press-80'>
-										<div class='avatar circle col' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
+									<%= link_to user do %>
+										<div class='col col-press-80'>
+											<div class='avatar circle col' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
 
+											</div>
+											<div class='name col' title='<%= user.name %>'>
+												<%= user.name %>
+											</div>
 										</div>
-										<div class='name col' title='<%= user.name %>'>
-											<%= user.name %>
-										</div>
-									</div>
+									<% end %>
 									<div class='col col-press-20'>
 									</div>
 									<div class='clear'></div>
@@ -41,14 +43,16 @@
 									monster_id = user.user_monster.monster_id 
 								%>
 								<div class='elm mbs mts'>
-									<div class='col col-press-80'>
-										<div class='avatar circle col' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
+									<%= link_to user do %>
+										<div class='col col-press-80'>
+											<div class='avatar circle col' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
 
+											</div>
+											<div class='name col' title='<%= user.name %>'>
+												<%= user.name %>
+											</div>
 										</div>
-										<div class='name col' title='<%= user.name %>'>
-											<%= user.name %>
-										</div>
-									</div>
+									<% end %>
 									<div class='col col-press-20 '>
 										<%= track.current_quest - 1 %>
 									</div>
@@ -65,14 +69,16 @@
 							<% @riches.each do |user|%>
 								<% monster_id = user.user_monster.monster_id %>
 								<div class='elm mbs mts'>
-									<div class='col col-press-80'>
-										<div class='avatar circle col' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
+									<%= link_to user do %>
+										<div class='col col-press-80'>
+											<div class='avatar circle col' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
 
+											</div>
+											<div class='name col' title='<%= user.name %>'>
+												<%= user.name %>
+											</div>
 										</div>
-										<div class='name col' title='<%= user.name %>'>
-											<%= user.name %>
-										</div>
-									</div>
+									<% end %>
 									<div class='col col-press-20 score'>
 										<img src='/images/coin.png' />
 										<%= user.score %>
