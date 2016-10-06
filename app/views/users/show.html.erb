@@ -14,7 +14,7 @@
 		<div class='col col-press-74 col-padding all-things fr'>
 			<h2 class='h--thin mbs'><span class='prxs'>Награды</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= @user.honors.all.count %></span></h2>
 			<% @honors.each.with_index(0) do |honor, i|%>
-				<% if current_user.id == honor.user_id %>
+				<% if current_user.id == honor.user_id || current_user.admin %>
 					<%= link_to user_honor_path(@user.id, honor.id) do %>
 						<div class='col col-press-25 card thing'>
 							<img src='/images/quest-pics/<%= honor.quest_id %>.jpg' />
