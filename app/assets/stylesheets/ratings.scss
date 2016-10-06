@@ -1,0 +1,47 @@
+.ratings{
+	.col{
+		.card{
+			padding: 15px;
+		}
+	}
+	::-webkit-scrollbar {
+	  display: none;
+	}
+	.rating-users{
+		height: 300px;
+		overflow: scroll;
+		.elm{
+			padding: 4px 0;
+			.col-press-20{
+				text-align: right;
+			}
+			.col-press-20{
+				padding-top: 10px;
+				font-weight: 600;
+				img{
+					width: 20px;
+					position: relative;
+    			top: 5px;	
+				}
+			}
+			.score{
+				padding-top: 6px !important;
+			}
+			.avatar{
+				border: 1px solid #e2e8e9;
+				height: 45px;
+				width: 45px;
+			}
+			.name{
+				width: 132px;
+				padding-left: 7px;
+				overflow: hidden;
+				white-space: nowrap;
+				margin-top: 10px;
+			}
+		}
+	}
+}
+.ratings > .col{
+	padding: 0 10px;
+}

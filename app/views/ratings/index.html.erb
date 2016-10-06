@@ -1,0 +1,89 @@
+<div class='attraction-min quest-attraction tac'>
+	<h1 class='center-title'>Квест на сегодня</h1>
+</div>
+<div class='row first-page-elm'>
+	<div class='cell'>
+		<%= render "/partials/profile_big" %>
+		<div class='col col-press-74 ml-2proc'>
+			<div class='ratings'>
+				<div class='col col-2of6'>
+					<div class='card'>
+						<h5 class='tac mbm'>Недавно присоединились</h5>
+						<div class='rating-users'>
+							<% @new_users.each do |user|%>
+								<% 
+									monster_id = user.user_monster.monster_id 
+								%>
+								<div class='elm mbs mts'>
+									<div class='col col-press-80'>
+										<div class='avatar circle col' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
+
+										</div>
+										<div class='name col' title='<%= user.name %>'>
+											<%= user.name %>
+										</div>
+									</div>
+									<div class='col col-press-20'>
+									</div>
+									<div class='clear'></div>
+								</div>
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<div class='col col-2of6'>
+					<div class='card'>
+						<h5 class='tac mbm'>Больше всех прошли квестов</h5>
+						<div class='rating-users'>
+							<% @user_tracks.each do |track|%>
+								<% 
+									user = User.find(track.user_id)
+									monster_id = user.user_monster.monster_id 
+								%>
+								<div class='elm mbs mts'>
+									<div class='col col-press-80'>
+										<div class='avatar circle col' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
+
+										</div>
+										<div class='name col' title='<%= user.name %>'>
+											<%= user.name %>
+										</div>
+									</div>
+									<div class='col col-press-20 '>
+										<%= track.current_quest - 1 %>
+									</div>
+									<div class='clear'></div>
+								</div>
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<div class='col col-2of6'>
+					<div class='card'>
+						<h5 class='tac mbm'>Самые богатые</h5>
+						<div class='rating-users'>
+							<% @riches.each do |user|%>
+								<% monster_id = user.user_monster.monster_id %>
+								<div class='elm mbs mts'>
+									<div class='col col-press-80'>
+										<div class='avatar circle col' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
+
+										</div>
+										<div class='name col' title='<%= user.name %>'>
+											<%= user.name %>
+										</div>
+									</div>
+									<div class='col col-press-20 score'>
+										<img src='/images/coin.png' />
+										<%= user.score %>
+									</div>
+									<div class='clear'></div>
+								</div>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

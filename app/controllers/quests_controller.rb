@@ -5,7 +5,7 @@ class QuestsController < ApplicationController
 	before_action :require_admin, only: [:new, :create, :add_task_to_quest, :get_add_task_to_quest]
 	include ApplicationHelper
 	def index
-		if logged_in? && (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day && @track.complete_quest && @quest.checkpoint
+		if logged_in? && (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day && @track.complete_quest && @quest.checkpoint && @track.current_quest <= Quest.last.id
 			@track.next_quest
 			@track.save
 		end
@@ -103,7 +103,7 @@ class QuestsController < ApplicationController
 	private
     def find_user_quest
       @track = current_user.track if current_user
-			@quest = Quest.find(@track.current_quest) if current_user
+			@quest = Quest.find_by(id: @track.current_quest) if current_user
     end
     def find_quest
 			@quest = Quest.find(params[:id])

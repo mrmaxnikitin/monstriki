@@ -62,6 +62,10 @@ Rails.application.routes.draw do
   end
   resources :things
   resources :monsters
+  resources :ratings, only: [:index] do
+    collection do
+    end
+  end
 
   get 'start' => 'quests#index'
 
@@ -81,6 +85,7 @@ Rails.application.routes.draw do
   get 'cookies' => 'static_pages#cookies'
   get 'services' => 'static_pages#services'
   get 'test' => 'tasks#test'
+  get 'rating' => 'ratings#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

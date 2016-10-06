@@ -33,9 +33,23 @@
 						<div class='clear'></div>
 					</div>
 				<% end %>
-				<h2 class='h--thin mbm'><span class='prxs'>Тур на сегодня</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= @quests.count %> квеста</span></h2>
+				<% if @quests.count != 0 
+					 	 quest_amount = @quests.count + " квеста"
+					 else
+					 	 quest_amount = "Совсем скоро новый тур"
+					 end
+				%>
+				<h2 class='h--thin mbm'><span class='prxs'>Тур на сегодня</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= quest_amount %></span></h2>
 				<% if current_user.payment_end_date > Time.now %>
-					<%= render "trip", quests: @quests %>
+					<% if @quests.count != 0 %>
+						<%= render "trip", quests: @quests %>
+					<% else %>
+						<div class='card wait-quest'>
+							<h1>Мы готовим для тебя новый тур</h1>
+							<h2>Он будет доступен через 2-3 суток</h2>
+							<div class='mtl mbm'><img src='/images/logo_transparent.png' /></div>
+						</div>
+					<% end %>
 				<% else %>
 					<%= render "/partials/lets_pay", text: "Новые квесты будут доступны после продления карты монстрика" %>
 				<% end %>
