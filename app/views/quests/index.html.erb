@@ -34,7 +34,7 @@
 					</div>
 				<% end %>
 				<% if @quests.count != 0 
-					 	 quest_amount = @quests.count + " квеста"
+					 	 quest_amount = @quests.count.to_s + " квеста"
 					 else
 					 	 quest_amount = "Совсем скоро новый тур"
 					 end
