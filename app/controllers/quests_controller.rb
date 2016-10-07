@@ -20,8 +20,8 @@ class QuestsController < ApplicationController
 
 			@quests = Quest.where("id >= ? AND id <= ?", @first_quest, @checkpoint_quest).all
 
-			@users_same_level_amount = Track.where(current_quest: @track.current_quest).order("RANDOM()").all.count - 1
-			@users_same_level = Track.where(current_quest: @track.current_quest).order("RANDOM()").limit(10)
+			@users_same_level_amount = Track.where("id >= ? AND id <= ?", @first_quest, @checkpoint_quest).order("RANDOM()").all.count - 1
+			@users_same_level = Track.where("id >= ? AND id <= ?", @first_quest, @checkpoint_quest).order("RANDOM()").limit(10)
 		end
 
 		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
