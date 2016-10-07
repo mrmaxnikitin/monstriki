@@ -247,5 +247,18 @@
     width: 300px;
   }
 }
-
+.pass-this-tour{
+  color: white;
+  .card{
+    padding: 3px;
+    position: relative;
+    top: -5px;
+    left: 4px;
+    margin-left: 6px;
+    .avatar{
+      width: 26px;
+      height: 26px;
+    }
+  }
+}
 

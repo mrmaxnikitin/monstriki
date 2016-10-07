@@ -39,7 +39,29 @@
 					 	 quest_amount = "Совсем скоро новый тур"
 					 end
 				%>
-				<h2 class='h--thin mbm'><span class='prxs'>Тур на сегодня</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= quest_amount %></span></h2>
+				<% if @users_same_level.count != 1 
+					 	 users_same_level_amount = "Вы и еще "+@users_same_level_amount.to_s+" человек проходят этот тур"
+					 else
+					 	 users_same_level_amount = "Вы первые, кто добрались до этого тура!"
+					 end
+				%>
+				<h2 class='h--thin'><span class='prxs'>Тур на сегодня</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= quest_amount %></span></h2>
+				<div class='mbm pass-this-tour'>
+					<div class='col'><%= users_same_level_amount %></div>
+					<% @users_same_level.each do |track|%>
+						<% 
+							user = User.find(track.user_id)
+							monster_id = user.user_monster.monster_id 
+						%>
+						<%= link_to user do %>
+							<div class='col card circle'>
+								<div class='avatar circle' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
+								</div>
+							</div>
+						<% end %>
+					<% end %>
+					<div class='clear'></div>
+				</div>
 				<% if current_user.payment_end_date > Time.now %>
 					<% if @quests.count != 0 %>
 						<%= render "trip", quests: @quests %>
