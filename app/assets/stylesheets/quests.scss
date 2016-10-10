@@ -141,11 +141,8 @@
     }
     .actions{
       margin: 15px 0px 10px 0px;
-      .btn{
-        font-size: 100%;
-      }
-      .buy{
-        margin-left: 10px;
+      p{
+        font-size: 16px;
       }
     }
     h1{
@@ -163,15 +160,18 @@
   }
 }
 .next-tour{
-  h1{
-    font-size: 36px !important;
-  }
   .invitation-tomorrow{
-    margin-top: 15px;
+    margin-top: 10px;
+    img{
+      width: 76%;
+    }
     .degree-honor{
-      font-size: 50px;
-      font-family: 'Gagalin';
+      font-size: 30px;
+      font-family: 'junegull';
       color: #ffa800;
+    }
+    .btn{
+      font-size: 75%;
     }
   }
 }
@@ -261,4 +261,6 @@
     }
   }
 }
-
+.tag--diploma{
+  font-size: 80% !important;
+}

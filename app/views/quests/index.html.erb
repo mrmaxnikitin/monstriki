@@ -9,23 +9,28 @@
 				<% if @track.complete_quest == true && @quest.checkpoint %>
 					<div class='next-quest next-tour card mbl'>
 						<div class='col col-2of6'>
-							<% pic_number = rand(4) 
-								 if pic_number == 0
-								 	format = "png"
-								 else
+							<% pic_number = rand(3) 
 								 	format = "gif"
-								 end
 							%>
 							<img src='/images/next-quest-pics/next-quest-pic<%= pic_number %>.<%= format %>' class='img-next-quest'/>
 						</div>
 						<div class='col col-4of6 content'>
-							<h1>Тур пройден, все квесты выполнены!</h1>
+							<h1>Тур пройден!</h1>
 							<% if current_user.honors.last.degree == 0
 								honor_degree = "Участника"
 							else
 								honor_degree = current_user.honors.last.degree.to_s+" степени"
 							end %>
-							<div class='invitation-tomorrow'><span class='degree-honor'>Диплом <%= honor_degree %></span></div>
+							<div class='invitation-tomorrow'>
+								<div class='col col-1of6'>
+									<img src='/images/diploma_samples/<%= @track.current_quest %>.jpg' />
+								</div>
+								<div class='col col-5of6'>
+									<div class='degree-honor'>Диплом <%= honor_degree %></div>
+									<div><%= link_to "Получить диплом", user_honor_path(current_user.id, current_user.honors.last.id), class: "btn btn-our-red mts" %></div>
+								</div>
+								<div class='clear'></div>
+							</div>
 							<div class='actions'>
 								<p>Следующий тур интеллектуальной игры будет доступен завтра. <b>Приходи!</b></p>
 							</div>
