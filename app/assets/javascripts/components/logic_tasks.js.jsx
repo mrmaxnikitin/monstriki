@@ -429,7 +429,7 @@ const LogicTasks = React.createClass({
       content_task = (
         <div className='card mbl next-quest invite-after-test'>
           <div className='col col-2of6'>
-            <img src='/images/next-quest-pics/next-quest-pic0.png' className='img-next-quest'/>
+            <img src='/images/next-quest-pics/next-quest-pic_.png' className='img-next-quest'/>
           </div>
           <div className='col col-4of6 content'>
             <h1>Успех!</h1>

@@ -12,12 +12,12 @@
 			</h1>
 			<p>
 				Развитие логики, памяти и внимания у детей 5-7 лет.</br>Развлекайте ребенка и готовьте к школе одновременно!
-				<div class='diploma'>+ ДИПЛОМ</div>
-				<% if !logged_in? %>
-					<div>
-						<%= link_to 'Попробовать!', test_path, class: 'butn medium red rounded' %>
-					</div>
-				<% end %>
+				<div class='diploma'>
+					+ ДИПЛОМ
+					<% if !logged_in? %>
+							<%= link_to 'Попробовать!', test_path, class: 'butn medium red rounded' %>
+					<% end %>
+				</div>
 			</p>
 		</div>
 		<img class='welcome-slide-img' src='/images/learn-welcome.png'/>	
