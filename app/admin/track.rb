@@ -12,6 +12,7 @@ filter :complete_quest, label: "Квест выполнен?"
 index do
   id_column
   column :user_id, label: "user id"
+  column ('email') {|u| User.find(u.id).email}
   column :current_quest, label: "Текущий квест"
   column :complete_quest, label: "Квест выполнен"
   column :answers, label: "Ответы"
@@ -21,9 +22,12 @@ end
 show do
   attributes_table do
     row :user_id
+    row ('email') {|u| User.find(u.id).email}
     row :current_quest
     row :complete_quest
     row :answers
+    row :created_at
+    row :updated_at
   end
   active_admin_comments
 end
