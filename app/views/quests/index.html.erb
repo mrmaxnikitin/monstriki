@@ -44,11 +44,14 @@
 					 	 quest_amount = "Совсем скоро новый тур"
 					 end
 				%>
-				<% if @users_same_level.count != 1 
+				<% 
+					if @track.current_quest <= Quest.last.id
+					 if @users_same_level.count != 1 
 					 	 users_same_level_amount = "Вы и еще "+@users_same_level_amount.to_s+" человек проходят этот тур"
 					 else
 					 	 users_same_level_amount = "Вы первые на этом туре!"
 					 end
+					end
 				%>
 				<h2 class='h--thin'><span class='prxs'>Тур на сегодня</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= quest_amount %></span></h2>
 				<div class='mbm pass-this-tour'>
@@ -72,7 +75,7 @@
 						<%= render "trip", quests: @quests %>
 					<% else %>
 						<div class='card wait-quest'>
-							<h1>Мы готовим для тебя новый тур</h1>
+							<h1>Мы готовим для вас новый тур</h1>
 							<h2>Он будет доступен через 2-3 суток</h2>
 							<div class='mtl mbm'><img src='/images/logo_transparent.png' /></div>
 						</div>

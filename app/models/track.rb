@@ -7,7 +7,7 @@ class Track < ActiveRecord::Base
   def next_quest
     next_quest_id = Quest.where("id > :current_quest", {current_quest: self.current_quest}).minimum("id")
     unless next_quest_id
-      next_quest_id = Quest.maximum("id")
+      next_quest_id = Quest.maximum("id") + 1
     end
 
     self.current_quest = next_quest_id
