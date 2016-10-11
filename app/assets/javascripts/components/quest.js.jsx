@@ -537,10 +537,43 @@ const Quest = React.createClass({
     }
       
     if(this.state.num_current_task > 0 && all_questions_comleted){
+      var autors
+      if(this.props.checkpoint){
+        autors = (
+          <div className='tac mtl autors'>
+            <h4 className='mbl'>Над этим туром трудились:</h4>
+            <div className='col col-1of6'>&nbsp;</div>
+            <div className='col col-2of6'>
+              <img className='circle' src='/images/autors/1.jpg' />
+              <h5 className='mts'>Ольков Сергей</h5>
+              <p>
+                Председатель оргкомитета образовательного проекта "Я-гений"
+              </p>
+              <div className='social'>
+                <a href='https://vk.com/id270031126' target='_blank'><img src='/images/vk.png' /></a>
+                <a href='https://ok.ru/profile/556324008033' target='_blank'><img src='/images/odnoklassniki-logo.png' /></a>
+              </div>
+            </div>
+            <div className='col col-2of6'>
+              <img className='circle' src='/images/autors/2.jpg' />
+              <h5 className='mts'>Никитина Елена</h5>
+              <p>
+                Учитель высшей квалификационной категории
+              </p>
+              <div className='social'>
+                <a href='https://vk.com/e.nikitina72' target='_blank'><img src='/images/vk.png' /></a>
+                <a href='https://ok.ru/profile/507537402981' target='_blank'><img src='/images/odnoklassniki-logo.png' /></a>
+              </div>
+            </div>
+            <div className='col col-1of6'>&nbsp;</div>
+            <div className='clear'></div>
+          </div>
+        );
+      }
       content_task = (
         <div className='card mbl next-quest invite-after-test'>
           <div className='col col-2of6'>
-            <img src='/images/next-quest-pics/next-quest-pic0.png' className='img-next-quest'/>
+            <img src='/images/next-quest-pics/next-quest-pic_.png' className='img-next-quest'/>
           </div>
           <div className='col col-4of6 content'>
             <h1>Ты умный ребенок!</h1>
@@ -553,6 +586,7 @@ const Quest = React.createClass({
             </div>
           </div>
           <div className='clear'></div>
+          {autors}
         </div>
       );
     }

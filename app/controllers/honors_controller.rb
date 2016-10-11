@@ -7,7 +7,7 @@ class HonorsController < ApplicationController
 
 	def update
 		if @honor.update_attributes honor_params
-      flash[:success] = 'Данные успешно cохранены'
+      flash[:success] = 'Данные успешно cохранены, теперь можете купить диплом!'
     else
       flash[:error] = "Хммм... Что-то пошло не так!"
     end
