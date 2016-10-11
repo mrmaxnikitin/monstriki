@@ -279,13 +279,13 @@ const Quest = React.createClass({
           degree = 1
           break
         case 1:
-          degree = 2
+          degree = 1
           break
         case 2:
           degree = 2
           break
         case 3:
-          degree = 3
+          degree = 2
           break
         case 4:
           degree = 3
