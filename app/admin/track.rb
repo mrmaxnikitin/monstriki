@@ -6,6 +6,7 @@ menu label: 'Треки'
 filter :id
 filter :user_id, label: "user id"
 filter :current_quest, label: "quest id"
+filter :updated_at, label: "Обновлен"
 filter :complete_quest, label: "Квест выполнен?"
 
 index do
