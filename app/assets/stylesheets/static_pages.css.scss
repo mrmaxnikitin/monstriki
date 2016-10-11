@@ -26,7 +26,7 @@
 	}
 }
 #welcome-slide-1{
-	height: 470px;
+	height: 500px;
 	background: url(/images/sky.png) no-repeat #fff8ef;
 	background-position-x: 130%;
 	background-position-y: -5px;
@@ -50,6 +50,11 @@
 			p{
 				font-size: 20px;
 				margin: 0.5em 0 1em 0;
+			}
+			.diploma{
+				font-family: 'Gagalin';
+				font-size: 40px;
+    		color: #ff1e4a;
 			}
 		}
 	}
