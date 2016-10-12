@@ -3,9 +3,15 @@
 		quest_id = quest.id
 		if current_user.age == 5 || current_user.age == 6
 			pic1 = Task.find(Quest.find(quest_id).age6[0]).pic1
+			if pic1 == "пусто"
+				pic1 = Task.find(Quest.find(quest_id).age6[0]).pic2
 		elsif current_user.age == 7
 			pic1 = Task.find(Quest.find(quest_id).age7[0]).pic1
+			if pic1 == "пусто"
+				pic1 = Task.find(Quest.find(quest_id).age7[0]).pic2
 		end
+		
+			
 	%>
 	<%
 		if quest.id < current_user.track.current_quest
