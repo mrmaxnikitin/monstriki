@@ -18,7 +18,7 @@ class QuestsController < ApplicationController
 			end
 			@checkpoint_quest = Quest.where("checkpoint = ? AND id >= ?", true, @track.current_quest).minimum("id")
 
-			@quests = Quest.where("id >= ? AND id <= ?", @first_quest, @checkpoint_quest).all
+			@quests = Quest.where("id >= ? AND id <= ?", @first_quest, @checkpoint_quest).order(:id).all
 
 			@users_same_level_amount = Track.where("current_quest >= ? AND current_quest <= ?", @first_quest, @checkpoint_quest).order("RANDOM()").all.count - 1
 			@users_same_level = Track.where("current_quest >= ? AND current_quest <= ?", @first_quest, @checkpoint_quest).order("RANDOM()").limit(10)
