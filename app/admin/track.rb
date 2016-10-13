@@ -12,7 +12,7 @@ filter :complete_quest, label: "Квест выполнен?"
 index do
   id_column
   column :user_id, label: "user id"
-  column ('email') {|u| User.find(u.id).email}
+  column ('email') {|u| User.find(u.user_id).email}
   column :current_quest, label: "Текущий квест"
   column :complete_quest, label: "Квест выполнен"
   column :answers, label: "Ответы"
