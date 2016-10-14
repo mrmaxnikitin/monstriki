@@ -29,10 +29,16 @@
 								<div class='text'>
 									<h2 class=''>Это ваш диплом</h2>
 									<p>Распечатайте диплом на принтере, повесьте в зоне успеха, показывайте гостям - и кроха будет стараться еще больше!</p>
-									<button class = 'btn btn-our-red buy' data-toggle="modal" data-target="#modal_buy_diploma">Купить за <%= @honor.price %> ₽</button>
+									
 									<!--<p class='comparison'>Цена диплома = цена одной чашки кофе</p> -->
-									<p class='attention-check mtl'><b>Перед оплатой</b> диплома проверьте свои данные ниже.</p>
-									<p class='attention-check'><b>После оплаты</b> диплом будет отправлен на почту в течение 12 часов.</p>
+									<div class='how-to-buy'>
+										<h4>Как приобрести диплом?</h4>
+										<p class='point-how-to-buy'><b>1.</b> Введите ФИ ребенка, его возраст, учебное заведение и имя педагога в форме, которая находятся ниже, и нажмите кнопку <b>"Сохранить"</b>.</p>
+										<p class='point-how-to-buy'><b>2.</b> После сохранения данных нажмите на красную кнопку <b>"Купить за 90 ₽"</b>.</p>
+									</div>
+									<!-- <p class='attention-check mtl'><b>Перед оплатой</b> диплома проверьте свои данные ниже.</p>
+									<p class='attention-check'><b>После оплаты</b> диплом будет отправлен на почту в течение 12 часов.</p> -->
+									<button class = 'btn btn-our-red buy' data-toggle="modal" data-target="#modal_buy_diploma">Купить за <%= @honor.price %> ₽</button>
 								</div>
 							</div>
 							<div class='clear'></div>
