@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   end
   resources :password_resets, only: [:new, :create, :edit, :update] do
     post :change, on: :collection
+    collection do
+      get   :admin_edit_pass
+      post  :admin_change_pass
+    end
   end
   resources :user_monsters do
     collection do

@@ -1,5 +1,6 @@
 class PasswordResetsController < ApplicationController
   before_filter :require_login, only: :change
+  before_action :require_admin, only: [:admin_edit_pass, :admin_change_pass]
 
   def change
     @user = current_user
@@ -54,6 +55,24 @@ class PasswordResetsController < ApplicationController
     else
       render :action => "edit"
     end
+  end
+
+  def admin_edit_pass
+  end
+
+  def admin_change_pass
+    puts "**********************************"
+    puts params[:user][:email]
+    puts "**********************************"
+    if @user = User.find_by_email(params[:user][:email])
+      @user.change_password!("mi-vas-lubim")
+      flash[:success] = 'Успешно'
+      redirect_to admin_edit_pass_password_resets_path
+    else
+      flash[:error] = 'Потрачено'
+      redirect_to admin_edit_pass_password_resets_path
+    end
+
   end
 
   private
