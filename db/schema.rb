@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160929123735) do
+ActiveRecord::Schema.define(version: 20161018185714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,17 +56,22 @@ ActiveRecord::Schema.define(version: 20160929123735) do
   end
 
   create_table "quests", force: :cascade do |t|
-    t.text     "age3",                                    array: true
-    t.text     "age4",                                    array: true
-    t.text     "age5",                                    array: true
-    t.text     "age6",                                    array: true
-    t.text     "age7",                                    array: true
-    t.text     "age8",                                    array: true
-    t.text     "age9",                                    array: true
-    t.text     "age10",                                   array: true
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "checkpoint", default: false
+    t.text     "age3",                                                             array: true
+    t.text     "age4",                                                             array: true
+    t.text     "age5",                                                             array: true
+    t.text     "age6",                                                             array: true
+    t.text     "age7",                                                             array: true
+    t.text     "age8",                                                             array: true
+    t.text     "age9",                                                             array: true
+    t.text     "age10",                                                            array: true
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.boolean  "checkpoint",      default: false
+    t.string   "background",      default: "/images/background1.jpg"
+    t.string   "posx_background", default: "0"
+    t.string   "posy_background", default: "0"
+    t.string   "tour_name"
+    t.string   "task_text_color", default: "#ffffff"
   end
 
   create_table "task_errors", force: :cascade do |t|

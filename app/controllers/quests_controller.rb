@@ -2,7 +2,7 @@ class QuestsController < ApplicationController
 	before_action :find_user_quest, except: [:new, :create]
 	#before_action :find_quest, only: [:edit, :update]
 	before_filter :require_login, except: [:index]
-	before_action :require_admin, only: [:new, :create, :add_task_to_quest, :get_add_task_to_quest]
+	before_action :require_admin, only: [:new, :create, :add_task_to_quest, :get_add_task_to_quest, :background, :get_background]
 	include ApplicationHelper
 	def index
 		if logged_in? && (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day && @track.complete_quest && @quest.checkpoint && @track.current_quest <= Quest.last.id
@@ -39,11 +39,20 @@ class QuestsController < ApplicationController
 		render 'new'
 	end
 
+	def background
+	end
+	def get_background
+		@q = Quest.find(params[:quest_id])
+		@q.set_background(params[:url], params[:posx], params[:posy])
+		@q.update(tour_name: params[:tour_name], task_text_color: params[:task_text_color])
+		render nothing: true
+	end
+
 	def add_task_to_quest
 	end
 	def get_add_task_to_quest
 		@q = Quest.find(params[:quest_id])
-		@q.push_task(params[:age], params[:task_id])
+		@q.push_task(params[:age], params[:task_id]) if @q
 		render nothing: true
 	end
 

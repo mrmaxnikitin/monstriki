@@ -63,4 +63,9 @@ class Quest < ActiveRecord::Base
 		save!
   end
 
+  def set_background(url, posx, posy)
+  	self.update(background: url, posx_background: posx, posy_background: posy)
+  	save!
+  end
+
 end

@@ -504,7 +504,7 @@ const LogicTasks = React.createClass({
     return (
       <div>
         {profile}
-        <div className='col col-task-main col-67proc ml-2proc'>
+        <div className='col col-task-main col-67proc ml-2proc mbm'>
           <div className='quest-tasks'>
             {stage_tasks}
           </div>

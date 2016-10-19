@@ -231,6 +231,9 @@ const Task9 = React.createClass({
     }
 
     //Результат выполнения задания
+    var style_task_text = {
+      color: this.props.task_text_color,
+    };
     var result_task
     if(!this.props.status_current_task){
       var task_text
@@ -247,7 +250,7 @@ const Task9 = React.createClass({
             <img src='/images/forward.png' className='img-next-task fr cursor--pointer' onClick={this.props.nextTask}/>
           </h2>
           <div className='clear'></div>
-          <p className='task-text'>{task_text}</p>
+          <p className='task-text' style={style_task_text}>{task_text}</p>
           {pic_on_task_text}
         </div>
       );

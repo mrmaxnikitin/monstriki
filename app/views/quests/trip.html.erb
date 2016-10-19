@@ -26,6 +26,25 @@
 			setting_link: edit_user_path(current_user),
 			moderation: false,
 			test: false,
-			answers: current_user.track.answers ) %>
+			answers: current_user.track.answers,
+			task_text_color: @quest.task_text_color )
+			 %>
 	</div>
 </div>
+
+<style>
+	<%
+		if @quest.background != ''
+			quest_background = @quest.background
+		else
+			quest_background = '/images/background1.jpg'
+		end
+	%>
+	.div-body{
+		background-color: #00a8c4 !important;
+		background-image: url(<%= quest_background %>) !important;
+		background-position-x: <%= @quest.posx_background %>;
+		background-position-y: <%= @quest.posy_background %>;
+		background-repeat: no-repeat;
+	}
+</style>

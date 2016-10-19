@@ -370,6 +370,7 @@ const Quest = React.createClass({
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
               test={this.props.test}
+              task_text_color={this.props.task_text_color}
               />
           );
           break
@@ -388,6 +389,7 @@ const Quest = React.createClass({
               sum_right_answers={this.state.sum_answers}
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
+              task_text_color={this.props.task_text_color}
               />
           );
           break
@@ -406,6 +408,7 @@ const Quest = React.createClass({
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
               test={this.props.test}
+              task_text_color={this.props.task_text_color}
               />
           );
           break
@@ -424,6 +427,7 @@ const Quest = React.createClass({
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
               test={this.props.test}
+              task_text_color={this.props.task_text_color}
               />
           );
           break
@@ -441,6 +445,7 @@ const Quest = React.createClass({
               sum_right_answers={this.state.sum_answers}
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
+              task_text_color={this.props.task_text_color}
               />
           );
           break
@@ -458,6 +463,7 @@ const Quest = React.createClass({
               sum_right_answers={this.state.sum_answers}
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
+              task_text_color={this.props.task_text_color}
               />
           );
           break
@@ -476,6 +482,7 @@ const Quest = React.createClass({
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
               test={this.props.test}
+              task_text_color={this.props.task_text_color}
               />
           );
           break
@@ -493,6 +500,7 @@ const Quest = React.createClass({
               sum_right_answers={this.state.sum_answers}
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
+              task_text_color={this.props.task_text_color}
               />
           );
           break
@@ -510,6 +518,7 @@ const Quest = React.createClass({
               sum_right_answers={this.state.sum_answers}
               tasks_length={this.state.tasks.length}
               task_result={this.task_result}
+              task_text_color={this.props.task_text_color}
               />
           );
           break
@@ -604,16 +613,20 @@ const Quest = React.createClass({
           />
       );
     
+    var style_task_text = {
+      color: this.props.task_text_color,
+    };
     var content_error_message
     if(this.state.num_current_task < this.state.tasks.length){
-      content_error_message = <p onClick={this.error_message}>В задании ошибка? Сообщите</p>
+      content_error_message = <p onClick={this.error_message} style={style_task_text}>В задании ошибка? Сообщите</p>
       if(this.state.error_message == 1){
         content_error_message=(
           <div className='content-task-error'>
             <div>
               <select ref='error_message'>
                 <option disabled selected="selected" value='Не указано'>В чем проблема?</option>
-                <option value='Проблема с картинкой'>Проблема с картинкой</option>
+                <option value='Проблема с картинкой'>Не понятно, что изображено на картинке</option>
+                <option value='Проблема с картинкой'>Картинка отсутствует</option>
                 <option value='Некорректный текст вопроса'>Некорректный текст вопроса</option>
                 <option value='Задание не соответствует возрасту'>Задание не соответствует возрасту</option>
                 <option value='Другое'>Другое</option>
@@ -634,7 +647,7 @@ const Quest = React.createClass({
     return (
       <div>
         {profile}
-        <div className='col col-task-main col-67proc ml-2proc'>
+        <div className='col col-task-main col-67proc ml-2proc mbl'>
           <div className='quest-tasks'>
             {stage_tasks}
           </div>
