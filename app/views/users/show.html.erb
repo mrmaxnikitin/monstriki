@@ -30,7 +30,12 @@
 				<% else %>
 					<div class='col col-press-25 card thing'>
 						<img src='/images/quest-pics/<%= honor.quest_id %>.jpg' />
-						<h5 class='name tac'><%= @user.honors.all.count - i %> ТУР, <%= honor.degree %> место</h5>
+						<div class='col col-press-80 tour-name-honor tac'>
+							<h5 class='name'><%= tour_name %></h5>
+						</div>
+						<div class='col col-press-20 img-medal-honor tac'>
+							<img src='/images/degree<%= honor.degree %>.jpg' />
+						</div>
 					</div>
 				<% end %>
 			<% end %>
