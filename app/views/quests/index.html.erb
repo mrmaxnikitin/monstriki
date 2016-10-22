@@ -53,7 +53,14 @@
 					 end
 					end
 				%>
-				<h2 class='h--thin'><span class='prxs'>Тур на сегодня: <span class='unique-tour-name'><%= @quests.last.tour_name %></span></span> <span class='tag tag--light tag--heading tag--heading--h2'><%= quest_amount %></span></h2>
+				<%
+					if @quests.count != 0
+						tour_name = @quests.last.tour_name
+					else
+						tour_name = ''
+					end
+				%>
+				<h2 class='h--thin'><span class='prxs'>Тур на сегодня: <span class='unique-tour-name'><%= tour_name %></span></span> <span class='tag tag--light tag--heading tag--heading--h2'><%= quest_amount %></span></h2>
 				<div class='mbm pass-this-tour'>
 					<div class='col'><%= users_same_level_amount %></div>
 					<% @users_same_level.each do |track|%>
