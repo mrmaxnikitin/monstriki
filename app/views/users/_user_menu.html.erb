@@ -4,10 +4,10 @@
 	<div class='col col-press-74 fr the-user-menu'>
 		<%= link_to 'Награды', user %>
 		<%= link_to 'Бубуки', user_user_things_path(user) %>
-		<% if current_user?(@user) %>
-		<% end %>
-		<%= link_to logout_path, class: 'fr logout', data: { no_turbolink: true } do %>
-  		Выход
+		<% if logged_in? && current_user?(@user) %>
+			<%= link_to logout_path, class: 'fr logout', data: { no_turbolink: true } do %>
+	  		Выход
+			<% end %>
 		<% end %>
 	</div>
 	<div class='clear'></div>
