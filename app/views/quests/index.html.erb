@@ -47,9 +47,9 @@
 				<% 
 					if @track.current_quest <= Quest.last.id
 					 if @users_same_level.count != 1 
-					 	 users_same_level_amount = "Вы и еще "+@users_same_level_amount.to_s+" человек проходят этот тур"
+					 	 users_same_level_amount = "Вы и еще "+@users_same_level_amount.to_s+" человек проходят эту игру"
 					 else
-					 	 users_same_level_amount = "Вы первые на этом туре!"
+					 	 users_same_level_amount = "Вы первые на этой игре!"
 					 end
 					end
 				%>
@@ -60,7 +60,7 @@
 						tour_name = ''
 					end
 				%>
-				<h2 class='h--thin'><span class='prxs'>Тур на сегодня: <span class='unique-tour-name'><%= tour_name %></span></span> <span class='tag tag--light tag--heading tag--heading--h2'><%= quest_amount %></span></h2>
+				<h2 class='h--thin'><span class='prxs'>Игра на сегодня: <span class='unique-tour-name'><%= tour_name %></span></span> <span class='tag tag--light tag--heading tag--heading--h2'><%= quest_amount %></span></h2>
 				<div class='mbm pass-this-tour'>
 					<div class='col'><%= users_same_level_amount %></div>
 					<% @users_same_level.each do |track|%>
