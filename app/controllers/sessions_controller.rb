@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
       redirect_back_or_to root_path
     else
       @sign_in.set_error
-      render 'new'
+      flash[:error] = "Неверный логин и/или пароль"
+      redirect_to signin_path
     end
   end
 
