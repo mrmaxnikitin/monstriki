@@ -66,7 +66,12 @@ Rails.application.routes.draw do
       post :save_answers
     end
   end
-  resources :things
+  resources :things do
+    collection do
+      get  :bubuki
+      get  :stuff
+    end
+  end
   resources :monsters
   resources :ratings, only: [:index] do
     collection do

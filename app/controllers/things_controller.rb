@@ -1,7 +1,15 @@
 class ThingsController < ApplicationController
 	before_action :require_admin, only: [:new, :create]
 	def index
-		@things = Thing.order(created_at: "DESC").all
+		
+	end
+
+	def bubuki
+		@things = Thing.where(thing_type: 1).order(created_at: "DESC").all
+	end
+
+	def stuff
+		@things = Thing.where(thing_type: 2).order(created_at: "DESC").all
 	end
 
 	def new

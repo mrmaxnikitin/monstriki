@@ -5,34 +5,40 @@
 	<div class='cell'>
 		<%= render "/partials/profile_big" %>
 		<div class='col col-67proc ml-2proc'>
-			<h2 class='h--thin mbs'>
-				<span class='prxs'>Купи бубуки за игровые монетки</span>
+			<h2 class='h--thin'>
+				<span class='prxs'>Супермаркет</span>
 				<% if !logged_in? %>
-					<div class='card for-unknown-user-things'><b>Бубуки</b> - это весёлые штуки, которые ребёнок может купить за игровые монетки, заработанные им при прохождении туров интеллектуальной игры. Чем больше пройдено туров, тем больше можно купить бубук.</div>
+					<div class='card for-unknown-user-things'><b>Супермаркет</b> - место, где Ваш ребенок может купить себе что-нибудь за игровые монетки, которые он будет получать при прохождении интеллектуальных игр.</div>
 				<% end %>
 			</h2>
-			<div class='all-things'>
-				<% @things.each do |thing|%>
-					<div class='col thing card'>
-						<img src='<%= thing.img %>' />
-						<h5 class='name tac'><%= thing.name %></h5>
-						<span class='price fr'><img src="/images/coin.png" data-pin-nopin="true"> <%= thing.price.to_s %></span>
-						<% if logged_in? %>
-							<% if current_user.have_thing?(thing) %>
-								<span class='buy-thing button btn btn-our already-exist-thing'>Уже есть!</span>
-							<% else %>
-								<% if current_user.score >= thing.price %>
-									<%= form_for(current_user.user_things.build(thing_id: thing.id)) do |f| %>
-										<%= f.hidden_field :thing_id %>
-									  <%= f.submit "Хочу", class: "buy-thing button btn btn-our btn-our-green buy-sound" %>
-									<% end %>
-								<% else %>
-									<span class='buy-thing button btn btn-our already-exist-thing'>Не хватает</span>
-								<% end %>
-							<% end %>
-						<% end %>
-					</div>
-			  <% end %>
+			<div class='explanation-page-after-title mbm'>
+				<span>В супермаркете можно купить разные штучки за игровые монетки</span>
+			</div>
+			<div class='market-categories'>
+				<div class='col col-2of6 col-padding category'>
+					<%= link_to monstrik_path do %>
+						<div class='card'>
+							<img src='/images/critter.jpg' />
+							<h2 class='name tac'>Монстрики</h2>
+						</div>
+					<% end %>
+				</div>
+				<div class='col col-2of6 col-padding category'>
+					<%= link_to bubuki_things_path do %>
+						<div class='card'>
+							<img src='/images/blueburn_prev.jpg' />
+							<h2 class='name tac'>Бубуки</h2>
+						</div>
+					<% end %>
+				</div>
+				<div class='col col-2of6 col-padding category'>
+					<%= link_to stuff_things_path do %>
+						<div class='card'>
+							<img src='/images/ring.jpg' />
+							<h2 class='name tac'>Вещи</h2>
+						</div>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,43 @@
+<div class='attraction-min parents-attraction tac'>
+	<h1 class='center-title'>Бубуки</h1>
+</div>
+<div class='row first-page-elm'>
+	<div class='cell'>
+		<%= render "/partials/profile_big" %>
+		<div class='col col-67proc ml-2proc'>
+			<h2 class='h--thin'>
+				<span class='prxs'>Вещи</span>
+				<% if !logged_in? %>
+					<div class='card for-unknown-user-things'><b>Вещи</b> - это то, что ребёнок может коллекционировать, покупая их за игровые монетки.</div>
+				<% end %>
+			</h2>
+			<div class='explanation-page-after-title mbm'>
+				<span>Тут ты можешь купить вещи, которые понадобятся твоему монстрику</span>
+			</div>
+			<div class='all-things'>
+				<% @things.each do |thing|%>
+					<div class='col thing card'>
+						<img src='<%= thing.img %>' />
+						<h5 class='name tac'><%= thing.name %></h5>
+						<span class='price fr'><img src="/images/coin.png" data-pin-nopin="true"> <%= thing.price.to_s %></span>
+						<% if logged_in? %>
+							<% if current_user.have_thing?(thing) %>
+								<span class='buy-thing button btn btn-our already-exist-thing'>Уже есть!</span>
+							<% else %>
+								<% if current_user.score >= thing.price %>
+									<%= form_for(current_user.user_things.build(thing_id: thing.id)) do |f| %>
+										<%= f.hidden_field :thing_id %>
+									  <%= f.submit "Купить", class: "buy-thing button btn btn-our btn-our-green buy-sound" %>
+									<% end %>
+								<% else %>
+									<span class='buy-thing button btn btn-our already-exist-thing'>Не хватает</span>
+								<% end %>
+							<% end %>
+						<% end %>
+					</div>
+			  <% end %>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,39 +1,38 @@
-<div class='row'>
-	<div class='cell mtm'>
-		<div class='edit-monstrik-page'>
-			<div class='col col-2of6 col-padding'>
-				<%= render "my_monstrik" %>
-			</div>
-			<% monster_presence = current_user.user_monster.monster_id %>
-			<div class='col col-4of6 col-padding'>
-				<% @monsters.each do |monster|%>
-					<div class='col monster card'>
-						<div class='wrap-img-choose-monster-after-signup' style='background:url(<%= monster.avatar %>.png) no-repeat; background-size: cover;'>
-							<img src='<%= monster.avatar %>.gif' />
-						</div>
-						<% if monster_presence != 0 %>
-							<span class='price fr'><img src="/images/coin.png" data-pin-nopin="true" /> 100</span>
-						<% end %>
-						<% if current_user.have_monster?(monster) %>
-							<span class='buy-monster button btn btn-our already-exist-monster'>Это твой</span>
-						<% else %>
-							<% if current_user.score >= 100 || current_user.user_monster.monster_id == 0 %>
-								<%= form_for UserMonster.new, url: buy_monster_user_monsters_path do |f| %>
-									<%= hidden_field_tag :monster_id, monster.id %>
-								  <%= f.submit "Хочу такого", class: "buy-monster button btn btn-our btn-our-green" %>
-								<% end %>
-							<% else %>
-								<span class='buy-monster button btn btn-our already-exist-monster'>Не хватает</span>
-							<% end %>
-						<% end %>
+
+<% monster_presence = current_user.user_monster.monster_id %>
+
+<div class='row first-page-elm edit-monstrik-page'>
+	<div class='cell'>
+		<%= render "/partials/profile_big" %>
+		<div class='col col-67proc ml-2proc'>
+			<% @monsters.each do |monster|%>
+				<div class='col monster card'>
+					<div class='wrap-img-choose-monster-after-signup' style='background:url(<%= monster.avatar %>.png) no-repeat; background-size: cover;'>
+						<img src='<%= monster.avatar %>.gif' />
 					</div>
-				<% end %>
-				<div class='clear'></div>
-			</div>
+					<% if monster_presence != 0 %>
+						<span class='price fr'><img src="/images/coin.png" data-pin-nopin="true" /> 100</span>
+					<% end %>
+					<% if current_user.have_monster?(monster) %>
+						<span class='buy-monster button btn btn-our already-exist-monster'>Это твой</span>
+					<% else %>
+						<% if current_user.score >= 100 || current_user.user_monster.monster_id == 0 %>
+							<%= form_for UserMonster.new, url: buy_monster_user_monsters_path do |f| %>
+								<%= hidden_field_tag :monster_id, monster.id %>
+							  <%= f.submit "Хочу такого", class: "buy-monster button btn btn-our btn-our-green" %>
+							<% end %>
+						<% else %>
+							<span class='buy-monster button btn btn-our already-exist-monster'>Не хватает</span>
+						<% end %>
+					<% end %>
+				</div>
+			<% end %>
 			<div class='clear'></div>
 		</div>
 	</div>
 </div>
+
+
 
 <style>
  .alert{
