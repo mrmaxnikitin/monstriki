@@ -24,7 +24,7 @@ class ThingsController < ApplicationController
 
 	private
 		def thing_params
-			params.require(:thing).permit(:name, :img, :price)
+			params.require(:thing).permit(:name, :img, :price, :thing_type)
 		end
 
 		def find_thing
