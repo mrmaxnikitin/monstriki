@@ -1,6 +1,5 @@
 
 .edit-monstrik-page{
-	width: 80%;
 	min-height: 600px;
 	margin: auto;
 	.choose-monstrik{
@@ -22,6 +21,9 @@
 		.name{
 			font-size: 26px;
 	    font-family: 'Junegull';
+	    h3{
+	    	font-family: 'Junegull';
+	    }
 	    .change-name{
 	    	font-size: 14px;
 	    	margin-top: 10px;
@@ -36,7 +38,7 @@
 	.monster{
 		margin-right: 2%;
 		margin-bottom: 1.25em !important;
-		width: 31%;
+		width: 23%;
 		min-width: 180px;
 		img{
 			width: 100%;

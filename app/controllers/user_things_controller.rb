@@ -8,15 +8,19 @@ class UserThingsController < ApplicationController
 	def create
     @thing = Thing.find(params[:user_thing][:thing_id])
     current_user.buy_thing!(@thing)
+    flash[:success] = "Супер! Теперь это твоё" 
     respond_to do |format|
-		  format.html { redirect_to things_path }
+      if @thing.thing_type == 1
+        format.html { redirect_to bubuki_things_path }
+      elsif @thing.thing_type == 2
+        format.html { redirect_to stuff_things_path }
+      end 
 		  format.js
 		end
   end
 
   def get_things
-  	@things = current_user.user_things.joins(:thing).order(:thing_id).all
-    puts @things.first.thing_id
+  	@things = current_user.user_things.joins(:thing).where('things.thing_type = 1').order(:thing_id).all
   	render :index, formats: :json
   end
 

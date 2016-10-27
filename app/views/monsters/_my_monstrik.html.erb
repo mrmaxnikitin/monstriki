@@ -10,9 +10,6 @@
 		<% end %>
 	</div>
 	<div class='name tcmc tac'>
-		<%= form_for UserMonster.new, url: rename_monster_user_monsters_path do |f| %>
-			<%= f.text_field :name, placeholder: 'Имя монстрика', value: current_user.user_monster.name %>
-		  <%= f.submit "Сменить имя монстрику", class: "change-name button btn btn-our btn-our-green" %>
-		<% end %>
+		<h3><%=current_user.user_monster.name%></h3>
 	</div>
 </div>

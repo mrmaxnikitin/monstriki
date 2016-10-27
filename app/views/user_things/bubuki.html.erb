@@ -1,0 +1,27 @@
+<div class='attraction users-attraction'>
+	<div class='row'>
+		<%= render '/users/user_attraction' %>
+	</div>
+</div>
+<div class='row user-page-menu'>
+	<%= render '/users/user_menu', user: @user %>
+</div>
+<div class='row'>
+	<div class='cell mts'>
+		<div class='col col-press-25 user-page-profile'>
+			<%= render "/partials/user_monster", user: @user %>
+		</div>
+		<div class='col col-press-74 col-padding all-things fr'>
+			<h2 class='h--thin mbs'><span class='prxs'>Бубуки</span> <span class='tag tag--light tag--heading tag--heading--h2'><%= @user_things.count %></span></h2>
+			<% @user_things.each do |user_thing|%>
+				<% thing = Thing.find(user_thing.thing_id) %>
+				<div class='col col-press-25 card thing'>
+					<img src='<%= thing.img %>' />
+					<h5 class='name tac'><%= thing.name %></h5>
+				</div>
+			<% end %>
+			<div class='clear'></div>
+		</div>
+		<div class='clear'></div>
+	</div>
+</div>

@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users do
     resources :honors, only: [:show, :update]
-    resources :user_things, only: [:index]
+    resources :user_things
     post :create_prolongation, on: :collection
+    member do
+      get  :bubuki
+      get  :stuff
+    end
   end
   resources :password_resets, only: [:new, :create, :edit, :update] do
     post :change, on: :collection
@@ -66,7 +70,12 @@ Rails.application.routes.draw do
       post :save_answers
     end
   end
-  resources :things
+  resources :things do
+    collection do
+      get  :bubuki
+      get  :stuff
+    end
+  end
   resources :monsters
   resources :ratings, only: [:index] do
     collection do

@@ -47,29 +47,29 @@ const Ground = React.createClass({
       active_thing = item
     }
 
-    if(item == 1){                  //lamp Светильник
+    if(name == 'День-ночь'){                  //lamp Светильник
       this.setState({
         active_thing: active_thing
       });
     }
 
-    if(item == 2){                  //drunk Размытие экрана
+    if(name == 'Гипноз'){                  //drunk Размытие экрана
       this.drunk(item)
     }
 
-    if(item == 3){                  //swing
+    if(name == 'Качели'){                  //swing
       this.swing(item)
     }
 
-    if(item == 4){                  //sepia
+    if(name == 'Билет в прошлое'){                  //sepia
       this.sepia(item)
     }
 
-    if(item == 5){
+    if(name == 'Калейдоскоп'){
       this.kaleidoscope(item)       //kaleidoscope
     }
 
-    if(item == 6){
+    if(name == 'Призма'){
       this.invert(item)       //invert
     }
     
