@@ -3,7 +3,8 @@
 	</div>
 	<div class='col col-press-74 fr the-user-menu'>
 		<%= link_to 'Награды', user %>
-		<%= link_to 'Бубуки', user_user_things_path(user) %>
+		<%= link_to 'Бубуки', bubuki_user_path(user) %>
+		<%= link_to 'Вещи', stuff_user_path(user) %>
 		<% if logged_in? && current_user?(@user) %>
 			<%= link_to logout_path, class: 'fr logout', data: { no_turbolink: true } do %>
 	  		Выход

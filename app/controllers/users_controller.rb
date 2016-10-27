@@ -59,6 +59,13 @@ class UsersController < InheritedResources::Base
   def prolongation
   end
 
+  def bubuki
+    @user_things = @user.user_things.joins(:thing).where('things.thing_type = 1').all
+  end
+  def stuff
+    @user_things = @user.user_things.joins(:thing).where('things.thing_type = 2').order("created_at DESC").all
+  end
+
   def create_prolongation
     @user = User.find(params[:user][:id])
     @user.payment_end_date += params[:user][:payment_end_date].to_i.months

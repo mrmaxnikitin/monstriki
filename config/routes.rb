@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users do
     resources :honors, only: [:show, :update]
-    resources :user_things, only: [:index]
+    resources :user_things
     post :create_prolongation, on: :collection
+    member do
+      get  :bubuki
+      get  :stuff
+    end
   end
   resources :password_resets, only: [:new, :create, :edit, :update] do
     post :change, on: :collection
