@@ -256,10 +256,20 @@
 }
 .wait-quest{
   text-align: center;
-  h1{
+  padding: 40px !important;
+  .pd10{
+    background-color: #3cc160;
+    color: white;
+    border-radius: 3px;
+  }
+  a{
+    margin: 0 6px;
+    img{
+      width: 50px;
+    }
   }
   img{
-    width: 300px;
+    width: 240px;
   }
 }
 .pass-this-tour{
@@ -282,4 +292,9 @@
 .unique-tour-name{
   font-family: 'Gagalin';
   color: #ffd33e;
+}
+.tommorow-quest-welcome{
+  background-color: rgba(86, 214, 120, 0.3);
+  padding: 10px;
+  border-radius: 3px;
 }

@@ -92,11 +92,11 @@ class QuestsController < ApplicationController
 		if current_user.age == 3
 			task_ids_str = Quest.find(current_user.track.current_quest).age3
 		elsif current_user.age == 4
-			task_ids_str = Quest.find(current_user.track.current_quest).age4
+			task_ids_str = Quest.find(current_user.track.current_quest).age6	#Внимание! для 4-х лет тоже берутся задания шестилетних
 		elsif current_user.age == 5
-			task_ids_str = Quest.find(current_user.track.current_quest).age6   #Внимание! для пяти лет тоже берутся задания шестилетних
+			task_ids_str = Quest.find(current_user.track.current_quest).age6  #Внимание! для 5-и лет тоже берутся задания шестилетних
 		elsif current_user.age == 6
-			task_ids_str = Quest.find(current_user.track.current_quest).age6
+			task_ids_str = Quest.find(current_user.track.current_quest).age7	#Внимание! для 6-и лет тоже берутся задания 7 лет
 		elsif current_user.age == 7
 			task_ids_str = Quest.find(current_user.track.current_quest).age7
 		elsif current_user.age == 8

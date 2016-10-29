@@ -32,7 +32,8 @@
 								<div class='clear'></div>
 							</div>
 							<div class='actions'>
-								<p>Следующий тур интеллектуальной игры будет доступен завтра. <b>Приходи!</b></p>
+								<p class='tommorow-quest-welcome'>Следующая интеллектуальная игра будет доступна завтра. <b>Приходи!</b></p></br>
+								<p>А сейчас ты можешь посетить <b><%= link_to "Супермаркет", things_path %></b> и купить прикольные штучки для своего монстрика за игровые монетки.</p>
 							</div>
 						</div>
 						<div class='clear'></div>
@@ -82,8 +83,20 @@
 						<%= render "trip", quests: @quests %>
 					<% else %>
 						<div class='card wait-quest'>
-							<h1>Мы готовим для вас новый тур</h1>
-							<h2>Он будет доступен через 2-3 дня</h2>
+							<div class='pd10'>
+								<h2>Мы готовим для вас новую интеллектуальную игру</h2>
+								<h3>Он будет доступен через 2-3 дня</h3>
+							</div>
+							<div class='mtl mbm'>
+								<h4></h4>
+								<h4>Поддержите наш проект! Присоединяйтесь к нашим группам!</br>
+									Для нас это очень важно.
+								</h4>
+								<div class='mts mbs'>
+									<a href='https://vk.com/monstriki.labs' target='_blank'><img src='/images/vk.png' /></a>
+									<a href='https://ok.ru/group/54913719926790/topics' target='_blank'><img src='/images/odnoklassniki-logo.png' /></a>
+								</div>
+							</div>
 							<div class='mtl mbm'><img src='/images/logo_transparent.png' /></div>
 						</div>
 					<% end %>
