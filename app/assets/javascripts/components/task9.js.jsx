@@ -9,12 +9,15 @@ const Picture9 = React.createClass({
     var item = this.props.item
     var covered = this.props.covered
     var classStyle = this.props.classSizePics + ' col flip-container'
-    if(answer[item] == '1' || !covered)
+    var classStyleFront = 'front card'
+    if(answer[item] == '1' || !covered){
       classStyle += ' flip'
+      classStyleFront += ' displaynone'
+    }
     return (
       <div className={classStyle} onClick={this.clickHandler}>
         <div className="flipper">
-          <div className='front card'>
+          <div className={classStyleFront}>
             <img src='/images/question_sign.gif' />
           </div>
           <div className='back card'>
