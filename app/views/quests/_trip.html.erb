@@ -1,12 +1,12 @@
 <% quests.each.with_index(1) do |quest, i|%>
 	<%
 		quest_id = quest.id
-		if current_user.age == 5 || current_user.age == 6
+		if current_user.age == 4 || current_user.age == 5
 			pic1 = Task.find(Quest.find(quest_id).age6[0]).pic1
 			if pic1 == "пусто"
 				pic1 = Task.find(Quest.find(quest_id).age6[0]).pic2
 			end
-		elsif current_user.age == 7
+		elsif current_user.age == 6 || current_user.age == 7
 			pic1 = Task.find(Quest.find(quest_id).age7[0]).pic1
 			if pic1 == "пусто"
 				pic1 = Task.find(Quest.find(quest_id).age7[0]).pic2
