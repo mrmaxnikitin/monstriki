@@ -23,6 +23,7 @@ const Task4 = React.createClass({
     return {
       answer_btn_display: false,
       answer: 0,
+      started: 0,
       number_of_pics: 8
     };
   },
@@ -46,7 +47,8 @@ const Task4 = React.createClass({
     this.props.repeatTask()
     this.setState({
       answer_btn_display: false,
-      answer: 0
+      answer: 0,
+      started: 0
     });
   },
   toAnswer: function(item){
@@ -64,6 +66,18 @@ const Task4 = React.createClass({
   acceptAnswer: function(){
     var answer = this.state.answer
     this.props.acceptAnswer(answer)
+  },
+  // для task.subtype = 2
+  startTask: function(){
+    var mySound = new buzz.sound("/sounds/pop_cork", {
+        formats: [ "mp3", "aac", "ogg" ],
+        preload: true,
+        autoplay: true,
+        loop: false
+    });
+    this.setState({
+      started: 1
+    });
   },
   render: function() {
 
@@ -97,23 +111,42 @@ const Task4 = React.createClass({
     }
 
     //Контент самого задания
-    content = (
-      <div>
-        <div className='content-task-type' id='type_task4'>
-          <div className='wrap-general-picture'>
-            <img className='general-picture' src={task.pic1} />
-          </div>
-          <div className='functional-pictures'>
-            {pics}
+    if(task.subtype == 2 && !this.state.started){
+      var remember_size_pic = "tasks-pics-general tasks-pics-1"
+      var remember_pic = <Picture1Subtype2 classSizePics={remember_size_pic} task_pic={task.pic11} key={11}/>  //  Picture1Subtype2 находится в файле task1
+      content = (
+        <div className='animated fadeIn'>
+          <div className='content-task-type' id='type_task4'>
+            {remember_pic}
+            <div className='clear'></div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }else{
+      var styleForSubtype = 'content-task-type'
+      if(task.subtype == 2) styleForSubtype += " animated bounceIn"
+      content = (
+        <div>
+          <div className={styleForSubtype} id='type_task4'>
+            <div className='wrap-general-picture'>
+              <img className='general-picture' src={task.pic1} />
+            </div>
+            <div className='functional-pictures'>
+              {pics}
+            </div>
+          </div>
+        </div>
+      );
+    }
 
     //Кнопки действий
     var button_to_answer
-    if(this.props.status_current_task == 0 && this.state.answer_btn_display){
-      button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer animated bounceIn" onClick={this.acceptAnswer}>Ответить</button>
+    if(this.props.status_current_task == 0){
+      if(task.subtype == 2 && !this.state.started)
+        button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-start" onClick={this.startTask}>Начать</button>
+      else
+        if(this.state.answer_btn_display)
+          button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-answer animated bounceIn" onClick={this.acceptAnswer}>Ответить</button>
     }
     var button_next_task, button_to_repeat='', button_complete_quest
     if(this.props.status_current_task == 1){
@@ -150,6 +183,23 @@ const Task4 = React.createClass({
       result_task = this.props.task_result(this.props.status_current_task)
     }
 
+    var precompile_image
+    if(task.subtype == 2){
+      precompile_image = (
+        <div className='displaynone'>
+          <img src={task.pic1}/>
+          <img src={task.pic2}/>
+          <img src={task.pic3}/>
+          <img src={task.pic4}/>
+          <img src={task.pic5}/>
+          <img src={task.pic6}/>
+          <img src={task.pic7}/>
+          <img src={task.pic8}/>
+          <img src={task.pic9}/>
+        </div>
+      );
+    }
+
     return (
       <div>
         <div className='col col-main task-participate animated fadeIn'>
@@ -162,6 +212,7 @@ const Task4 = React.createClass({
           {button_next_task}
           {button_complete_quest}
         </div>
+        {precompile_image}
       </div>
     );
   }
