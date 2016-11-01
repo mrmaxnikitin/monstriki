@@ -110,6 +110,7 @@ const Task4 = React.createClass({
       );
     }
 
+    var task_text = task.text
     //Контент самого задания
     if(task.subtype == 2 && !this.state.started){
       var remember_size_pic = "tasks-pics-general tasks-pics-1"
@@ -137,6 +138,9 @@ const Task4 = React.createClass({
           </div>
         </div>
       );
+      if(task.subtype == 2 && task.pic10 != ''){
+        task_text = task.pic10
+      }
     }
 
     //Кнопки действий
@@ -175,7 +179,7 @@ const Task4 = React.createClass({
             {img_arrow_next_task}
           </h2>
           <div className='clear'></div>
-          <p className='task-text' style={style_task_text}>{task.text}</p>
+          <p className='task-text' style={style_task_text}>{task_text}</p>
           {pic_on_task_text}
         </div>
       );
