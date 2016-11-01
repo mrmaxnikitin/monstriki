@@ -15,7 +15,7 @@
 							<img src='/images/next-quest-pics/next-quest-pic<%= pic_number %>.<%= format %>' class='img-next-quest'/>
 						</div>
 						<div class='col col-4of6 content'>
-							<h1>Тур пройден!</h1>
+							<h1>Игра пройдена!</h1>
 							<% if current_user.honors.last.degree == 0
 								honor_degree = "Участника"
 							else
@@ -42,7 +42,7 @@
 				<% if @quests.count != 0 
 					 	 quest_amount = @quests.count.to_s + " квеста"
 					 else
-					 	 quest_amount = "Совсем скоро новый тур"
+					 	 quest_amount = "Совсем скоро новая игра"
 					 end
 				%>
 				<% 
@@ -113,7 +113,7 @@
 						<p class='second-text second-text-IG'>
 							<span class='text'><b>Интеллектуальная игра</b> нацелена на развитие логики, речи, математического мышления, памяти, внимания и представлений об окружающем мире.
 							<br><br>
-							После каждого тура интеллектуальной игры <b>выдается диплом</b>.</span>
+							После каждой интеллектуальной игры <b>выдается диплом</b>.</span>
 						</p>
 					</div>
 					<div class='clear'></div>
