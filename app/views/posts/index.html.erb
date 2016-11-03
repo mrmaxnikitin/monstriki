@@ -71,11 +71,7 @@
 						<div>Приобрели дипломов: <%= amount_buy_diploma %></div>
 					<% end %>
 					<hr>
-					<% if amount_buy_diploma != 0 %>
-						<div class='our-income'>Наша выручка сегодня <b><%= amount_buy_diploma*90 %></b> руб.</div>
-					<% else %>
-						<div class='our-income'>За сегодня мы пока ничего не заработали</div>
-					<% end %>
+					<div class='our-income'>На развитие проекта мы заработали <b><%= amount_buy_diploma*90 %></b> руб.</div>
 				</div>
 			</div>
 			<div class='clear'></div>
