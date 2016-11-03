@@ -28,7 +28,7 @@
 					<% end %>
 				<% end %>
 				<%= link_to 'Интеллектуальная игра', start_path, class: "menu-point quest-menu-point" %>
-				<%= link_to 'Рейтинги', rating_path, class: "menu-point rating-menu-point" %>
+				<%= link_to 'Блог', posts_path, class: "menu-point blog-menu-point" %>
 				<%= link_to 'Супермаркет', things_path, class: "menu-point things-menu-point" %>
 				<% if logged_in? && current_user.admin? %>
 					<%= link_to 'Модерация', moderation_tasks_path, class: "menu-point moderation-menu-point" %>

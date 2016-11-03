@@ -81,6 +81,7 @@ Rails.application.routes.draw do
     collection do
     end
   end
+  resources :posts
 
   get 'start' => 'quests#index'
 

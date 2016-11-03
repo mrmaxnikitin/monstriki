@@ -1,0 +1,33 @@
+.posts{
+	.post{
+		padding: 40px;
+		img{
+			width: 100%;
+		}
+	}
+}
+.information-about-project{
+	.card{
+		padding: 30px;
+	}
+	.lifetime{
+		font-family: 'Gagalin';
+		color: #ff1e4a;
+	}
+	.clients{
+		font-family: 'Gagalin';
+		color: #1090f5;
+	}
+	.today{
+		h2{
+			font-family: 'Gagalin';
+		}
+		div{
+			font-size: 15px;
+		}
+		.our-income{
+			font-size: 18px;
+			color: #ff1e4a;
+		}
+	}
+}    

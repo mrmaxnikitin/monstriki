@@ -1,0 +1,84 @@
+<div class='row first-page-elm min-height-500'>
+	<div class='cell'>
+		<%= render "/partials/profile_big" %>
+		<div class='col col-press-80 ml-2proc'>
+			<div class='col golden_section62 col-padding-r'>
+				<h2 class='h--thin title-with-menu'>
+					<span class='prxs'>Наш блог</span>
+					<%= link_to "Рейтинги", rating_path, class: 'fr' %>
+				</h2>
+				<div class='mbm explanation-page-after-title pass-this-tour'>
+					<div class='background-glass'>
+						Мы подумали, что вам было бы интересно следить за развитием проекта вместе с нами!</br>
+						Именно поэтому, мы создали эту страницу, чтобы делиться с вами тем, что мы имеем.
+					</div>
+				</div>
+				<div class='posts'>
+					<% @posts.each do |post|%>
+						<div class='post card'>
+							<div class='col golden_section38'>
+								<img src='<%= post.img %>' />
+							</div>
+							<div class='col golden_section62'>
+								<div class='text'>
+									<h3><%= post.title %></h3>
+									<p><%= post.text %></p>
+								</div>
+							</div>
+							<div class='clear'></div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+			<div class='col golden_section38 col-padding-l information-about-project'>
+				<div class='card'>
+					<%
+						numbers_of_days = (Time.zone.now -  User.first.created_at).to_i/1.day - 15
+						text_numbers_of_days = "дней"
+						if numbers_of_days % 10 == 1
+							text_numbers_of_days = "день"
+						elsif (numbers_of_days % 100 < 11 || numbers_of_days % 100 > 19) && (numbers_of_days % 10 == 2 || numbers_of_days % 10 == 3 || numbers_of_days % 10 == 4)
+							text_numbers_of_days = "дня"
+						end
+						
+						numbers_of_child = User.all.count
+						text_numbers_of_child = "детей"
+						if numbers_of_child % 10 == 1
+							text_numbers_of_child = "ребенок"
+						elsif (numbers_of_child % 100 < 11 || numbers_of_child % 100 > 19) && (numbers_of_child % 10 == 2 || numbers_of_child % 10 == 3 || numbers_of_child % 10 == 4)
+							text_numbers_of_child = "ребенка"
+						end
+							
+					%>
+					<h2 class='lifetime'>Нашему проекту <%= numbers_of_days %> <%= text_numbers_of_days %></h2>
+					<h3 class='clients'>У нас занимается уже <%= numbers_of_child %> <%= text_numbers_of_child %></h3>
+				</div>
+				<div class='card mtm today'>
+					<%
+						amount_signup_today = User.where(created_at: Time.zone.now.midnight..Time.zone.now).all.count
+						amount_finish_IG = Track.where(updated_at: Time.zone.now.midnight..Time.zone.now, complete_quest: true).all.count
+						amount_buy_diploma = Honor.where(updated_at: Time.zone.now.midnight..Time.zone.now, paid: true).all.count
+
+					%>
+					<h2>А сегодня...</h2>
+					<% if amount_signup_today != 0 %>
+						<div>Зарегистрировались: <%= amount_signup_today %></div>
+					<% end %>
+					<% if amount_finish_IG != 0 %>
+						<div>Прошли интеллектуальную игру: <%= amount_finish_IG %></div>
+					<% end %>
+					<% if amount_buy_diploma != 0 %>
+						<div>Приобрели дипломов: <%= amount_buy_diploma %></div>
+					<% end %>
+					<hr>
+					<% if amount_buy_diploma != 0 %>
+						<div class='our-income'>За сегодня мы заработали <b><%= amount_buy_diploma*90 %></b> рублей</div>
+					<% else %>
+						<div class='our-income'>За сегодня мы пока ничего не заработали</div>
+					<% end %>
+				</div>
+			</div>
+			<div class='clear'></div>
+		</div>
+	</div>
+</div>
