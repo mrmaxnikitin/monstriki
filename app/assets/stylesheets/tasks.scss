@@ -162,7 +162,7 @@
   }
 }
 .col-task-main{
-  /*min-width: 909px;*/
+  min-width: 620px;
   min-height: 524px
 }
 
@@ -238,3 +238,10 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25) !important;
 }
 
+@media screen and (max-width: 1160px) {
+  #type_task7{
+    .wrap-answer-input{
+      font-size: 60px;
+    }
+  }
+}
