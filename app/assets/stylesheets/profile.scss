@@ -50,7 +50,16 @@
 	    color: #393d40;
 	    display: block;
 	    padding: 0.625em 1.25em;
-	    font-weight: 600;
+	    font-weight: 500;
+	    font-size: 13px;
+	    img{
+	    	width: 18px;
+		    position: relative;
+		    bottom: -3px;
+	    }
+	    span{
+	    	margin-left: 3px;
+	    }
     	&:first-child{
 
     	}
@@ -65,7 +74,7 @@
 	}
 }
 .col-profile{
-  min-width: 190px;
+  min-width: 130px;
 }
 .profile-big{
 	.choose-monstrik{
@@ -100,3 +109,8 @@
   border-radius: 100px;
 }
 
+@media screen and (max-width: 965px) {
+	.profile-card .satiety .name span{
+		font-size: 13px;
+	}
+}

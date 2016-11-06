@@ -19,7 +19,7 @@
 }
 .welcome-slides{
 	height: 660px;
-	min-width: 1140px;
+	min-width: 550px;
 	h1{
 		font-family: 'BoomBoom';
 		font-size: 40px;
@@ -218,5 +218,63 @@
 	}
 	p:last-child{
 		border-bottom: none !important;
+	}
+}
+
+
+@media screen and (max-width: 1045px) {
+	#welcome-slide-1{
+		background-position-x: 80%;
+		background-position-y: -15px;
+		.content{
+			width: 94%;
+    	margin: 0 0 0 6%;
+    	.text-welcome-slide{
+    		h1{
+    			font-size: 36px !important;
+    		}
+    		p{
+    			font-size: 16px !important;
+    			margin: 0.2em 0 0.5em 0;
+    		}
+    		.diploma{
+    			font-size: 28px !important;
+    		}
+    	}
+		}
+	}
+
+	#welcome-slide-2{
+		.content{
+			width: 94%;
+    	margin: 0 0 0 6%;
+    	.text-welcome-slide{
+    		padding: 40px 30px 40px 0px;
+    		h1{
+					font-size: 36px !important;
+				}
+				p{
+					font-size: 16px;
+					margin: 0.2em 0 0.5em 0;
+				}
+    	}
+		}
+	}
+
+	#welcome-slide-3{
+		.content{
+			width: 94%;
+    	margin: 0 0 0 6%;
+    	.text-welcome-slide{
+    		padding: 40px 30px 40px 50px;
+    		h1{
+					font-size: 36px !important;
+				}
+				p{
+					font-size: 16px;
+					margin: 0.2em 0 0.5em 0;
+				}
+    	}
+		}
 	}
 }
