@@ -43,10 +43,12 @@ class User < ActiveRecord::Base
   end
 
   def buy_monster!(monster_id)
-    monster_presence = self.user_monster.monster_id
-    user_monster.update!(monster_id: monster_id)
-    if monster_presence != 0
-      self.score -= 100
+    if self.score >= 100
+      monster_presence = self.user_monster.monster_id
+      user_monster.update!(monster_id: monster_id)
+      if monster_presence != 0
+        self.score -= 100
+      end
     end
     save!
   end
