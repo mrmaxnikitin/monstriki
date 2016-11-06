@@ -241,7 +241,9 @@
 @media screen and (max-width: 1160px) {
   #type_task7{
     .wrap-answer-input{
-      font-size: 60px;
+      input{
+        font-size: 60px;
+      }
     }
   }
 }
