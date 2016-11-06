@@ -215,7 +215,7 @@ const Task1 = React.createClass({
 
     return (
       <div>
-        <div className='col col-main task-participate animated fadeIn'>
+        <div className='col col-press-68 task-participate animated fadeIn'>
           {content}
         </div>
         <div className='col wrap-task-text ml-2proc'>
