@@ -1,4 +1,4 @@
-<div class='row first-page-elm min-height-500'>
+<div class='row first-page-elm min-height-500 min-width-1330'>
 	<div class='cell'>
 		<%= render "/partials/profile_big" %>
 		<div class='col col-press-80 ml-2proc'>
@@ -30,7 +30,7 @@
 					<% end %>
 				</div>
 			</div>
-			<div class='col golden_section38 col-padding-l information-about-project'>
+			<!--<div class='col golden_section38 col-padding-l information-about-project'>
 				<div class='card'>
 					<%
 						numbers_of_days = (Time.zone.now -  User.first.created_at).to_i/1.day - 15
@@ -70,6 +70,15 @@
 					<% if amount_buy_diploma != 0 %>
 						<div>Приобрели дипломов: <%= amount_buy_diploma %></div>
 					<% end %>
+				</div>
+			</div> -->
+			<div class='col golden_section38 col-padding-l'>
+				<div class='card feedback'>
+					<h2>Отзывы</h2>
+					<div id="vk_comments"></div>
+					<script type="text/javascript">
+					VK.Widgets.Comments("vk_comments", {limit: 20, width: "365", attach: "*"});
+					</script>
 				</div>
 			</div>
 			<div class='clear'></div>
