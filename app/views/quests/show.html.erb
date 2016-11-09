@@ -10,7 +10,7 @@
 		  end
 		%>
    	<%= react_component("PrevQuest",
-			tasks_url: get_show_quests_path,
+			tasks_url: quest_path(@pquest),
 			monster_name: current_user.user_monster.name,
 			monster_presence: monster_presence,
 			monster_avatar: mosnter_avatar,

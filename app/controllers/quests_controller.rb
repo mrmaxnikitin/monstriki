@@ -48,8 +48,6 @@ class QuestsController < ApplicationController
 	end
 
 	def show
-	end
-	def get_show
 		@pquest = Quest.find(params[:id])
 		if current_user.age == 3
 			task_ids_str = Quest.find(@pquest.id).age3
@@ -66,7 +64,11 @@ class QuestsController < ApplicationController
 		end
 		#task_ids = make_array(task_ids_str)
 		@tasks = Task.where(id: task_ids_str).all
-		render 'tasks/index', formats: :json
+		respond_to do |f|
+      f.json { render json: @tasks }
+      f.html { @qposts }
+    end
+		#render 'tasks/index', formats: :json
 	end
 
 	def background
