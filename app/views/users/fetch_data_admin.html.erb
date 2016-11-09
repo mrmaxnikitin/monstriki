@@ -6,6 +6,7 @@
 		<% user = User.find(track.user_id) %>
 		<% if i == 50 %>
 			</br></br>
+			<% i = 0 %>
 		<% end %>
 		<%= user.email %>, 
 		<% i += 1 %>
@@ -22,6 +23,7 @@
 		<% user = User.find(track.user_id) %>
 		<% if i == 50 %>
 			</br></br>
+			<% i = 0 %>
 		<% end %>
 		<%= user.email %>,
 		<% i += 1 %>
