@@ -50,18 +50,19 @@ class QuestsController < ApplicationController
 	def show
 	end
 	def get_show
+		@pquest = Quest.find(params[:id])
 		if current_user.age == 3
-			task_ids_str = Quest.find(@quest.id).age3
+			task_ids_str = Quest.find(@pquest.id).age3
 		elsif current_user.age == 4
-			task_ids_str = Quest.find(@quest.id).age6	#Внимание! для 4-х лет тоже берутся задания шестилетних
+			task_ids_str = Quest.find(@pquest.id).age6	#Внимание! для 4-х лет тоже берутся задания шестилетних
 		elsif current_user.age == 5
-			task_ids_str = Quest.find(@quest.id).age6  #Внимание! для 5-и лет тоже берутся задания шестилетних
+			task_ids_str = Quest.find(@pquest.id).age6  #Внимание! для 5-и лет тоже берутся задания шестилетних
 		elsif current_user.age == 6
-			task_ids_str = Quest.find(@quest.id).age7	#Внимание! для 6-и лет тоже берутся задания 7 лет
+			task_ids_str = Quest.find(@pquest.id).age7	#Внимание! для 6-и лет тоже берутся задания 7 лет
 		elsif current_user.age == 7
-			task_ids_str = Quest.find(@quest.id).age7
+			task_ids_str = Quest.find(@pquest.id).age7
 		elsif current_user.age == 8
-			task_ids_str = Quest.find(@quest.id).age8
+			task_ids_str = Quest.find(@pquest.id).age8
 		end
 		#task_ids = make_array(task_ids_str)
 		@tasks = Task.where(id: task_ids_str).all
@@ -148,7 +149,7 @@ class QuestsController < ApplicationController
 			@quest = Quest.find_by(id: @track.current_quest) if current_user
     end
     def find_quest
-			@quest = Quest.find(params[:id])
+			@quest = Quest.find(@pquest.id)
     end
     #def quest_params
       #params.require(:quest).permit(age3: [], age4: [], age5: [], age6: [], age7: [], age8: [], age9: [], age10: [])
