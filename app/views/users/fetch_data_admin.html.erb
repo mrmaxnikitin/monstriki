@@ -1,9 +1,14 @@
 <div class='card'>
 <h4>текущий квест = 3 [ <%= @tracks_3.count %> ]</h4>
 <div>
+	<% i = 0 %>
 	<% @tracks_3.each do |track| %>
 		<% user = User.find(track.user_id) %>
+		<% if i == 50 %>
+			</br></br>
+		<% end %>
 		<%= user.email %>, 
+		<% i += 1 %>
 	<% end %>
 
 </div>
@@ -12,9 +17,14 @@
 <div class='card'>
 <h4>текущий квест > 3 [ <%= @tracks_b3.count %> ]</h4>
 <div>
+	<% i = 0 %>
 	<% @tracks_b3.each do |track| %>
 		<% user = User.find(track.user_id) %>
-		<%= user.email %>, 
+		<% if i == 50 %>
+			</br></br>
+		<% end %>
+		<%= user.email %>,
+		<% i += 1 %>
 	<% end %>
 </div>
 </div>
