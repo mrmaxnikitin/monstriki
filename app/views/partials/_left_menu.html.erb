@@ -9,6 +9,16 @@
 			<img src='/images/rating_menu.png' /> <span>Рейтинги</span>
 		<% end %>
 	</li>
+	<% if current_user.admin? %>
+		<li class='menu-item'>
+			<%= link_to monster_card_path, class: "list-item-link menu-item-link" do %>
+				<img src='/images/like_left-menu.png' /> <span>Карта монстрика</span>
+				<% if expiry_monster_card? %>
+		 			<img src='/images/two-left-arrows.png' class='indicator-monster-card fr pulse' />
+		 		<% end %>
+			<% end %>
+		</li>
+	<% end %>
 	<li class='menu-item'>
 		<%= link_to edit_user_path(current_user), class: "list-item-link menu-item-link" do %>
 			<img src='/images/settings_menu.png' /> <span>Настройки</span>

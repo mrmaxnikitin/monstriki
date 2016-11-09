@@ -22,11 +22,19 @@ class QuestsController < ApplicationController
 
 			@users_same_level_amount = Track.where("current_quest >= ? AND current_quest <= ?", @first_quest, @checkpoint_quest).order("RANDOM()").all.count - 1
 			@users_same_level = Track.where("current_quest >= ? AND current_quest <= ?", @first_quest, @checkpoint_quest).order("RANDOM()").limit(10)
+
+
+			#предыдущие квесты
+			@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(5)
 		end
 
 		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
 		#puts @quests.count
 		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
+	end
+
+	def passed
+		@prev_quests = Quest.where("id < ?", @track.current_quest).order(id: "DESC").all
 	end
 
 	def new
@@ -37,6 +45,27 @@ class QuestsController < ApplicationController
 		@quest = Quest.new
 		@quest.generate_quest
 		render 'new'
+	end
+
+	def show
+	end
+	def get_show
+		if current_user.age == 3
+			task_ids_str = Quest.find(@quest.id).age3
+		elsif current_user.age == 4
+			task_ids_str = Quest.find(@quest.id).age6	#Внимание! для 4-х лет тоже берутся задания шестилетних
+		elsif current_user.age == 5
+			task_ids_str = Quest.find(@quest.id).age6  #Внимание! для 5-и лет тоже берутся задания шестилетних
+		elsif current_user.age == 6
+			task_ids_str = Quest.find(@quest.id).age7	#Внимание! для 6-и лет тоже берутся задания 7 лет
+		elsif current_user.age == 7
+			task_ids_str = Quest.find(@quest.id).age7
+		elsif current_user.age == 8
+			task_ids_str = Quest.find(@quest.id).age8
+		end
+		#task_ids = make_array(task_ids_str)
+		@tasks = Task.where(id: task_ids_str).all
+		render 'tasks/index', formats: :json
 	end
 
 	def background

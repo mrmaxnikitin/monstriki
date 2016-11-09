@@ -101,6 +101,35 @@
 				<% else %>
 					<%= render "/partials/lets_pay", text: "Новые квесты будут доступны после продления карты монстрика" %>
 				<% end %>
+				<% if logged_in? && current_user.admin? %>
+				<div class='previous-quests'>
+					<h3 class='h--thin mtm mbs'>Пройденные квесты<span> • </span><%= link_to "Все пройденные квесты", passed_quests_path %></h3>
+					<div class='list-prev-quests'>
+						<% @prev_quests.each do |quest|%>
+							<%
+								if current_user.age == 4 || current_user.age == 5
+									pic1 = Task.find(Quest.find(quest.id).age6[1]).pic1
+									if pic1 == "пусто"
+										pic1 = Task.find(Quest.find(quest.id).age6[1]).pic2
+									end
+								elsif current_user.age == 6 || current_user.age == 7
+									pic1 = Task.find(Quest.find(quest.id).age7[1]).pic1
+									if pic1 == "пусто"
+										pic1 = Task.find(Quest.find(quest.id).age7[1]).pic2
+									end
+								end 
+							%>
+							<div class='col col-1of6 pd6'>
+								<%= link_to quest_path(quest)  do %>
+									<div class='card'>
+										<img src='<%= pic1 %>' />
+									</div>
+								<% end %>
+							</div>
+						<% end %>
+					</div>
+				</div>
+				<% end %>
 			<% else %>
 				<div class='lets-pay card'>
 					<div class='col col-4of6 content'>

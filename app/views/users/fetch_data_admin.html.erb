@@ -1,0 +1,20 @@
+<div class='card'>
+<h4>текущий квест = 3</h4>
+<div>
+	<% @tracks_3.each do |track| %>
+		<% user = User.find(track.user_id) %>
+		<%= user.email %>, 
+	<% end %>
+
+</div>
+</div>
+
+<div class='card'>
+<h4>текущий квест > 3</h4>
+<div>
+	<% @tracks_b3.each do |track| %>
+		<% user = User.find(track.user_id) %>
+		<%= user.email %>, 
+	<% end %>
+</div>
+</div>

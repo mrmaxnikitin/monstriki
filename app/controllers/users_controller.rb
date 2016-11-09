@@ -1,8 +1,8 @@
 class UsersController < InheritedResources::Base
-  before_action :find_user, except: [:index, :new, :create, :monstrik, :payment, :monster_card, :prolongation, :create_prolongation]
+  before_action :find_user, except: [:index, :new, :create, :monstrik, :payment, :monster_card, :prolongation, :create_prolongation, :fetch_data_admin]
   before_filter :require_login, except: [:show, :new, :create, :payment]
   before_action :require_current_user, only: [:edit, :update, :destroy]
-  before_action :require_admin, only: [:prolongation]
+  before_action :require_admin, only: [:prolongation,  :fetch_data_admin]
 	def index
 		@users=User.all
 	end
@@ -34,6 +34,11 @@ class UsersController < InheritedResources::Base
 
 	def edit
 	end
+
+  def fetch_data_admin
+    @tracks_3 = Track.where(current_quest: 3).where("updated_at < ?", 1.day.ago).all
+    @tracks_b3 = Track.where("current_quest >= 3").where("updated_at < ?", 1.day.ago).all
+  end
 	
 	def update
 		if @user.update_attributes user_params

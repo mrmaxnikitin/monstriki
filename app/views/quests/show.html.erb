@@ -1,0 +1,46 @@
+<div class='row first-page-elm--no-attarction trip-page'>
+	<div class='cell'>
+		<%
+			if logged_in?
+				monster_presence = current_user.user_monster.monster_id
+				mosnter_avatar = '/images/monster-none.png'
+				if monster_presence != 0
+				  mosnter_avatar = Monster.find(current_user.user_monster.monster_id).avatar
+			  end
+		  end
+
+		  @current_quest = Quest.find(current_user.track.current_quest)
+		%>
+   	<%= react_component("PrevQuest",
+			tasks_url: get_show_quests_path,
+			monster_name: current_user.user_monster.name,
+			monster_presence: monster_presence,
+			monster_avatar: mosnter_avatar,
+			score: current_user.score,
+			quest: true,
+			complete_quest: current_user.track.complete_quest,
+			profile_link: user_path(current_user),
+			monster_card_link: monster_card_path,
+			setting_link: edit_user_path(current_user),
+			moderation: false,
+			task_text_color: @quest.task_text_color )
+			 %>
+	</div>
+</div>
+
+<style>
+	<%
+		if @quest.background != ''
+			quest_background = @quest.background
+		else
+			quest_background = '/images/background1.jpg'
+		end
+	%>
+	.div-body{
+		background-color: #00a8c4 !important;
+		background-image: url(<%= quest_background %>) !important;
+		background-position-x: <%= @quest.posx_background %>;
+		background-position-y: <%= @quest.posy_background %>;
+		background-repeat: no-repeat;
+	}
+</style>

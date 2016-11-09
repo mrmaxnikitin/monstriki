@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :honors, only: [:show, :update]
     resources :user_things
     post :create_prolongation, on: :collection
+    get  :fetch_data_admin,    on: :collection
     member do
       get  :bubuki
       get  :stuff
@@ -58,6 +59,8 @@ Rails.application.routes.draw do
   end
   resources :quests do
     collection do
+      get :passed
+      get :get_show
       get :choose_trip
       get :trip
       get :get_trip

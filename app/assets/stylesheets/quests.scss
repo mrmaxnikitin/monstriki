@@ -298,3 +298,40 @@
   padding: 10px;
   border-radius: 3px;
 }
+.previous-quests{
+  h3{
+    span{
+      font-size: 15px;
+      margin: 0px 5px;
+    }
+    a{
+      font-size: 15px;
+      color: #eceff1;
+      border-bottom: 1px dashed #f6fbff;
+      &:hover{
+        color: white;
+      }
+    }
+  }
+}
+.list-prev-quests{
+  .card{
+    padding: 8px 8px 2px;
+    img{
+      width: 100%;
+      border-radius: 2px;
+    }
+  }
+}
+.passed-quest{
+  .card{
+    img{
+      width: 100%;
+      border-radius: 2px;
+    }
+    h4{
+      font-family: 'Gagalin';
+      color: #393d40;
+    }
+  }
+}
