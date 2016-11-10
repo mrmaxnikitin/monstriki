@@ -1,4 +1,4 @@
-const PrevQuest = React.createClass({
+const ShowQuest = React.createClass({
   //BEGIN***************************************************DECLARE
   propTypes: {
     tasks_url: React.PropTypes.string.isRequired

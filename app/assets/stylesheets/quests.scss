@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.btn-want-IG-now{
+  border-radius: 2px !important;
+  background: #1090f5 !important;
+  font-size: 13px !important;
+}
 .quest-attraction{
 	background-image: url(/images/footer_bg2x.png);
 	background-size: cover;
@@ -12,7 +17,7 @@
 }
 .card-trip-quest{
 	width: 92.5%;
-	height: 146px;
+	/*height: 132px;*/
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
   -ms-transition: all .2s ease;
@@ -25,6 +30,7 @@
     img{
       width: 80%;
       border-radius: 200px;
+      margin-top: 8px;
     }
   }
   .mbadge{
@@ -32,7 +38,7 @@
     height: 118px;
   }
   .direction-content{
-  	h2{
+  	h3{
   		margin-bottom: 0 !important;
   		margin-top: 7px;
   	}
@@ -148,7 +154,7 @@
     h1{
       color: #337ab7;
       font-family: 'Gagalin';
-      font-size: 44px;
+      font-size: 32px;
       margin-bottom: 0;
     }
     p{
@@ -181,12 +187,13 @@
       width: 76%;
     }
     .degree-honor{
-      font-size: 30px;
+      margin-top: 3px;
+      font-size: 20px;
       font-family: 'junegull';
       color: #ffa800;
     }
     .btn{
-      font-size: 75%;
+      font-size: 70%;
     }
   }
 }
@@ -234,15 +241,15 @@
     z-index: 1;
 }*/
 .trip-quest-inactive{
-  filter: grayscale(50%);
-  -webkit-filter: grayscale(50%);
-  -moz-filter: grayscale(50%);
-  -ms-filter: grayscale(50%);
-  -o-filter: grayscale(50%);
+  filter: grayscale(60%);
+  -webkit-filter: grayscale(60%);
+  -moz-filter: grayscale(60%);
+  -ms-filter: grayscale(60%);
+  -o-filter: grayscale(60%);
 }
 .current-quest{
   .card-trip-quest{
-    transform: scale(1.05);
+    transform: scale(1.0);
   }
 }
 .diploma-sample{
@@ -289,6 +296,16 @@
 .tag--diploma{
   font-size: 80% !important;
 }
+.direction-content{
+  position: relative;
+  left: 15px;
+  top: 8px;
+  padding-right: 1.25em;
+  z-index: 3;
+  .tag{
+    font-size: 95%;
+  }
+}
 .unique-tour-name{
   font-family: 'Gagalin';
   color: #ffd33e;
@@ -316,11 +333,20 @@
 }
 .list-prev-quests{
   .card{
-    padding: 8px 8px 2px;
+    padding: 7px 7px 0px;
     img{
       width: 100%;
       border-radius: 2px;
     }
+  }
+}
+.task-for-different-age{
+  padding: 20px !important;
+  img{
+    width: 90%;
+  }
+  p{
+    margin-top: 0px;
   }
 }
 .passed-quest{
@@ -333,5 +359,11 @@
       font-family: 'Gagalin';
       color: #393d40;
     }
+  }
+}
+.prev-quest-page{
+  .lets-pay{
+    width: 60% !important;
+    padding: 40px !important;
   }
 }

@@ -29,7 +29,8 @@ blockquote, q { quotes:none }
 blockquote:before, blockquote:after, q:before, q:after { content:''; content:none }:focus { outline:0 }
 .clear { clear:both; display:block; overflow:hidden; visibility:hidden; width:0; height:0 }
 body{
-  /*min-width: 1190px;*/
+  min-width: 1040px;
+  /*min-width: 870px;*/
   .div-body{
     font-size: 14px;
     line-height: 1.62857143;
@@ -218,11 +219,23 @@ h5{
 .tal{
   text-align: left;
 }
+.pd40{
+  padding: 40px !important;
+}
+.pd30{
+  padding: 30px !important;
+}
+.pd20{
+  padding: 20px !important;
+}
 .pd10{
   padding: 10px;
 }
 .pd6{
   padding: 6px;
+}
+.pd3{
+  padding: 3px;
 }
 .pd1p{
   padding: 1%;
@@ -637,4 +650,9 @@ input[type="checkbox"]{
       color: white;
     }
   }
+}
+.glass-background{
+  background-color: rgba(255,255,255,0.1) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  color: white;
 }

@@ -112,33 +112,39 @@
 
 .wrap-monster-card{
 	.monster-card{
-		width: 500px;
 		.card{
-			height: 600px;
-			h1{
-				font-family: 'BoomBoom';
+			padding: 40px;
+			h2{
+				font-family: 'Gagalin';
 				color: #357bb7;
+				margin-bottom: 20px;
 			}
 			img{
 				width: 100%;
 			}
 			.active-card{
 				color: rgb(64,199,129);
+				margin-top: 6px;
 			}
 			.inactive-card{
 				color: #ff1e4a;
+				margin-top: 6px;
 			}
 			.name-field{
 				margin-top: 10px;
+				margin-bottom: 0px;
 			}
 			.age-field{
 				color: #95989a;
 			}
 			.payment-field{
-				margin-top: 50px;
+				margin-top: 30px;
 				.wrap-button-pay{
 					font-size: 14px;
 					margin-top: 20px;
+					a{
+						font-size: 17px;
+					}
 				}
 			}
 		}
@@ -245,15 +251,17 @@
 }
 
 .description-monster-card{
-	position: absolute;
-	top: 70px;
-	right: 9%;
-	width: 220px;
-	font-size: 16px;
-	text-align: left;
-	background-color: rgba(255,255,255,0.1) !important;
-  color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+	animation-duration: 4.5s !important;
+  -webkit-animation-duration: 4.5s !important;
+	padding: 40px !important;
+
+	p{
+		margin: 1.4em 0;
+		font-size: 16px;
+		span{
+			font-size: 20px
+		}
+	}
 }
 .wrap-honor{
 	.honor{

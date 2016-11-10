@@ -21,7 +21,7 @@ class UsersController < InheritedResources::Base
     @user = User.new user_params
     if @user.save
       auto_login @user
-      @user.update(score: 3, payment_end_date: Time.now + 10.years)
+      @user.update(score: 3, payment_end_date: Time.now)
       Track.create(user_id: @user.id)
       UserMonster.create(user_id: @user.id, monster_id: false, name: "")
       flash[:success] = "Супер! А теперь выберите своего монстрика"
@@ -59,6 +59,7 @@ class UsersController < InheritedResources::Base
   end
 
   def monster_card
+    @number_of_IG = Quest.where(checkpoint: true).all.count
   end
 
   def prolongation

@@ -37,6 +37,10 @@ class QuestsController < ApplicationController
 		@prev_quests = Quest.where("id < ?", @track.current_quest).order(id: "DESC").all
 	end
 
+	def extra
+		@extra_quests = Quest.where("id < ?", @track.current_quest).order(id: "DESC").all
+	end
+
 	def new
 		@quest = Quest.new
 	end
@@ -62,13 +66,31 @@ class QuestsController < ApplicationController
 		elsif current_user.age == 8
 			task_ids_str = Quest.find(@pquest.id).age8
 		end
-		#task_ids = make_array(task_ids_str)
+
 		@tasks = Task.where(id: task_ids_str).all
 		respond_to do |f|
       f.json { render json: @tasks }
-      f.html { @qposts }
+      f.html { @pquest }
     end
-		#render 'tasks/index', formats: :json
+	end
+
+	def extra_show
+		@extra_quest = Quest.find(params[:id])
+		if current_user.age == 4
+			task_ids_str = Quest.find(@extra_quest.id).age7
+		elsif current_user.age == 5
+			task_ids_str = Quest.find(@extra_quest.id).age7 
+		elsif current_user.age == 6
+			task_ids_str = Quest.find(@extra_quest.id).age6	
+		elsif current_user.age == 7
+			task_ids_str = Quest.find(@extra_quest.id).age6
+		end
+
+		@tasks = Task.where(id: task_ids_str).all
+		respond_to do |f|
+      f.json { render json: @tasks }
+      f.html { @pquest }
+    end
 	end
 
 	def background

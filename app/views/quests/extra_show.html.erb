@@ -11,7 +11,7 @@
 			  end
 			%>
 	   	<%= react_component("ShowQuest",
-				tasks_url: quest_path(@pquest),
+				tasks_url: quest_path(@extra_quest),
 				monster_name: current_user.user_monster.name,
 				monster_presence: monster_presence,
 				monster_avatar: mosnter_avatar,
@@ -22,18 +22,18 @@
 				monster_card_link: monster_card_path,
 				setting_link: edit_user_path(current_user),
 				moderation: false,
-				task_text_color: @pquest.task_text_color )
+				task_text_color: @extra_quest.task_text_color )
 			%>
 		<% else %>
-			<%= render "/partials/lets_pay", text: "Продлите карту монстрика, чтобы получить доступ к пройденным квестам." %>
+			<%= render "/partials/lets_pay", text: "Продлите карту монстрика, чтобы получить доступ к этим квестам." %>
 		<% end %>
 	</div>
 </div>
 
 <style>
 	<%
-		if @pquest.background != ''
-			quest_background = @pquest.background
+		if @extra_quest.background != ''
+			quest_background = @extra_quest.background
 		else
 			quest_background = '/images/background1.jpg'
 		end
@@ -41,8 +41,8 @@
 	.div-body{
 		background-color: #00a8c4 !important;
 		background-image: url(<%= quest_background %>) !important;
-		background-position-x: <%= @pquest.posx_background %>;
-		background-position-y: <%= @pquest.posy_background %>;
+		background-position-x: <%= @extra_quest.posx_background %>;
+		background-position-y: <%= @extra_quest.posy_background %>;
 		background-repeat: no-repeat;
 	}
 </style>

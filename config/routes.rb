@@ -60,6 +60,7 @@ Rails.application.routes.draw do
   resources :quests do
     collection do
       get :passed
+      get :extra
       get :get_show
       get :choose_trip
       get :trip
@@ -72,6 +73,7 @@ Rails.application.routes.draw do
       post :get_add_task_to_quest
       post :save_answers
     end
+    get  :extra_show,    on: :member
   end
   resources :things do
     collection do

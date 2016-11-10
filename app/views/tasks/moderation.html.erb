@@ -1,9 +1,5 @@
 <div class='row first-page-elm'>
 	<div class='cell'>
-		<% if current_user.payment_end_date > Time.now %>
-			<%= render '/partials/react_component_logic_tasks',  link: get_moderation_tasks_path, quest: false, complete_quest: false, moderation: true, test: false %>
-		<% else %>
-			<%= render "/partials/lets_pay", text: "После продления карты монстрика администрирование станет доступным" %>
-		<% end %>
+		<%= render '/partials/react_component_logic_tasks',  link: get_moderation_tasks_path, quest: false, complete_quest: false, moderation: true, test: false %>
 	</div>
 </div>

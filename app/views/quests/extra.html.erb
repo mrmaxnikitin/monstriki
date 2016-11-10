@@ -1,0 +1,36 @@
+<div class='row first-page-elm'>
+	<div class='cell'>
+		<%= render "/partials/profile_big" %>
+		<div class='col col-67proc ml-2proc'>
+			<h2 class='h--thin'>
+				<span class='prxs'>Квесты, которые выполняют другие дети. 6-7 лет</span>
+			</h2>
+			<div class='passed-quest'>
+				<% @extra_quests.each do |quest|%>
+					<div class='col col-press-25 col-padding'>
+						<%
+							if current_user.age == 4 || current_user.age == 5
+								pic1 = Task.find(Quest.find(quest.id).age7[1]).pic1
+								if pic1 == "пусто"
+									pic1 = Task.find(Quest.find(quest.id).age7[1]).pic2
+								end
+							elsif current_user.age == 6 || current_user.age == 7
+								pic1 = Task.find(Quest.find(quest.id).age6[1]).pic1
+								if pic1 == "пусто"
+									pic1 = Task.find(Quest.find(quest.id).age6[1]).pic2
+								end
+							end 
+						%>
+						<%= link_to extra_show_quest_path(quest)  do %>
+							<div class='card tac'>
+								<img src='<%= pic1 %>' />
+								<h4 class='mts mbs'>Квест <%= quest.id %></h4>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+

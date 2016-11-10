@@ -1,43 +1,54 @@
 <div class='row wrap-monster-card'>
-	<div class='cell mtm'>
-		<%= render "/partials/profile_big" %>
-		<div class='monster-card ma'>
-			<div class='card tac'>
-				<h1>Карта монстрика</h1>
-				<img src='/images/pic_monster_card.png' />
-				<h2 class='name-field'><%= current_user.name %></h2>
+	<div class='row first-page-elm'>
+		<div class='cell'>
+			<%= render "/partials/profile_big" %>
+			<div class='col col-press-80 ml-2proc'>
+				<div class='col golden_section38 col-padding-r'>
+					<div class='monster-card'>
+						<div class='card tac'>
+							<h2>Карта монстрика</h2>
+							<img src='/images/pic_monster_card.png' />
+							<h3 class='name-field'><%= current_user.name %></h3>
 
-				<% 
-					age = current_user.age
-					age_text = 'лет'
-					if age == 3  || age == 4
-						age_text = 'года'
-					end
-				%>
-				<h4 class='age-field'><%= age %> <%= age_text %></h4>
+							<% 
+								age = current_user.age
+								age_text = 'лет'
+								if age == 3  || age == 4
+									age_text = 'года'
+								end
+							%>
+							<h4 class='age-field'><%= age %> <%= age_text %></h4>
 
-				<% 
-					payment_end_date = current_user.payment_end_date
-					payment_text = 'Карта действительна до:'
-					payment_class_date = 'active-card'
-					payment_class_pay = 'displaynone'
-					if expiry_monster_card?
-						payment_text = 'Срок действия карты истек:'
-						payment_class_date = 'inactive-card'
-						payment_class_pay = ''
-					end
-				%>
-				<h3 class='payment-field'><%= payment_text %>
-					<div class='<%= payment_class_date %>'><%= Russian::strftime(payment_end_date, "%d %B %Y года, %T") %></div>
-					<div class='wrap-button-pay'>
-						<%= link_to 'Продлить', payment_path, class: 'btn btn-our-green' %>
+							<% 
+								payment_end_date = current_user.payment_end_date
+								payment_text = 'Карта действительна до:'
+								payment_class_date = 'active-card'
+								payment_class_pay = 'displaynone'
+								if expiry_monster_card?
+									payment_text = 'Срок действия карты истек:'
+									payment_class_date = 'inactive-card'
+									payment_class_pay = ''
+								end
+							%>
+							<h5 class='payment-field'><%= payment_text %>
+								<div class='<%= payment_class_date %>'><%= Russian::strftime(payment_end_date, "%d %B %Y года, %T") %></div>
+								<div class='wrap-button-pay'>
+									<%= link_to 'Продлить', payment_path, class: 'btn btn-our-green' %>
+								</div>
+							</h5>
+						</div>
 					</div>
-				</h3>
+				</div>
+				<div class='col golden_section62 col-padding-l'>
+					<div class='card glass-background description-monster-card floating'>
+						<h2 class='tac'>Что дает карта монстрика?</h2>
+						<p><span>1.</span> Возможность сразу перейти к следующей интеллектуальной игре, если такая имеется. На данный момент интеллектуальных игр <b><%= @number_of_IG %></b>.</p>
+						<p><span>2.</span> Возможность возвращаться к пройденным квестам.</p>
+						<p><span>3.</span> Получение дополнительных заданий, которые проходят другие дети на нашем сайте.</p>
+					</div>
+				</div>
+				<div class='clear'></div>
 			</div>
-		</div>
-		<div class='clear'></div>
-		<div class='card description-monster-card floating'>
-			Эта карта предоставляет полный доступ ко всему функционалу на сайте.
 		</div>
 	</div>
 </div>
