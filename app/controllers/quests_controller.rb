@@ -74,7 +74,7 @@ class QuestsController < ApplicationController
 		elsif current_user.age == 8
 			task_ids_str = Quest.find(@pquest.id).age8
 		end
-
+		puts "%%%%%%%%%%%%%%%%%%%%%%%%@@@@@@@@@@@@@@@@@@@"
 		@tasks = Task.where(id: task_ids_str).all
 		respond_to do |f|
       f.json { render json: @tasks }
@@ -94,6 +94,7 @@ class QuestsController < ApplicationController
 			task_ids_str = Quest.find(@extra_quest.id).age6
 		end
 
+		puts "&&&&&&&&&&&&&&&&&$$$$$$$$$$$$$$$$$$$$$"
 		@tasks = Task.where(id: task_ids_str).all
 		respond_to do |f|
       f.json { render json: @tasks }

@@ -11,7 +11,7 @@
 			  end
 			%>
 	   	<%= react_component("ShowQuest",
-				tasks_url: quest_path(@extra_quest),
+				tasks_url: extra_show_quest_path(@extra_quest),
 				monster_name: current_user.user_monster.name,
 				monster_presence: monster_presence,
 				monster_avatar: mosnter_avatar,
