@@ -7,7 +7,7 @@
 			<%= simple_form_for(@user, url: users_path, html: { class: 'registration-form' }) do |f| %>
 					<div class='first-part tac card'>
 						<h2 class='tac'>Регистрация</h2>
-			      <%= f.input :name, label: false, input_html: { class: 'input-sp',  placeholder: 'Фамилия и имя ребенка?' } %>
+			      <%= f.input :name, label: false, input_html: { class: 'input-sp',  placeholder: 'Фамилия и имя ребенка' } %>
 			      <%= f.input :age, collection: 4..7, label: false, prompt: "Сколько лет ребенку?" %>
 			      <%= f.input :goal, collection: [ "Подготовка к школе", "Развитие логики, памяти и внимания у ребенка", "Хочу развлечь ребенка с пользой"], label: false, prompt: "Какая цель?" %>
 
