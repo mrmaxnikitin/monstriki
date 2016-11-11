@@ -4,7 +4,7 @@
 		<div class='col col-press-80 ml-2proc'>
 			<div>
 				<% 
-					if @track.complete_quest == true && @quest.checkpoint || @quests.count == 0
+					if logged_in? && (@track.complete_quest == true && @quest.checkpoint || @quests.count == 0)
 						style_width_content_col = "col-press-70"
 					else
 						style_width_content_col = "col-press-80"
