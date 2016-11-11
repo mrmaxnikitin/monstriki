@@ -4,6 +4,7 @@ class QuestsController < ApplicationController
 	before_filter :require_login, except: [:index]
 	before_action :require_admin, only: [:new, :create, :add_task_to_quest, :get_add_task_to_quest, :background, :get_background]
 	include ApplicationHelper
+	include UsersHelper
 	def index
 		if logged_in? && (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day && @track.complete_quest && @quest.checkpoint && @track.current_quest <= Quest.last.id
 			@track.next_quest
@@ -31,6 +32,13 @@ class QuestsController < ApplicationController
 		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
 		#puts @quests.count
 		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
+	end
+
+	def next
+		if !expiry_monster_card?
+			@track.next_quest
+			redirect_to start_path
+		end
 	end
 
 	def passed

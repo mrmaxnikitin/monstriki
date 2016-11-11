@@ -2,8 +2,15 @@
 	<div class='cell'>
 		<%= render "/partials/profile_big" %>
 		<div class='col col-67proc ml-2proc'>
+			<%
+				if current_user.age == 4 || current_user.age == 5
+					age_title = "6-7 лет"
+				elsif current_user.age == 6 || current_user.age == 7
+					age_title = "4-5 лет"
+				end 
+			%>
 			<h2 class='h--thin'>
-				<span class='prxs'>Квесты, которые выполняют другие дети. 6-7 лет</span>
+				<span class='prxs'>Квесты, которые выполняют другие дети. <%= age_title %></span>
 			</h2>
 			<div class='passed-quest'>
 				<% @extra_quests.each do |quest|%>

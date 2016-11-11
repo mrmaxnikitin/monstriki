@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   end
   resources :quests do
     collection do
+      get :next
       get :passed
       get :extra
       get :get_show
