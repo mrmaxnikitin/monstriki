@@ -148,7 +148,7 @@
 				<div class='clear'></div>
 			</div>
 			<% if logged_in? %>
-				<div class='previous-quests'>
+				<div class='previous-quests mbl'>
 					<h3 class='h--thin mts mbs'>Пройденные квесты<span> • </span><%= link_to "Все пройденные квесты", passed_quests_path %></h3>
 					<div class='list-prev-quests'>
 						<% @prev_quests.each do |quest|%>
@@ -173,6 +173,7 @@
 								<% end %>
 							</div>
 						<% end %>
+						<div class='clear'></div>
 					</div>
 				</div>
 			<% end %>
