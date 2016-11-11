@@ -1,4 +1,4 @@
-ActiveAdmin.register Task do
+ActiveAdmin.register Post do
 permit_params :title, :img, :text
 actions :index, :show, :destroy, :edit, :update, :new, :create
 menu label: 'Посты'
