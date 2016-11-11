@@ -134,7 +134,7 @@
 						</div>
 					<% end %>
 				</div>
-				<% if @track.complete_quest == true && @quest.checkpoint ||  @quests.count == 0 %>
+				<% if logged_in? && (@track.complete_quest == true && @quest.checkpoint ||  @quests.count == 0) %>
 					<div class='col col-press-30 col-padding-l'>
 						<div class='card task-for-different-age tac'>
 							<img src='/images/monster-additional-tasks.png' />
