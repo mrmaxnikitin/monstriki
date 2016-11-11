@@ -10,14 +10,14 @@
 					<div class='col col-press-25 col-padding'>
 						<%
 							if current_user.age == 4 || current_user.age == 5
-								pic1 = Task.find(Quest.find(quest.id).age6[1]).pic1
+								pic1 = Task.find(Quest.find(quest.id).age6[1]).pic2
 								if pic1 == "пусто"
-									pic1 = Task.find(Quest.find(quest.id).age6[1]).pic2
+									pic1 = Task.find(Quest.find(quest.id).age6[1]).pic3
 								end
 							elsif current_user.age == 6 || current_user.age == 7
-								pic1 = Task.find(Quest.find(quest.id).age7[1]).pic1
+								pic1 = Task.find(Quest.find(quest.id).age7[1]).pic2
 								if pic1 == "пусто"
-									pic1 = Task.find(Quest.find(quest.id).age7[1]).pic2
+									pic1 = Task.find(Quest.find(quest.id).age7[1]).pic3
 								end
 							end 
 						%>
