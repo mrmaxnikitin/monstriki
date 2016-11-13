@@ -46,7 +46,7 @@ class QuestsController < ApplicationController
 	end
 
 	def extra
-		@extra_quests = Quest.where("id < ?", @track.current_quest).order(id: "DESC").all
+		@extra_quests = Quest.order(id: "DESC").all
 	end
 
 	def new
