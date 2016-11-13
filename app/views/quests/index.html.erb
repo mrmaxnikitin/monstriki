@@ -10,7 +10,7 @@
 						style_width_content_col = "col-press-80"
 					end
 				%>
-				<div class='col <%= style_width_content_col %> col-padding-r'>
+				<div class='col col-press-70 col-padding-r'>
 					<% if logged_in? %>
 						<% if @track.complete_quest == true && @quest.checkpoint %>
 							<div class='next-quest next-tour card mbl pd30'>
@@ -133,8 +133,38 @@
 							<div class='clear'></div>
 						</div>
 					<% end %>
+					<% if logged_in? %>
+						<div class='previous-quests mbl'>
+							<h3 class='h--thin mts mbs'>Пройденные квесты<span> • </span><%= link_to "Все пройденные квесты", passed_quests_path %></h3>
+							<div class='list-prev-quests'>
+								<% @prev_quests.each do |quest|%>
+									<%
+										if current_user.age == 4 || current_user.age == 5
+											pic1 = Task.find(Quest.find(quest.id).age6[0]).pic1
+											if pic1 == "пусто"
+												pic1 = Task.find(Quest.find(quest.id).age6[0]).pic2
+											end
+										elsif current_user.age == 6 || current_user.age == 7
+											pic1 = Task.find(Quest.find(quest.id).age7[0]).pic1
+											if pic1 == "пусто"
+												pic1 = Task.find(Quest.find(quest.id).age7[0]).pic2
+											end
+										end 
+									%>
+									<div class='col col-press-20 pd6'>
+										<%= link_to quest_path(quest)  do %>
+											<div class='card'>
+												<img src='<%= pic1 %>' />
+											</div>
+										<% end %>
+									</div>
+								<% end %>
+								<div class='clear'></div>
+							</div>
+						</div>
+					<% end %>
 				</div>
-				<% if logged_in? && (@track.complete_quest == true && @quest.checkpoint ||  @quests.count == 0) %>
+				
 					<div class='col col-press-30 col-padding-l'>
 						<div class='card task-for-different-age tac'>
 							<img src='/images/monster-additional-tasks.png' />
@@ -144,39 +174,9 @@
 							</div>
 						</div>
 					</div>
-				<% end %>
+				
 				<div class='clear'></div>
 			</div>
-			<% if logged_in? %>
-				<div class='previous-quests mbl'>
-					<h3 class='h--thin mts mbs'>Пройденные квесты<span> • </span><%= link_to "Все пройденные квесты", passed_quests_path %></h3>
-					<div class='list-prev-quests'>
-						<% @prev_quests.each do |quest|%>
-							<%
-								if current_user.age == 4 || current_user.age == 5
-									pic1 = Task.find(Quest.find(quest.id).age6[0]).pic1
-									if pic1 == "пусто"
-										pic1 = Task.find(Quest.find(quest.id).age6[0]).pic2
-									end
-								elsif current_user.age == 6 || current_user.age == 7
-									pic1 = Task.find(Quest.find(quest.id).age7[0]).pic1
-									if pic1 == "пусто"
-										pic1 = Task.find(Quest.find(quest.id).age7[0]).pic2
-									end
-								end 
-							%>
-							<div class='col col-1of6 pd6'>
-								<%= link_to quest_path(quest)  do %>
-									<div class='card'>
-										<img src='<%= pic1 %>' />
-									</div>
-								<% end %>
-							</div>
-						<% end %>
-						<div class='clear'></div>
-					</div>
-				</div>
-			<% end %>
 		</div>
 		<%= render '/partials/alternative_column' %>
 	</div>

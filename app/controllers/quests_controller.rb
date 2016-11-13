@@ -26,7 +26,7 @@ class QuestsController < ApplicationController
 
 
 			#предыдущие квесты
-			@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(6)
+			@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(5)
 		end
 
 		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
