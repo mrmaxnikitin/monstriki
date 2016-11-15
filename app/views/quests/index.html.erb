@@ -133,7 +133,7 @@
 							<div class='clear'></div>
 						</div>
 					<% end %>
-					<% if logged_in? %>
+					<% if logged_in? && @prev_quests.count != 0 %>
 						<div class='previous-quests mbl'>
 							<h3 class='h--thin mts mbs'>Пройденные квесты<span> • </span><%= link_to "Все пройденные квесты", passed_quests_path %></h3>
 							<div class='list-prev-quests'>
