@@ -36,7 +36,7 @@ const BackgroundQuest = React.createClass({
       <div className='create-task'>
         <h2>Установление фона на квест</h2>
         <input type="number" ref='quest_id' placeholder='id квеста'/>
-        <input type="text" ref='url' placeholder='url background'/>
+        <input type="text" ref='url' placeholder='url background' value='/images/backgrounds_quest/' />
         <input type="text" ref='posx' placeholder='background-position-x'/>
         <input type="text" ref='posy' placeholder='background-position-y'/>
         <br/>
