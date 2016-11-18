@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root 'static_pages#welcome'
   
+  resources :static_pages do
+    collection do
+      post :create_pic_author
+    end
+  end
+  
   resources :sessions, only: [:new, :create, :destroy]
   resources :users do
     resources :honors, only: [:show, :update]
@@ -107,6 +113,7 @@ Rails.application.routes.draw do
   get 'cookies' => 'static_pages#cookies'
   get 'services' => 'static_pages#services'
   get 'vacancies' => 'static_pages#vacancies'
+  get 'designers' => 'static_pages#designers'
   get 'test' => 'tasks#test'
   get 'rating' => 'ratings#index'
   # The priority is based upon order of creation: first created -> highest priority.

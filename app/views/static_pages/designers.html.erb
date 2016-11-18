@@ -1,0 +1,32 @@
+<div class='attraction parents-attraction tac'>
+	<h1 class='h--thin'>Дизайнеры</h1>
+	<p class='tcw'>Имена дизайнеров, чьи иллюстрации используются на сайте</p>
+</div>
+<div class='row parents-page'>
+	<% if current_user && current_user.admin? %>
+		<div class='cell940 card mbl'>
+			<div class='part1'>
+				<div class='text'>
+					<%= simple_form_for(PicAuthor.new, url: create_pic_author_static_pages_path) do |f| %>
+				      <%= f.input :name, label: false, input_html: { class: 'input-sp',  placeholder: 'Имя автора' } %>
+				      <%= f.input :link, label: false, input_html: { class: 'input-sp',  placeholder: 'Ссылка на него' } %>
+				      <%= f.button :submit, 'Добавить автора', class: 'btn btn-our btn-our-green' %>
+				  <% end %>
+				</div>
+				<div class='clear'></div>
+			</div>
+		</div>
+	<% end %>
+	<div class='cell940 card mbl'>
+		<div class='part1'>
+			<div class='text authors-list'>
+				<p>
+					<% @authors.each do |author| %>
+						<a href='<%= author.link %>' target='_blank'><%= author.name %></a>
+					<% end %>
+				</p>
+			</div>
+			<div class='clear'></div>
+		</div>
+	</div>
+</div>
