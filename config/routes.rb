@@ -106,6 +106,7 @@ Rails.application.routes.draw do
   get 'confidential' => 'static_pages#confidential'
   get 'cookies' => 'static_pages#cookies'
   get 'services' => 'static_pages#services'
+  get 'vacancies' => 'static_pages#vacancies'
   get 'test' => 'tasks#test'
   get 'rating' => 'ratings#index'
   # The priority is based upon order of creation: first created -> highest priority.
