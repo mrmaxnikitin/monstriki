@@ -36,7 +36,7 @@ class UsersController < InheritedResources::Base
 	end
 
   def fetch_data_admin
-    @tracks_3 = Track.where(current_quest: 3).where("updated_at < ?", 1.day.ago).all
+    @tracks_m3 = Track.where("current_quest <= 3").where("updated_at < ?", 1.day.ago).all
     @tracks_b3 = Track.where("current_quest > 3").where("updated_at < ?", 1.day.ago).all
   end
 	
