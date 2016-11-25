@@ -173,14 +173,16 @@
 								<%= link_to "Квесты других ребят", extra_quests_path, class: "btn btn-our-orange" %>
 							</div>
 						</div>
-						<div class='leave-review mtm'>
-							<div class='card pd20 tac glass-background'>
-								<p>Если Вам понравился наш сайт, то оставьте, пожалуйста, отзыв. Для нас это очень важно, ведь мы старались!</p>
-								<div class='mtm'>
-									<%= link_to "Оставить отзыв", posts_path, class: "btn btn-our-green" %>
+						<% if @track.complete_quest == true && @quest.checkpoint %>
+							<div class='leave-review mtm'>
+								<div class='card pd20 tac glass-background'>
+									<p>Если Вам понравился наш сайт, то оставьте, пожалуйста, отзыв. Для нас это очень важно, ведь мы старались!</p>
+									<div class='mtm'>
+										<%= link_to "Оставить отзыв", posts_path, class: "btn btn-our-green" %>
+									</div>
 								</div>
 							</div>
-						</div>
+						<% end %>
 					</div>
 				<% end %>
 				<div class='clear'></div>
