@@ -19,7 +19,6 @@
 										 	format = "gif"
 									%>
 									<img src='/images/next-quest-pics/next-quest-pic<%= pic_number %>.<%= format %>' class='img-next-quest'/>
-									<p class='tac'>Вам понравилась интеллектуальная игра? Вы можете <%= link_to "ОСТАВИТЬ СВОЙ ОТЗЫВ", posts_path %>.</p>
 								</div>
 								<div class='col col-4of6 content'>
 									<h1>Игра пройдена!</h1>
@@ -173,15 +172,16 @@
 								<%= link_to "Квесты других ребят", extra_quests_path, class: "btn btn-our-orange" %>
 							</div>
 						</div>
-
-						<div class='leave-review mtm'>
-							<div class='card pd20 tac glass-background'>
-								<p>Если Вам понравился наш сайт, то оставьте, пожалуйста, отзыв. Для нас это очень важно, ведь мы старались!</p>
-								<div class='mtm'>
-									<%= link_to "Оставить отзыв", posts_path, class: "btn btn-our-green" %>
+						<% if @track.complete_quest == true && @quest.checkpoint %>
+							<div class='leave-review mtm'>
+								<div class='card pd20 tac glass-background'>
+									<p>Если Вам понравился наш сайт, то оставьте, пожалуйста, отзыв. Для нас это очень важно, ведь мы старались!</p>
+									<div class='mtm'>
+										<%= link_to "Оставить отзыв", posts_path, class: "btn btn-our-green" %>
+									</div>
 								</div>
 							</div>
-						</div>
+						<% end %>
 					</div>
 				<% end %>
 				<div class='clear'></div>

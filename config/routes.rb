@@ -114,8 +114,10 @@ Rails.application.routes.draw do
   get 'services' => 'static_pages#services'
   get 'vacancies' => 'static_pages#vacancies'
   get 'designers' => 'static_pages#designers'
+  get 'shop' => 'static_pages#shop'
   get 'test' => 'tasks#test'
   get 'rating' => 'ratings#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

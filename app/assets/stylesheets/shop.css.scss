@@ -1,0 +1,46 @@
+.cover-shop{
+	background-image: url(/images/shop/1.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position-y: 10%;
+	height: 600px;
+	.UTP{
+		width: 500px;
+		position: absolute;
+		left: 50%;
+		top: 14%;
+		margin-left: -28%;
+		h1{
+			color: #ff1e4a;
+			font-family: 'Gagalin';
+			font-size: 34px;
+		}
+		h4{
+			color: #fff;
+		}
+		span{
+			background-color: rgba(255, 255, 255, 1);
+			padding: 8px 12px;
+		}
+	}
+}
+
+.craft-set{
+	background-color: white;
+	padding: 40px;
+	.short-line{
+		width: 80px;
+		margin: auto;
+		border: 3px solid #ff1e4a;
+		border-radius: 10px;
+	}
+	h1{
+		margin-bottom: 5px !important;
+	}
+	p{
+		font-size: 16px;
+	}
+	img{
+		border-radius: 200px;
+	}
+}
