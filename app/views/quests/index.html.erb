@@ -127,7 +127,9 @@
 								<p class='second-text second-text-IG'>
 									<span class='text'><b>Интеллектуальная игра</b> нацелена на развитие логики, речи, математического мышления, памяти, внимания и представлений об окружающем мире.
 									<br><br>
-									После каждой интеллектуальной игры <b>выдается диплом</b>.</span>
+									<% if !logged_in? %>
+										<%= link_to 'Попробовать поучаствовать!', test_path, class: 'butn medium red rounded' %>
+									<% end %></span>
 								</p>
 							</div>
 							<div class='clear'></div>
