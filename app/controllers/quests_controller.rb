@@ -32,9 +32,6 @@ class QuestsController < ApplicationController
 		#переход к следующему квесту
 		if logged_in?
 			answers = @track.answers
-			puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
-			puts answers
-			puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
 			unanswered = 0
 			if @track.answers != nil
 				if @quest.checkpoint
@@ -51,9 +48,26 @@ class QuestsController < ApplicationController
 				current_user.score += 10
 				current_user.save
 				if @quest.checkpoint && !@track.complete_quest && !current_user.honors.find_by_quest_id(current_user.track.current_quest)
+					degree_indicator = 0
+					for 0..answers.size-1
+		        if answers[i] == '2'
+		          degree_indicator += 1
+		        end
+		      end
+		      if degree_indicator == 0 || degree_indicator == 1
+		      	degree = 1
+		      elsif degree_indicator == 2 || degree_indicator == 3
+		      	degree = 2
+		      elsif degree_indicator == 4
+		      	degree = 3
+		      elsif
+		      	degree = 0
+		      end
+		      	
+		      	
 					current_user.honors.create(quest_id: current_user.track.current_quest, 
-																		 degree: params[:degree],
-																		 price: params[:price],
+																		 degree: degree,
+																		 price: 90,
 																		 honor_type: 1,
 																		 name: current_user.name,
 																		 age: current_user.age)
