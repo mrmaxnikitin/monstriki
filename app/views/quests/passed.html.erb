@@ -9,6 +9,29 @@
 				<span>Здесь можно повторно пройти квесты, которые понравились.</span>
 			</div>
 			<div class='passed-quest'>
+				<% if @track.complete_quest && @quest.checkpoint %>
+					<%
+						if current_user.age == 4 || current_user.age == 5
+							pic1 = Task.find(Quest.find(@quest.id).age6[0]).pic1
+							if pic1 == "пусто"
+								pic1 = Task.find(Quest.find(@quest.id).age6[0]).pic2
+							end
+						elsif current_user.age == 6 || current_user.age == 7
+							pic1 = Task.find(Quest.find(@quest.id).age7[0]).pic1
+							if pic1 == "пусто"
+								pic1 = Task.find(Quest.find(@quest.id).age7[0]).pic2
+							end
+						end 
+					%>
+					<%= link_to quest_path(@quest)  do %>
+						<div class='col col-press-25 col-padding'>
+							<div class='card tac'>
+								<img src='<%= pic1 %>' />
+								<h4 class='mts mbs'>Квест <%= @quest.id %></h4>
+							</div>
+						</div>
+					<% end %>
+				<% end %>
 				<% @prev_quests.each do |quest|%>
 					<div class='col col-press-25 col-padding'>
 						<%

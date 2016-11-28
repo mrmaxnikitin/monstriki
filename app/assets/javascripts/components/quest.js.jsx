@@ -264,7 +264,7 @@ const Quest = React.createClass({
       });
     }
   },
-  finish_quest: function() {
+  /*finish_quest: function() {
     var degree, score_for_quest = this.state.score + 10
       if(this.props.complete_quest) score_for_quest = this.state.score;
 
@@ -315,7 +315,7 @@ const Quest = React.createClass({
     this.setState({
       error_message: 1
     });
-  },
+  },*/
   sendErrorMessage: function() {
     var num_current_task = this.state.num_current_task
     var text_error_message_input = ReactDOM.findDOMNode(this.refs.error_message)

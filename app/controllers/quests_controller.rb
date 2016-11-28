@@ -26,7 +26,7 @@ class QuestsController < ApplicationController
 
 
 			#предыдущие квесты
-			@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(5)
+			@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(4)
 		end
 
 		#переход к следующему квесту
@@ -46,14 +46,16 @@ class QuestsController < ApplicationController
 			end
 			if @track.answers != nil && unanswered == 0
 				current_user.score += 10
-				current_user.save
+    		current_user.save
 				if @quest.checkpoint && !@track.complete_quest && !current_user.honors.find_by_quest_id(current_user.track.current_quest)
+					
 					degree_indicator = 0
-					for 0..answers.size-1
+					for i in 0..answers.size-1
 		        if answers[i] == '2'
 		          degree_indicator += 1
 		        end
 		      end
+
 		      if degree_indicator == 0 || degree_indicator == 1
 		      	degree = 1
 		      elsif degree_indicator == 2 || degree_indicator == 3
@@ -170,24 +172,23 @@ class QuestsController < ApplicationController
 		render nothing: true
 	end
 
-	def finish_trip
-		current_user.score = params[:score]
-		current_user.save
-		if @quest.checkpoint && !@track.complete_quest && !current_user.honors.find_by_quest_id(current_user.track.current_quest)
-			current_user.honors.create(quest_id: current_user.track.current_quest, 
-																 degree: params[:degree],
-																 price: params[:price],
-																 honor_type: 1,
-																 name: current_user.name,
-																 age: current_user.age)
-		end
-		@track.finish_trip
-		if !@quest.checkpoint
-			@track.next_quest
-		end
-		@track.save
-		render nothing: true
-	end
+	#def finish_trip
+	#	current_user.score = params[:score]
+	#	current_user.save
+	#	if @quest.checkpoint && !@track.complete_quest && !current_user.honors.find_by_quest_id(current_user.track.current_quest)
+	#		current_user.honors.create(quest_id: current_user.track.current_quest, 
+	#															 degree: params[:degree],
+	#															 price: params[:price],
+	#															 honor_type: 1,
+	#															 name: current_user.name,
+	#															 age: current_user.age)
+	#	end
+	#	@track.finish_trip
+	#	if !@quest.checkpoint
+	#		@track.next_quest
+	#	end
+	#	@track.save
+	#	render nothing: true
 
 	#def next_quest
 	#	@track.next_quest
