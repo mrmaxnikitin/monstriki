@@ -30,12 +30,33 @@ class QuestsController < ApplicationController
 		end
 
 		#переход к следующему квесту
-		#unanswered = 0
-		#@track.answers.each do |ta|
-		#	unanswered = 1 if ta == '0'
-		#end
-		#if @track.answer != nil && unanswered == 0
-		#end
+		unanswered = 0
+		if @quest.checkpoint
+			@track.answers.each do |ta|
+				unanswered = 1 if ta == '0'
+			end
+		else
+			@track.answers.each do |ta|
+				unanswered = 1 if ta == '0' || ta == '2'
+			end
+		end
+		if @track.answer != nil && unanswered == 0
+			current_user.score += 10
+			current_user.save
+			if @quest.checkpoint && !@track.complete_quest && !current_user.honors.find_by_quest_id(current_user.track.current_quest)
+				current_user.honors.create(quest_id: current_user.track.current_quest, 
+																	 degree: params[:degree],
+																	 price: params[:price],
+																	 honor_type: 1,
+																	 name: current_user.name,
+																	 age: current_user.age)
+			end
+			@track.finish_trip
+			if !@quest.checkpoint
+				@track.next_quest
+			end
+			@track.save
+		end
 
 		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
 		#puts @quests.count
