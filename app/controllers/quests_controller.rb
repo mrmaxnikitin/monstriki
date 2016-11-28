@@ -48,7 +48,7 @@ class QuestsController < ApplicationController
 				current_user.score += 10
     		current_user.save
 				if @quest.checkpoint && !@track.complete_quest && !current_user.honors.find_by_quest_id(current_user.track.current_quest)
-					
+					degree = 0
 					degree_indicator = 0
 					for i in 0..answers.size-1
 		        if answers[i] == '2'
