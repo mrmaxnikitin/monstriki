@@ -45,8 +45,10 @@ class QuestsController < ApplicationController
 				end
 			end
 			if @track.answers != nil && unanswered == 0
-				current_user.score += 10
-    		current_user.save
+				if !@track.complete_quest
+					current_user.score += 10
+    			current_user.save
+    		end
 				if @quest.checkpoint && !@track.complete_quest && !current_user.honors.find_by_quest_id(current_user.track.current_quest)
 					degree = 0
 					degree_indicator = 0
