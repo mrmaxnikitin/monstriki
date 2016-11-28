@@ -29,6 +29,14 @@ class QuestsController < ApplicationController
 			@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(5)
 		end
 
+		#переход к следующему квесту
+		#unanswered = 0
+		#@track.answers.each do |ta|
+		#	unanswered = 1 if ta == '0'
+		#end
+		#if @track.answer != nil && unanswered == 0
+		#end
+
 		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
 		#puts @quests.count
 		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
