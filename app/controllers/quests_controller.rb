@@ -31,7 +31,39 @@ class QuestsController < ApplicationController
 
 		#переход к следующему квесту
 		if logged_in?
-			
+			answers = @track.answers
+			puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
+			puts answers
+			puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
+			unanswered = 0
+			if @track.answers != nil
+				if @quest.checkpoint
+					for i in 0..answers.size-1
+						unanswered = 1 if answers[i] == '0'
+					end
+				else
+					for i in 0..answers.size-1
+						unanswered = 1 if answers[i] == '0' || answers[i] == '2'
+					end
+				end
+			end
+			if @track.answers != nil && unanswered == 0
+				current_user.score += 10
+				current_user.save
+				if @quest.checkpoint && !@track.complete_quest && !current_user.honors.find_by_quest_id(current_user.track.current_quest)
+					current_user.honors.create(quest_id: current_user.track.current_quest, 
+																		 degree: params[:degree],
+																		 price: params[:price],
+																		 honor_type: 1,
+																		 name: current_user.name,
+																		 age: current_user.age)
+				end
+				@track.finish_trip
+				if !@quest.checkpoint
+					@track.next_quest
+				end
+				@track.save
+			end
 		end
 
 		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
