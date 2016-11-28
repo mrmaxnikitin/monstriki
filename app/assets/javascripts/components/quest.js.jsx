@@ -591,7 +591,7 @@ const Quest = React.createClass({
               </p>
             <div className='invitation-tomorrow'>Поздравляем тебя! Квест успешно пройден!</div>
             <div className='actions'>
-              <a className='btn btn-our-red the-end-of-test' onClick={this.finish_quest}>Получить 10 монеток и продолжить</a>
+              <a className='btn btn-our-red the-end-of-test' onClick={this.finish_quest}>Продолжить</a>
             </div>
           </div>
           <div className='clear'></div>
