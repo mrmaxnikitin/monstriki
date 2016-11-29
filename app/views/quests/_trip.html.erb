@@ -45,18 +45,19 @@
 	%>
 	<% if active_link %>
 		<%= link_to trip_quests_path, class: "snap-sound" do %>
-			<div class='trip-quest current-quest mbl'>
+			<div class='trip-quest current-quest bigEntrance mbl'>
 				<div class='status-trip-quest node'>
 					<% if status_quest == 2 %>
 						<img src='/images/done-quest.png' />
 					<% elsif status_quest == 1 %>
 						<img class='pulse' src='/images/play-quest.png' />
-					<% else%>
-						<img src='/images/node.png' />
 					<% end %>
 				</div>
 				<div class='card card-trip-quest fr'>
 					<div class='col-1of6 col tac'>
+						<% if status_quest == 0
+							pic1 = "/images/lock.jpg"
+						end %>
 						<img src='<%= pic1 %>' />
 					</div>
 					<div class='direction-content col col-5of6'>
@@ -75,18 +76,22 @@
 			</div>
 		<% end %>
 	<% else %>
-		<div class='trip-quest trip-quest-inactive mbl'>
+		<% if status_quest == 0 
+			grayscale = "grayscale-inactive"
+		end %>
+		<div class='trip-quest trip-quest-inactive <%= grayscale %> mbl'>
 			<div class='status-trip-quest node'>
 				<% if status_quest == 2 %>
 					<img src='/images/done-quest.png' />
 				<% elsif status_quest == 1 %>
 					<img src='/images/play-quest.png' />
-				<% else %>
-					<img src='/images/node.png' />
 				<% end %>
 			</div>
 			<div class='card card-trip-quest fr'>
 				<div class='col-1of6 col tac'>
+					<% if status_quest == 0
+						pic1 = "/images/lock.jpg"
+					end %>
 					<img src='<%= pic1 %>' />
 				</div>
 				<div class='direction-content col col-5of6'>
@@ -96,8 +101,12 @@
 							<span class='tag tag--heading tag--red fr tag--diploma'>После прохождения диплом</span>
 						<% end %>
 					</div>
-					<h3 class='h--thin tcm mbm'><%= quest_title %></h3>
-					<p><%= quest_text %></p>
+					<% if status_quest == 2 %>
+						<h3 class='text-quest-completed'>Квест пройден!</h3>
+					<% else %>
+						<h3 class='h--thin tcm mbm'><%= quest_title %></h3>
+						<p><%= quest_text %></p>
+					<% end %>
 				</div>
 				<div class='clear'></div>
 			</div>

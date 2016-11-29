@@ -618,7 +618,7 @@ const Quest = React.createClass({
     };
     var content_error_message
     if(this.state.num_current_task < this.state.tasks.length){
-      content_error_message = <p onClick={this.error_message} style={style_task_text}>В задании ошибка? Сообщите</p>
+      content_error_message = <p onClick={this.error_message} style={style_task_text}>В задании ошибка? Сообщите!</p>
       if(this.state.error_message == 1){
         content_error_message=(
           <div className='content-task-error'>

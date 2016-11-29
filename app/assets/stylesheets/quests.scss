@@ -240,12 +240,20 @@
     width: 6px;
     z-index: 1;
 }*/
-.trip-quest-inactive{
+.grayscale-inactive{
   filter: grayscale(60%);
   -webkit-filter: grayscale(60%);
   -moz-filter: grayscale(60%);
   -ms-filter: grayscale(60%);
   -o-filter: grayscale(60%);
+}
+.trip-quest-inactive{
+  .text-quest-completed{
+    font-size: 32px;
+    color: #11c140;
+    font-family: 'Gagalin';
+    margin-top: 10px;
+  }
 }
 .current-quest{
   .card-trip-quest{
