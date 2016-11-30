@@ -135,7 +135,7 @@
 							<div class='clear'></div>
 						</div>
 					<% end %>
-					<% if logged_in? && @prev_quests.count != 0 %>
+					<% if logged_in? && (@prev_quests.count != 0 || @track.current_quest > 3 || (@track.current_quest == 3 && @track.complete_quest)) %>
 						<div class='previous-quests mbl'>
 							<h3 class='h--thin mts mbs'>Пройденные квесты<span> • </span><%= link_to "Все пройденные квесты", passed_quests_path %></h3>
 							<div class='list-prev-quests'>

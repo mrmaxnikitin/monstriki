@@ -26,7 +26,11 @@ class QuestsController < ApplicationController
 
 
 			#предыдущие квесты
-			@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(4)
+			if @track.complete_quest && @quest.checkpoint
+				@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(4)
+			else
+				@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(5)
+			end
 		end
 
 		#переход к следующему квесту
