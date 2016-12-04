@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118184720) do
+ActiveRecord::Schema.define(version: 20161201134102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20161118184720) do
 
   add_index "honors", ["user_id", "quest_id"], name: "index_honors_on_user_id_and_quest_id", unique: true, using: :btree
   add_index "honors", ["user_id"], name: "index_honors_on_user_id", using: :btree
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "img"
+    t.text     "tours",                   array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "monsters", force: :cascade do |t|
     t.string   "avatar"
@@ -87,6 +95,7 @@ ActiveRecord::Schema.define(version: 20161118184720) do
     t.string   "posy_background", default: "0"
     t.string   "tour_name"
     t.string   "task_text_color", default: "#ffffff"
+    t.boolean  "final",           default: false
   end
 
   create_table "task_errors", force: :cascade do |t|
@@ -135,13 +144,23 @@ ActiveRecord::Schema.define(version: 20161118184720) do
     t.integer  "thing_type"
   end
 
+  create_table "tours", force: :cascade do |t|
+    t.string   "name"
+    t.string   "img"
+    t.text     "quests",                  array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tracks", force: :cascade do |t|
-    t.integer  "current_quest",  default: 1
-    t.boolean  "complete_quest", default: false
+    t.integer  "current_quest",    default: 1
+    t.boolean  "complete_quest",   default: false
     t.integer  "user_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "answers"
+    t.integer  "current_tour",     default: 1
+    t.integer  "current_location", default: 1
   end
 
   add_index "tracks", ["user_id"], name: "index_tracks_on_user_id", using: :btree

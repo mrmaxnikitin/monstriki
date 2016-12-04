@@ -1,0 +1,39 @@
+<div class='cover location6 location-content'>
+	<% tours = Tour.find(Location.find(@track.current_location).tours) %>
+	<% tours.each do |tour|%>
+		
+		<div class='col col-3of6 tour<%= tour.id %>'>
+			<div class='wrap-img-tour ma tac'>
+			</div>
+			<% class_loc_progress = ''
+			if (@track.current_tour - 1 == tour.id && !@track.complete_quest) || (@track.current_tour == tour.id && @track.complete_quest)
+				class_loc_progress = 'loc-progress'
+			end %>
+			<% completed_tour = ''
+			if @track.current_tour > tour.id 
+				completed_tour = 'completed-tour'
+			end %>
+			<% floating = ''
+			if @track.current_tour == tour.id 
+				floating = 'floating'
+			end %>
+			<div class='title <%= completed_tour %> <%= class_loc_progress %>'>
+				<div class='fl <%= floating %> status-icon'>
+					<% if @track.current_tour > tour.id %>
+							<img src='images/check-tour.png' />
+					<% elsif @track.current_tour == tour.id %>
+							<img src='images/this-tour.png' /> <span>Ты здесь!</span>
+					<% end %>
+				</div>
+				<h6 class='fr pd10'><%= tour.name %></h6>
+				<div class='clear'></div>
+			</div>
+		</div>
+	<% end %>
+</div>
+<div class='clear'></div>
+<script>
+	$(document).ready(function(){
+		$('.img-tour').height($('.img-tour').width())
+	});
+</script>

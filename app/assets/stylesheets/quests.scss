@@ -12,8 +12,31 @@
 	background-size: cover;
 	background-color: #f74242;
 }
-.trip-quest{
-
+.trip-all-quests{
+  position: relative;
+  .trip-quest{
+    .card{
+      padding: 20px !important;
+      .quest-img{
+        width: 55%;
+        border-radius: 200px;
+        .quest-status{
+          height: 28px;
+          position: relative;
+          top: 6px;
+          left: 42%;
+          width: 28px;
+          background-color: rgb(255, 255, 255);
+          box-shadow: rgba(20, 20, 20, 0.298039) 0px 0px 3px;
+          padding: 4px;
+          border-radius: 50%;
+        }
+      }
+      h5{
+        color: #393d40;
+      }
+    }
+  }
 }
 .card-trip-quest{
 	width: 92.5%;
@@ -293,6 +316,8 @@
     top: -5px;
     left: 4px;
     margin-left: 6px;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
     .avatar{
       width: 26px;
       height: 26px;
@@ -372,4 +397,7 @@
     width: 60% !important;
     padding: 40px !important;
   }
+}
+.max-width-start{
+  max-width: 1090px;
 }

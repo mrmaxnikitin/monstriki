@@ -1,0 +1,22 @@
+<div class='cover location3'>
+	<% tours = Tour.find(Location.find(@track.current_location).tours) %>
+	<% tours.each do |tour|%>
+		<% if @track.current_tour != tour.id %>
+				<script>
+					$(document).ready(function(){
+				  	setTimeout(function(){$('.location3 .tour<%=tour.id%>').addClass('shadow');}, 1000);
+					});
+				</script>
+		<% end %>
+		<div class='col col-press-25 tour<%= tour.id %>'>
+			<div class='wrap-img-tour ma tac'>
+			</div>
+		</div>
+	<% end %>
+</div>
+<div class='clear'></div>
+<script>
+	$(document).ready(function(){
+		$('.img-tour').height($('.img-tour').width())
+	});
+</script>

@@ -1,0 +1,87 @@
+<% 
+	if @track.current_quest <= Quest.last.id
+	 if @users_same_level.count != 1 
+	 	 users_same_level_amount = "Вы и еще "+@users_same_level_amount.to_s+" человек проходят эту игру"
+	 else
+	 	 users_same_level_amount = "Вы первые на этой игре!"
+	 end
+	end
+%>
+
+<% size_location = Location.find(@track.current_location).tours.size
+	if size_location == 1
+		class_size_location = ''
+	elsif size_location == 2
+		class_size_location = 'col col-3of6'
+	elsif size_location == 3
+		class_size_location = 'col col-2of6'
+	elsif size_location == 4
+		class_size_location = 'col col-press-25'
+	elsif size_location == 5
+		class_size_location = 'col col-press-20'
+	end	
+%>
+
+<div class='location card mbm'>
+	<div class='location-title-and-participant'>
+		<span class="tag tag--heading tag--red fr tag--diploma">После прохождения диплом</span>
+		<% if Location.find(@track.current_location) %>
+			<h2><%= Location.find(@track.current_location).name %></h2>
+		<% end %>
+		<div class='explanation-page-after-title pass-this-tour mbs' style='margin: auto;'>
+			<div class='col'><%= users_same_level_amount %></div>
+			<% @users_same_level.each do |track|%>
+				<% 
+					user = User.find(track.user_id)
+					monster_id = user.user_monster.monster_id 
+				%>
+				<%= link_to user do %>
+					<div class='col card circle'>
+						<div class='avatar circle' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+			<div class='clear'></div>
+		</div>
+	</div>
+	<div class='cover location<%= @track.current_location %> location-content'>
+		<% tours = Tour.find(Location.find(@track.current_location).tours) %>	
+		<% tours.each do |tour|%>
+			<div class='the-tour tour<%= tour.id %> <%= class_size_location %>'>
+				<div class='wrap-img-tour ma tac' style="background: url(/images/locations/t<%=tour.id%>.png) center center / cover;">
+					<% completed_tour = ''
+						if @track.current_tour > tour.id 
+							completed_tour = 'completed-tour'
+						end %>
+						<% floating = ''
+						if @track.current_tour == tour.id 
+							floating = 'floating'
+						end %>
+					<div class='<%= floating %> status-icon'>
+						
+						<% if @track.current_tour == tour.id %>
+								<img src='images/this-tour.png'/> <!--<span>Ты здесь!</span>-->
+						<% end %>
+					</div>
+				</div>
+
+				<% class_loc_progress = ''
+				if (@track.current_tour == tour.id && @track.complete_quest)
+					class_loc_progress = 'loc-progress'
+				end %>
+				<div class='title <%= completed_tour %> <%= class_loc_progress %>'>
+					<% if @track.current_tour == tour.id && !@track.complete_quest %>
+						<h6 class='tac' style='background-color: #ff1e4a; color: white;'><%= tour.name %></h6>
+					<% elsif @track.current_tour < tour.id %>
+						<h6 class='tac'><img src='/images/locked.png' /> <%= tour.name %></h6>
+					<% else %>
+						<h6 class='tac' style='color: white;'><%= tour.name %></h6>
+					<% end %>
+					<div class='clear'></div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<div class='clear'></div>
+</div>
