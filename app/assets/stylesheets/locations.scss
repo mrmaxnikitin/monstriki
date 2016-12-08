@@ -199,6 +199,15 @@
 		background: linear-gradient(to right, #69db81 100%, #fff 100%)
 	}
 }
+@media screen and (max-width: 1369px) {
+  .location{
+		.cover{
+			.wrap-img-tour{
+				height: 155px;
+			}
+		}
+	}
+}
 
 /* Первая локация */
 .location1{
