@@ -2,9 +2,9 @@
 	<% 
 		if @track.current_location <= Location.last.id
 		 if @users_same_location.count != 1 
-		 	 users_same_location_amount = "Вы и еще "+@users_same_location_amount.to_s+" человек проходят эту игру"
+		 	 users_same_location_amount = "Вы и еще "+@users_same_location_amount.to_s+" человек проходят эту локацию"
 		 else
-		 	 users_same_location_amount = "Вы первые на этой игре!"
+		 	 users_same_location_amount = "Вы первые на этой локации!"
 		 end
 		end
 	%>

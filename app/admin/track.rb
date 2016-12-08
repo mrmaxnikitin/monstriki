@@ -7,12 +7,15 @@ filter :id
 filter :user_id, label: "user id"
 filter :current_quest, label: "quest id"
 filter :updated_at, label: "Обновлен"
+filter :created_at, label: "Создан"
 filter :complete_quest, label: "Квест выполнен?"
 
 index do
   id_column
   column :user_id, label: "user id"
   column ('email') {|u| User.find(u.user_id).email}
+  column :current_location, label: "Текущая локация"
+  column :current_tour, label: "Текущий уровень"
   column :current_quest, label: "Текущий квест"
   column :complete_quest, label: "Квест выполнен"
   column :answers, label: "Ответы"
@@ -23,6 +26,8 @@ show do
   attributes_table do
     row :user_id
     row ('email') {|u| User.find(u.id).email}
+    row :current_location
+    row :current_tour
     row :current_quest
     row :complete_quest
     row :answers
