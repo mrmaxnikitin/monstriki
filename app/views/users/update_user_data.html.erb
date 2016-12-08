@@ -1,109 +1,49 @@
 <%
-	@tracks = Track.all
-	@tracks.each do |track|
-		if track.current_quest >= 1 && track.current_quest <= 3
-			track.current_tour = 1
-			track.current_location = 1
-		elsif track.current_quest >= 4 && track.current_quest <= 6
-			track.current_tour = 2
-			track.current_location = 2
-		elsif track.current_quest >= 7 && track.current_quest <= 8
-			track.current_tour = 3
-			track.current_location = 2
-		elsif track.current_quest >= 9 && track.current_quest <= 11
-			track.current_tour = 4
-			track.current_location = 2
-		elsif track.current_quest >= 12 && track.current_quest <= 14
-			track.current_tour = 5
-			track.current_location = 3
-		elsif track.current_quest >= 15 && track.current_quest <= 17
-			track.current_tour = 6
-			track.current_location = 3
-		elsif track.current_quest >= 18 && track.current_quest <= 19
-			track.current_tour = 7
-			track.current_location = 3
-		elsif track.current_quest >= 20 && track.current_quest <= 21
-			track.current_tour = 8
-			track.current_location = 3
-		elsif track.current_quest >= 22 && track.current_quest <= 24
-			track.current_tour = 9
-			track.current_location = 4
-		elsif track.current_quest >= 25 && track.current_quest <= 27
-			track.current_tour = 10
-			track.current_location = 4
-		elsif track.current_quest >= 28 && track.current_quest <= 30
-			track.current_tour = 11
-			track.current_location = 5
-		elsif track.current_quest >= 31 && track.current_quest <= 33
-			track.current_tour = 12
-			track.current_location = 5
-		elsif track.current_quest >= 34 && track.current_quest <= 36
-			track.current_tour = 13
-			track.current_location = 6
-		elsif track.current_quest >= 37 && track.current_quest <= 38
-			track.current_tour = 14
-			track.current_location = 6
-		elsif track.current_quest >= 39 && track.current_quest <= 41
-			track.current_tour = 15
-			track.current_location = 7
-		elsif track.current_quest >= 42 && track.current_quest <= 44
-			track.current_tour = 16
-			track.current_location = 8
-		elsif track.current_quest >= 45 && track.current_quest <= 47
-			track.current_tour = 17
-			track.current_location = 8
-		elsif track.current_quest >= 48 && track.current_quest <= 50
-			track.current_tour = 18
-			track.current_location = 8
-		elsif track.current_quest >= 51 && track.current_quest <= 53
-			track.current_tour = 19
-			track.current_location = 8
+	@honors = Honor.all
+	@honors.each do |honor|
+		if Quest.find(honor.quest_id).final
+			if honor.quest_id >= 1 && honor.quest_id <= 3
+				honor.location_id = 1
+			elsif honor.quest_id >= 4 && honor.quest_id <= 6
+				honor.location_id = 2
+			elsif honor.quest_id >= 7 && honor.quest_id <= 8
+				honor.location_id = 2
+			elsif honor.quest_id >= 9 && honor.quest_id <= 11
+				honor.location_id = 2
+			elsif honor.quest_id >= 12 && honor.quest_id <= 14
+				honor.location_id = 3
+			elsif honor.quest_id >= 15 && honor.quest_id <= 17
+				honor.location_id = 3
+			elsif honor.quest_id >= 18 && honor.quest_id <= 19
+				honor.location_id = 3
+			elsif honor.quest_id >= 20 && honor.quest_id <= 21
+				honor.location_id = 3
+			elsif honor.quest_id >= 22 && honor.quest_id <= 24
+				honor.location_id = 4
+			elsif honor.quest_id >= 25 && honor.quest_id <= 27
+				honor.location_id = 4
+			elsif honor.quest_id >= 28 && honor.quest_id <= 30
+				honor.location_id = 5
+			elsif honor.quest_id >= 31 && honor.quest_id <= 33
+				honor.location_id = 5
+			elsif honor.quest_id >= 34 && honor.quest_id <= 36
+				honor.location_id = 6
+			elsif honor.quest_id >= 37 && honor.quest_id <= 38
+				honor.location_id = 6
+			elsif honor.quest_id >= 39 && honor.quest_id <= 41
+				honor.location_id = 7
+			elsif honor.quest_id >= 42 && honor.quest_id <= 44
+				honor.location_id = 8
+			elsif honor.quest_id >= 45 && honor.quest_id <= 47
+				honor.location_id = 8
+			elsif honor.quest_id >= 48 && honor.quest_id <= 50
+				honor.location_id = 8
+			elsif honor.quest_id >= 51 && honor.quest_id <= 53
+				honor.location_id = 8
+			end
+			honor.save!
+		else
+			Honor.destroy(honor.id)
 		end
-		track.save!
 	end
-%>
-
-<%
-	Quest.find(1).update(final: true)
-	Quest.find(11).update(final: true)
-	Quest.find(21).update(final: true)
-	Quest.find(27).update(final: true)
-	Quest.find(33).update(final: true)
-	Quest.find(38).update(final: true)
-	Quest.find(41).update(final: true)
-	Quest.find(53).update(final: true)
-%>
-
-<%
-	Location.create(name: "Невероятные приключения", tours: ['1'])
-	Location.create(name: "Чудеса природы", tours: ['2', '3', '4'])
-	Location.create(name: "В стране загадок ", tours: ['5', '6', '7', '8'])
-	Location.create(name: "Морские тайны", tours: ['9', '10'])
-	Location.create(name: "Тайный остров", tours: ['11', '12'])
-	Location.create(name: "Свет в окошке", tours: ['13', '14'])
-	Location.create(name: "Комната игрушек", tours: ['15'])
-	Location.create(name: "Лесное Чудо-юдо", tours: ['16', '17', '18', '19'])
-	Location.create(name: "В поисках клада", tours: ['20', '21', '22'])
-%>
-
-<%
-	Tour.create(name: "Невероятные приключения", quests: ['1', '2', '3'])
-	Tour.create(name: "Сказочная долина", quests: ['4', '5', '6'])
-	Tour.create(name: "Тайны пирамид", quests: ['7', '8'])
-	Tour.create(name: "Лесные загадки", quests: ['9', '10', '11'])
-	Tour.create(name: "Таинственный город", quests: ['12', '13', '14'])
-	Tour.create(name: "Космическое путешествие", quests: ['15', '16', '17'])
-	Tour.create(name: "На воздушном шаре", quests: ['18', '19'])
-	Tour.create(name: "В стране загадок", quests: ['20', '21'])
-	Tour.create(name: "Маленькое царство", quests: ['22', '23', '24'])
-	Tour.create(name: "Морские тайны", quests: ['25', '26', '27'])
-	Tour.create(name: "Право на борт", quests: ['28', '29', '30'])
-	Tour.create(name: "Вижу землю!", quests: ['31', '32', '33'])
-	Tour.create(name: "Звездная ночь", quests: ['34', '35', '36'])
-	Tour.create(name: "Свет в окошке", quests: ['37', '38'])
-	Tour.create(name: "Комната игрушек ", quests: ['39', '40', '41'])
-	Tour.create(name: "Волшебное приключение", quests: ['42', '43', '44'])
-	Tour.create(name: "Лесная тропинка", quests: ['45', '46', '47'])
-	Tour.create(name: "Лесное Чудо-юдо", quests: ['48', '49', '50'])
-	Tour.create(name: "Лесные обитатели", quests: ['51', '52', '53'])
 %>
