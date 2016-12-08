@@ -40,35 +40,39 @@
 		quest_text = 'Выполни все задания, чтобы открыть следующий квест'
 		if quest.checkpoint
 			quest_title = "Котрольный квест"
+			quest_text = 'Постарайся не допускать ошибок'
+		end
+		if quest.final
+			quest_title = "Финальный квест"
 			quest_text = 'Меньше ошибок - выше степень диплома'
 		end
 	%>
 	<% if active_link %>
 		<%= link_to trip_quests_path, class: "snap-sound" do %>
-			<div class='trip-quest current-quest bigEntrance mbl'>
-				<div class='status-trip-quest node'>
-					<% if status_quest == 2 %>
-						<img src='/images/done-quest.png' />
-					<% elsif status_quest == 1 %>
-						<img class='pulse' src='/images/play-quest.png' />
-					<% end %>
-				</div>
-				<div class='card card-trip-quest fr'>
-					<div class='col-1of6 col tac'>
+			<div class='trip-quest current-quest mbl'>
+				<div class='card card-trip-quest'>
+					<div class='col-1of6 col tac quest-img'>
 						<% if status_quest == 0
 							pic1 = "/images/lock.jpg"
 						end %>
 						<img src='<%= pic1 %>' />
 					</div>
-					<div class='direction-content col col-5of6'>
+					<div class='direction-content col col-4of6'>
 						<div>
 							<span class='tag tag--heading'>Для <%= current_user.age %> лет</span>
-							<% if quest.checkpoint %>
+							<% if quest.checkpoint && quest.final %>
 								<span class='tag tag--heading tag--red fr tag--diploma'>После прохождения диплом</span>
 							<% end %>
 						</div>
 						<h3 class='h--thin tcm mbm'><%= quest_title %></h3>
 						<p><%= quest_text %></p>
+					</div>
+					<div class='status-trip-quest node col col-1of6 tac'>
+						<% if status_quest == 2 %>
+							<img src='/images/done-quest.png' />
+						<% elsif status_quest == 1 %>
+							<img class='pulse' src='/images/play-quest.png' />
+						<% end %>
 					</div>
 					<div class='clear'></div>
 				</div>
@@ -80,21 +84,14 @@
 			grayscale = "grayscale-inactive"
 		end %>
 		<div class='trip-quest trip-quest-inactive <%= grayscale %> mbl'>
-			<div class='status-trip-quest node'>
-				<% if status_quest == 2 %>
-					<img src='/images/done-quest.png' />
-				<% elsif status_quest == 1 %>
-					<img src='/images/play-quest.png' />
-				<% end %>
-			</div>
 			<div class='card card-trip-quest fr'>
-				<div class='col-1of6 col tac'>
+				<div class='col-1of6 col tac quest-img'>
 					<% if status_quest == 0
 						pic1 = "/images/lock.jpg"
 					end %>
 					<img src='<%= pic1 %>' />
 				</div>
-				<div class='direction-content col col-5of6'>
+				<div class='direction-content col col-4of6'>
 					<div>
 						<span class='tag tag--heading'>Для <%= current_user.age %> лет</span>
 						<% if quest.checkpoint %>
@@ -108,6 +105,13 @@
 							<p><%= quest_text %></p>
 						<% end %>
 				</div>
+				<div class='status-trip-quest node col col-1of6 tac'>
+					<% if status_quest == 2 %>
+						<img src='/images/done-quest.png' />
+					<% elsif status_quest == 1 %>
+						<img class='pulse' src='/images/play-quest.png' />
+					<% end %>
+				</div>
 				<div class='clear'></div>
 			</div>
 			<div class='clear'></div>
@@ -116,5 +120,5 @@
 <% end %>
 
 <script>
-	$('.card-trip-quest .col-1of6 img').height($('.card-trip-quest .col-1of6 img').width())
+	$('.card-trip-quest .quest-img img').height($('.card-trip-quest .quest-img img').width())
 </script>

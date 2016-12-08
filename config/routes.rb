@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :user_things
     post :create_prolongation, on: :collection
     get  :fetch_data_admin,    on: :collection
+    get  :update_user_data,    on: :collection
     member do
       get  :bubuki
       get  :stuff
@@ -96,6 +97,7 @@ Rails.application.routes.draw do
   resources :posts
 
   get 'start' => 'quests#index'
+  get 'tour' => 'quests#tour'
 
   get 'logout' => 'sessions#destroy'
   get 'signin' => 'sessions#new'

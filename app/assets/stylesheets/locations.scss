@@ -1,0 +1,296 @@
+.location{
+	padding: 10px 0px 0px 0px !important;
+	border-bottom-left-radius: 0px !important;
+	border-bottom-right-radius: 0px !important;
+	.location-title-and-participant{
+		padding: 0 20px;
+		h2{
+			font-family: 'Gagalin';
+			color: #337ab7;
+			font-size: 150%;
+		}
+		.explanation-page-after-title{
+			color: #393d40;
+		}
+		.amount-of-levels-of-location{
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+			font-size: 49%;
+			margin-left: 7px;
+		}
+	}
+	.cover{
+		.wrap-img-tour{
+			height: 195px;
+		}
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+		border-top: 1px solid #efefef;
+	}
+	.location-content{
+		.the-tour{
+			height: 100%;
+			transition: all 2s ease;
+			.wrap-img-tour{
+				.status-icon{
+					img{
+						width: 45px;
+				    margin-top: 7px;
+					}
+				  span{
+				 		position: relative;
+	  				bottom: 7px;
+	  				color: #ff1e4a;
+	    			font-weight: 500;
+				 	}   
+				}
+			}
+			.title{
+				/*border-left: 1px solid #efefef;*/
+				transition: all 1s ease;
+				h6{
+					padding: 12px 10px;
+					img{
+						width: 12px;
+					}
+				}
+			}
+			.loc-progress{
+				background-color: #69db81;
+				animation: locationProgress 1s 0.000s ease-out;
+				-webkit-animation: locationProgress 1s 0.000s ease-out;
+			}
+			.completed-tour{
+				background-color: #69db81;
+				border-right: 1px solid #58c36e !important;
+			}
+			
+		}
+	}
+}
+
+@keyframes locationProgress {
+	0% {
+		background: linear-gradient(to right, #69db81 0%, #fff 0%)
+	}
+	5% {
+		background: linear-gradient(to right, #69db81 5%, #fff 5%)
+	}
+	10% {
+		background: linear-gradient(to right, #69db81 10%, #fff 10%)
+	}
+	15% {
+		background: linear-gradient(to right, #69db81 15%, #fff 15%)
+	}
+	20% {
+		background: linear-gradient(to right, #69db81 20%, #fff 20%)
+	}
+	25% {
+		background: linear-gradient(to right, #69db81 25%, #fff 25%)
+	}
+	30% {
+		background: linear-gradient(to right, #69db81 30%, #fff 30%)
+	}
+	35% {
+		background: linear-gradient(to right, #69db81 35%, #fff 35%)
+	}
+	40% {
+		background: linear-gradient(to right, #69db81 40%, #fff 40%)
+	}
+	45% {
+		background: linear-gradient(to right, #69db81 45%, #fff 45%)
+	}
+	50% {
+		background: linear-gradient(to right, #69db81 50%, #fff 50%)
+	}
+	50% {
+		background: linear-gradient(to right, #69db81 55%, #fff 55%)
+	}
+	60% {
+		background: linear-gradient(to right, #69db81 60%, #fff 60%)
+	}
+	65% {
+		background: linear-gradient(to right, #69db81 65%, #fff 65%)
+	}
+	70% {
+		background: linear-gradient(to right, #69db81 70%, #fff 70%)
+	}
+	75% {
+		background: linear-gradient(to right, #69db81 75%, #fff 75%)
+	}
+	80% {
+		background: linear-gradient(to right, #69db81 80%, #fff 80%)
+	}
+	85% {
+		background: linear-gradient(to right, #69db81 85%, #fff 85%)
+	}
+	90% {
+		background: linear-gradient(to right, #69db81 90%, #fff 90%)
+	}
+	95% {
+		background: linear-gradient(to right, #69db81 95%, #fff 95%)
+	}
+	100% {
+		background: linear-gradient(to right, #69db81 100%, #fff 100%)
+	}
+}
+
+@-webkit-keyframes locationProgress {
+	0% {
+		background: linear-gradient(to right, #69db81 0%, #fff 0%)
+	}
+	5% {
+		background: linear-gradient(to right, #69db81 5%, #fff 5%)
+	}
+	10% {
+		background: linear-gradient(to right, #69db81 10%, #fff 10%)
+	}
+	15% {
+		background: linear-gradient(to right, #69db81 15%, #fff 15%)
+	}
+	20% {
+		background: linear-gradient(to right, #69db81 20%, #fff 20%)
+	}
+	25% {
+		background: linear-gradient(to right, #69db81 25%, #fff 25%)
+	}
+	30% {
+		background: linear-gradient(to right, #69db81 30%, #fff 30%)
+	}
+	35% {
+		background: linear-gradient(to right, #69db81 35%, #fff 35%)
+	}
+	40% {
+		background: linear-gradient(to right, #69db81 40%, #fff 40%)
+	}
+	45% {
+		background: linear-gradient(to right, #69db81 45%, #fff 45%)
+	}
+	50% {
+		background: linear-gradient(to right, #69db81 50%, #fff 50%)
+	}
+	50% {
+		background: linear-gradient(to right, #69db81 55%, #fff 55%)
+	}
+	60% {
+		background: linear-gradient(to right, #69db81 60%, #fff 60%)
+	}
+	65% {
+		background: linear-gradient(to right, #69db81 65%, #fff 65%)
+	}
+	70% {
+		background: linear-gradient(to right, #69db81 70%, #fff 70%)
+	}
+	75% {
+		background: linear-gradient(to right, #69db81 75%, #fff 75%)
+	}
+	80% {
+		background: linear-gradient(to right, #69db81 80%, #fff 80%)
+	}
+	85% {
+		background: linear-gradient(to right, #69db81 85%, #fff 85%)
+	}
+	90% {
+		background: linear-gradient(to right, #69db81 90%, #fff 90%)
+	}
+	95% {
+		background: linear-gradient(to right, #69db81 95%, #fff 95%)
+	}
+	100% {
+		background: linear-gradient(to right, #69db81 100%, #fff 100%)
+	}
+}
+
+/* Первая локация */
+.location1{
+	.tour1{
+		.wrap-img-tour{
+			background: url(/images/locations/1_1.png) center center / cover;
+		}
+	}
+}
+/* Вторая локация */
+.location2{
+	.tour2{
+		.wrap-img-tour{
+			background: url(/images/locations/2_3.png) center center / cover;
+		}
+	}
+	.tour3{
+		.wrap-img-tour{
+			background: url(/images/locations/2_1.png) center center / cover;
+		}
+	}
+	.tour4{
+		.wrap-img-tour{
+			background: url(/images/locations/2_2.png) center center / cover;
+		}
+	}
+}
+
+/* Третья локация */
+.location3{
+	.tour5{
+		.wrap-img-tour{
+			background: url(/images/locations/3_1.png) #6fc770 center center / cover;
+		}
+	}
+	.tour6{
+		.wrap-img-tour{
+			background: url(/images/locations/3_2.png) #edbb3e center center / cover;
+		}
+	}
+	.tour7{
+		.wrap-img-tour{
+			background: url(/images/locations/3_3.png) #73ab46 center center / cover;
+		}
+	}
+	.tour8{
+		.wrap-img-tour{
+			background: url(/images/locations/3_4.png) #73ab46 center center / cover;
+		}
+	}
+}
+
+/* Четвертая локация */
+.location4{
+	.tour9{
+		.wrap-img-tour{
+			background: url(/images/locations/4_1.png) #6fc770 center center / cover;
+		}
+	}
+	.tour10{
+		.wrap-img-tour{
+			background: url(/images/locations/4_2.png) #edbb3e center center / cover;
+		}
+	}
+}
+
+/* Пятая локация */
+.location5{
+	.tour11{
+		.wrap-img-tour{
+			background: url(/images/locations/5_1.png) #6fc770 center center / cover;
+		}
+	}
+	.tour12{
+		.wrap-img-tour{
+			background: url(/images/locations/5_2.png) #edbb3e center center / cover;
+		}
+	}
+}
+
+/* Шестая локация */
+.location6{
+	.tour13{
+		.wrap-img-tour{
+			background: url(/images/locations/6_1.png) #6fc770 100% center / cover;
+			background-repeat: no-repeat;
+		}
+	}
+	.tour14{
+		.wrap-img-tour{
+			background: url(/images/locations/6_2.png) #edbb3e 0% center / cover;
+			background-repeat: no-repeat;
+		}
+	}
+}

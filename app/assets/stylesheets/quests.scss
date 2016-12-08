@@ -12,11 +12,34 @@
 	background-size: cover;
 	background-color: #f74242;
 }
-.trip-quest{
-
+.trip-all-quests{
+  position: relative;
+  .trip-quest{
+    .card{
+      padding: 20px !important;
+      .quest-img{
+        width: 55%;
+        border-radius: 200px;
+        .quest-status{
+          height: 28px;
+          position: relative;
+          top: 6px;
+          left: 42%;
+          width: 28px;
+          background-color: rgb(255, 255, 255);
+          box-shadow: rgba(20, 20, 20, 0.298039) 0px 0px 3px;
+          padding: 4px;
+          border-radius: 50%;
+        }
+      }
+      h5{
+        color: #393d40;
+      }
+    }
+  }
 }
 .card-trip-quest{
-	width: 92.5%;
+	width: 100%;
 	/*height: 132px;*/
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
@@ -26,7 +49,7 @@
   &:hover{
   	box-shadow: 0 1px 7px rgba(20, 20, 20, 0.2);
   }
-  .col-1of6{
+  .quest-img{
     img{
       width: 80%;
       border-radius: 200px;
@@ -53,10 +76,10 @@
 	float: left;
 	width: 5%;
 	img{
-		height: 32px;
-	  position: relative;
-	  top: 56px;
-	  width: 32px;
+		height: 52px;
+    position: relative;
+    top: 30px;
+    width: 52px;
 	  padding: 4px;
 	  background-color: #fff;
 	  border-radius: 50%;
@@ -293,6 +316,8 @@
     top: -5px;
     left: 4px;
     margin-left: 6px;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
     .avatar{
       width: 26px;
       height: 26px;
@@ -301,6 +326,7 @@
 }
 .tag--diploma{
   font-size: 80% !important;
+  top: -2px;
 }
 .direction-content{
   position: relative;
@@ -373,3 +399,25 @@
     padding: 40px !important;
   }
 }
+.max-width-start{
+  max-width: 1090px;
+}
+
+.current-tour{
+  cursor: pointer;
+}
+.location-slide{
+  z-index: 1;
+}
+.quests-slide{
+  z-index: 1;
+  display: none;
+}
+.back-to-map{
+  position: relative !important;
+  top: 3px !important;
+  font-size: 15px;
+  color: #eceff1;
+  border-bottom: 1px dashed #f6fbff;
+}
+

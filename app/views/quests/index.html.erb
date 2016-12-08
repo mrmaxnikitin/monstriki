@@ -1,50 +1,33 @@
 <div class='row first-page-elm min-height-500'>
 	<div class='cell'>
 		<%= render "/partials/profile_big" %>
-		<div class='col col-press-80 ml-2proc'>
+		<div class='col col-press-80 max-width-start ml-2proc'>
 			<div>
-				<% 
-					if logged_in? && (@track.complete_quest == true && @quest.checkpoint || @quests.count == 0)
-						style_width_content_col = "col-press-70"
-					else
-						style_width_content_col = "col-press-80"
-					end
-				%>
 				<div class='col col-press-70 col-padding-r'>
 					<% if logged_in? %>
-						<% if @track.complete_quest == true && @quest.checkpoint %>
+						<%= render "location", users_same_level: @users_same_level%>
+						<% if @track.complete_quest == true && @quest.checkpoint && @quests.count != 0 %>
 							<div class='next-quest next-tour card mbl pd30'>
 								<div class='col col-2of6'>
 									<% pic_number = rand(3) 
 										 	format = "gif"
 									%>
 									<img src='/images/next-quest-pics/next-quest-pic<%= pic_number %>.<%= format %>' class='img-next-quest'/>
-									<p class='tac'>Вам понравилась интеллектуальная игра? Вы можете <%= link_to "ОСТАВИТЬ СВОЙ ОТЗЫВ", posts_path %>.</p>
 								</div>
 								<div class='col col-4of6 content'>
-									<h1>Игра пройдена!</h1>
+									<h1>Уровень пройден!</h1>
 									<% if current_user.honors.last.degree == 0
 										honor_degree = "Участника"
 									else
 										honor_degree = current_user.honors.last.degree.to_s+" степени"
 									end %>
-									<div class='invitation-tomorrow'>
-										<div class='col col-press-20'>
-											<img src='/images/diploma_samples/<%= @track.current_quest %>.jpg' />
-										</div>
-										<div class='col col-press-80'>
-											<div class='degree-honor'>Диплом <%= honor_degree %></div>
-											<div><%= link_to "Получить диплом", user_honor_path(current_user.id, current_user.honors.last.id), class: "btn btn-our-red mts" %></div>
-										</div>
-										<div class='clear'></div>
-									</div>
 									<div class='actions'>
-										<p class='tommorow-quest-welcome'>Следующая интеллектуальная игра будет доступна завтра. <b>Приходи!</b>
+										<p>Следующий уровень будет доступна завтра. <b>Приходи!</b>
 											</br>
 											<% if expiry_monster_card? %>
-												<%= link_to "Хочу новую игру прямо сейчас!", monster_card_path, class: "btn btn-our-blue mts btn-want-IG-now" %>
+												<%= link_to "Хотите новый уровень прямо сейчас? Жмите!", monster_card_path, class: "btn btn-our-blue mtm btn-want-IG-now" %>
 											<% else %>
-												<%= link_to "Хочу новую игру прямо сейчас!", next_quests_path, class: "btn btn-our-blue mts btn-want-IG-now" %>
+												<%= link_to "Хотите новый уроень прямо сейчас? Жмите!", next_quests_path, class: "btn btn-our-blue mtm btn-want-IG-now" %>
 											<% end %>
 										</p></br>
 										<!--<p>А сейчас ты можешь посетить <b><%= link_to "Супермаркет", things_path %></b> и купить прикольные штучки для своего монстрика за игровые монетки.</p>-->
@@ -53,70 +36,24 @@
 								</div>
 								<div class='clear'></div>
 							</div>
-						<% else %>
-							<% if @quests.count != 0 
-								 	 quest_amount = @quests.count.to_s + " квеста"
-								 else
-								 	 quest_amount = "Совсем скоро новая игра"
-								 end
-							%>
-							<% 
-								if @track.current_quest <= Quest.last.id
-								 if @users_same_level.count != 1 
-								 	 users_same_level_amount = "Вы и еще "+@users_same_level_amount.to_s+" человек проходят эту игру"
-								 else
-								 	 users_same_level_amount = "Вы первые на этой игре!"
-								 end
-								end
-							%>
-							<%
-								if @quests.count != 0
-									tour_name = @quests.last.tour_name
-								else
-									tour_name = ''
-								end
-							%>
-							<% if @quests.count != 0 %>
-								<div class='location'></div>
-								<h2 class='h--thin'><span class='prxs'>Игра на сегодня: <span class='unique-tour-name'><%= tour_name %></span></span> <span class='tag tag--light tag--heading tag--heading--h2'><%= quest_amount %></span></h2>
-								<div class='mbm explanation-page-after-title pass-this-tour'>
-									<div class='col'><%= users_same_level_amount %></div>
-									<% @users_same_level.each do |track|%>
-										<% 
-											user = User.find(track.user_id)
-											monster_id = user.user_monster.monster_id 
-										%>
-										<%= link_to user do %>
-											<div class='col card circle'>
-												<div class='avatar circle' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
-												</div>
-											</div>
-										<% end %>
-									<% end %>
-									<div class='clear'></div>
+						<% end %>
+						<% if @quests.count == 0 %>
+							<div class='card wait-quest'>
+								<div class='pd10'>
+									<h3>Новый уровень интеллектуальной игры появится в понедельник.</h3>
+									<h3>Мы уже готовим его для тебя!</h3>
 								</div>
-							<% end %>
-							<% if @quests.count != 0 %>
-								<%= render "trip", quests: @quests %>
-							<% else %>
-								<div class='card wait-quest'>
-									<div class='pd10'>
-										<h3>Новая интеллектуальная игра каждый понедельник.</h3>
-										<h3>Мы уже готовим ее для тебя!</h3>
+								<div class='mtl mbm'>
+									<h4></h4>
+									<h4>Поддержите наш проект! Присоединяйтесь к нашим группам!</br>
+										Для нас это очень важно.
+									</h4>
+									<div class='mts mbs'>
+										<a href='https://vk.com/monstriki.labs' target='_blank'><img src='/images/vk.png' /></a>
+										<a href='https://ok.ru/group/54913719926790/topics' target='_blank'><img src='/images/odnoklassniki-logo.png' /></a>
 									</div>
-									<div class='mtl mbm'>
-										<h4></h4>
-										<h4>Поддержите наш проект! Присоединяйтесь к нашим группам!</br>
-											Для нас это очень важно.
-										</h4>
-										<div class='mts mbs'>
-											<a href='https://vk.com/monstriki.labs' target='_blank'><img src='/images/vk.png' /></a>
-											<a href='https://ok.ru/group/54913719926790/topics' target='_blank'><img src='/images/odnoklassniki-logo.png' /></a>
-										</div>
-									</div>
-									<div class='mtl mbm'><img src='/images/logo_transparent.png' /></div>
 								</div>
-							<% end %>
+							</div>
 						<% end %>
 					<% else %>
 						<div class='lets-pay card'>
@@ -137,7 +74,7 @@
 						</div>
 					<% end %>
 					<% if logged_in? && (@prev_quests.count != 0 || @track.current_quest > 3 || (@track.current_quest == 3 && @track.complete_quest)) %>
-						<div class='previous-quests mbl'>
+						<div class='previous-quests mbl mtl'>
 							<h3 class='h--thin mts mbs'>Пройденные квесты<span> • </span><%= link_to "Все пройденные квесты", passed_quests_path %></h3>
 							<div class='list-prev-quests'>
 								<% if @track.complete_quest && @quest.checkpoint %>
@@ -216,3 +153,14 @@
 		<%= render '/partials/alternative_column' %>
 	</div>
 </div>
+<style>
+	/*.location .cover{
+		background: url(/images/locations/<%= @track.current_location %>.jpg);
+		background-size: cover;
+		background-position-y: 75%;
+		background-position-x: center;
+	}*/
+	body{
+		min-width: 1180px;
+	}
+</style>
