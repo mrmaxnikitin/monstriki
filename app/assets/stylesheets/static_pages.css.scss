@@ -44,8 +44,10 @@
 			padding: 20px 30px 40px 50px;
 			float: right;
 			h1{
-				font-size: 42px !important;
-				margin-bottom: 0px;
+				font-size: 40px !important;
+		    margin-bottom: 0px;
+		    font-weight: 600;
+		    font-family: inherit;
 			}
 			p{
 				font-size: 20px;
@@ -222,7 +224,7 @@
 }
 
 
-@media screen and (max-width: 1045px) {
+@media screen and (max-width: 1200px) {
 	#welcome-slide-1{
 		background-position-x: 80%;
 		background-position-y: -15px;
