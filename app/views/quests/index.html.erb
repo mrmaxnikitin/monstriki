@@ -6,7 +6,7 @@
 				<div class='col col-press-70 col-padding-r'>
 					<% if logged_in? %>
 						<%= render "location", users_same_level: @users_same_level%>
-						<% if @track.complete_quest == true && @quest.checkpoint %>
+						<% if @track.complete_quest == true && @quest.checkpoint && @quests.count != 0 %>
 							<div class='next-quest next-tour card mbl pd30'>
 								<div class='col col-2of6'>
 									<% pic_number = rand(3) 
@@ -36,44 +36,24 @@
 								</div>
 								<div class='clear'></div>
 							</div>
-						<% else %>
-							<% if @quests.count != 0 
-								 	 quest_amount = @quests.count.to_s + " квеста"
-								 else
-								 	 quest_amount = "Совсем скоро новая игра"
-								 end
-							%>
-							
-							<%
-								if @quests.count != 0
-									tour_name = @quests.last.tour_name
-								else
-									tour_name = ''
-								end
-							%>
-
-							<% if @quests.count != 0 %>
-								<div class='trip-all-quests'>
-									<%= render "trip", quests: @quests %>
+						<% end %>
+						<% if @quests.count == 0 %>
+							<div class='card wait-quest'>
+								<div class='pd10'>
+									<h3>Новый уровень интеллектуальной игры появится в понедельник.</h3>
+									<h3>Мы уже готовим его для тебя!</h3>
 								</div>
-							<% else %>
-								<div class='card wait-quest'>
-									<div class='pd10'>
-										<h3>Новый уровень интеллектуальной игры появится в понедельник.</h3>
-										<h3>Мы уже готовим его для тебя!</h3>
-									</div>
-									<div class='mtl mbm'>
-										<h4></h4>
-										<h4>Поддержите наш проект! Присоединяйтесь к нашим группам!</br>
-											Для нас это очень важно.
-										</h4>
-										<div class='mts mbs'>
-											<a href='https://vk.com/monstriki.labs' target='_blank'><img src='/images/vk.png' /></a>
-											<a href='https://ok.ru/group/54913719926790/topics' target='_blank'><img src='/images/odnoklassniki-logo.png' /></a>
-										</div>
+								<div class='mtl mbm'>
+									<h4></h4>
+									<h4>Поддержите наш проект! Присоединяйтесь к нашим группам!</br>
+										Для нас это очень важно.
+									</h4>
+									<div class='mts mbs'>
+										<a href='https://vk.com/monstriki.labs' target='_blank'><img src='/images/vk.png' /></a>
+										<a href='https://ok.ru/group/54913719926790/topics' target='_blank'><img src='/images/odnoklassniki-logo.png' /></a>
 									</div>
 								</div>
-							<% end %>
+							</div>
 						<% end %>
 					<% else %>
 						<div class='lets-pay card'>
@@ -94,7 +74,7 @@
 						</div>
 					<% end %>
 					<% if logged_in? && (@prev_quests.count != 0 || @track.current_quest > 3 || (@track.current_quest == 3 && @track.complete_quest)) %>
-						<div class='previous-quests mbl mtm'>
+						<div class='previous-quests mbl mtl'>
 							<h3 class='h--thin mts mbs'>Пройденные квесты<span> • </span><%= link_to "Все пройденные квесты", passed_quests_path %></h3>
 							<div class='list-prev-quests'>
 								<% if @track.complete_quest && @quest.checkpoint %>

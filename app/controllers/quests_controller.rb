@@ -1,99 +1,23 @@
 class QuestsController < ApplicationController
 	before_action :find_user_quest, except: [:new, :create]
+	before_action :quest_action, only: [:index, :tour]
 	#before_action :find_quest, only: [:edit, :update]
 	before_filter :require_login, except: [:index]
 	before_action :require_admin, only: [:new, :create, :add_task_to_quest, :get_add_task_to_quest, :background, :get_background]
 	include ApplicationHelper
 	include UsersHelper
 	def index
-		if logged_in? && (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day && @track.complete_quest && @quest.checkpoint && @track.current_quest <= Quest.last.id
-			@track.next_quest
-			@track.save
-		end
 		if logged_in?
-			@first_quest = Quest.where("checkpoint = ? AND id < ?", true, @track.current_quest).maximum("id") #first_quest_after_prev_checkpoint_quest
-			if !@first_quest
-				@first_quest = 1
-			else
-				@first_quest = @first_quest.to_i + 1
-			end
-			@checkpoint_quest = Quest.where("checkpoint = ? AND id >= ?", true, @track.current_quest).minimum("id")
-
-			@quests = Quest.where("id >= ? AND id <= ?", @first_quest, @checkpoint_quest).order(:id).all
-
-			@users_same_level_amount = Track.where("current_quest >= ? AND current_quest <= ?", @first_quest, @checkpoint_quest).order("RANDOM()").all.count - 1
-			@users_same_level = Track.where("current_quest >= ? AND current_quest <= ?", @first_quest, @checkpoint_quest).order("RANDOM()").limit(10)
-
-
-			#предыдущие квесты
-			if @track.complete_quest && @quest.checkpoint
-				@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(4)
-			else
-				@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(5)
-			end
+			@users_same_location_amount = Track.where("current_location = ?", @track.current_location).order("RANDOM()").all.count - 1
+			@users_same_location = Track.where("current_location = ?", @track.current_location).order("RANDOM()").limit(10)
 		end
+	end
 
-		#переход к следующему квесту
+	def tour
 		if logged_in?
-			answers = @track.answers
-			unanswered = 0
-			if @track.answers != nil
-				if @quest.checkpoint
-					for i in 0..answers.size-1
-						unanswered = 1 if answers[i] == '0'
-					end
-				else
-					for i in 0..answers.size-1
-						unanswered = 1 if answers[i] == '0' || answers[i] == '2'
-					end
-				end
-			end
-			if @track.answers != nil && unanswered == 0
-				if !@track.complete_quest
-					current_user.score += 10
-    			current_user.save
-    		end
-				if @quest.checkpoint && !@track.complete_quest && !current_user.honors.find_by_quest_id(current_user.track.current_quest)
-					
-					if @quest.final
-						degree = 0
-						degree_indicator = 0
-						for i in 0..answers.size-1
-			        if answers[i] == '2'
-			          degree_indicator += 1
-			        end
-			      end
-
-			      if degree_indicator == 0 || degree_indicator == 1
-			      	degree = 1
-			      elsif degree_indicator == 2 || degree_indicator == 3
-			      	degree = 2
-			      elsif degree_indicator == 4
-			      	degree = 3
-			      elsif
-			      	degree = 0
-			      end
-			      	
-			      	
-						current_user.honors.create(quest_id: current_user.track.current_quest, 
-																			 degree: degree,
-																			 price: 90,
-																			 honor_type: 1,
-																			 name: current_user.name,
-																			 age: current_user.age)
-					end
-				end
-				@track.finish_trip
-				if !@quest.checkpoint
-					@track.next_quest
-				end
-				@track.save
-			end
+			@users_same_location_amount = Track.where("current_location = ?", @track.current_location).order("RANDOM()").all.count - 1
+			@users_same_location = Track.where("current_location = ?", @track.current_location).order("RANDOM()").limit(10)
 		end
-
-		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
-		#puts @quests.count
-		#puts "fsdfsdfsdfsdfsdfsdfsdfsdf"
 	end
 
 	def next
@@ -244,6 +168,84 @@ class QuestsController < ApplicationController
     end
     def find_quest
 			@quest = Quest.find(@pquest.id)
+    end
+    def quest_action
+    	if logged_in? && (Time.new.utc.midnight - @track.updated_at.utc.midnight) >= 1.day && @track.complete_quest && @quest.checkpoint && @track.current_quest <= Quest.last.id
+				@track.next_quest
+				@track.save
+			end
+			if logged_in?
+				if @track.current_tour <= Tour.last.id
+					@quests = Quest.where(id: Tour.find(@track.current_tour).quests).order(:id).all
+				else
+					@quests = Quest.where(id: nil).order(:id).all
+				end
+
+				#предыдущие квесты
+				if @track.complete_quest && @quest.checkpoint
+					@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(4)
+				else
+					@prev_quests = Quest.where("id < ?", @track.current_quest).order("RANDOM()").limit(5)
+				end
+			end
+			#переход к следующему квесту
+			if logged_in?
+				answers = @track.answers
+				unanswered = 0
+				if @track.answers != nil
+					if @quest.checkpoint
+						for i in 0..answers.size-1
+							unanswered = 1 if answers[i] == '0'
+						end
+					else
+						for i in 0..answers.size-1
+							unanswered = 1 if answers[i] == '0' || answers[i] == '2'
+						end
+					end
+				end
+				if @track.answers != nil && unanswered == 0
+					if !@track.complete_quest
+						current_user.score += 10
+	    			current_user.save
+	    		end
+					if @quest.checkpoint && !@track.complete_quest && !current_user.honors.find_by_quest_id(current_user.track.current_quest)
+						
+						if @quest.final
+							degree = 0
+							degree_indicator = 0
+							for i in 0..answers.size-1
+				        if answers[i] == '2'
+				          degree_indicator += 1
+				        end
+				      end
+
+				      if degree_indicator == 0 || degree_indicator == 1
+				      	degree = 1
+				      elsif degree_indicator == 2 || degree_indicator == 3
+				      	degree = 2
+				      elsif degree_indicator == 4
+				      	degree = 3
+				      elsif
+				      	degree = 0
+				      end
+				      	
+				      	
+							current_user.honors.create(location_id: current_user.track.current_location,
+																				 quest_id: current_user.track.current_quest, 
+																				 degree: degree,
+																				 price: 90,
+																				 honor_type: 1,
+																				 name: current_user.name,
+																				 age: current_user.age)
+						end
+					end
+					@track.finish_trip
+					if !@quest.checkpoint
+						@track.next_quest
+					end
+					@track.save
+				end
+			end
     end
     #def quest_params
       #params.require(:quest).permit(age3: [], age4: [], age5: [], age6: [], age7: [], age8: [], age9: [], age10: [])

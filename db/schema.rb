@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201134102) do
+ActiveRecord::Schema.define(version: 20161207210246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,18 +34,20 @@ ActiveRecord::Schema.define(version: 20161201134102) do
   create_table "honors", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "quest_id"
-    t.integer  "price",      default: 50
+    t.integer  "price",       default: 50
     t.integer  "honor_type"
     t.integer  "degree"
-    t.boolean  "paid",       default: false
+    t.boolean  "paid",        default: false
     t.string   "name"
     t.string   "age"
     t.string   "school"
     t.string   "curator"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "location_id"
   end
 
+  add_index "honors", ["location_id"], name: "index_honors_on_location_id", using: :btree
   add_index "honors", ["user_id", "quest_id"], name: "index_honors_on_user_id_and_quest_id", unique: true, using: :btree
   add_index "honors", ["user_id"], name: "index_honors_on_user_id", using: :btree
 
