@@ -1,6 +1,6 @@
 <% if @track.current_location <= Location.last.id && @track.current_tour <= Tour.last.id %>
 	<% 
-		if @track.current_quest <= Quest.last.id
+		if @track.current_location <= Location.last.id
 		 if @users_same_location.count != 1 
 		 	 users_same_location_amount = "Вы и еще "+@users_same_location_amount.to_s+" человек проходят эту игру"
 		 else
