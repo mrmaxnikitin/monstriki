@@ -11,7 +11,7 @@
 				Развитие мышления, речи и памяти у детей 4-7 лет
 			</h1>
 			<p>
-				Ваш ребенок станет лучшим в своем классе.</br>Развлекайте ребенка и готовьте к школе одновременно!
+				Ваш ребенок станет лучшим в своем классе.</br>Развлекайте ребенка и <strong>готовьте к школе</strong> одновременно!
 				<div class='diploma'>
 					+ ДИПЛОМ
 					<% if !logged_in? %>
@@ -20,14 +20,14 @@
 				</div>
 			</p>
 		</div>
-		<img class='welcome-slide-img' src='/images/learn-welcome.png'/>	
+		<img class='welcome-slide-img' src='/images/learn-welcome.png' alt='Развитие речи, мышления и логики у ребенка' title='Развитие речи, мышления и логики у ребенка'/>	
 		<div class='clear'></div>
 	</div>
 </div>
 <div id='welcome-slide-2' class='welcome-slides'>
 	<div class='content'>
 		<div class='text-welcome-slide'>
-			<h1>Обучение в игровой форме</h1>
+			<h2>Обучение в игровой форме</h2>
 			<p>Ваш ребенок: </br>
 				<p><b>1.</b> Выберет себе монстрика</p>
 				<p><b>2.</b> Будет получать игровые монетки за правильные ответы в заданиях</p>
@@ -38,31 +38,31 @@
 			<div class='col col-3of6'>
 				<% monster = @monsters[1] %>
 				<div class='pd1p'> 
-					<img class='card' src='<%= monster.avatar %>.gif' />
+					<img class='card' src='<%= monster.avatar %>.gif'  alt='Развитие речи, мышления и памяти у ребенка' title='Развитие речи, мышления и памяти у ребенка'/>
 				</div>
 				<div class='col col-3of6 pd1p'>
 					<% monster = @monsters[2] %>
-					<img class='card' src='<%= monster.avatar %>.gif' />
+					<img class='card' src='<%= monster.avatar %>.gif' alt='Подготовка ребенка к школе онлайн' title='Подготовка ребенка к школе онлайн'/>
 				</div>
 				<div class='col col-3of6 pd1p'>
 					<% monster = @monsters[3] %>
-					<img class='card' src='<%= monster.avatar %>.gif' />
+					<img class='card' src='<%= monster.avatar %>.gif' alt='Развивающие игры для детей' title='Развивающие игры для детей'/>
 				</div>
 				<div class='clear'></div>
 			</div>
 			<div class='col col-3of6 pd1p'>
 				<div class='col col-3of6 pd1p'>
 					<% monster = @monsters[4] %>
-					<img class='card' src='<%= monster.avatar %>.gif' />
+					<img class='card' src='<%= monster.avatar %>.gif' alt='Развитие мышления у детей' title='Развитие мышления у детей'/>
 				</div>
 				<div class='col col-3of6 pd1p'>
 					<% monster = @monsters[5] %>
-					<img class='card' src='<%= monster.avatar %>.gif' />
+					<img class='card' src='<%= monster.avatar %>.gif' alt='Развитие речи у детей' title='Развитие речи у детей'/>
 				</div>
 				<div class='clear'></div>
 				<% monster = @monsters[0] %>
 				<div class='pd1p'>
-					<img class='card' src='<%= monster.avatar %>.gif' />
+					<img class='card' src='<%= monster.avatar %>.gif' alt='Развитие памяти у детей' title='Развитие памяти у детей'/>
 				</div>
 			</div>
 		</div>
@@ -72,9 +72,9 @@
 <div id='welcome-slide-3' class='welcome-slides'>
 	<div class='content'>
 		<div class='text-welcome-slide'>
-			<h1>
+			<h2>
 				Развлекайте ребенка с пользой!
-			</h1>
+			</h2>
 			<p>
 				Ваши дети будут улыбаться благодаря ярким и анимированные иллюстрациям на сайте.
 				<% if !logged_in? %>
@@ -84,7 +84,7 @@
 				<% end %>
 			</p>
 		</div>
-		<img class='welcome-slide-img' src='/images/img-slide3.png'/>	
+		<img class='welcome-slide-img' src='/images/img-slide3.png' alt='Развитие логики у детей' title='Развитие логики у детей'/>	
 		<div class='clear'></div>
 	</div>
 </div>

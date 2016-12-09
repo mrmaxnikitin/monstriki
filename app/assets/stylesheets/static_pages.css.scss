@@ -20,7 +20,7 @@
 .welcome-slides{
 	height: 660px;
 	min-width: 550px;
-	h1{
+	h2{
 		font-family: 'BoomBoom';
 		font-size: 40px;
 	}
@@ -44,7 +44,7 @@
 			padding: 20px 30px 40px 50px;
 			float: right;
 			h1{
-				font-size: 40px !important;
+				font-size: 38px !important;
 		    margin-bottom: 0px;
 		    font-weight: 600;
 		    font-family: inherit;
@@ -89,7 +89,7 @@
 			padding: 70px 30px 40px 0px;
 			float: left;
 			text-align: left;
-			h1{
+			h2{
 				font-size: 50px !important;
 				margin-bottom: 0px;
 			}
@@ -118,7 +118,7 @@
 			width: 62%;
 			padding: 40px 50px;
 			float: right;
-			h1{
+			h2{
 				font-size: 44px !important;
 			}
 			p{
@@ -233,7 +233,7 @@
     	margin: 0 0 0 6%;
     	.text-welcome-slide{
     		h1{
-    			font-size: 36px !important;
+    			font-size: 34px !important;
     		}
     		p{
     			font-size: 16px !important;
@@ -252,7 +252,7 @@
     	margin: 0 0 0 6%;
     	.text-welcome-slide{
     		padding: 40px 30px 40px 0px;
-    		h1{
+    		h2{
 					font-size: 36px !important;
 				}
 				p{
@@ -269,7 +269,7 @@
     	margin: 0 0 0 6%;
     	.text-welcome-slide{
     		padding: 40px 30px 40px 50px;
-    		h1{
+    		h2{
 					font-size: 36px !important;
 				}
 				p{
