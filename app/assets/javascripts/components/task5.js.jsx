@@ -28,6 +28,19 @@ const Picture5Subtype2 = React.createClass({
   }
 })
 
+const Video1Subtype3 = React.createClass({
+  render: function() {
+    var classStyle = this.props.classSizePics + ' col card tac Video1Subtype3'
+    return (
+      <div className={classStyle}>
+        <iframe width='100%' height='380'
+          src={"http://www.youtube.com/embed/" + this.props.task_pic}>
+        </iframe>
+      </div>
+    );
+  }
+})
+
 //Выбор нескольких ответов
 const Task5 = React.createClass({
   getInitialState: function () {
@@ -147,9 +160,11 @@ const Task5 = React.createClass({
 
     var task_text = task.text
     //Контент самого задания
-    if(task.subtype == 2 && !this.state.started){
+    if((task.subtype == 2 || task.subtype == 3) && !this.state.started){
       var remember_size_pic = "tasks-pics-general tasks-pics-1"
-      var remember_pic = <Picture5Subtype2 classSizePics={remember_size_pic} task_pic={task.pic11} key={11}/>
+      var remember_pic
+      if(task.subtype == 2) remember_pic = <Picture1Subtype2 classSizePics={remember_size_pic} task_pic={task.pic11} key={11}/>
+      else if(task.subtype == 3) remember_pic = <Video1Subtype3 classSizePics={remember_size_pic} task_pic={task.pic11} key={11}/>
       content = (
         <div className='animated fadeIn'>
           <div className='content-task-type' id='type_task5'>
@@ -160,7 +175,7 @@ const Task5 = React.createClass({
       );
     }else{
       var styleForSubtype
-      if(task.subtype == 2) styleForSubtype = "animated bounceIn"
+      if(task.subtype == 2 || task.subtype == 3) styleForSubtype = "animated bounceIn"
       content = (
         <div className={styleForSubtype}>
           <div className='content-task-type' id='type_task5'>
@@ -169,7 +184,7 @@ const Task5 = React.createClass({
           </div>
         </div>
       );
-      if(task.subtype == 2 && task.pic10 != ''){
+      if((task.subtype == 2 || task.subtype == 3) && task.pic10 != ''){
         task_text = task.pic10
       }
     }
@@ -178,7 +193,7 @@ const Task5 = React.createClass({
     //Кнопки действий
     var button_to_answer
     if(this.props.status_current_task == 0){
-      if(task.subtype == 2 && !this.state.started)
+      if((task.subtype == 2 || task.subtype == 3) && !this.state.started)
         button_to_answer = <button className="btn-m btn-m-3 btn-m-3a icon-heart-2 get-start" onClick={this.startTask}>Начать</button>
       else
         if(this.state.answer_btn_display)
@@ -220,7 +235,7 @@ const Task5 = React.createClass({
     }
 
     var precompile_image
-    if(task.subtype == 2){
+    if(task.subtype == 2 || task.subtype == 3){
       precompile_image = (
         <div className='displaynone'>
           <img src={task.pic1}/>
