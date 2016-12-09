@@ -10,32 +10,34 @@
 	%>
 	<% @location = Location.find(@track.current_location) %>
 	<% size_location = @location.tours.size
-		 text_level_amount = ''
 		if size_location == 1
 			class_size_location = ''
-			text_level_amount = '1 уровень'
 		elsif size_location == 2
 			class_size_location = 'col col-3of6'
-			text_level_amount = '2 уровня'
 		elsif size_location == 3
 			class_size_location = 'col col-2of6'
-			text_level_amount = '3 уровня'
 		elsif size_location == 4
 			class_size_location = 'col col-press-25'
-			text_level_amount = '4 уровня'
 		elsif size_location == 5
 			class_size_location = 'col col-press-20'
-			text_level_amount = '5 уровней'
 		end	
 	%>
+
+	<% if @track.current_quest == 1 && !@track.complete_quest %>
+		<div class='first-quest-for-user glass-background02 pd40 mbm'>
+			<div class='col col-4of6'><b>Привет, друг!</b></br>Ниже находится твой первый уровень. Кликни на него и пройди все квесты.</div>
+			<div class='col col-2of6 tac'><img class='floating' src='/images/down-arrow.png' /></div>
+			<div class='clear'></div>
+		</div>
+	<% end %>
 
 	<div class='location card mbm'>
 		<div class='location-title-and-participant'>
 			<span class="tag tag--heading tag--red fr tag--diploma">После прохождения диплом</span>
 			<% if @location %>
-				<h2><%= @location.name %> <span class='tag tag--light tag--heading tag--heading--h2 amount-of-levels-of-location'><%= text_level_amount %></span></h2>
+				<h2><%= @location.name %></h2>
 			<% end %>
-			<div class='explanation-page-after-title pass-this-tour mbs mtm' style='margin: auto;'>
+			<div class='explanation-page-after-title pass-this-tour mbs mts' style='margin: auto;'>
 				<div class='col'><%= users_same_location_amount %></div>
 				<% @users_same_location.each do |track|%>
 					<% 

@@ -7,7 +7,7 @@
 		h2{
 			font-family: 'Gagalin';
 			color: #337ab7;
-			font-size: 150%;
+			font-size: 180%;
 		}
 		.explanation-page-after-title{
 			color: #393d40;
@@ -199,6 +199,18 @@
 		background: linear-gradient(to right, #69db81 100%, #fff 100%)
 	}
 }
+
+.first-quest-for-user{
+	font-family: 'Cheeseusaceu';
+	color: white;
+	font-size: 30px;
+	.col-2of6{
+		img{
+			width: 100%;
+		}
+	}
+}
+
 @media screen and (max-width: 1369px) {
   .location{
 		.cover{
@@ -209,97 +221,3 @@
 	}
 }
 
-/* Первая локация */
-.location1{
-	.tour1{
-		.wrap-img-tour{
-			background: url(/images/locations/1_1.png) center center / cover;
-		}
-	}
-}
-/* Вторая локация */
-.location2{
-	.tour2{
-		.wrap-img-tour{
-			background: url(/images/locations/2_3.png) center center / cover;
-		}
-	}
-	.tour3{
-		.wrap-img-tour{
-			background: url(/images/locations/2_1.png) center center / cover;
-		}
-	}
-	.tour4{
-		.wrap-img-tour{
-			background: url(/images/locations/2_2.png) center center / cover;
-		}
-	}
-}
-
-/* Третья локация */
-.location3{
-	.tour5{
-		.wrap-img-tour{
-			background: url(/images/locations/3_1.png) #6fc770 center center / cover;
-		}
-	}
-	.tour6{
-		.wrap-img-tour{
-			background: url(/images/locations/3_2.png) #edbb3e center center / cover;
-		}
-	}
-	.tour7{
-		.wrap-img-tour{
-			background: url(/images/locations/3_3.png) #73ab46 center center / cover;
-		}
-	}
-	.tour8{
-		.wrap-img-tour{
-			background: url(/images/locations/3_4.png) #73ab46 center center / cover;
-		}
-	}
-}
-
-/* Четвертая локация */
-.location4{
-	.tour9{
-		.wrap-img-tour{
-			background: url(/images/locations/4_1.png) #6fc770 center center / cover;
-		}
-	}
-	.tour10{
-		.wrap-img-tour{
-			background: url(/images/locations/4_2.png) #edbb3e center center / cover;
-		}
-	}
-}
-
-/* Пятая локация */
-.location5{
-	.tour11{
-		.wrap-img-tour{
-			background: url(/images/locations/5_1.png) #6fc770 center center / cover;
-		}
-	}
-	.tour12{
-		.wrap-img-tour{
-			background: url(/images/locations/5_2.png) #edbb3e center center / cover;
-		}
-	}
-}
-
-/* Шестая локация */
-.location6{
-	.tour13{
-		.wrap-img-tour{
-			background: url(/images/locations/6_1.png) #6fc770 100% center / cover;
-			background-repeat: no-repeat;
-		}
-	}
-	.tour14{
-		.wrap-img-tour{
-			background: url(/images/locations/6_2.png) #edbb3e 0% center / cover;
-			background-repeat: no-repeat;
-		}
-	}
-}

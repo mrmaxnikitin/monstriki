@@ -20,9 +20,9 @@ class UserMonstersController < ApplicationController
     else
       current_user.user_monster.name = params[:user_monster][:name]
       current_user.user_monster.save
-      if current_user.track.current_quest == 1
-        flash[:success] = "Классно! А теперь попробуй пройти свою первую игру."
-      end
+      #if current_user.track.current_quest == 1
+      #  flash[:success] = "Классно! А теперь попробуй пройти свою первую игру."
+      #end
       redirect_to start_path
     end
   end
