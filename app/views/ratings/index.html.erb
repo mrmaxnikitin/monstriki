@@ -35,7 +35,7 @@
 				</div> -->
 				<div class='col col-2of6'>
 					<div class='card'>
-						<h5 class='tac mbm'>Больше всех прошли квестов</h5>
+						<h5 class='tac mbm'>Больше всех прошли уровней</h5>
 						<div class='rating-users'>
 							<% @user_tracks.each do |track|%>
 								<% 
@@ -54,7 +54,12 @@
 										</div>
 									<% end %>
 									<div class='col col-press-20 '>
-										<%= track.current_quest %>
+										<% if track.complete_quest
+											tours_amount = track.current_tour
+										else 
+											tours_amount = track.current_tour - 1
+										end %>
+										<%= tours_amount %>
 									</div>
 									<div class='clear'></div>
 								</div>

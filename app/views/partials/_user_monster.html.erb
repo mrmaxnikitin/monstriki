@@ -28,11 +28,11 @@
 	<div class='card mbl information-and-statistic-user'>
 		<div class='element'>
 			<% if user.track.complete_quest
-				quests_amount = user.track.current_quest
+				tours_amount = user.track.current_tour
 			else 
-				quests_amount = user.track.current_quest - 1
+				tours_amount = user.track.current_tour - 1
 			end %>
-			<h5 class='h--thin'><img src='/images/flag.png'/> <span>Квестов пройдено: <b><%= quests_amount %></b></span></h5>
+			<h5 class='h--thin'><img src='/images/flag.png'/> <span>Уровней пройдено: <b><%= tours_amount %></b></span></h5>
 		</div>
 	</div>
 </div>
