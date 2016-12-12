@@ -54,12 +54,7 @@
 										</div>
 									<% end %>
 									<div class='col col-press-20 '>
-										<% if track.complete_quest
-											tours_amount = track.current_tour
-										else 
-											tours_amount = track.current_tour - 1
-										end %>
-										<%= tours_amount %>
+										<%= track.current_tour %>
 									</div>
 									<div class='clear'></div>
 								</div>
