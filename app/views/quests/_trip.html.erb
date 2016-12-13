@@ -94,7 +94,7 @@
 				<div class='direction-content col col-4of6'>
 					<div>
 						<span class='tag tag--heading'>Для <%= current_user.age %> лет</span>
-						<% if quest.checkpoint %>
+						<% if quest.checkpoint && quest.final %>
 							<span class='tag tag--heading tag--red fr tag--diploma'>После прохождения диплом</span>
 						<% end %>
 					</div>
