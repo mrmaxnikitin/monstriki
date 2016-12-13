@@ -1,10 +1,12 @@
-<% 
-	if @track.current_location <= Location.last.id
-	 if @users_same_tour.count != 1 
-	 	 users_same_tour_amount = "Вы и еще "+@users_same_tour_amount.to_s+" человек проходят этот уровень"
-	 else
-	 	 users_same_tour_amount = "Вы первые на этом уровне!"
-	 end
+<%
+	if logged_in?
+		if @track.current_location <= Location.last.id
+		 if @users_same_tour.count != 1 
+		 	 users_same_tour_amount = "Вы и еще "+@users_same_tour_amount.to_s+" человек проходят этот уровень"
+		 else
+		 	 users_same_tour_amount = "Вы первые на этом уровне!"
+		 end
+		end
 	end
 %>
 <div class='row first-page-elm min-height-500'>
