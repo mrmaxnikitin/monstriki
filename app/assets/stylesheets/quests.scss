@@ -71,6 +71,12 @@
       font-size: 15px;
   		color: #393d40;
   	}
+    .tag{
+      font-size: 80% !important;
+    }
+    .tag--diploma{
+      margin-left: 10px;
+    }
   }
 }
 .status-trip-quest{
@@ -325,10 +331,6 @@
     }
   }
 }
-.tag--diploma{
-  font-size: 80% !important;
-  top: -2px;
-}
 .direction-content{
   position: relative;
   left: 15px;
@@ -421,4 +423,6 @@
   color: #eceff1;
   border-bottom: 1px dashed #f6fbff;
 }
-
+.level-name{
+  font-size: 170%;
+}

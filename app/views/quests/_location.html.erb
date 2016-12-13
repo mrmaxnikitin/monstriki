@@ -1,13 +1,4 @@
 <% if @track.current_location <= Location.last.id && @track.current_tour <= Tour.last.id %>
-	<% 
-		if @track.current_location <= Location.last.id
-		 if @users_same_location.count != 1 
-		 	 users_same_location_amount = "Вы и еще "+@users_same_location_amount.to_s+" человек проходят эту локацию"
-		 else
-		 	 users_same_location_amount = "Вы первые на этой локации!"
-		 end
-		end
-	%>
 	<% @location = Location.find(@track.current_location) %>
 	<% size_location = @location.tours.size
 		if size_location == 1
@@ -37,28 +28,12 @@
 			<% if @location %>
 				<h2><%= @location.name %></h2>
 			<% end %>
-			<div class='explanation-page-after-title pass-this-tour mbs mts' style='margin: auto;'>
-				<div class='col'><%= users_same_location_amount %></div>
-				<% @users_same_location.each do |track|%>
-					<% 
-						user = User.find(track.user_id)
-						monster_id = user.user_monster.monster_id 
-					%>
-					<%= link_to user do %>
-						<div class='col card circle'>
-							<div class='avatar circle' style='background: url(/images/monsters/monster<%= monster_id %>.png) no-repeat; background-size: cover; background-position: center;'>
-							</div>
-						</div>
-					<% end %>
-				<% end %>
-				<div class='clear'></div>
-			</div>
 		</div>
 		<div class='cover location<%= @track.current_location %> location-content'>
 			<% tours = Tour.find(Location.find(@track.current_location).tours) %>	
 			<% tours.each do |tour|%>
 				<% if @track.current_tour == tour.id %>
-					<a href='/tour' >
+					<a href='/start' >
 				<% end %>
 					<div class='the-tour tour<%= tour.id %> <%= class_size_location %>'>
 						<div class='wrap-img-tour ma tac' style="background: url(/images/tours/t<%=tour.id%>.png) center center / cover;">

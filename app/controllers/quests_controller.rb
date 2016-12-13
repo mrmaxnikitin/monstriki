@@ -8,8 +8,8 @@ class QuestsController < ApplicationController
 	include UsersHelper
 	def index
 		if logged_in?
-			@users_same_location_amount = Track.where("current_location = ?", @track.current_location).order("RANDOM()").all.count - 1
-			@users_same_location = Track.where("current_location = ?", @track.current_location).order("RANDOM()").limit(10)
+			@users_same_tour_amount = Track.where("current_location = ?", @track.current_location).order("RANDOM()").all.count - 1
+			@users_same_tour = Track.where("current_location = ?", @track.current_location).order("RANDOM()").limit(10)
 		end
 	end
 
