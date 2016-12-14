@@ -120,6 +120,11 @@ Rails.application.routes.draw do
   get 'test' => 'tasks#test'
   get 'rating' => 'ratings#index'
 
+  #костыль
+  get 'activate_diploma' => 'honors#activate_diploma'
+  post 'get_activate_diploma' => 'honors#get_activate_diploma'
+  #/костыль
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

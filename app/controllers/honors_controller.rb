@@ -1,5 +1,7 @@
 class HonorsController < ApplicationController
-	before_action :find_user
+  before_action :find_user, except: [:activate_diploma, :get_activate_diploma]
+  before_filter :require_login
+  before_action :require_admin, only: [:activate_diploma, :get_activate_diploma]
 
 	def show
 		@user = User.find(params[:user_id])
@@ -13,6 +15,19 @@ class HonorsController < ApplicationController
     end
     redirect_to user_honor_path(current_user.id, @honor.id)
 	end
+
+  def activate_diploma
+    @honor = Honor.new
+  end
+  def get_activate_diploma
+    @honor = Honor.find(params[:honor][:id])
+    if @honor.update(paid: true)
+      flash[:success] = 'Отлично!'
+    else
+      flash[:error] = "Провал"
+    end
+    redirect_to activate_diploma_path
+  end
 
 	private
     def honor_params

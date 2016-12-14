@@ -1,0 +1,15 @@
+<div class='row first-page-elm'>
+	<div class='cell'>
+		<div class='col col-press-18 col-profile'>
+			<%= render "/partials/profile" %>
+		</div>
+		<div class='col col-58proc col-main ml-2proc'>
+			<h2 class='h--thin mbm'><span class='prxs'>Активация диплома</span></h2>
+			<%= simple_form_for(@honor, url: get_activate_diploma_path) do |f| %>
+					<%= f.input :id, label: false, input_html: { class: 'input-sp',  placeholder: 'id диплома' } %>
+		      <%= f.button :submit, 'Активировать диплом', class: 'btn btn-our btn-our-green' %>
+		  <% end %>
+		</div>
+	</div>
+</div>
+
