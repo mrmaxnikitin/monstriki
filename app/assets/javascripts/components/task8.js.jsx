@@ -126,7 +126,7 @@ const Task8 = React.createClass({
     }
 
     return (
-      <div>
+      <div className="ADID" id={task.id}>
         <div className='col col-main task-participate animated fadeIn'>
           {content}
         </div>
