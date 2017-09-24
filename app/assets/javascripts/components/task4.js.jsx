@@ -204,8 +204,9 @@ const Task4 = React.createClass({
       );
     }
 
+    //чисто для админа этот класс и id, для  того, чтобы узнавать номер вопроса (в следующем блоке)
     return (
-      <div className="ADID" id={task.id}> //чисто для админа этот класс и id, для  того, чтобы узнавать номер вопроса
+      <div className="ADID" id={task.id}>
         <div className='col col-press-68 task-participate animated fadeIn'>
           {content}
         </div>
