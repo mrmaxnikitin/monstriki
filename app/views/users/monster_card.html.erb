@@ -19,19 +19,7 @@
 							%>
 							<h4 class='age-field'><%= age %> <%= age_text %></h4>
 
-							<% 
-								payment_end_date = current_user.payment_end_date
-								payment_text = 'Карта действительна до:'
-								payment_class_date = 'active-card'
-								payment_class_pay = 'displaynone'
-								if expiry_monster_card?
-									payment_text = 'Срок действия карты истек:'
-									payment_class_date = 'inactive-card'
-									payment_class_pay = ''
-								end
-							%>
-							<h5 class='payment-field'><%= payment_text %>
-								<div class='wrap-button-pay'>
+								<div class='wrap-button-pay mtm'>
 									<%= link_to 'Купить', payment_path, class: 'btn btn-our-green' %>
 								</div>
 							</h5>
