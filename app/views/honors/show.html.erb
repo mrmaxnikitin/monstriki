@@ -34,11 +34,11 @@
 									<div class='how-to-buy'>
 										<h4>Как приобрести диплом?</h4>
 										<p class='point-how-to-buy'><b>1.</b> Введите ФИ ребенка, его возраст, учебное заведение и имя педагога в форме, которая находятся ниже, и нажмите кнопку <b>"Сохранить"</b>.</p>
-										<p class='point-how-to-buy'><b>2.</b> После сохранения данных нажмите на красную кнопку <b>"Купить за 90 ₽"</b>.</p>
+										<p class='point-how-to-buy'><b>2.</b> После сохранения данных нажмите на красную кнопку <b>"Купить за 100 ₽"</b>.</p>
 									</div>
 									<!-- <p class='attention-check mtl'><b>Перед оплатой</b> диплома проверьте свои данные ниже.</p>
 									<p class='attention-check'><b>После оплаты</b> диплом будет отправлен на почту в течение 12 часов.</p> -->
-									<button class = 'btn btn-our-red buy' data-toggle="modal" data-target="#modal_buy_diploma">Купить за <%= @honor.price %> ₽</button>
+									<button class = 'btn btn-our-red buy' data-toggle="modal" data-target="#modal_buy_diploma">Купить за 100 ₽</button>
 								</div>
 							</div>
 							<div class='clear'></div>
@@ -67,9 +67,9 @@
 					</div>
 				<% else %>
 					<div class='honor card mbl tac honor-paid'>
-						<h3>Диплом выслан на указанную Вами почту.</h3>
-						<p>Если Вы его не получили, напишите нам об этом по адресу <b>monstriki.labs@yandex.ru</b></p>
-						<div class='mtl'><img src='/images/logo_transparent.png' /></div>
+						<div class='honor card mbl tac honor-paid'>
+						<img src='<%= @output_diploma %>' width='100%' />
+					</div>
 					</div>
 				<% end %>
 			<div class='clear'></div>

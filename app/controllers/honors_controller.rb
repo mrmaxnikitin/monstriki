@@ -1,20 +1,46 @@
 class HonorsController < ApplicationController
-  before_action :find_user, except: [:activate_diploma, :get_activate_diploma]
+  before_action :find_honor, except: [:activate_diploma, :get_activate_diploma]
   before_filter :require_login
   before_action :require_admin, only: [:activate_diploma, :get_activate_diploma]
 
-	def show
-		@user = User.find(params[:user_id])
-	end
+  def show
+    @user = User.find(params[:user_id])
 
-	def update
-		if @honor.update_attributes honor_params
-      flash[:success] = 'Данные успешно cохранены, теперь можете купить диплом!'
+    if @honor.paid
+      case @honor.location_id
+      when 1
+         @output_diploma = @honor.diploma_number1(@honor.location_id, 910)
+      when 2
+         @output_diploma = @honor.diploma_number1(@honor.location_id, 910)
+      when 3
+         @output_diploma = @honor.diploma_number1(@honor.location_id, 910)
+      when 4
+         @output_diploma = @honor.diploma_number1(@honor.location_id, 910)
+      when 5
+         @output_diploma = @honor.diploma_number1(@honor.location_id, 910)
+      when 6
+         @output_diploma = @honor.diploma_number1(@honor.location_id, 710)
+      when 7
+         @output_diploma = @honor.diploma_number1(@honor.location_id, 710)
+      when 8
+         @output_diploma = @honor.diploma_number1(@honor.location_id, 790)
+      when 9
+         @output_diploma = @honor.diploma_number1(@honor.location_id, 790)
+      when 10
+         @output_diploma = @honor.diploma_number1(@honor.location_id, 790)
+      end
+    end
+  end
+
+  def update
+    if @honor.update_attributes honor_params
+      @honor.update(paid: true)
+      flash[:success] = 'Поздравляем с получением диплома!'
     else
       flash[:error] = "Хммм... Что-то пошло не так!"
     end
     redirect_to user_honor_path(current_user.id, @honor.id)
-	end
+  end
 
   def activate_diploma
     @honor = Honor.new
@@ -29,12 +55,12 @@ class HonorsController < ApplicationController
     redirect_to activate_diploma_path
   end
 
-	private
+  private
     def honor_params
       params.require(:honor).permit(:name, :age, :school, :curator)
     end
 
-    def find_user
+    def find_honor
       @honor = Honor.find(params[:id])
     end
 end

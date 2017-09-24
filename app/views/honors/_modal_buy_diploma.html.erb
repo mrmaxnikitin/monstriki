@@ -3,15 +3,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Покупка диплома, <%= honor.price %> ₽</h4>
+        <h4 class="modal-title">Покупка диплома, 100 ₽</h4>
       </div>
       <form method="POST" action="https://money.yandex.ru/eshop.xml">
         <div class="modal-body wrap-payment-inputs">
-            <div>Мы пришлем Вам диплом на указанную здесь почту в течение 12 часов после оплаты.</div>
+            <div>Диплом станет доступен для скачивания в течение 12 часов после оплаты.</div>
             <input type="hidden" name="shopId" value="72869">
             <input type="hidden" name="scid" value="70621">
-            <input type='hidden' name="customerNumber" size="64" value='Пользователь: <%= current_user.id %>, Награда: <%= honor.id %>'>
-            <input type='hidden' name="sum" size="64" value='<%= honor.price %>'>
+            <input type='hidden' name="customerNumber" size="64" value='<%= current_user.id %>'>
+            <input type='hidden' name="sum" size="64" value='100'>
             <input type="hidden" name="paymentType" value=""/>
             
             <p>E-mail:<font color="red">*</font></p>
@@ -20,8 +20,10 @@
             <p>ФИО плательщика:</p>
             <input type='text' name="custName" size="43"><br><br>
 
-            <p class='sum-of-payment'>Сумма: <%= honor.price %> рублей</p><br><br>
+            <p class='sum-of-payment'>Сумма: 50 рублей</p><br><br>
 
+            <input class='ym_merchant_receipt' name='ym_merchant_receipt' value='{"customerContact":
+"monstriki.labs@yandex.ru","taxSystem": 2,"items": [{"quantity": 1,"price": {"amount": 100.00},"tax": 1,"text": "Услуги по обработке данных"}]}' type="hidden"/>
 
             <input type="submit" value='Перейти к оплате' class="btn btn-our-blue">
             

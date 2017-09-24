@@ -310,12 +310,12 @@ const Quest = React.createClass({
           console.error("ОШИБКА1", status, err.toString());
         }.bind(this)
       });
-  },
+  }, */
   error_message: function() {
     this.setState({
       error_message: 1
     });
-  },*/
+  },
   sendErrorMessage: function() {
     var num_current_task = this.state.num_current_task
     var text_error_message_input = ReactDOM.findDOMNode(this.refs.error_message)
