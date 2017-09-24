@@ -16,17 +16,10 @@
 				<% @extra_quests.each do |quest|%>
 					<div class='col col-press-25 col-padding'>
 						<%
-							if current_user.age == 4 || current_user.age == 5
-								pic1 = Task.find(Quest.find(quest.id).age7[0]).pic1
-								if pic1 == "пусто"
-									pic1 = Task.find(Quest.find(quest.id).age7[0]).pic2
-								end
-							elsif current_user.age == 6 || current_user.age == 7
-								pic1 = Task.find(Quest.find(quest.id).age6[0]).pic1
-								if pic1 == "пусто"
-									pic1 = Task.find(Quest.find(quest.id).age6[0]).pic2
-								end
-							end 
+							pic1 = Task.find(Quest.find(quest.id).age6[0]).pic1
+							if pic1 == "пусто"
+								pic1 = Task.find(Quest.find(quest.id).age6[0]).pic2
+							end
 						%>
 						<%= link_to extra_show_quest_path(quest)  do %>
 							<div class='card tac'>
