@@ -233,7 +233,7 @@ class QuestsController < ApplicationController
 							current_user.honors.create(location_id: current_user.track.current_location,
 																				 quest_id: current_user.track.current_quest, 
 																				 degree: degree,
-																				 price: 90,
+																				 price: 100,
 																				 honor_type: 1,
 																				 name: current_user.name,
 																				 age: current_user.age)

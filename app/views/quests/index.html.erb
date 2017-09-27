@@ -34,26 +34,28 @@
 								</div>
 								<div class='col col-4of6 content'>
 									<h1>Уровень пройден!</h1>
-									<% if current_user.honors.last.degree == 0
-										honor_degree = "Участника"
-									else
-										honor_degree = current_user.honors.last.degree.to_s+" степени"
-									end %>
-									<div class='invitation-tomorrow'>
-										<div class='col col-press-20'>
-											<img src='/images/diploma_samples/<%= @track.current_location %>.jpg' />
+									<% if @quest.final %>
+										<% if current_user.honors.last.degree == 0
+											honor_degree = "Участника"
+										else
+											honor_degree = current_user.honors.last.degree.to_s+" степени"
+										end %>
+										<div class='invitation-tomorrow'>
+											<div class='col col-press-20'>
+												<img src='/images/diploma_samples/<%= @track.current_location %>.jpg' />
+											</div>
+											<div class='col col-press-80'>
+												<div class='degree-honor'>Диплом <%= honor_degree %></div>
+												<div><%= link_to "Получить диплом", user_honor_path(current_user.id, current_user.honors.last.id), class: "btn btn-our-red mts" %></div>
+											</div>
+											<div class='clear'></div>
 										</div>
-										<div class='col col-press-80'>
-											<div class='degree-honor'>Диплом <%= honor_degree %></div>
-											<div><%= link_to "Получить диплом", user_honor_path(current_user.id, current_user.honors.last.id), class: "btn btn-our-red mts" %></div>
-										</div>
-										<div class='clear'></div>
-									</div>
+									<% end %>
 									<div class='actions'>
 										<p class='tommorow-quest-welcome'>Следующий уровень будет доступен завтра. <b>Приходи!</b>
 											</br>
 											<% if expiry_monster_card? %>
-												<%= link_to "Хотите новый уроень прямо сейчас? Жмите!", monster_card_path, class: "btn btn-our-blue mts btn-want-IG-now" %>
+												<%= link_to "Хотите новый уровень прямо сейчас? Жмите!", monster_card_path, class: "btn btn-our-blue mts btn-want-IG-now" %>
 											<% else %>
 												<%= link_to "Перейти на следующий уровень!", next_quests_path, class: "btn btn-our-blue mts btn-want-IG-now" %>
 											<% end %>
