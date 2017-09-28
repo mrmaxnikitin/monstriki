@@ -3,32 +3,51 @@
 
 <div class='row first-page-elm edit-monstrik-page'>
 	<div class='cell'>
-		<%= render "/partials/profile_big" %>
-		<div class='col col-67proc ml-2proc'>
-			<% @monsters.each do |monster|%>
-				<div class='col monster card'>
-					<div class='wrap-img-choose-monster-after-signup' style='background:url(<%= monster.avatar %>.png) no-repeat; background-size: cover;'>
-						<img src='<%= monster.avatar %>.gif' />
-					</div>
-					<% if monster_presence != 0 %>
-						<span class='price fr'><img src="/images/coin.png" data-pin-nopin="true" /> 100</span>
-					<% end %>
-					<% if current_user.have_monster?(monster) %>
-						<span class='buy-monster button btn btn-our already-exist-monster'>Это твой</span>
-					<% else %>
-						<% if current_user.score >= 100 || current_user.user_monster.monster_id == 0 %>
-							<%= form_for UserMonster.new, url: buy_monster_user_monsters_path do |f| %>
-								<%= hidden_field_tag :monster_id, monster.id %>
-							  <%= f.submit "Хочу такого", class: "buy-monster button btn btn-our btn-our-green" %>
-							<% end %>
-						<% else %>
-							<span class='buy-monster button btn btn-our already-exist-monster'>Не хватает</span>
+		<% if logged_in? %>
+			<%= render "/partials/profile_big" %>
+			<div class='col col-67proc ml-2proc'>
+				<% @monsters.each do |monster|%>
+					<div class='col monster card'>
+						<div class='wrap-img-choose-monster-after-signup' style='background:url(<%= monster.avatar %>.png) no-repeat; background-size: cover;'>
+							<img src='<%= monster.avatar %>.gif' />
+						</div>
+						<% if monster_presence != 0 %>
+							<span class='price fr'><img src="/images/coin.png" data-pin-nopin="true" /> 100</span>
 						<% end %>
-					<% end %>
+						<% if current_user.have_monster?(monster) %>
+							<span class='buy-monster button btn btn-our already-exist-monster'>Это твой</span>
+						<% else %>
+							<% if current_user.score >= 100 || current_user.user_monster.monster_id == 0 %>
+								<%= form_for UserMonster.new, url: buy_monster_user_monsters_path do |f| %>
+									<%= hidden_field_tag :monster_id, monster.id %>
+								  <%= f.submit "Хочу такого", class: "buy-monster button btn btn-our btn-our-green" %>
+								<% end %>
+							<% else %>
+								<span class='buy-monster button btn btn-our already-exist-monster'>Не хватает</span>
+							<% end %>
+						<% end %>
+					</div>
+				<% end %>
+				<div class='clear'></div>
+			</div>
+		<% else %>
+			<div class='lets-pay card'>
+				<div class='col col-4of6 content'>
+					<h1 class='about-IG'>
+						<div>Этот раздел</div>
+						<div>доступен после регистрации</div>
+					</h1>
+					<p class='second-text second-text-IG'>
+						<span class='text'><b>Наш сайт</b> нацелен на развитие логики, речи, математического мышления, памяти, внимания и представлений об окружающем мире.
+						<br><br>
+						<% if !logged_in? %>
+							<%= link_to 'Зарегистрироваться', test_path, class: 'butn medium red rounded' %>
+						<% end %></span>
+					</p>
 				</div>
-			<% end %>
-			<div class='clear'></div>
-		</div>
+				<div class='clear'></div>
+			</div>
+		<% end %>
 	</div>
 </div>
 
