@@ -1,10 +1,8 @@
-
-<% monster_presence = current_user.user_monster.monster_id %>
-
 <div class='row first-page-elm edit-monstrik-page'>
 	<div class='cell'>
 		<% if logged_in? %>
 			<%= render "/partials/profile_big" %>
+			<% monster_presence = current_user.user_monster.monster_id %>
 			<div class='col col-67proc ml-2proc'>
 				<% @monsters.each do |monster|%>
 					<div class='col monster card'>
