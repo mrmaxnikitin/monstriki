@@ -30,7 +30,7 @@
 										 	format = "gif"
 									%>
 									<img src='/images/next-quest-pics/next-quest-pic<%= pic_number %>.<%= format %>' class='img-next-quest'/>
-									<p class='tac'>Вам понравилась интеллектуальная игра? Вы можете <%= link_to "ОСТАВИТЬ СВОЙ ОТЗЫВ", posts_path %>.</p>
+									<p class='tac'>Вам понравился этот уровень олимпиады? Вы можете <%= link_to "ОСТАВИТЬ СВОЙ ОТЗЫВ", posts_path %>.</p>
 								</div>
 								<div class='col col-4of6 content'>
 									<h1>Уровень пройден!</h1>
@@ -104,7 +104,7 @@
 							<% else %>
 								<div class='card wait-quest'>
 									<div class='pd10'>
-										<h3>Новый уровень интеллектуальной игры появится в понедельник.</h3>
+										<h3>Новый уровень олимпиады появится в понедельник.</h3>
 										<h3>Мы уже готовим его для тебя!</h3>
 									</div>
 									<div class='mtl mbm'>
@@ -125,11 +125,11 @@
 						<div class='lets-pay card'>
 							<div class='col col-4of6 content'>
 								<h1 class='about-IG'>
-									<div>Интеллектуальная игра</div>
+									<div>Олимпиада</div>
 									<div>доступна после регистрации</div>
 								</h1>
 								<p class='second-text second-text-IG'>
-									<span class='text'><b>Интеллектуальная игра</b> нацелена на развитие логики, речи, математического мышления, памяти, внимания и представлений об окружающем мире.
+									<span class='text'><b>Олимпиада</b> нацелена на развитие логики, речи, математического мышления, памяти, внимания и представлений об окружающем мире.
 									<br><br>
 									<% if !logged_in? %>
 										<%= link_to 'Попробовать поучаствовать!', test_path, class: 'butn medium red rounded' %>
