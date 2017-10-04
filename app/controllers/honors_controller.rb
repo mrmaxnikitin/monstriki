@@ -34,7 +34,6 @@ class HonorsController < ApplicationController
 
   def update
     if @honor.update_attributes honor_params
-      @honor.update(paid: true)
       flash[:success] = 'Поздравляем с получением диплома!'
     else
       flash[:error] = "Хммм... Что-то пошло не так!"
