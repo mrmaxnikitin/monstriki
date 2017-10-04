@@ -23,9 +23,9 @@
 				<% if logged_in? && (current_user.id == honor.user_id || current_user.admin) %>
 					<%= link_to user_honor_path(@user.id, honor.id) do %>
 						<div class='col col-press-25 card thing'>
-							<img src='/images/location-pics/<%= honor.location_id %>.jpg' />
+							<img src='/images/location-pics/<%= honor.quest_id %>.jpg' />
 							<div class='col col-press-80 tour-name-honor tac'>
-								<h5 class='name'><%= tour_name %></h5>
+								<h5 class='name'>ДИПЛОМ</h5>
 							</div>
 							<div class='col col-press-20 img-medal-honor tac'>
 								<img src='/images/degree<%= honor.degree %>.jpg' />
@@ -34,9 +34,9 @@
 					<% end %>
 				<% else %>
 					<div class='col col-press-25 card thing'>
-						<img src='/images/location-pics/<%= honor.location_id %>.jpg' />
+						<img src='/images/location-pics/<%= honor.quest_id %>.jpg' />
 						<div class='col col-press-80 tour-name-honor tac'>
-							<h5 class='name'><%= tour_name %></h5>
+							<h5 class='name'>ДИПЛОМ</h5>
 						</div>
 						<div class='col col-press-20 img-medal-honor tac'>
 							<img src='/images/degree<%= honor.degree %>.jpg' />
