@@ -230,13 +230,15 @@ class QuestsController < ApplicationController
 				      end
 				      	
 				      	
-							current_user.honors.create(location_id: current_user.track.current_location,
+							current_user.honors.create(location_id: current_user.track.current_tour,
 																				 quest_id: current_user.track.current_quest, 
 																				 degree: degree,
 																				 price: 100,
 																				 honor_type: 1,
 																				 name: current_user.name,
-																				 age: current_user.age)
+																				 age: current_user.age,
+																				 school: "",
+																				 curator: "")
 						end
 					end
 					@track.finish_trip

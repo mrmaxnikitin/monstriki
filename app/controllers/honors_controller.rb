@@ -9,11 +9,11 @@ class HonorsController < ApplicationController
     if @honor.paid
       case @honor.quest_id
       when 3
-         @output_diploma = @honor.diploma_number1(@honor.quest_id, 910)
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 815)
       when 6
-         @output_diploma = @honor.diploma_number1(@honor.quest_id, 910)
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 920)
       when 8
-         @output_diploma = @honor.diploma_number1(@honor.quest_id, 910)
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 800)
       when 11
          @output_diploma = @honor.diploma_number1(@honor.quest_id, 910)
       when 14
