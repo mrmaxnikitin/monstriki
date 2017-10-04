@@ -15,9 +15,9 @@ class HonorsController < ApplicationController
       when 8
          @output_diploma = @honor.diploma_number1(@honor.quest_id, 800)
       when 11
-         @output_diploma = @honor.diploma_number1(@honor.quest_id, 910)
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 815)
       when 14
-         @output_diploma = @honor.diploma_number1(@honor.quest_id, 910)
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 620)
       when 17
          @output_diploma = @honor.diploma_number1(@honor.quest_id, 710)
       when 19

@@ -44,10 +44,16 @@ class Honor < ActiveRecord::Base
     margin_date=0
     margin_diploma_number=0
     color_diploma_number="#ffffff"
-    if quest_id == 3
+    vertical_margin_date=0
+    if quest_id == 3 || quest_id == 11
       reward_text_position=720
     elsif quest_id == 8
       reward_text_position=700
+      margin_date = -250
+    elsif quest_id == 14
+      reward_text_position=500
+      margin_date = -368
+      vertical_margin_date = 190
     elsif quest_id == 38 || quest_id == 41
     	reward_text_position = '640'
     	margin_date = -50
@@ -90,12 +96,16 @@ class Honor < ActiveRecord::Base
       	c.pointsize '46'
       	c.draw "text 0,#{position+580} 'Педагог: #{self.curator}'"
       end
+      
       c.pointsize '36'
-      c.draw "text #{78+margin_date},1630 '#{Russian::strftime(self.created_at, "%d.%m.%Y г.")}'"
-      c.pointsize '36'
-      c.draw "text #{50+margin_date},1730 'Главный\nредактор'"
-      c.pointsize '36'
-      c.draw "text #{600+margin_date},1750 'Никитин М. В.'"
+      c.draw "text #{78+margin_date},#{1630+vertical_margin_date} '#{Russian::strftime(self.created_at, "%d.%m.%Y г.")}'"
+      
+      if quest_id == 3 || quest_id == 6 || quest_id == 11
+        c.pointsize '36'
+        c.draw "text #{50+margin_date},1730 'Главный\nредактор'"
+        c.pointsize '36'
+        c.draw "text #{600+margin_date},1750 'Никитин М. В.'"
+      end
       c.pointsize '36'
       c.fill color_diploma_number
       c.draw "text 0,#{2280+margin_diploma_number} '№ M-#{self.id}'"
