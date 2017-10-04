@@ -9,6 +9,8 @@ class Honor < ActiveRecord::Base
   	image = MiniMagick::Image.open("./public/original_diplomas/#{quest_id}.jpg")
     subject = ""
 
+    tour_name = Tour.find(self.location_id).name
+
     degree = ""
     if self.degree = 1
       degree = "I степени"
@@ -83,7 +85,7 @@ class Honor < ActiveRecord::Base
       c.pointsize '46'
       c.draw "text 0,#{position+420+margin_text} 'Всероссийской олимпиады для дошкольников'"
       c.pointsize '46'
-      c.draw "text 0,#{position+500+margin_text} '\"В стране монстриков\"'"
+      c.draw "text 0,#{position+500+margin_text} '\"#{tour_name}\"'"
       if self.curator.size > 0
       	c.pointsize '46'
       	c.draw "text 0,#{position+580} 'Педагог: #{self.curator}'"
