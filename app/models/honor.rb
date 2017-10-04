@@ -85,7 +85,7 @@ class Honor < ActiveRecord::Base
       c.pointsize '46'
       c.draw "text 0,#{position+420+margin_text} 'Всероссийской олимпиады для дошкольников'"
       c.pointsize '46'
-      c.draw "text 0,#{position+500+margin_text} '\"#{tour_name}\"'"
+      c.draw "text 0,#{position+500+margin_text} '«#{tour_name}»'"
       if self.curator.size > 0
       	c.pointsize '46'
       	c.draw "text 0,#{position+580} 'Педагог: #{self.curator}'"
