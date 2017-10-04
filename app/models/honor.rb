@@ -4,9 +4,9 @@ class Honor < ActiveRecord::Base
 	validates :user_id, presence: true
   validates :quest_id, presence: true
 
-  def diploma_number1(location_id, position)
+  def diploma_number1(quest_id, position)
     dnum = rand(100)
-  	image = MiniMagick::Image.open("./public/original_diplomas/#{location_id}.jpg")
+  	image = MiniMagick::Image.open("./public/original_diplomas/#{quest_id}.jpg")
     subject = ""
 
     margin_text = -90
@@ -30,17 +30,17 @@ class Honor < ActiveRecord::Base
     margin_date=0
     margin_diploma_number=0
     color_diploma_number="#ffffff"
-    if location_id == 6 || location_id == 7
+    if quest_id == 38 || quest_id == 41
     	reward_text_position = '640'
     	margin_date = -50
     	color_diploma_number="#383838"
-    	if location_id == 6
+    	if quest_id == 38
     		margin_diploma_number = -410
     	end
-    	if location_id == 7
+    	if quest_id == 41
     		margin_diploma_number = -280
     	end
-    elsif location_id == 8 || location_id == 9 || location_id == 10
+    elsif quest_id == 58 || quest_id == 62 || quest_id == 65
     	reward_text_position = '720'
     end
 
@@ -79,7 +79,7 @@ class Honor < ActiveRecord::Base
       c.fill color_diploma_number
       c.draw "text 0,#{2280+margin_diploma_number} '№ M-#{self.id}'"
       c.pointsize '36'
-      if self.location_id != 6
+      if self.quest_id != 38
       	c.fill color_diploma_number
       	c.draw "text 410,#{2280+margin_diploma_number} 'www.monstriki.com'"
       end

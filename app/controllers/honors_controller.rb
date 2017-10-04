@@ -7,27 +7,27 @@ class HonorsController < ApplicationController
     @user = User.find(params[:user_id])
 
     if @honor.paid
-      case @honor.location_id
-      when 1
-         @output_diploma = @honor.diploma_number1(@honor.location_id, 910)
-      when 2
-         @output_diploma = @honor.diploma_number1(@honor.location_id, 910)
+      case @honor.quest_id
       when 3
-         @output_diploma = @honor.diploma_number1(@honor.location_id, 910)
-      when 4
-         @output_diploma = @honor.diploma_number1(@honor.location_id, 910)
-      when 5
-         @output_diploma = @honor.diploma_number1(@honor.location_id, 910)
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 910)
       when 6
-         @output_diploma = @honor.diploma_number1(@honor.location_id, 710)
-      when 7
-         @output_diploma = @honor.diploma_number1(@honor.location_id, 710)
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 910)
       when 8
-         @output_diploma = @honor.diploma_number1(@honor.location_id, 790)
-      when 9
-         @output_diploma = @honor.diploma_number1(@honor.location_id, 790)
-      when 10
-         @output_diploma = @honor.diploma_number1(@honor.location_id, 790)
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 910)
+      when 11
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 910)
+      when 14
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 910)
+      when 17
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 710)
+      when 19
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 710)
+      when 21
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 790)
+      when 24
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 790)
+      when 27
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 790)
       end
     end
   end
