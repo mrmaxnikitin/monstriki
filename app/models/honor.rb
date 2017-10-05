@@ -54,6 +54,26 @@ class Honor < ActiveRecord::Base
       reward_text_position=500
       margin_date = -368
       vertical_margin_date = 190
+    elsif quest_id == 17
+      reward_text_position=530
+      margin_date = -142
+      vertical_margin_date = 10
+    elsif quest_id == 19
+      reward_text_position=560
+      margin_date = -58
+      vertical_margin_date = 80
+    elsif quest_id == 21
+      reward_text_position=530
+      margin_date = -38
+      vertical_margin_date = 80
+    elsif quest_id == 24
+      reward_text_position=500
+      margin_date = -38
+      vertical_margin_date = -70
+    elsif quest_id == 27
+      reward_text_position=550
+      margin_date = -198
+      vertical_margin_date = 20
     elsif quest_id == 38 || quest_id == 41
     	reward_text_position = '640'
     	margin_date = -50
