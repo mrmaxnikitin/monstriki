@@ -2,9 +2,9 @@
 	if logged_in?
 		if @track.current_location <= Location.last.id
 		 if @users_same_tour.count != 1 
-		 	 users_same_tour_amount = "Вы и еще "+@users_same_tour_amount.to_s+" человек проходят этот уровень"
+		 	 users_same_tour_amount = "Вы и еще "+@users_same_tour_amount.to_s+" человек проходят эту олимпиаду"
 		 else
-		 	 users_same_tour_amount = "Вы первые на этом уровне!"
+		 	 users_same_tour_amount = "Вы первые на этой олимпиаде!"
 		 end
 		end
 	end
@@ -50,24 +50,14 @@
 											</div>
 											<div class='clear'></div>
 										</div>
-									<% else %>
-										<div class='invitation-tomorrow'>
-											<div class='col col-press-20'>
-												<img src='/images/diploma_samples/<%= @track.current_location %>.jpg' />
-											</div>
-											<div class='col col-press-80'>
-												<div class='degree-honor'>Диплом будет через 2 уровня</div>
-											</div>
-											<div class='clear'></div>
-										</div>
 									<% end %>
 									<div class='actions'>
 										<p class='tommorow-quest-welcome'>Следующий уровень будет доступен завтра. <b>Приходи!</b>
 											</br>
 											<% if expiry_monster_card? %>
-												<%= link_to "Хотите новый уровень прямо сейчас? Жмите!", monster_card_path, class: "btn btn-our-blue mts btn-want-IG-now" %>
+												<%= link_to "Хотите новую олимпиаду прямо сейчас? Жмите!", monster_card_path, class: "btn btn-our-blue mts btn-want-IG-now" %>
 											<% else %>
-												<%= link_to "Перейти на следующий уровень!", next_quests_path, class: "btn btn-our-blue mts btn-want-IG-now" %>
+												<%= link_to "Перейти к новой олимпиаде!", next_quests_path, class: "btn btn-our-blue mts btn-want-IG-now" %>
 											<% end %>
 										</p></br>
 										<!--<p>А сейчас ты можешь посетить <b><%= link_to "Супермаркет", things_path %></b> и купить прикольные штучки для своего монстрика за игровые монетки.</p>-->
@@ -80,7 +70,7 @@
 							<% if @quests.count != 0 
 								 	 quest_amount = @quests.count.to_s + " квеста"
 								 else
-								 	 quest_amount = "Совсем скоро новая игра"
+								 	 quest_amount = "Совсем скоро новая олимпиада"
 								 end
 							%>
 							<%
@@ -92,7 +82,7 @@
 							%>
 							<% if @quests.count != 0 %>
 								<h2 class='h--thin mbs level-name'>
-									<span class='prxs'>Уровень на сегодня: <span class='unique-tour-name'><%= tour_name %></span></span>
+									<span class='prxs'>Олимпиада на сегодня: <span class='unique-tour-name'><%= tour_name %></span></span>
 								</h2>
 								<div class='explanation-page-after-title pass-this-tour mbm mts' style='margin: auto;'>
 									<div class='col'><%= users_same_tour_amount %></div>
@@ -114,8 +104,8 @@
 							<% else %>
 								<div class='card wait-quest'>
 									<div class='pd10'>
-										<h3>Новый уровень олимпиады появится в понедельник.</h3>
-										<h3>Мы уже готовим его для тебя!</h3>
+										<h3>Новая олимпиада появится в понедельник.</h3>
+										<h3>Мы уже готовим её для тебя!</h3>
 									</div>
 									<div class='mtl mbm'>
 										<h4></h4>
