@@ -36,14 +36,14 @@
 			active_link = false
 		end
 
-		quest_title = "Квест " + i.to_s
-		quest_text = 'Выполни все задания, чтобы открыть следующий квест'
+		quest_title = "Тренировочные задания " + i.to_s
+		quest_text = 'Выполни все задания, чтобы открыть следующие задания'
 		if quest.checkpoint
 			quest_title = "Котрольный квест"
 			quest_text = 'Постарайся не допускать ошибок'
 		end
 		if quest.final
-			quest_title = "Финальный квест"
+			quest_title = "Контрольные задания"
 			quest_text = 'Меньше ошибок - выше степень диплома'
 		end
 	%>

@@ -30,7 +30,7 @@
 										 	format = "gif"
 									%>
 									<img src='/images/next-quest-pics/next-quest-pic<%= pic_number %>.<%= format %>' class='img-next-quest'/>
-									<p class='tac'>Вам понравился этот уровень олимпиады? Вы можете <%= link_to "ОСТАВИТЬ СВОЙ ОТЗЫВ", posts_path %>.</p>
+									<p class='tac'>Вам понравилась эта олимпиада? Вы можете <%= link_to "ОСТАВИТЬ СВОЙ ОТЗЫВ", posts_path %>.</p>
 								</div>
 								<div class='col col-4of6 content'>
 									<h1>Уровень пройден!</h1>
@@ -52,7 +52,7 @@
 										</div>
 									<% end %>
 									<div class='actions'>
-										<p class='tommorow-quest-welcome'>Следующий уровень будет доступен завтра. <b>Приходи!</b>
+										<p class='tommorow-quest-welcome'>Следующая олимпиада будет доступна завтра. <b>Приходи!</b>
 											</br>
 											<% if expiry_monster_card? %>
 												<%= link_to "Хотите новую олимпиаду прямо сейчас? Жмите!", monster_card_path, class: "btn btn-our-blue mts btn-want-IG-now" %>
