@@ -28,6 +28,26 @@ class HonorsController < ApplicationController
          @output_diploma = @honor.diploma_number1(@honor.quest_id, 600)
       when 27
          @output_diploma = @honor.diploma_number1(@honor.quest_id, 650)
+      when 30
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 500)
+      when 33
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 920)
+      when 36
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 800)
+      when 38
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 920)
+      when 41
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 815)
+      when 44
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 920)
+      when 47
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 920)
+      when 50
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 920)
+      when 53
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 920)
+      when 56
+         @output_diploma = @honor.diploma_number1(@honor.quest_id, 800)
       end
     end
   end

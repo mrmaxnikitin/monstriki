@@ -45,8 +45,9 @@ class Honor < ActiveRecord::Base
     margin_diploma_number=0
     color_diploma_number="#ffffff"
     vertical_margin_date=0
-    if quest_id == 3 || quest_id == 11
+    if quest_id == 3 || quest_id == 11 || quest_id == 41
       reward_text_position=720
+      color_diploma_number="#ffffff"
     elsif quest_id == 8
       reward_text_position=700
       margin_date = -250
@@ -74,16 +75,21 @@ class Honor < ActiveRecord::Base
       reward_text_position=550
       margin_date = -198
       vertical_margin_date = 20
-    elsif quest_id == 38 || quest_id == 41
-    	reward_text_position = '640'
-    	margin_date = -50
-    	color_diploma_number="#383838"
-    	if quest_id == 38
-    		margin_diploma_number = -410
-    	end
-    	if quest_id == 41
-    		margin_diploma_number = -280
-    	end
+    elsif quest_id == 30
+      reward_text_position=400
+      margin_date = -30
+      vertical_margin_date = 20
+    elsif quest_id == 36 || quest_id == 56
+      reward_text_position=710
+      margin_date = -25
+      vertical_margin_date = 20
+    elsif quest_id == 47
+      margin_date = -115
+      vertical_margin_date = 200
+    elsif quest_id == 50
+      margin_date = -115
+      vertical_margin_date = 200
+      color_diploma_number="#000000"
     elsif quest_id == 58 || quest_id == 62 || quest_id == 65
     	reward_text_position = '720'
     end
@@ -120,19 +126,28 @@ class Honor < ActiveRecord::Base
       c.pointsize '36'
       c.draw "text #{78+margin_date},#{1630+vertical_margin_date} '#{Russian::strftime(self.created_at, "%d.%m.%Y г.")}'"
       
-      if quest_id == 3 || quest_id == 6 || quest_id == 11
+      if quest_id == 3 || quest_id == 6 || quest_id == 11 || quest_id == 33 || quest_id == 36 || quest_id == 38 || quest_id == 41 || quest_id == 44 || quest_id == 53 || quest_id == 56
         c.pointsize '36'
         c.draw "text #{50+margin_date},1730 'Главный\nредактор'"
         c.pointsize '36'
         c.draw "text #{600+margin_date},1750 'Никитин М. В.'"
       end
+      if quest_id == 50
+        c.pointsize '36'
+        c.fill color_diploma_number
+        c.draw "text 0,#{2295+margin_diploma_number} '№ M-#{self.id}'"
+        c.pointsize '36'
+
+        c.fill color_diploma_number
+        c.draw "text 410,#{2295+margin_diploma_number} 'www.monstriki.com'"
+      else
       c.pointsize '36'
       c.fill color_diploma_number
       c.draw "text 0,#{2280+margin_diploma_number} '№ M-#{self.id}'"
       c.pointsize '36'
-      if self.quest_id != 38
-      	c.fill color_diploma_number
-      	c.draw "text 410,#{2280+margin_diploma_number} 'www.monstriki.com'"
+
+      c.fill color_diploma_number
+      c.draw "text 410,#{2280+margin_diploma_number} 'www.monstriki.com'"
       end
     end
     output_diploma = "./public/diplomas/diploma#{dnum}.jpg"
