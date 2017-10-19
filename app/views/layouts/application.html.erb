@@ -19,6 +19,7 @@
 	</script>
 </head>
 <body>
+	<% if current_user.admin? %>
 	<div class='div-body'>
 		<header  class='row hat'>
 			<div class='cell'>
@@ -92,5 +93,6 @@
 		  <div class="animated flipInY alert alert-<%= key %>"><%= value %></div>
 		<% end %>
 	</div>
+	<% end %>
 </body>
 </html>
